@@ -3,73 +3,21 @@
 /**
  * @file
  * Contains \DrupalComposerManaged\ComposerScripts.
+ *
+ * Custom Composer scripts and implementations of Composer hooks.
  */
 
 namespace DrupalComposerManaged;
 
+use Composer\IO\IOInterface;
 use Composer\Script\Event;
-use Composer\Semver\Comparator;
-use Drupal\Core\Site\Settings;
-use DrupalFinder\DrupalFinder;
-use Symfony\Component\Filesystem\Filesystem;
-use Webmozart\PathUtil\Path;
+use Composer\Util\Filesystem;
+use Composer\Util\ProcessExecutor;
 
+/**
+ * Implementation for Composer scripts and Composer hooks.
+ */
 class ComposerScripts {
-
-  /**
-   * Add a dependency to the upstream-configuration section of a custom upstream.
-   *
-   * The upstream-configuration/composer.json is a place to put modules, themes
-   * and other dependencies that will be inherited by all sites created from
-   * the upstream. Separating the upstream dependencies from the site dependencies
-   * has the advantage that changes can be made to the upstream without causing
-   * conflicts in the downstream sites.
-   *
-   * To add a dependency to an upstream:
-   *
-   *    composer upstream-require drupal/modulename
-   *
-   * Important: Dependencies should only be removed from upstreams with caution.
-   * The module / theme must be uninstalled from all sites that are using it
-   * before it is removed from the code base; otherwise, the module cannot be
-   * cleanly uninstalled.
-   */
-  public static function upstreamRequire(Event $event) {
-    $io = $event->getIO();
-    $composer = $event->getComposer();
-    $name = $composer->getPackage()->getName();
-    $gitRepoUrl = exec('git config --get remote.origin.url');
-
-    // Refuse to run if:
-    //   - This is a clone of the standard Pantheon upstream, and it hasn't been renamed
-    //   - This is an local working copy of a Pantheon site instread of the upstream
-    $isPantheonStandardUpstream = (strpos($name, 'pantheon-systems/drupal-composer-managed') !== false);
-    $isPantheonSite = (strpos($gitRepoUrl, '@codeserver') !== false);
-
-    if ($isPantheonStandardUpstream || $isPantheonSite) {
-      $io->writeError("<info>The upstream-require command can only be used with a custom upstream</info>");
-      $io->writeError("<info>See https://pantheon.io/docs/create-custom-upstream for information on how to create a custom upstream.</info>" . PHP_EOL);
-      throw new \RuntimeException("Cannot use upstream-require command with this project.");
-    }
-
-    // Find arguments that look like projects.
-    $packages = [];
-    foreach ($event->getArguments() as $arg) {
-      if (preg_match('#[a-zA-Z][a-zA-Z0-9_-]*/[a-zA-Z][a-zA-Z0-9]:*[~^]*[0-9a-z._-]*#', $arg)) {
-        $packages[] = $arg;
-      }
-    }
-
-    // Insert the new projects into the upstream-configuration composer.json
-    // without updating the lock file or downloading the projects
-    $packagesParam = implode(' ', $packages);
-    $cmd = "composer --working-dir=upstream-configuration require --no-update $packagesParam";
-    $io->writeError($cmd . PHP_EOL);
-    passthru($cmd);
-
-    // Update composer.lock & etc. if present
-    static::updateLocalDependencies($io, $packages);
-  }
 
   /**
    * Prepare for Composer to update dependencies.
@@ -100,6 +48,38 @@ class ComposerScripts {
       putenv('COMPOSER_ROOT_VERSION=dev-main');
     }
 
+    // Apply updates to top-level composer.json
+    static::applyComposerJsonUpdates($event);
+  }
+
+  /**
+   * postUpdate
+   *
+   * After "composer update" runs, we have the opportunity to do additional
+   * fixups to the project files.
+   *
+   * @param Composer\Script\Event $event
+   *   The Event object passed in from Composer
+   */
+  public static function postUpdate(Event $event) {
+    // for future use
+  }
+
+  /**
+   * Apply composer.json Updates
+   *
+   * During the Composer pre-update hook, check to see if there are any
+   * updates that need to be made to the composer.json file. We cannot simply
+   * change the composer.json file in the upstream, because doing so would
+   * result in many merge conflicts.
+   */
+  public static function applyComposerJsonUpdates(Event $event) {
+    $io = $event->getIO();
+
+    $composerJsonContents = file_get_contents("composer.json");
+    $composerJson = json_decode($composerJsonContents, true);
+    $originalComposerJson = $composerJson;
+
     // Check to see if the platform PHP version (which should be major.minor.patch)
     // is the same as the Pantheon PHP version (which is only major.minor).
     // If they do not match, force an update to the platform PHP version. If they
@@ -109,37 +89,82 @@ class ComposerScripts {
     $updatedPlatformPhpVersion = static::bestPhpPatchVersion($pantheonPhpVersion);
     if ((substr($platformPhpVersion, 0, strlen($pantheonPhpVersion)) != $pantheonPhpVersion) && !empty($updatedPlatformPhpVersion)) {
       $io->write("<info>Setting platform.php from '$platformPhpVersion' to '$updatedPlatformPhpVersion' to conform to pantheon php version.</info>");
-      $cmd = sprintf('composer config platform.php %s', $updatedPlatformPhpVersion);
-      passthru($cmd);
+      $composerJson['config']['platform']['php'] = $updatedPlatformPhpVersion;
     }
-  }
 
-  /**
-   * Update the composer.lock file and so on.
-   *
-   * Upstreams should *not* commit the composer.lock file. If a local working
-   * copy
-   */
-  private static function updateLocalDependencies($io, $packages) {
-    if (!file_exists('composer.lock')) {
+    // add our post-update-cmd hook if it's not already present
+    $our_hook = 'DrupalComposerManaged\\ComposerScripts::postUpdate';
+    // if does not exist, add as an empty arry
+    if(! isset($composerJson['scripts']['post-update-cmd'])) {
+      $composerJson['scripts']['post-update-cmd'] = [];
+    }
+
+    // if exists and is a string, convert to a single-item array (n.b. do not actually need the if exists check because we just assured that it does)
+    if(is_string($composerJson['scripts']['post-update-cmd'])) {
+      $composerJson['scripts']['post-update-cmd'] = [$composerJson['scripts']['post-update-cmd']];
+    }
+
+    // if exists and is an array and does not contain our hook, add our hook (again, only the last check is needed)
+    if(! in_array($our_hook, $composerJson['scripts']['post-update-cmd'])) {
+      $io->write("<info>Adding post-update-cmd hook to composer.json</info>");
+      $composerJson['scripts']['post-update-cmd'][] = $our_hook;
+
+      // We're making our other changes if and only if we're already adding our hook
+      // so that we don't overwrite customer's changes if they undo these changes.
+      // We don't want customers to remove our hook, so it will be re-added if they remove it.
+
+      // Remove our upstream convenience scripts, if the user has not removed them.
+      if (isset($composerJson['scripts']['upstream-require'])) {
+        unset($composerJson['scripts']['upstream-require']);
+      }
+
+      // Also remove it from the scripts-descriptions section.
+      if (isset($composerJson['scripts-descriptions']['upstream-require'])) {
+        unset($composerJson['scripts-descriptions']['upstream-require']);
+      }
+
+      // This may have been the last item in the scripts-descriptions section, so remove it.
+      if (isset($composerJson['scripts-descriptions']) && empty($composerJson['scripts-descriptions'])) {
+        unset($composerJson['scripts-descriptions']);
+      }
+
+      // enable patching if it isn't already enabled
+      if(! isset($composerJson['extra']['enable-patching'])) {
+        $io->write("<info>Setting enable-patching to true</info>");
+        $composerJson['extra']['enable-patching'] = true;
+      }
+
+      // allow phpstan/extension-installer in preparation for Drupal 10
+      if(! isset($composerJson['config']['allow-plugins']['phpstan/extension-installer'])) {
+        $io->write("<info>Allow phpstan/extension-installer in preparation for Drupal 10</info>");
+        $composerJson['config']['allow-plugins']['phpstan/extension-installer'] = true;
+      }
+    }
+
+    if(serialize($composerJson) == serialize($originalComposerJson)) {
       return;
     }
 
-    $io->writeError("<warning>composer.lock file present; do not commit composer.lock to a custom upstream, but updating for the purpose of local testing.");
+    // Write the updated composer.json file
+    $composerJsonContents = static::jsonEncodePretty($composerJson);
+    file_put_contents("composer.json", $composerJsonContents . PHP_EOL);
+  }
 
-    // Remove versions from the parameters, if any
-    $versionlessPackages = array_map(
-      function ($package) {
-        return preg_replace('/:.*/', '', $package);
-      },
-      $packages
-    );
+  /**
+   * jsonEncodePretty
+   *
+   * Convert a nested array into a pretty-printed json-encoded string.
+   *
+   * @param array $data
+   *   The data array to encode
+   * @return string
+   *   The pretty-printed encoded string version of the supplied data.
+   */
+  public static function jsonEncodePretty(array $data) {
+    $prettyContents = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    $prettyContents = preg_replace('#": \[\s*("[^"]*")\s*\]#m', '": [\1]', $prettyContents);
 
-    // Update the project-level composer.lock file
-    $versionlessPackagesParam = implode(' ', $versionlessPackages);
-    $cmd = "composer update $versionlessPackagesParam";
-    $io->writeError($cmd . PHP_EOL);
-    passthru($cmd);
+    return $prettyContents;
   }
 
   /**
@@ -173,8 +198,8 @@ class ComposerScripts {
   private static function getPantheonPhpVersion(Event $event) {
     $composer = $event->getComposer();
     $config = $composer->getConfig();
-    $pantheonYmlPath = $config->get('vendor-dir') . '/../pantheon.yml';
-    $pantheonUpstreamYmlPath = $config->get('vendor-dir') . '/../pantheon.upstream.yml';
+    $pantheonYmlPath = dirname($config->get('vendor-dir')) . '/pantheon.yml';
+    $pantheonUpstreamYmlPath = dirname($config->get('vendor-dir')) . '/pantheon.upstream.yml';
 
     if ($pantheonYmlVersion = static::getPantheonConfigPhpVersion($pantheonYmlPath)) {
       return $pantheonYmlVersion;
