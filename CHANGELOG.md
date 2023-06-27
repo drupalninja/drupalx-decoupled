@@ -2,6 +2,13 @@
 
 All notable changes specific to pantheon-upstreams/drupal-composer-managed are noted here.
 
+## Pantheon Update #4 - 2023-06-27
+
+### Changed
+
+- Removed the `upstream-require` script ([#17](https://github.com/pantheon-systems/drupal-composer-managed/pull/17), [#21](https://github.com/pantheon-systems/drupal-composer-managed/pull/21), [#28](https://github.com/pantheon-systems/drupal-composer-managed/pull/28)). This is now available as a standalone Composer plugin: [`pantheon-systems/upstream-management`](https://packagist.org/packages/pantheon-systems/upstream-management)
+- Fixed `composer update --dry-run` by setting the path repository version to `dev-main` ([#39](https://github.com/pantheon-systems/drupal-composer-managed/pull/39))
+
 
 ## Pantheon Update #3 - 2022-03-23
 
