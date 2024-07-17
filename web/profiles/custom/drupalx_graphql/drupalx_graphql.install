@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Install, update, and uninstall functions for the drupalx_graphql profile.
+ * Install functions for the DrupalX GraphQL profile.
  */
 
 use Drupal\Component\Utility\Crypt;
@@ -160,7 +160,7 @@ function _drupalx_graphql_create_hero_paragraph(array $hero_info) {
 function _drupalx_graphql_create_card_group_paragraph($media_items) {
   $paragraph = Paragraph::create([
     'type' => 'card_group',
-    'field_title' => 'Discover drupalx_graphql',
+    'field_title' => 'Discover DrupalX',
   ]);
 
   $card_items = [
@@ -216,7 +216,7 @@ function _drupalx_graphql_create_article_nodes($media_items, $tag_ids) {
       'status' => 1,
       'promote' => 1,
       'sticky' => 1,
-      'field_subhead' => 'Why drupalx_graphql',
+      'field_subhead' => 'Why DrupalX',
       'field_media' => $media_items['card'],
       'field_thumbnail' => $media_items['card'],
       'field_tags' => [
@@ -353,20 +353,20 @@ function _drupalx_graphql_create_accordion_paragraph() {
   ]);
 
   $faq_headings = [
-    'What is included with drupalx_graphql?' => [
-      'answer' => 'drupalx_graphql includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.',
+    'What is included with DrupalX?' => [
+      'answer' => 'DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.',
     ],
     'How much can I customize?' => [
-      'answer' => 'Everything in drupalx_graphql can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.',
+      'answer' => 'Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.',
     ],
-    'Is drupalx_graphql accessible?' => [
-      'answer' => 'Yes, drupalx_graphql adheres to WCAG 2.0 AA accessibility guidelines.',
+    'Is DrupalX accessible?' => [
+      'answer' => 'Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.',
     ],
-    'Can I see examples of other sites created with drupalx_graphql?' => [
-      'answer' => 'Of course. Explore how drupalx_graphql can be used across various types of sites.',
+    'Can I see examples of other sites created with DrupalX?' => [
+      'answer' => 'Of course. Explore how DrupalX can be used across various types of sites.',
       'link' => [
         'uri' => 'internal:/articles',
-        'title' => 'Read drupalx_graphql articles',
+        'title' => 'Read DrupalX articles',
       ],
     ],
   ];
@@ -643,7 +643,7 @@ function drupalx_graphql_install_content() {
   // Create homepage node.
   $node = Node::create([
     'type' => 'layout',
-    'title' => 'drupalx_graphql - The Enterprise CMS Starter',
+    'title' => 'DrupalX - The Enterprise CMS Starter',
     'uid' => 1,
     'status' => 1,
     'promote' => 1,
@@ -665,7 +665,7 @@ function drupalx_graphql_install_content() {
   // Hero paragraph.
   $hero_info = [
     'link' => [
-      'uri' => 'https://drupalx_graphql.netlify.app/',
+      'uri' => 'https://drupalx-react.netlify.app/',
       'title' => 'See our demo',
     ],
     'media' => $media_items['card'],
@@ -682,24 +682,24 @@ function drupalx_graphql_install_content() {
   // Side by side paragraphs.
   $info_sidebyside = [
     [
-      'title' => 'drupalx_graphql Rapid Development',
-      'eyebrow' => 'drupalx_graphql Features',
+      'title' => 'DrupalX Rapid Development',
+      'eyebrow' => 'DrupalX Features',
       'link' => [
         'uri' => 'internal:/features',
         'title' => 'Explore features',
       ],
-      'summary' => 'The drupalx_graphql template offers top-tier development tools and components for building a site quickly and efficiently.',
+      'summary' => 'The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.',
       'layout' => 'right',
       'media' => $media_items['card'],
     ],
     [
-      'title' => 'drupalx_graphql Content Management',
-      'eyebrow' => 'drupalx_graphql Content',
+      'title' => 'DrupalX Content Management',
+      'eyebrow' => 'DrupalX Content',
       'link' => [
         'uri' => 'internal:/articles',
-        'title' => 'Read drupalx_graphql articles',
+        'title' => 'Read DrupalX articles',
       ],
-      'summary' => 'drupalx_graphql provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.',
+      'summary' => 'DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.',
       'layout' => 'left',
       'media' => $media_items['card'],
     ],
@@ -757,24 +757,24 @@ function drupalx_graphql_install_content() {
   // Side by side paragraphs.
   $info_sidebyside = [
     [
-      'title' => 'drupalx_graphql Rapid Development',
-      'eyebrow' => 'drupalx_graphql Features',
+      'title' => 'DrupalX Rapid Development',
+      'eyebrow' => 'DrupalX Features',
       'link' => [
         'uri' => 'internal:/features',
         'title' => 'Explore features',
       ],
-      'summary' => 'The drupalx_graphql template offers top-tier development tools and components for building a site quickly and efficiently.',
+      'summary' => 'The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.',
       'layout' => 'right',
       'media' => $media_items['card'],
     ],
     [
-      'title' => 'drupalx_graphql Content Management',
-      'eyebrow' => 'drupalx_graphql Content',
+      'title' => 'DrupalX Content Management',
+      'eyebrow' => 'DrupalX Content',
       'link' => [
         'uri' => 'internal:/articles',
-        'title' => 'Read drupalx_graphql articles',
+        'title' => 'Read DrupalX articles',
       ],
-      'summary' => 'drupalx_graphql provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.',
+      'summary' => 'DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.',
       'layout' => 'left',
       'media' => $media_items['card'],
     ],
@@ -819,7 +819,7 @@ function drupalx_graphql_install_content() {
   $hero_info = [
     'media' => $media_items['card'],
     'heading' => "Contact Us",
-    'summary' => 'Have a question about drupalx_graphql? We\'re here to help! Drop us a message and we\'ll get back to you soon.',
+    'summary' => 'Have a question about DrupalX? We\'re here to help! Drop us a message and we\'ll get back to you soon.',
     'layout' => 'image_top',
   ];
   $paragraphs[] = _drupalx_graphql_create_hero_paragraph($hero_info);
@@ -884,8 +884,8 @@ function drupalx_graphql_install_content() {
   // Hero paragraph.
   $hero_info = [
     'media' => $media_items['card'],
-    'heading' => "drupalx_graphql Features",
-    'summary' => '<p>drupalx_graphql is a comprehensive system that provides a robust starting point for designers and developers to fully customize components.</p>',
+    'heading' => "DrupalX Features",
+    'summary' => '<p>DrupalX is a comprehensive system that provides a robust starting point for designers and developers to fully customize components.</p>',
     'layout' => 'image_bottom',
   ];
 
@@ -896,7 +896,7 @@ function drupalx_graphql_install_content() {
     [
       'title' => 'Ultimate Flexibility',
       'eyebrow' => 'Customizable Components',
-      'summary' => 'Each component in drupalx_graphql is fully customizable, allowing you to create a unique site tailored to your organization\'s needs.',
+      'summary' => 'Each component in DrupalX is fully customizable, allowing you to create a unique site tailored to your organization\'s needs.',
       'layout' => 'right',
       'media' => $media_items['card'],
     ],
@@ -956,7 +956,7 @@ function drupalx_graphql_install_content() {
   $hero_info = [
     'media' => $media_items['card'],
     'heading' => "Get Started",
-    'summary' => 'Whether you\'re a designer or a developer, drupalx_graphql provides the perfect foundation to start customizing to your specific needs.',
+    'summary' => 'Whether you\'re a designer or a developer, DrupalX provides the perfect foundation to start customizing to your specific needs.',
     'layout' => 'image_bottom',
   ];
 
@@ -965,7 +965,7 @@ function drupalx_graphql_install_content() {
   // Side by side paragraphs.
   $info_sidebyside = [
     [
-      'title' => 'drupalx_graphql for Designers',
+      'title' => 'DrupalX for Designers',
       'eyebrow' => 'Bootstrap UI Kits',
       'summary' => 'Leverage a variety of Figma community templates built on Bootstrap 5 to jumpstart your design process.',
       'layout' => 'right',
@@ -976,12 +976,12 @@ function drupalx_graphql_install_content() {
       'media' => $media_items['card'],
     ],
     [
-      'title' => 'drupalx_graphql for Developers',
+      'title' => 'DrupalX for Developers',
       'eyebrow' => 'Project Template',
-      'summary' => 'Visit our GitHub repository to download the drupalx_graphql project template and start building your site today.',
+      'summary' => 'Visit our GitHub repository to download the DrupalX project template and start building your site today.',
       'layout' => 'left',
       'link' => [
-        'uri' => 'https://github.com/drupalninja/drupalx_graphql-project',
+        'uri' => 'https://github.com/drupalninja/drupalx-graphql',
         'title' => 'Find out more',
       ],
       'media' => $media_items['card'],
@@ -1027,7 +1027,7 @@ function drupalx_graphql_install_content() {
   // Hero paragraph.
   $hero_info = [
     'media' => $media_items['card'],
-    'heading' => "drupalx_graphql Articles",
+    'heading' => "DrupalX Articles",
     'layout' => 'image_top',
   ];
 
