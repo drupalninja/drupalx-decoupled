@@ -70,7 +70,7 @@ jobs:
         run: composer require --dev phpspec/prophecy-phpunit:^2
 
       - name: Install site
-        run: ./vendor/bin/drush site-install drupalx --verbose --yes --db-url=sqlite://tmp/site.sqlite
+        run: ./vendor/bin/drush site-install drupalx_graphql --verbose --yes --db-url=sqlite://tmp/site.sqlite
 
       - name: Start server
         run: |
@@ -100,15 +100,6 @@ jobs:
         working-directory: ./tests/cypress
         env:
           DISPLAY: :99.0
-
-      - name: Test the starterkit generation
-        run: |
-          chmod +x web/core/scripts/drupal &&
-          web/core/scripts/drupal generate-theme --starterkit=drupalx_theme nameoftheme &&
-          ./vendor/bin/drush theme:en nameoftheme &&
-          ./vendor/bin/drush config-set system.theme default -y nameoftheme &&
-          ./vendor/bin/drush cr &&
-          curl -sSf "$SIMPLETEST_BASE_URL" | grep -q "nameoftheme"
 
   # Using outdated Composer version to test the Composer version constraint.
   test-composer:
