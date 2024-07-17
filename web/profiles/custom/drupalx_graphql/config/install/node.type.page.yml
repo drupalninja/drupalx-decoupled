@@ -15,7 +15,7 @@ third_party_settings:
     minimum_revisions_to_keep: 3
     when_to_delete: 0
 _core:
-  default_config_hash: 4A_EMCzFJFd-iYK7z_sMxGw6pENsjPn5pAG1arZK5PM
+  default_config_hash: u_As2z-XICqquctvyut9k13DMKL9Hd_9EvwzMCzRfew
 name: 'Basic page'
 type: page
 description: "The Basic Page serves as a platform for displaying static content on your website, such as an 'About Us' page, contact information, or general company information. It provides a simple and straightforward layout to convey essential information to visitors."

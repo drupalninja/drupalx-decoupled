@@ -6,7 +6,7 @@ dependencies:
     - field.storage.paragraph.field_eyebrow
     - paragraphs.paragraphs_type.sidebyside
 _core:
-  default_config_hash: 8skco6S9b8Pk2hlRAAlflQicRfZRxKxY3awxsKlRyr8
+  default_config_hash: BD7s62b6f1Dq5xkIvzMgis4kC0sJKpBnniSwwjBTzkM
 id: paragraph.sidebyside.field_eyebrow
 field_name: field_eyebrow
 entity_type: paragraph

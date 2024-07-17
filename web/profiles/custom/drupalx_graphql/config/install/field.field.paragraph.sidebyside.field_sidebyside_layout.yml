@@ -8,7 +8,7 @@ dependencies:
   module:
     - options
 _core:
-  default_config_hash: 10MpihODJ2GTV-OvbpPLbQZZMMHyr56yEtR6aVf-yVY
+  default_config_hash: hoR4cFabHHW9gvq6Pj4tnDxxYBuvRjdmcCnYVZkjwaY
 id: paragraph.sidebyside.field_sidebyside_layout
 field_name: field_sidebyside_layout
 entity_type: paragraph

@@ -15,7 +15,7 @@ third_party_settings:
     minimum_revisions_to_keep: 3
     when_to_delete: 0
 _core:
-  default_config_hash: 1dzggJ0-7lCckZR0Dy9KCJgfS88oZwFcKlaCOxMPrTs
+  default_config_hash: OkFIbl-2IUJU_KzO3j_e8TrpeLk5K848roRWRaWzZhQ
 name: Article
 type: article
 description: 'The Article content type represents a written piece published in a newspaper, magazine, or online platform. It serves as a platform for sharing information, insights, stories, or opinions on a specific topic, catering to diverse audiences and interests.'

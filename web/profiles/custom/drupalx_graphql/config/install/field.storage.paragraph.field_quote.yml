@@ -5,7 +5,7 @@ dependencies:
   module:
     - paragraphs
 _core:
-  default_config_hash: 0smpqb--JO6aeLniEzw3LpS0oy1JpTtlqasaWF_2DK4
+  default_config_hash: FTrleYFjaDfzjTNgz9-o1Mg-cqTj6wfZHuGJHAuI4AQ
 id: paragraph.field_quote
 field_name: field_quote
 entity_type: paragraph

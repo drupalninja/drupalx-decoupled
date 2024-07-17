@@ -7,7 +7,7 @@ dependencies:
     - media.type.image
     - node.type.page
 _core:
-  default_config_hash: mqismdj43DlOa0LuWHYpsA64ZXsVKtWD6vxg96pNZ28
+  default_config_hash: PL-85dYx9CYKVnze_4HQqqH7wcrvvM3x0onUlay1HzA
 id: node.page.field_thumbnail
 field_name: field_thumbnail
 entity_type: node

@@ -6,7 +6,7 @@ dependencies:
     - entity_reference_revisions
     - paragraphs
 _core:
-  default_config_hash: BWVV4lkmjsZOYq7Se4KQjs7wLWaNtNGfGskzmkUbpNg
+  default_config_hash: weV01mogViSBCkzhLMjs-3KUgHHo5SFPTaYRm5P3bBY
 id: paragraph.field_card
 field_name: field_card
 entity_type: paragraph

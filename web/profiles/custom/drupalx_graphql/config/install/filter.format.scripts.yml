@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: GyiEN2C83r5mSrTbgVifVej3Bxr-9DhrpW71JXIHKow
+  default_config_hash: 1pXoVdlDaYd-DUR88jJ32aGC1r4dWkArtWg4aBtxVWQ
 name: Scripts
 format: scripts
 weight: 0

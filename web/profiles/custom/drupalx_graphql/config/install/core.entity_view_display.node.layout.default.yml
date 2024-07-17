@@ -13,7 +13,7 @@ dependencies:
     - entity_reference_revisions
     - user
 _core:
-  default_config_hash: fJHBTKkVRkpeZNJFokCFwIe56lIk19wa7lJmZVKo1yM
+  default_config_hash: toVYmCfGHTHqixGFYQMRzCc2fAYAxOcnUA0aA9LFcYw
 id: node.layout.default
 targetEntityType: node
 bundle: layout

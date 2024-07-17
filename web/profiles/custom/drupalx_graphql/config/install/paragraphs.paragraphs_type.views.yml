@@ -11,7 +11,7 @@ third_party_settings:
     paragraphs_categories:
       other: other
 _core:
-  default_config_hash: RQYAiA2oX1vNrFkneOBx3EGjTYvFBuHmVnwDjPFqcbs
+  default_config_hash: 23EpNibqd1TAfN0UnfTXMldI1x2n_IBzmQyOFhJ9U5w
 id: views
 label: Views
 icon_uuid: 56841a85-5895-42b4-8a57-9994a1b44be9
