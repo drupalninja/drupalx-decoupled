@@ -1,0 +1,24 @@
+uuid: 619fe4be-b415-4786-8c5a-d1e66ccbda65
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.newsletter
+_core:
+  default_config_hash: Z5caMk6Ba62_MX1QnhXw85FBRqOf5IV8kdneKgwhjck
+id: paragraph.newsletter.default
+targetEntityType: paragraph
+bundle: newsletter
+mode: default
+content:
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

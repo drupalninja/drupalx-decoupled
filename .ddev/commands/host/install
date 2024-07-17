@@ -1,0 +1,9 @@
+#!/bin/bash
+
+## Description: Installs DrupalX and opens it in a browser.
+
+ddev start
+ddev composer install
+ddev . drush si -y --verbose drupalx
+ddev . drush webform-libraries-download
+open $DDEV_PRIMARY_URL
