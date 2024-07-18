@@ -1,6 +1,6 @@
 {
-    "name": "drupalninja/drupalx-graphql",
-    "description": "Enterprise developer template for decoupled Drupal projects with composer",
+    "name": "drupalninja/drupalx-decoupled",
+    "description": "Enterprise template for decoupled Drupal projects.",
     "license": "GPL-2.0-or-later",
     "type": "project",
     "authors": [
