@@ -2,6 +2,11 @@
 
 All notable changes specific to pantheon-upstreams/drupal-composer-managed are noted here.
 
+## Pantheon Update #5 - 2024-07-18
+
+### Changed
+- Upgraded PHP to 8.2 ([48](https://github.com/pantheon-systems/drupal-composer-managed/pull/48])
+
 ## Pantheon Update #4 - 2023-06-27
 
 ### Changed
