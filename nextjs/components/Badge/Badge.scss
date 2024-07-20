@@ -1,0 +1,12 @@
+// Import site utilities.
+@import '../../styles/bootstrap-init';
+
+// Include Badges styles.
+@import '~bootstrap/scss/badge';
+
+// Include button styles.
+@import '../Button/Button';
+
+.badge {
+  width: fit-content;
+}

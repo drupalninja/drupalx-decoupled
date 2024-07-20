@@ -1,0 +1,10 @@
+// Import site utilities.
+@import '../../styles/bootstrap-init';
+
+.rich-text {
+
+  :last-child,
+  :only-child {
+    margin-block-end: 0;
+  }
+}

@@ -1,0 +1,8 @@
+// Import form styles.
+@import '../Form/Form.scss';
+
+/* One-off styles for the newsletter form button. */
+.input-group .btn-newsletter {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}

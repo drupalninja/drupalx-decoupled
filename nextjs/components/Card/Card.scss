@@ -1,0 +1,9 @@
+@import '../../styles/bootstrap-init';
+
+@import '~bootstrap/scss/card';
+@import '../Button/Button';
+
+/* Make img 100% width. */
+.card img {
+  width: 100%;
+}

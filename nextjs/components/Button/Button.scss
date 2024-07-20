@@ -1,0 +1,11 @@
+// Import site utilities.
+@import '../../styles/bootstrap-init';
+
+// Override Bootstrap button styles.
+.btn {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  line-height: 1;
+  width: fit-content;
+}

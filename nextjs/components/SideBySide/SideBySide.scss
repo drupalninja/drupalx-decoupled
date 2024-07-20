@@ -1,0 +1,26 @@
+// Import site utilities.
+@import '../../styles/bootstrap-init';
+
+// Include badge styles.
+@import '../Badge/Badge.scss';
+
+/* Make the image fill the entire teaser. */
+.side-by-side {
+
+  picture {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+    /* Classes added to all images by .theme function */
+    &.w-auto {
+      width: 100% !important;
+    }
+  }
+}

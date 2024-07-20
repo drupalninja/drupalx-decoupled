@@ -1,0 +1,26 @@
+// Import site utilities.
+@import '../../styles/bootstrap-init';
+
+.quote-logo {
+
+  img {
+    max-width: 200px;
+  }
+}
+
+.quote-image {
+  max-width: 120px;
+  height: auto;
+}
+
+blockquote {
+
+  .material-symbols-outlined {
+    font-size: 80px;
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+}

@@ -1,0 +1,13 @@
+// Import site utilities.
+@import '../../styles/bootstrap-init';
+
+// Include modal styles.
+@import '../Modal/Modal.scss';
+
+.gallery-body {
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

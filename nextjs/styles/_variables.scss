@@ -1,0 +1,52 @@
+// Custom variables / overrides.
+
+$font-size-base: 1.25rem !default;
+$form-label-font-size: 0.875rem !default;
+
+// Override spacing variables.
+$spacer: 1rem !default;
+$spacers: (
+  ) !default;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.5,
+  // 8px
+  2: $spacer,
+  // 16px
+  3: $spacer * 1.5,
+  // 24px
+  4: $spacer * 2,
+  // 32px
+  5: $spacer * 2.5,
+  // 40px
+  6: $spacer * 3,
+  // 48px
+  7: $spacer * 3.5,
+  // 56px
+  8: $spacer * 4,
+  // 64px
+  9: $spacer * 4.5,
+  // 72px
+  10: $spacer * 5,
+  // 80px
+  11: $spacer * 5.5,
+  // 88px
+  12: $spacer * 6,
+  // 96px
+  13: $spacer * 6.5,
+  // 104px
+  14: $spacer * 7,
+  // 112px
+  15: $spacer * 7.5,
+  // 120px
+  16: $spacer * 8,
+  // 128px
+  17: $spacer * 8.5,
+  // 136px
+  18: $spacer * 9,
+  // 144px
+  19: $spacer * 9.5,
+  // 152px
+  20: $spacer * 10,
+  // 160px
+);

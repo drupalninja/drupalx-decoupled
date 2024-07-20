@@ -1,0 +1,24 @@
+// Import site utilities.
+@import '../../styles/bootstrap-init';
+
+// Include button styles.
+@import '../Button/Button.scss';
+
+// Include dropdown styles.
+@import '~bootstrap/scss/dropdown';
+
+// Include offcanvas styles.
+@import '~bootstrap/scss/offcanvas';
+
+// Include nav styles.
+@import '~bootstrap/scss/nav';
+
+// Include navbar styles.
+@import '~bootstrap/scss/navbar';
+
+.navbar-brand {
+
+  img {
+    max-width: 230px;
+  }
+}
