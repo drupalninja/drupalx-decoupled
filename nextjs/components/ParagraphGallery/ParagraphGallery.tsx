@@ -22,7 +22,7 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
   const handleShow = () => setShow(true)
 
   return (
-    <div className={modifier}>
+    <div className={modifier ?? 'container my-6 my-lg-15' }>
       {title && (
         <div className="mb-4 text-md-center">
           <h2>{title}</h2>

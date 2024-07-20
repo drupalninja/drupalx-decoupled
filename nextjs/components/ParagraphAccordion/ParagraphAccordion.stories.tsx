@@ -9,6 +9,10 @@ const meta: Meta<typeof ParagraphAccordion> = {
       control: 'text',
       description: 'Modifier class for the accordion group',
     },
+    containerModifier: {
+      control: 'text',
+      description: 'Modifier class for the container',
+    },
     paragraph: {
       description: 'FragmentOf<typeof ParagraphAccordionFragment>',
       control: 'object',
@@ -22,6 +26,7 @@ type Story = StoryObj<typeof ParagraphAccordion>;
 export const Default: Story = {
   args: {
     modifier: '',
+    containerModifier: '',
     paragraph: {
       accordionItem: [
         {
