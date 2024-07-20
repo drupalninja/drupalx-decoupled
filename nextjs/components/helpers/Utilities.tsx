@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 export const getImage = (media: any, className?: string) => {
-  console.log('media', media);
   return (
     <Image 
       src={media?.image?.url} 

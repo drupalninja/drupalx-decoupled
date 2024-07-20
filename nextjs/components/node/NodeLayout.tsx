@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { FragmentOf, readFragment } from "gql.tada";
 import { NodeLayoutFragment } from "@/graphql/fragments/node";
 import { resolve } from "@/components/helpers/ComponentResolver";
+import Heading from "@/components/Heading/Heading";
 
 type NodeLayoutComponentProps = {
   node: FragmentOf<typeof NodeLayoutFragment>;
@@ -20,7 +21,7 @@ export default function NodeLayoutComponent({ node, environment }: NodeLayoutCom
 
   return (
     <>
-      <h1>{nodeLayout.title}</h1>
+      <Heading level={1} title={nodeLayout.title} modifier="container mb-4" />
       <p>{nodeLayout.summary}</p>
       {components.map((component, index: number) => {
         return <Fragment key={index}>{component}</Fragment>;

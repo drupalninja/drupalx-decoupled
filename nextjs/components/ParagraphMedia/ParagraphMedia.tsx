@@ -4,19 +4,22 @@ import { getImage } from '../helpers/Utilities';
 import './ParagraphMedia.scss';
 
 interface ParagraphMediaProps {
-  paragraph: FragmentOf<typeof ParagraphMediaFragment>
+  paragraph: FragmentOf<typeof ParagraphMediaFragment>,
+  modifier?: string,
 }
 
-export default function ParagraphMedia({ paragraph }: ParagraphMediaProps) {
+export default function ParagraphMedia({ paragraph, modifier }: ParagraphMediaProps) {
   const { media } = readFragment(ParagraphMediaFragment, paragraph);
 
   return (
-    <div className="flex items-center justify-center">
-      {media && (
-        <div className="image">
-          {getImage(media)}
-        </div>
-      )}
+    <div className={ modifier ?? 'container my-6 my-lg-15' }>
+      <div className="flex items-center justify-center">
+        {media && (
+          <div className="image">
+            {getImage(media)}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

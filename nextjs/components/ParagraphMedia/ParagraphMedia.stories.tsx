@@ -9,6 +9,10 @@ const meta: Meta<typeof ParagraphMedia> = {
       description: 'ParagraphMedia fragment data',
       control: 'object' 
     },
+    modifier: { 
+      description: 'Modifier class name',
+      control: 'text',
+    },
   },
 };
 
@@ -26,6 +30,7 @@ export const Default: Story = {
           height: 600,
         },
       },
-    } as any
-  }
+    } as any,
+    modifier: '',
+  },
 };
