@@ -37,6 +37,7 @@ export const Default: Story = {
           height: 200,
         },
       },
-    }
+    } as any,
+    modifier: '',
   }
 };
