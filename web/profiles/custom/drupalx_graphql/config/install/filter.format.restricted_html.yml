@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: kbztRGuKmY08Ajyqctz8z9FQebmbq0xZap9GDTSElb0
+  default_config_hash: c6wiRszNN2DDBrhC-dJs3eY48ZbaiKWsST3PlwMu0dI
 name: 'Restricted HTML'
 format: restricted_html
 weight: 0

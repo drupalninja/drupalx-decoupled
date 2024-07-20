@@ -7,7 +7,7 @@ dependencies:
     - media.type.image
     - paragraphs.paragraphs_type.quote
 _core:
-  default_config_hash: IBd7IgYkoG02GcjPgZSTkGdwzOnng6Tf7z1-Sdz_tU8
+  default_config_hash: Kn8njhp5u9jTupAvm1bYo-2-oTJTg1gDufuTih_qld0
 id: paragraph.quote.field_logo
 field_name: field_logo
 entity_type: paragraph

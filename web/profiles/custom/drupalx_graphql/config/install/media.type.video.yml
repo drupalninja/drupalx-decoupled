@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: yTWMZoCFkM0LxpB4SqN3aPerh01N80xUYrzIXLkhBMw
+  default_config_hash: UvfAJx74yctr9rzCSA_WYG5vlM4JAuTlkLxaLYOlGmM
 id: video
 label: Video
 description: 'Upload remote video media.'

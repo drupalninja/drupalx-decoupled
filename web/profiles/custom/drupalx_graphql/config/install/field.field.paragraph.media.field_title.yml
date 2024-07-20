@@ -6,7 +6,7 @@ dependencies:
     - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.media
 _core:
-  default_config_hash: J-WTXJvFoqWlzI4HAtjpBV1b1Q-WgNEJ8-i_jiq5DyA
+  default_config_hash: FZbKjBbMG7fY1s0JXoPv99SqMdD9BBmkkhY7b8dUDu8
 id: paragraph.media.field_title
 field_name: field_title
 entity_type: paragraph

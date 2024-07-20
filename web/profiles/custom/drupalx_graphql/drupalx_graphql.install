@@ -304,19 +304,6 @@ function _drupalx_graphql_create_gallery_paragraph($media_items) {
 }
 
 /**
- * Create a Form paragraph.
- */
-function _drupalx_graphql_create_form_paragraph() {
-  $paragraph = Paragraph::create([
-    'type' => 'form',
-    'field_webform' => 'contact',
-    'field_title' => 'Example Form',
-  ]);
-  $paragraph->save();
-  return $paragraph;
-}
-
-/**
  * Create a Carousel paragraph.
  */
 function _drupalx_graphql_create_carousel_paragraph($media_items) {
@@ -765,7 +752,6 @@ function drupalx_graphql_install_content() {
     _drupalx_graphql_create_text_paragraph(),
     _drupalx_graphql_create_media_paragraph($media_items),
     _drupalx_graphql_create_gallery_paragraph($media_items),
-    _drupalx_graphql_create_form_paragraph(),
     _drupalx_graphql_create_carousel_paragraph($media_items),
     _drupalx_graphql_create_accordion_paragraph(),
     _drupalx_graphql_create_quote_paragraph($media_items),
@@ -840,18 +826,6 @@ function drupalx_graphql_install_content() {
     'layout' => 'image_top',
   ];
   $paragraphs[] = _drupalx_graphql_create_hero_paragraph($hero_info);
-
-  // Form paragraph.
-  $form_paragraph = Paragraph::create([
-    'type' => 'form',
-    'field_title' => '',
-    'field_webform' => [
-      'target_id' => 'contact_us',
-    ],
-  ]);
-
-  $form_paragraph->save();
-  $paragraphs[] = $form_paragraph;
 
   // Add paragraphs to field_content.
   foreach ($paragraphs as $paragraph) {

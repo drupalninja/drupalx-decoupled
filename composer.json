@@ -39,8 +39,6 @@
         "drupal/svg_image_responsive": "^3.0",
         "drupal/taxonomy_access_fix": "^4.0",
         "drupal/viewsreference": "2.x-dev",
-        "drupal/webform": "^6.2",
-        "drupal/webform_ui": "^6.2",
         "drupal/webp": "^1.0@RC",
         "drupalninja/drupalai": "^1.0@beta",
         "drush/drush": "^11 || ^12",

@@ -10,7 +10,7 @@ dependencies:
   module:
     - svg_image_responsive
 _core:
-  default_config_hash: TlG056MDZC8n-hQWdWyAUBKE70FHQu910W6JkwKPS4k
+  default_config_hash: eYUpnyNswfGs2VtVoFc04BUK6U15ZWIvL3ogCPFrTaM
 id: media.image.square
 targetEntityType: media
 bundle: image

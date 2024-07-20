@@ -5,7 +5,7 @@ dependencies:
   config:
     - node.type.layout
 _core:
-  default_config_hash: V5-RGNISAnRUdMTuFApkruWada8JciE0FGn_NJPHeyw
+  default_config_hash: 3W-YKjeuWICrsLGarMc29vLCb_DrBCRt3P0uOcNLEc4
 id: node.layout.promote
 field_name: promote
 entity_type: node

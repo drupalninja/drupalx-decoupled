@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: TS4duEV-kxMOC2Y3GjPqIWFL_UJBB_PUZ0lrTBzbCWg
+  default_config_hash: 5Q-dk1_kelNK40tWnDipzQrQLjQUiL7vbfb4EW3nYqg
 id: carousel_item
 label: 'Carousel item'
 icon_uuid: null

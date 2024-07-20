@@ -9,7 +9,7 @@ dependencies:
     - image.style.medium
     - image.style.thumbnail
 _core:
-  default_config_hash: hKjh_wAJJwBiRX6eqBRy55pH1qS7Xa0knW7IdAh0zVU
+  default_config_hash: F3uoIFNPcLLIXWYXtbYv9v3hiYNGR1b1m4y4bkQnXLI
 id: 16_9_images
 label: '16:9 Images'
 image_style_mappings:

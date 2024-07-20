@@ -7,7 +7,7 @@ dependencies:
     - media.type.image
     - node.type.layout
 _core:
-  default_config_hash: Q_xun3FJkE_SfHXjEidk5I9jIHOVli5H61IfS2NHjLQ
+  default_config_hash: 0DxXL-BUnVsEzYpYV8Z7s3ZjJNxf-MnHA0AYp2HToRw
 id: node.layout.field_thumbnail
 field_name: field_thumbnail
 entity_type: node

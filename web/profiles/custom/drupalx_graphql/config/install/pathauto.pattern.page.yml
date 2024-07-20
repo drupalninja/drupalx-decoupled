@@ -5,7 +5,7 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: 3MgMGfxLhr_RT-QqfPFNM1zR7ZufF3gX752pl-IUmKU
+  default_config_hash: YsMqAbFg0rpWCVXqAuT43oc0ReMlFqaO0by_CBJhEhk
 id: page
 label: Page
 type: 'canonical_entities:node'

@@ -7,7 +7,7 @@ dependencies:
     - media.type.image
     - paragraphs.paragraphs_type.sidebyside
 _core:
-  default_config_hash: FexfstFPOPGOmESe31m07luY8GECMuM-XFYr2gFfIyg
+  default_config_hash: nSPzU4T-7MrgsYz1yLxy1FL4topaXOqoYD7oFtCLOyE
 id: paragraph.sidebyside.field_media
 field_name: field_media
 entity_type: paragraph

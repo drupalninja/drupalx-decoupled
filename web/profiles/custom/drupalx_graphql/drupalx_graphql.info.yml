@@ -25,6 +25,7 @@ install:
   - graphql
   - graphql_compose
   - graphql_compose_edges
+  - graphql_compose_fragments
   - graphql_compose_image_style
   - graphql_compose_menus
   - graphql_compose_metatags

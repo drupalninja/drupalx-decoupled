@@ -8,7 +8,7 @@ dependencies:
     - image.style.4_3_medium
     - image.style.4_3_small
 _core:
-  default_config_hash: d8OiuOqErXR1LZjhXwHJ2TDWl7rrj2Ga0xoFYGfz84A
+  default_config_hash: ihdAMThe6HEE4-fUz__J1I31YFLZzi8bAILp6ft0bjE
 id: 4_3_images
 label: '4:3 Images'
 image_style_mappings:

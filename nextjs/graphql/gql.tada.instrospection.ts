@@ -143,10 +143,6 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "ParagraphFormConnection"
-          },
-          {
-            "kind": "OBJECT",
             "name": "ParagraphGalleryConnection"
           },
           {
@@ -439,10 +435,6 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "ParagraphFormEdge"
-          },
-          {
-            "kind": "OBJECT",
             "name": "ParagraphGalleryEdge"
           },
           {
@@ -557,10 +549,6 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphEmbed"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "ParagraphForm"
           },
           {
             "kind": "OBJECT",
@@ -4751,175 +4739,6 @@ const introspection = {
       },
       {
         "kind": "OBJECT",
-        "name": "ParagraphForm",
-        "fields": [
-          {
-            "name": "created",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "DateTime"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "langcode",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Language"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "status",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "title",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "EdgeNode"
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "ParagraphInterface"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "ParagraphFormConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "ParagraphFormEdge"
-                  }
-                }
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "ParagraphForm"
-                  }
-                }
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ConnectionPageInfo"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Connection"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "ParagraphFormEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Cursor"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ParagraphForm"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Edge"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
         "name": "ParagraphGallery",
         "fields": [
           {
@@ -5404,10 +5223,6 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphEmbed"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "ParagraphForm"
           },
           {
             "kind": "OBJECT",
@@ -6642,10 +6457,6 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "ParagraphForm"
-          },
-          {
-            "kind": "OBJECT",
             "name": "ParagraphGallery"
           },
           {
@@ -7604,62 +7415,6 @@ const introspection = {
               "ofType": {
                 "kind": "OBJECT",
                 "name": "ParagraphEmbedConnection"
-              }
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Cursor"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Cursor"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int"
-                }
-              },
-              {
-                "name": "reverse",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean"
-                },
-                "defaultValue": "false"
-              },
-              {
-                "name": "sortKey",
-                "type": {
-                  "kind": "ENUM",
-                  "name": "ConnectionSortKeys"
-                }
-              }
-            ],
-            "isDeprecated": false
-          },
-          {
-            "name": "paragraphForms",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ParagraphFormConnection"
               }
             },
             "args": [
@@ -8752,6 +8507,15 @@ const introspection = {
         "name": "SchemaFragment",
         "fields": [
           {
+            "name": "bundle",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
             "name": "class",
             "type": {
               "kind": "NON_NULL",
@@ -8765,6 +8529,27 @@ const introspection = {
           },
           {
             "name": "content",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "dependencies",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "entity",
             "type": {
               "kind": "SCALAR",
               "name": "String"
@@ -8827,7 +8612,29 @@ const introspection = {
                 }
               }
             },
-            "args": [],
+            "args": [
+              {
+                "name": "bundle",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String"
+                }
+              },
+              {
+                "name": "entity",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String"
+                }
+              },
+              {
+                "name": "withDependencies",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean"
+                }
+              }
+            ],
             "isDeprecated": false
           },
           {

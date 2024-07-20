@@ -124,7 +124,7 @@ third_party_settings:
         description: ''
         required_fields: true
 _core:
-  default_config_hash: rwTL1cwJefNsM3ja-8NORcEjkejz1YGwqbGv8BwIxbU
+  default_config_hash: sjYbzjP_mQjpyq39lzRlLioDx-X9MRi599Sr3a9jbuA
 id: node.article.default
 targetEntityType: node
 bundle: article

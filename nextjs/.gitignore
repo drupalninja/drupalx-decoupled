@@ -39,5 +39,6 @@ next-env.d.ts
 
 # gql:fragments (generated) - do not commit
 graphql/fragments/generated
+graphql/gql.tada.cache.ts
 
 *storybook.log

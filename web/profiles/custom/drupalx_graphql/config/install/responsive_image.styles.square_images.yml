@@ -8,7 +8,7 @@ dependencies:
   module:
     - toolbar
 _core:
-  default_config_hash: lSmTLbxdGwi_RI_vBfD3X61GeNtsWbrymaS7KC796kI
+  default_config_hash: A18ej2afeTh9cItgkTQzzrhXCJ3kbMRv_rJ9AiwJJoI
 id: square_images
 label: 'Square Images'
 image_style_mappings:

@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: lGXnL3IhiiGbkp9YLYSxNbSYall2J_1rGlJRVm8UXBY
+  default_config_hash: iTu6SwfjlQGxnewE2GlSynQ55L6OA_KJnvle58HbHD0
 entity_config:
   image_style:
     16_9_large_2x:
@@ -338,3 +338,4 @@ settings:
   svg_filesize: 100
   inflector_langcode: en
   inflector_singularize: true
+  fragments_enabled: true

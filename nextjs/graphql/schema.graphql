@@ -358,27 +358,6 @@ type Query {
     sortKey: ConnectionSortKeys
   ): ParagraphEmbedConnection!
 
-  """List of all ParagraphForm on the platform."""
-  paragraphForms(
-    """Returns the elements that come after the specified cursor."""
-    after: Cursor
-
-    """Returns the elements that come before the specified cursor."""
-    before: Cursor
-
-    """Returns up to the first n elements from the list."""
-    first: Int
-
-    """Returns up to the last n elements from the list."""
-    last: Int
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-
-    """Sort the underlying list by the given key."""
-    sortKey: ConnectionSortKeys
-  ): ParagraphFormConnection!
-
   """List of all ParagraphGallery on the platform."""
   paragraphGalleries(
     """Returns the elements that come after the specified cursor."""
@@ -1275,7 +1254,7 @@ type NodeLayout implements NodeInterface & MetaTagInterface & EdgeNode {
 }
 
 """Entity type paragraph."""
-union ParagraphUnion = ParagraphAccordion | ParagraphAccordionItem | ParagraphCard | ParagraphCardGroup | ParagraphCarousel | ParagraphCarouselItem | ParagraphEmbed | ParagraphForm | ParagraphGallery | ParagraphHero | ParagraphMedia | ParagraphNewsletter | ParagraphQuote | ParagraphSidebyside | ParagraphStatsItem | ParagraphText | ParagraphView
+union ParagraphUnion = ParagraphAccordion | ParagraphAccordionItem | ParagraphCard | ParagraphCardGroup | ParagraphCarousel | ParagraphCarouselItem | ParagraphEmbed | ParagraphGallery | ParagraphHero | ParagraphMedia | ParagraphNewsletter | ParagraphQuote | ParagraphSidebyside | ParagraphStatsItem | ParagraphText | ParagraphView
 
 """
 The Accordion component is ideal for rendering FAQs or similar title-description
@@ -1474,27 +1453,6 @@ type ParagraphEmbed implements ParagraphInterface & EdgeNode {
   status: Boolean!
 
   """Provide the primary heading for the embedded content."""
-  title: String
-}
-
-"""
-The Form Component seamlessly integrates a webform into your pages, ideal for
-collecting user inputs like feedback, contact information, and survey responses.
-"""
-type ParagraphForm implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
-  id: ID!
-
-  """The time that the Paragraph was created."""
-  created: DateTime!
-
-  """The paragraphs entity language code."""
-  langcode: Language!
-
-  """Published"""
-  status: Boolean!
-
-  """Provide the primary heading for the form."""
   title: String
 }
 
@@ -1938,7 +1896,16 @@ type SchemaInformation {
   version: String
 
   """List of fragments available."""
-  fragments: [SchemaFragment!]!
+  fragments(
+    """The entity type to filter fragments for."""
+    entity: String
+
+    """The bundle type to filter fragments for."""
+    bundle: String
+
+    """Include dependencies in the result."""
+    withDependencies: Boolean
+  ): [SchemaFragment!]!
 }
 
 """A fragment representing a type within the schema."""
@@ -1954,6 +1921,15 @@ type SchemaFragment {
 
   """The fragment content."""
   content: String
+
+  """The entity type of the fragment."""
+  entity: String
+
+  """The bundle type of the fragment."""
+  bundle: String
+
+  """The list of fragments this fragment depends on."""
+  dependencies: [String]
 }
 
 """A cursor for use in pagination."""
@@ -2198,19 +2174,6 @@ type ParagraphEmbedConnection implements Connection {
 type ParagraphEmbedEdge implements Edge {
   cursor: Cursor!
   node: ParagraphEmbed!
-}
-
-"""A paginated set of results for ParagraphForm."""
-type ParagraphFormConnection implements Connection {
-  edges: [ParagraphFormEdge!]!
-  nodes: [ParagraphForm!]!
-  pageInfo: ConnectionPageInfo!
-}
-
-"""Edge for ParagraphForm."""
-type ParagraphFormEdge implements Edge {
-  cursor: Cursor!
-  node: ParagraphForm!
 }
 
 """A paginated set of results for ParagraphGallery."""
