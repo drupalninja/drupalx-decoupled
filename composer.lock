@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ddca8989f424232cffd324db65f53b84",
+    "content-hash": "f978c78a1aae53d973f1151eaac9bcee",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2894,6 +2894,53 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/graphql_compose",
                 "issues": "https://www.drupal.org/project/issues/graphql_compose"
+            }
+        },
+        {
+            "name": "drupal/graphql_compose_fragments-graphql_compose_fragments",
+            "version": "dev-1.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/graphql_compose_fragments.git",
+                "reference": "c8b7cff3628457e0087bb9a3036e141e422e84fe"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11",
+                "drupal/graphql_compose": "^2.1",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "drupal/graphql_compose": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.0.x": "1.0.x-dev"
+                },
+                "drupal": {
+                    "version": "1.0.0-beta1+2-dev",
+                    "datestamp": "1714135753",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "almunnings",
+                    "homepage": "https://www.drupal.org/user/2251362"
+                }
+            ],
+            "description": "Extended fragment capabilities for GraphQL Compose.",
+            "homepage": "http://drupal.org/project/graphql_compose_fragments",
+            "support": {
+                "source": "http://cgit.drupalcode.org/graphql_compose_fragments",
+                "issues": "https://www.drupal.org/project/issues/graphql_compose_fragments"
             }
         },
         {
@@ -16485,6 +16532,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/gin": 5,
+        "drupal/graphql_compose_fragments-graphql_compose_fragments": 20,
         "drupal/node_revision_delete": 5,
         "drupal/viewsreference": 20,
         "drupal/webp": 5,
