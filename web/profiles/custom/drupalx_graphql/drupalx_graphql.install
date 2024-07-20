@@ -173,7 +173,24 @@ function _drupalx_graphql_create_card_group_paragraph($media_items) {
       ],
       'icon' => 'storybook',
     ],
-    // Add more card items...
+    [
+      'title' => 'Bootstrap 5',
+      'summary' => 'Explore the latest features and components in the Bootstrap 5 framework.',
+      'link' => [
+        'uri' => 'https://getbootstrap.com/',
+        'title' => 'Explore Bootstrap',
+      ],
+      'icon' => 'bootstrap',
+    ],
+    [
+      'title' => 'Material Icons',
+      'summary' => 'Discover the Material Icons library and how it can enhance your site design.',
+      'link' => [
+        'uri' => 'https://fonts.google.com/icons',
+        'title' => 'View icons',
+      ],
+      'icon' => 'stars',
+    ],
   ];
 
   foreach ($card_items as $info) {
@@ -1096,14 +1113,25 @@ function drupalx_graphql_tasks_simple_oauth() {
     'DRUPAL_CLIENT_SECRET=' . $viewerClientSecret,
   ];
 
+  // If file ../nextjs/.env exists then append the credentials.
+  $envFile = '../nextjs/.env';
+  if (file_exists($envFile)) {
+    $envContents = file_get_contents($envFile);
+    $envContents = preg_replace('/DRUPAL_CLIENT_ID=[^\n]+/', 'DRUPAL_CLIENT_ID=' . $previewerClientId, $envContents);
+    $envContents = preg_replace('/DRUPAL_CLIENT_SECRET=[^\n]+/', 'DRUPAL_CLIENT_SECRET=' . $previewerClientSecret, $envContents);
+    file_put_contents($envFile, $envContents);
+    // Notify the user.
+    $messages[] = 'Credentials added to ' . $envFile;
+  }
+
   if (PHP_SAPI === 'cli') {
     echo PHP_EOL;
     foreach ($messages as $message) {
       echo $message . PHP_EOL;
     }
     echo PHP_EOL;
-  } else {
-
+  }
+  else {
     foreach ($messages as $message) {
       \Drupal::messenger()->addWarning($message);
     }
