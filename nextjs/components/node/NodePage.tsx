@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import { FragmentOf, readFragment } from "gql.tada";
 import { NodePageFragment } from "@/graphql/fragments/node";
-import Title from "@/components/field/Title";
 import { resolve } from "@/components/helpers/ComponentResolver";
 
 type NodePageComponentProps = {
@@ -18,7 +17,7 @@ export default function NodePageComponent({ node, environment } : NodePageCompon
 
   return (
     <>
-      {nodePage.showTitle && <Title>{nodePage.title}</Title>}
+      {nodePage?.showTitle && <h1>{nodePage.title}</h1>}
       {components.map((component, index: number) => {
         return <Fragment key={index}>{component}</Fragment>;
       })}

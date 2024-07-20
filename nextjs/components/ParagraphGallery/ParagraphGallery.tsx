@@ -1,46 +1,42 @@
-import { useState } from 'react'
-import { Modal, Button } from 'react-bootstrap';
-import './GalleryLightbox.scss';
+'use client'
 
-interface GalleryLightboxProps {
-  sectionTitle?: string;
-  introText?: string;
-  galleryItems: {
-    id: string;
-    media: React.ReactNode;
-    mediaThumb: React.ReactNode;
-    mediaDescription: string;
-  }[];
-  modifier?: string;
+import { useState } from 'react';
+import { FragmentOf, readFragment } from 'gql.tada';
+import { ParagraphGalleryFragment } from '@/graphql/fragments/paragraph';
+import { Button, Modal } from 'react-bootstrap';
+import { TextSummaryFragment } from '@/graphql/fragments/misc';
+import { getImage } from '../helpers/Utilities';
+import './ParagraphGallery.scss';
+
+interface ParagraphGalleryProps {
+  paragraph: FragmentOf<typeof ParagraphGalleryFragment>
+  modifier?: string
 }
 
-const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
-  sectionTitle,
-  introText,
-  galleryItems,
-  modifier = 'p-2',
-}) => {
-  const [show, setShow] = useState(false)
+export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalleryProps) {
+  const { title, gallerySummary, mediaItem } = readFragment(ParagraphGalleryFragment, paragraph);
+  const gallerySummaryFragment = readFragment(TextSummaryFragment, gallerySummary);
 
+  const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
   return (
     <div className={modifier}>
-      {sectionTitle && (
+      {title && (
         <div className="mb-4 text-md-center">
-          <h2>{sectionTitle}</h2>
+          <h2>{title}</h2>
         </div>
       )}
-      {introText && (
+      {gallerySummaryFragment && (
         <div className="d-flex justify-content-center">
           <div className="text-md-center pb-3 col-md-8">
-            <div dangerouslySetInnerHTML={{ __html: introText }} />
+            <div dangerouslySetInnerHTML={{ __html: gallerySummaryFragment?.value ?? '' }} />
           </div>
         </div>
       )}
       <div className="row">
-        {galleryItems.map((item) => (
+        {mediaItem.map((item: any, index: number) => (
           <div key={item.id} className="col-6 col-md-3 mb-3">
             <Button
               className='p-0'
@@ -50,7 +46,7 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
               data-bs-target={`#${item.id}Modal`}
               data-cy="modal-button"
             >
-              {item.mediaThumb}
+              {getImage(item)}
             </Button>
             <Modal
               show={show}
@@ -64,9 +60,11 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
             >
               <div data-cy="modal-content" className="modal-content">
                 <Modal.Header closeButton>
-                  <Modal.Title>{item.mediaDescription}</Modal.Title>
+                  <Modal.Title>{item?.image?.alt}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body className="gallery-body">{item.media}</Modal.Body>
+                <Modal.Body className="gallery-body">
+                  {getImage(item)}
+                </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handleClose}>
                     Close
@@ -79,6 +77,4 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
       </div>
     </div>
   );
-};
-
-export default GalleryLightbox;
+}
