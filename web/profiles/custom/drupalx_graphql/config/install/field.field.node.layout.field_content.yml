@@ -9,7 +9,6 @@ dependencies:
     - paragraphs.paragraphs_type.card_group
     - paragraphs.paragraphs_type.carousel
     - paragraphs.paragraphs_type.embed
-    - paragraphs.paragraphs_type.form
     - paragraphs.paragraphs_type.gallery
     - paragraphs.paragraphs_type.hero
     - paragraphs.paragraphs_type.media
@@ -40,7 +39,6 @@ settings:
       card_group: card_group
       carousel: carousel
       embed: embed
-      form: form
       gallery: gallery
       hero: hero
       media: media
@@ -71,9 +69,6 @@ settings:
         enabled: false
       embed:
         weight: 25
-        enabled: true
-      form:
-        weight: 26
         enabled: true
       gallery:
         weight: 27

@@ -63,8 +63,6 @@ install:
   - user
   - views
   - viewsreference
-  - webform
-  - webform_ui
   - webp
 
 themes:
