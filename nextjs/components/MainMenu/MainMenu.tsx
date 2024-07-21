@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { Navbar, Nav, Offcanvas, Container, NavDropdown } from 'react-bootstrap';
 import { MainMenuItem, MainMenuProps } from './Types';
@@ -11,7 +13,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
   menuItems,
 }) => {
   return (
-    <Navbar bg="primary" expand="lg" variant="dark" className={`py-2 ${modifier}`}>
+    <Navbar bg="primary" expand="lg" variant="dark" className={`${modifier}`}>
       <Container>
         <Navbar.Brand href="/">
           <Image src={siteLogo} alt="Site Name" width={312} height={96} style={{ marginRight: '4px' }} />
