@@ -839,8 +839,11 @@ type Image {
 
 """List of image styles available to use."""
 enum ImageStyleAvailable {
-  """No image styles have been enabled."""
-  UNDEFINED
+  """hero_l_x2"""
+  HERO_L_X2
+
+  """hero_s"""
+  HERO_S
 }
 
 """ImageStyle derivatives for an Image."""
@@ -1762,6 +1765,9 @@ type NodePage implements NodeInterface & MetaTagInterface & EdgeNode {
 
 """List of menus available to load."""
 enum MenuAvailable {
+  """Footer"""
+  FOOTER
+
   """Main navigation"""
   MAIN
 }

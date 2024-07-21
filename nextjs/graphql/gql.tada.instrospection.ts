@@ -828,7 +828,11 @@ const introspection = {
         "name": "ImageStyleAvailable",
         "enumValues": [
           {
-            "name": "UNDEFINED",
+            "name": "HERO_L_X2",
+            "isDeprecated": false
+          },
+          {
+            "name": "HERO_S",
             "isDeprecated": false
           }
         ]
@@ -960,8 +964,7 @@ const introspection = {
               "name": "String"
             }
           }
-        ],
-        "isOneOf": false
+        ]
       },
       {
         "kind": "OBJECT",
@@ -1682,6 +1685,10 @@ const introspection = {
         "kind": "ENUM",
         "name": "MenuAvailable",
         "enumValues": [
+          {
+            "name": "FOOTER",
+            "isDeprecated": false
+          },
           {
             "name": "MAIN",
             "isDeprecated": false

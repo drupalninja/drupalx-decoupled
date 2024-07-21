@@ -9,6 +9,12 @@ export const ImageFragment = graphql(`
     height
     alt
     title
+    variations(styles: [HERO_L_X2]) {
+      name
+      url
+      width
+      height
+    }
   }
 `)
 

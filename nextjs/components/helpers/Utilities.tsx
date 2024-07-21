@@ -1,15 +1,16 @@
 import Image from 'next/image';
 
-export const getImage = (media: any, className?: string) => {
-  const width = media?.image?.width;
-  const height = media?.image?.height;
+export const getImage = (media: any, className?: string, imageStyle?: string) => {
+  const url = media?.image?.variations?.find((variation: any) => variation.name === imageStyle)?.url;
+  const width = media?.image?.variations?.find((variation: any) => variation.name === imageStyle)?.width;
+  const height = media?.image?.variations?.find((variation: any) => variation.name === imageStyle)?.height
 
   return (
     <Image 
-      src={media?.image?.url} 
+      src={url ?? media?.image?.url}
       alt={media?.image?.alt} 
-      width={width > 0 ? width : 500}
-      height={height > 0 ? height : 500}
+      width={width ?? media?.image?.width}
+      height={height ?? media?.image?.height}
       className={className ?? 'img-fluid'}
     />
   )

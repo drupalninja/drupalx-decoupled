@@ -23,7 +23,7 @@ export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProp
           <div className="row">
             <div className="mb-4 mb-lg-8 d-flex justify-content-center align-items-center">
               <div className="shadow rounded">
-                {getImage(requiredMedia)}
+                {getImage(requiredMedia, 'img-fluid', 'HERO_L_X2')}
               </div>  
             </div>
           </div>
