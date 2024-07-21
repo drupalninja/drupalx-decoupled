@@ -51,13 +51,3 @@ export const NodeLayoutFragment = graphql(`
     }
   }
 `, [MetatagFragment, MediaImageFragment, TextFragment, ParagraphUnionFragment])
-
-export const NodeArticleTeaserFragment = graphql(`
-  fragment NodeArticleTeaserFragment on NodeArticle {
-    __typename
-    id
-    title
-    summary
-    path
-  }
-`)

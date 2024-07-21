@@ -1,6 +1,6 @@
-import NodeArticleComponent from "@/components/node/NodeArticle";
-import NodePageComponent from "@/components/node/NodePage";
-import NodeLayoutComponent from "@/components/node/NodeLayout";
+import NodeArticleComponent from "@/components/NodeArticle";
+import NodePageComponent from "@/components/NodePage";
+import NodeLayoutComponent from "@/components/NodeLayout";
 import {
   NodeArticleFragment,
   NodeLayoutFragment,

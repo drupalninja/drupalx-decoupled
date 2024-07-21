@@ -1,8 +1,6 @@
 import { graphql } from "@/graphql/gql.tada";
 import { TextSummaryFragment, TextFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "./misc";
 import { MediaUnionFragment } from "./media";
-// @todo fix use of NodeArticleTeaserFragment
-// import { NodeArticleTeaserFragment  } from "./node";
 
 export const ParagraphHeroFragment = graphql(`fragment ParagraphHeroFragment on ParagraphHero {
   id
@@ -257,6 +255,48 @@ export const ParagraphSidebysideFragment = graphql(`fragment ParagraphSidebyside
   ]
 )
 
+export const ParagraphCarouselItemFragment = graphql(`fragment ParagraphCarouselItemFragment on ParagraphCarouselItem {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  media {
+    ...MediaUnionFragment
+  }
+  status
+  summary
+  title
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    MediaUnionFragment,
+  ]
+)
+
+export const ParagraphCarouselFragment = graphql(`fragment ParagraphCarouselFragment on ParagraphCarousel {
+  id
+  carouselItem {
+    ...ParagraphCarouselItemFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  status
+}`,
+  [
+    ParagraphCarouselItemFragment,
+    DateTimeFragment,
+    LanguageFragment,
+  ]
+)
+
 export const ParagraphUnionFragment = graphql(`
   fragment ParagraphUnionFragment on ParagraphUnion {
     ... on ParagraphInterface {
@@ -271,6 +311,7 @@ export const ParagraphUnionFragment = graphql(`
     ...ParagraphCardGroupFragment
     ...ParagraphGalleryFragment
     ...ParagraphSidebysideFragment
+    ...ParagraphCarouselFragment
   }
 `, [
   ParagraphTextFragment,
@@ -281,4 +322,5 @@ export const ParagraphUnionFragment = graphql(`
   ParagraphCardGroupFragment,
   ParagraphGalleryFragment,
   ParagraphSidebysideFragment,
+  ParagraphCarouselFragment,
 ])

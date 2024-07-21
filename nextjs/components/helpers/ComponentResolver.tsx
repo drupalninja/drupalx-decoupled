@@ -8,6 +8,7 @@ import ParagraphAccordion from "@/components/ParagraphAccordion/ParagraphAccordi
 import ParagraphCardGroup from "@/components/ParagraphCardGroup/ParagraphCardGroup";
 import ParagraphGallery from "@/components/ParagraphGallery/ParagraphGallery";
 import ParagraphSidebyside from "@/components/ParagraphSidebyside/ParagraphSidebyside";
+import ParagraphCarousel from "@/components/ParagraphCarousel/ParagraphCarousel";
 
 import {
   ParagraphTextFragment,
@@ -18,6 +19,7 @@ import {
   ParagraphCardGroupFragment,
   ParagraphGalleryFragment,
   ParagraphSidebysideFragment,
+  ParagraphCarouselFragment,
   ParagraphUnionFragment,
 } from "@/graphql/fragments/paragraph";
 
@@ -30,7 +32,8 @@ type ParagraphFragmentType =
   FragmentOf<typeof ParagraphAccordionFragment> |
   FragmentOf<typeof ParagraphCardGroupFragment> |
   FragmentOf<typeof ParagraphGalleryFragment> |
-  FragmentOf<typeof ParagraphSidebysideFragment>;
+  FragmentOf<typeof ParagraphSidebysideFragment> |
+  FragmentOf<typeof ParagraphCarouselFragment>;
 
 interface ResolveProps {
   data: FragmentOf<typeof ParagraphUnionFragment>[] | null;
@@ -61,6 +64,9 @@ const calculateComponent = function (type: string, paragraph: ParagraphFragmentT
   }
   if (type === 'ParagraphSidebyside') {
     return <ParagraphSidebyside paragraph={paragraph as FragmentOf<typeof ParagraphSidebysideFragment>} />;
+  }
+  if (type === 'ParagraphCarousel') {
+    return <ParagraphCarousel paragraph={paragraph as FragmentOf<typeof ParagraphCarouselFragment>} />;
   }
   return <pre>{JSON.stringify(paragraph, null, 2)}</pre>;
 }
