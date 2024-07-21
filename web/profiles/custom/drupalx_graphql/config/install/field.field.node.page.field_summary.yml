@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_summary
     - node.type.page
 _core:
-  default_config_hash: 2eDtJn8VYB1kO3uOVEX2AF6RvFQcuAg2i4e0rdHpEfM
+  default_config_hash: 0RNIMNVJ3gFCsUSsqrzQdZqpA3x-BWbphUh1KI_7YcI
 id: node.page.field_summary
 field_name: field_summary
 entity_type: node

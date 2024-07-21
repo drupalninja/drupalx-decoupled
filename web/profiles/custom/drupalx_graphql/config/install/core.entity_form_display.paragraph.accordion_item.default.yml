@@ -11,7 +11,7 @@ dependencies:
     - link
     - text
 _core:
-  default_config_hash: 024Y9sva5qiZ90MCLpG_1O2DnNYrzWbNOTlu4A2Rrd8
+  default_config_hash: X0DXIvsz7eA94SbHL5sj9-Kpe5BLECMevpV4_jckG-w
 id: paragraph.accordion_item.default
 targetEntityType: paragraph
 bundle: accordion_item

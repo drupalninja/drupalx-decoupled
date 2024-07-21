@@ -7,7 +7,7 @@ dependencies:
     - views
     - viewsreference
 _core:
-  default_config_hash: SxIH2xA7a8Ct4-rBTN94C7FUbAWsuYr9I7M1XMjjHT0
+  default_config_hash: vXj86NSrTxUp04AWAYehFZD65jUa66Cpr_D3TUJpoBA
 id: paragraph.field_views_ref
 field_name: field_views_ref
 entity_type: paragraph

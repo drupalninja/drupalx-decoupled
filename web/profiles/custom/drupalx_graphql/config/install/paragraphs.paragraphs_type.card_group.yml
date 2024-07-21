@@ -11,7 +11,7 @@ third_party_settings:
     paragraphs_categories:
       content: content
 _core:
-  default_config_hash: kuO0tao3RmGEZaCrtX5W04I4S0221nSsl2E47hmEql8
+  default_config_hash: MIzen3yubQzhyeM2xLoZFQ1cPgakCqK0FrJKpjYjUIc
 id: card_group
 label: 'Card Group'
 icon_uuid: a4a5f7c0-235a-4112-b835-78267af2a2c3

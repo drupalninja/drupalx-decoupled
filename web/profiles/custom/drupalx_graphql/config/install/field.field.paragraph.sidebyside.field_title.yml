@@ -6,7 +6,7 @@ dependencies:
     - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.sidebyside
 _core:
-  default_config_hash: R8LfWr_jCVhdvDiKL8zuMn9r2TV05hCtmOqSjYkHHNU
+  default_config_hash: AkGW9LEE2Ceo1fOihphjni48irayHMrCgMjFWLNkKxM
 id: paragraph.sidebyside.field_title
 field_name: field_title
 entity_type: paragraph

@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: l3TbT5N51Mpvl-J_QjX2RB8_Q_1oEmkYUoRzrSk9h9Y
+  default_config_hash: ovVtpm6HShoHHqj0t8Jrb4wHiIAhvFllpFnh0jfS8Og
 redirect_anonymous: true
 redirect_url: 'http://localhost:8080'
 preview_url: 'http://localhost:8080'

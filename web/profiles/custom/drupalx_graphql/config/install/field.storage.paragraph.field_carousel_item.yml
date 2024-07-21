@@ -6,7 +6,7 @@ dependencies:
     - entity_reference_revisions
     - paragraphs
 _core:
-  default_config_hash: Gw-4dJjcPaVqJhbsqk6bLHI-YgsDC6RZ3bMuI3l6lhw
+  default_config_hash: '-6EiXUtTtZ1McN-AXz3fDP-Dou7MkzFIUrB0t4sUMkU'
 id: paragraph.field_carousel_item
 field_name: field_carousel_item
 entity_type: paragraph
