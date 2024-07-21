@@ -226,6 +226,37 @@ export const ParagraphGalleryFragment = graphql(`fragment ParagraphGalleryFragme
   ]
 )
 
+export const ParagraphSidebysideFragment = graphql(`fragment ParagraphSidebysideFragment on ParagraphSidebyside {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  eyebrow
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  media {
+    ...MediaUnionFragment
+  }
+  sidebysideLayout
+  status
+  sidebysideSummary: summary {
+    ...TextFragment
+  }
+  sidebysideTitle: title
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    LinkFragment,
+    MediaUnionFragment,
+    TextFragment,
+  ]
+)
+
 export const ParagraphUnionFragment = graphql(`
   fragment ParagraphUnionFragment on ParagraphUnion {
     ... on ParagraphInterface {
@@ -239,6 +270,7 @@ export const ParagraphUnionFragment = graphql(`
     ...ParagraphAccordionFragment
     ...ParagraphCardGroupFragment
     ...ParagraphGalleryFragment
+    ...ParagraphSidebysideFragment
   }
 `, [
   ParagraphTextFragment,
@@ -248,4 +280,5 @@ export const ParagraphUnionFragment = graphql(`
   ParagraphAccordionFragment,
   ParagraphCardGroupFragment,
   ParagraphGalleryFragment,
+  ParagraphSidebysideFragment,
 ])

@@ -14,6 +14,28 @@ import { FragmentOf } from "gql.tada";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Fragment } from "react";
+import { Metadata, ResolvingMetadata } from 'next'
+
+type Props = {
+  params: { slug: string[] }
+}
+
+async function getPageData({ params }: Props) {
+  return await getDrupalData({ params });
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { entity } = await getPageData({ params })
+
+  let title = entity?.title ?? '';
+
+  return {
+    title: title,
+  }
+}
 
 async function getDrupalData({ params }: { params: { slug: string[] } }) {
   const pathFromParams = params.slug?.join("/") || "/home";
@@ -31,6 +53,7 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
       clientSecret: process.env.DRUPAL_CLIENT_SECRET!,
     },
   });
+
   const nodeRouteQuery = graphql(
     `
       query route($path: String!) {
@@ -79,7 +102,7 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
 }
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
-  const { type, entity, environment } = await getDrupalData({ params });
+  const { type, entity, environment } = await getPageData({ params });
   if (!type || !entity) {
     return null;
   }
