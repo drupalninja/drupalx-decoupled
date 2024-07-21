@@ -1,21 +1,15 @@
-export default function Header() {
-  const menus = [
-    {
-      id: 1,
-      url: "/",
-      title: "home",
-    },
-    {
-      id: 2,
-      url: "/blog",
-      title: "blog",
-    },
-    {
-      id: 3,
-      url: "/contact",
-      title: "contact",
-    },
-  ];
+import { ResultOf } from "gql.tada";
+import { MainMenuQuery } from "@/graphql/queries";
+
+type MainMenuData = ResultOf<typeof MainMenuQuery>;
+
+// Define the props for the Header component
+type HeaderProps = {
+  mainMenu: MainMenuData['menu'] | null;
+};
+
+export default function Header({ mainMenu }: HeaderProps) {
+  const menus = mainMenu?.items;
 
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">

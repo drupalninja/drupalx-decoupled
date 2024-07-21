@@ -70,6 +70,7 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
   ) {
     return redirect("/404");
   }
+
   return {
     type: data.route.entity.__typename,
     entity: data.route.entity as EntityFragmentType,

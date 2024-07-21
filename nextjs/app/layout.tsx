@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Suspense } from "react";
 import NavigationEvents from "@/components/helpers/NavigationEvents";
+import { MainMenuQuery } from "@/graphql/queries";
+import { getClient } from "@/utils/client.server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,18 +21,33 @@ function getEnvironment(): string {
   return process.env.ENVIRONMENT || "production";
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const environment = getEnvironment();
 
+  const client = await getClient({
+    url: process.env.DRUPAL_GRAPHQL_URI!,
+    auth: {
+      uri: process.env.DRUPAL_AUTH_URI!,
+      clientId: process.env.DRUPAL_CLIENT_ID!,
+      clientSecret: process.env.DRUPAL_CLIENT_SECRET!,
+    },
+  });
+
+  const { data: menuData, error: menuError } = await client.query(MainMenuQuery, {});
+  
+  if (menuError) {
+    throw menuError;
+  }
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <Container>
-          <Header />
+          <Header mainMenu={menuData?.menu || null} />
           {children}
           <Footer />
         </Container>

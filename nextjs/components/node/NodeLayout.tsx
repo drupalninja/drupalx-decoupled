@@ -7,7 +7,7 @@ import Heading from "@/components/Heading/Heading";
 type NodeLayoutComponentProps = {
   node: FragmentOf<typeof NodeLayoutFragment>;
   environment: string;
-}
+};
 
 export default function NodeLayoutComponent({ node, environment }: NodeLayoutComponentProps) {
   const nodeLayout = readFragment(
