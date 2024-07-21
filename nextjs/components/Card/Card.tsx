@@ -1,11 +1,8 @@
-'use client'
-
 import React from 'react';
 import { getImage } from '../helpers/Utilities';
 import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
 import Heading, { HeadingProps } from '../Heading/Heading';
-import { Card as BootstrapCard } from 'react-bootstrap';
 import './Card.scss';
 
 export interface CardProps {
@@ -40,11 +37,11 @@ const Card: React.FC<CardProps> = ({
   link2,
 }) => {
   return (
-    <BootstrapCard className={`h-100 ${modifier}`}>
+    <div className={`card h-100 ${modifier}`}>
       {media && (
         <>{getImage(media)}</>
       )}
-      <BootstrapCard.Body className={`mt-2 ${bodyModifier}`}>
+      <div className={`card-body mt-2 ${bodyModifier}`}>
         {tags.length > 0 && (
           <ul className="list-inline mb-2">
             {tags.map((tag, index) => (
@@ -85,8 +82,8 @@ const Card: React.FC<CardProps> = ({
             )}
           </ul>
         )}
-      </BootstrapCard.Body>
-    </BootstrapCard>
+      </div>
+    </div>
   );
 };
 
