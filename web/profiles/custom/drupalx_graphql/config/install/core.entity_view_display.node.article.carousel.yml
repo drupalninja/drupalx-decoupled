@@ -17,7 +17,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: UUVNqyzUhAERd9-uAjsxE1bR6tHNdJIt37xzYRqHZF0
+  default_config_hash: 6UPYde9nFReh-3lX0yFKjHP_5_ihoDI6PJ9_Yb3aCn0
 id: node.article.carousel
 targetEntityType: node
 bundle: article

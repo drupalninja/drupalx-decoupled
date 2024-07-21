@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 9q1EpBxX8tIwcv6JkMJap1MAIOUFiUBXCEc3RNKOUgA
+  default_config_hash: DOdj40AdcA-_N-IwpHuNboZuzF3Rgys2_UZ-aZLiZ3w
 id: image
 label: Image
 description: 'Basic image media type.'

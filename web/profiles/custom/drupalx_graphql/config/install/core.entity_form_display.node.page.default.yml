@@ -63,7 +63,7 @@ third_party_settings:
         description: ''
         required_fields: true
 _core:
-  default_config_hash: 0ORFTxEdLwJM_e1z7eMesEnAEeNqyoJ9eI9nwxAfALw
+  default_config_hash: y0TjEBD6MzivijNR7RjSrDFkrYwUY3-jH6qwblKyUeQ
 id: node.page.default
 targetEntityType: node
 bundle: page

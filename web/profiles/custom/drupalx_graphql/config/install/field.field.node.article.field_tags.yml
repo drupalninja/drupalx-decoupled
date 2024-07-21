@@ -7,7 +7,7 @@ dependencies:
     - node.type.article
     - taxonomy.vocabulary.tags
 _core:
-  default_config_hash: DdIn5V2ryZV1wgCoCmeKbmd-blU8UHLKfBfALahB9Jg
+  default_config_hash: E-dX72J3Edf56UqJwLDnClPul7CpwPUAQf7ToOv7reE
 id: node.article.field_tags
 field_name: field_tags
 entity_type: node

@@ -6,7 +6,7 @@ dependencies:
     - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.carousel_item
 _core:
-  default_config_hash: 0GH5vZ-Y8YB_0yjyoozmG7Ko78wXFkKpbgVk9jB35qE
+  default_config_hash: gvrn2o7W-iefKbNob5RYcB_-yoo_iDEkrvS5f2Azo1A
 id: paragraph.carousel_item.field_title
 field_name: field_title
 entity_type: paragraph

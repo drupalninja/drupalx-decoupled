@@ -1,37 +1,37 @@
 _core:
-  default_config_hash: iTu6SwfjlQGxnewE2GlSynQ55L6OA_KJnvle58HbHD0
+  default_config_hash: YXlpig63F2qaA8zfHvX1eo_AxlzbToJ5HbnuB_u1MCI
 entity_config:
   image_style:
     16_9_large_2x:
-      enabled: false
+      enabled: true
     16_9_xlarge:
-      enabled: false
+      enabled: true
     1_1_large:
-      enabled: false
+      enabled: true
     1_1_medium:
-      enabled: false
+      enabled: true
     1_1_small:
-      enabled: false
+      enabled: true
     4_3_large:
-      enabled: false
+      enabled: true
     4_3_large_2x:
-      enabled: false
+      enabled: true
     4_3_medium:
-      enabled: false
+      enabled: true
     4_3_small:
-      enabled: false
+      enabled: true
     hero_l:
-      enabled: false
+      enabled: true
     hero_l_x2:
-      enabled: false
+      enabled: true
     hero_m:
-      enabled: false
+      enabled: true
     hero_m_x2:
-      enabled: false
+      enabled: true
     hero_s:
-      enabled: false
+      enabled: true
     hero_s_x2:
-      enabled: false
+      enabled: true
     large:
       enabled: false
     linkit_result_thumbnail:
@@ -61,7 +61,8 @@ entity_config:
     admin:
       enabled: false
     footer:
-      enabled: false
+      enabled: true
+      menu_route_enabled: true
     main:
       enabled: true
       menu_route_enabled: true
@@ -109,10 +110,6 @@ entity_config:
       query_load_enabled: true
       edges_enabled: true
     embed:
-      enabled: true
-      query_load_enabled: true
-      edges_enabled: true
-    form:
       enabled: true
       query_load_enabled: true
       edges_enabled: true
@@ -252,9 +249,6 @@ field_config:
     embed:
       field_script:
         enabled: true
-      field_title:
-        enabled: true
-    form:
       field_title:
         enabled: true
     gallery:

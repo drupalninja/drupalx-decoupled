@@ -11,7 +11,7 @@ third_party_settings:
     paragraphs_categories:
       content: content
 _core:
-  default_config_hash: TlMzxYIrl1SYqSORIhO1EcEkNAZMWlVnELqtkSQ9Kp8
+  default_config_hash: yGZzPljM1jhktj-FM2r_XOiES3tiToMdYU0RsP0eI9c
 id: quote
 label: Quote
 icon_uuid: f1baba31-12fc-440f-9bc9-f27134438e7e

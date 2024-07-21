@@ -5,7 +5,7 @@ dependencies:
   module:
     - paragraphs
 _core:
-  default_config_hash: ms6HsLyqYxmdiZu2NsprekzP6IUuU3FCvP4HblmtzMk
+  default_config_hash: 2sQ5si9N3rzAxWoDQnlnC_YZ8UkbMJb5l8ZNol10ssE
 id: paragraph.field_eyebrow
 field_name: field_eyebrow
 entity_type: paragraph
