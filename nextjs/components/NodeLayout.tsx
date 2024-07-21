@@ -21,8 +21,7 @@ export default function NodeLayoutComponent({ node, environment }: NodeLayoutCom
 
   return (
     <>
-      <Heading level={1} title={nodeLayout.title} modifier="container mb-4" />
-      <p>{nodeLayout.summary}</p>
+      {nodeLayout.hidePageTitle ? null : <Heading level={1} title={nodeLayout.title} modifier="container mb-4" />}
       {components.map((component, index: number) => {
         return <Fragment key={index}>{component}</Fragment>;
       })}

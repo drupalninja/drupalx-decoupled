@@ -1,9 +1,9 @@
 import { graphql } from "@/graphql/gql.tada";
 
-import { MediaImageFragment } from "@/graphql/fragments/media";
+import { MediaImageFragment, MediaUnionFragment } from "@/graphql/fragments/media";
 import { UserFragment } from "@/graphql/fragments/user";
-import { TextFragment } from "@/graphql/fragments/misc";
-import { MetatagFragment } from "./metatag";
+import { TextFragment, DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
+import { MetatagFragment, MetaTagUnionFragment } from "./metatag";
 import {
   ParagraphUnionFragment,
 } from "./paragraph";
@@ -36,18 +36,43 @@ export const NodeArticleFragment = graphql(`
   }
 `, [MetatagFragment, MediaImageFragment, TextFragment])
 
-export const NodeLayoutFragment = graphql(`
-  fragment NodeLayoutFragment on NodeLayout {
-    __typename
-    id
-    title
-    summary
-    path
-    metatag {
-      ...MetatagFragment
-    }
-    content {
-      ...ParagraphUnionFragment
-    }
+export const NodeLayoutFragment = graphql(`fragment NodeLayoutFragment on NodeLayout {
+  id
+  author {
+    ...UserFragment
   }
-`, [MetatagFragment, MediaImageFragment, TextFragment, ParagraphUnionFragment])
+  changed {
+    ...DateTimeFragment
+  }
+  content {
+    ...ParagraphUnionFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  hidePageTitle
+  langcode {
+    ...LanguageFragment
+  }
+  metatag {
+    ...MetaTagUnionFragment
+  }
+  path
+  promote
+  status
+  sticky
+  summary
+  thumbnail {
+    ...MediaUnionFragment
+  }
+  title
+}`,
+  [
+    UserFragment,
+    DateTimeFragment,
+    ParagraphUnionFragment,
+    LanguageFragment,
+    MetaTagUnionFragment,
+    MediaUnionFragment,
+  ]
+)

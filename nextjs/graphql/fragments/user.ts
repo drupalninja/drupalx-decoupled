@@ -5,10 +5,5 @@ export const UserFragment = graphql(`
   fragment UserFragment on User {
     id
     name
-    picture {
-      ... on MediaImage {
-        ...MediaImageFragment
-      }
-    }
   }
 `, [MediaImageFragment])
