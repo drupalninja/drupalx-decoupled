@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Suspense } from "react";
 import NavigationEvents from "@/components/helpers/NavigationEvents";
-import { MainMenuQuery } from "@/graphql/queries";
+import { MainMenuQuery, FooterMenuQuery } from "@/graphql/queries";
 import { getClient } from "@/utils/client.server";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -38,13 +38,19 @@ export default async function RootLayout({
     throw menuError;
   }
 
+  const { data: footerData, error: footerError } = await client.query(FooterMenuQuery, {});
+
+  if (footerError) {
+    throw footerError;
+  }
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <Container>
           <Header mainMenu={menuData?.menu || null} />
           {children}
-          <Footer />
+          <Footer footerMenu={footerData?.menu || null} />
         </Container>
         <Suspense fallback={null}>
           <NavigationEvents environment={environment} />

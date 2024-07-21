@@ -1,15 +1,15 @@
+import { ResultOf } from "gql.tada";
+import { FooterMenuQuery } from "@/graphql/queries";
 import SiteFooter from './SiteFooter/SiteFooter';
 
-export default function Footer() {
+type FooterMenuData = ResultOf<typeof FooterMenuQuery>;
+
+export default function Footer({ footerMenu }: Readonly<{ footerMenu: FooterMenuData['menu'] | null }>) {
+  const menus = footerMenu?.items;
   
   return (
     <SiteFooter
-      links={[
-        { title: 'Home', url: '/' },
-        { title: 'About', url: '/about' },
-        { title: 'Services', url: '/services' },
-        { title: 'Contact', url: '/contact' },
-      ]}
+      links={menus || []}
       siteLogo="/images/logo.svg"
       modifier="bg-black"
       menuModifier="fs-5 text-white"

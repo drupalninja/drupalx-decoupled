@@ -15,3 +15,19 @@ export const MainMenuQuery = graphql(`
     }
   }
 `);
+
+export const FooterMenuQuery = graphql(`
+  query FooterMenuQuery {
+    menu(name: FOOTER) {
+      name
+      items {
+        title
+        url
+        children {
+          title
+          url
+        }
+      }
+    }
+  }
+`);
