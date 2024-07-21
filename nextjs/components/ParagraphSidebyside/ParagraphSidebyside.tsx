@@ -18,7 +18,7 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
   const textFragment = readFragment(TextFragment, sidebysideSummary);
 
   return (
-    <div className={classNames('side-by-side', 'container', layout, modifier ?? 'my-6 my-lg-15')}>
+    <div className={classNames('side-by-side', layout, modifier ?? 'container my-6 my-lg-15')}>
       <div className={classNames('row', 'flex-column', 'gy-3', { 'flex-lg-row-reverse': layout === 'right', 'flex-lg-row': layout === 'left' }, 'justify-content-between', 'align-items-center')}>
         <div className="col-lg-6">
           <div className="shadow rounded">
