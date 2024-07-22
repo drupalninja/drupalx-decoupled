@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import 'material-symbols';
 import "../styles/bootstrap.scss";
 import Container from "@/components/Container";
@@ -9,8 +7,6 @@ import { Suspense } from "react";
 import NavigationEvents from "@/components/helpers/NavigationEvents";
 import { MainMenuQuery, FooterMenuQuery } from "@/graphql/queries";
 import { getClient } from "@/utils/client.server";
-
-const inter = Inter({ subsets: ["latin"] });
 
 function getEnvironment(): string {
   return process.env.ENVIRONMENT || "production";
@@ -46,7 +42,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Container>
           <Header mainMenu={menuData?.menu || null} />
           {children}

@@ -40,6 +40,7 @@ export async function generateMetadata(
 async function getDrupalData({ params }: { params: { slug: string[] } }) {
   const pathFromParams = params.slug?.join("/") || "/home";
   const requestUrl = headers().get("x-url");
+
   const path = calculatePath({
     path: pathFromParams,
     url: requestUrl!,

@@ -19,7 +19,7 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
       <Carousel id={`carousel-${id}`} className="carousel-single">
         {carouselItem.map((item: any, index: number) => (
           <Carousel.Item key={index} className={`carousel-item ${item.active ? 'active' : ''}`}>
-            {item.media && (getImage(item.media))}
+            {item.media && (getImage(item.media, 'img-fluid', 'HERO_L_X2'))}
             <Carousel.Caption className="d-none d-md-block">
               {item.title && <h3>{item.title}</h3>}
               <p>{item.summary}</p>
