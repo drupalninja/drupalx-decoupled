@@ -1,6 +1,6 @@
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphCardGroupFragment } from '@/graphql/fragments/paragraph';
-import Card from '../Card/Card';
+import Card from '../card/Card';
 import './ParagraphCardGroup.scss';
 
 interface ParagraphCardGroupProps {

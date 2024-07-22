@@ -413,6 +413,22 @@ function _drupalx_graphql_create_quote_paragraph($media_items) {
 }
 
 /**
+ * Create an Embed paragrah.
+ */
+function _drupalx_graphql_create_embed_paragraph() {
+  $paragraph = Paragraph::create([
+    'type' => 'embed',
+    'field_script' => [
+      'value' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50704.05332036616!2d-122.12246645666515!3d37.413396126075966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7495bec0189%3A0x7c17d44a466baf9b!2sMountain%20View%2C%20CA!5e0!3m2!1sen!2sus!4v1716313314254!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+      'format' => 'scripts',
+    ],
+    'field_title' => 'Example Map',
+  ]);
+  $paragraph->save();
+  return $paragraph;
+}
+
+/**
  * Create a Side-by-side paragraph.
  *
  * @param array $info
@@ -750,6 +766,7 @@ function drupalx_graphql_install_content() {
     _drupalx_graphql_create_hero_paragraph($hero_info),
     _drupalx_graphql_create_card_group_paragraph($media_items),
     _drupalx_graphql_create_text_paragraph(),
+    _drupalx_graphql_create_embed_paragraph(),
     _drupalx_graphql_create_media_paragraph($media_items),
     _drupalx_graphql_create_gallery_paragraph($media_items),
     _drupalx_graphql_create_carousel_paragraph($media_items),
@@ -825,17 +842,8 @@ function drupalx_graphql_install_content() {
     'summary' => 'Have a question about DrupalX? We\'re here to help! Drop us a message and we\'ll get back to you soon.',
     'layout' => 'image_top',
   ];
+
   $paragraphs[] = _drupalx_graphql_create_hero_paragraph($hero_info);
-
-  // Add paragraphs to field_content.
-  foreach ($paragraphs as $paragraph) {
-    $node->field_content[] = [
-      'target_id' => $paragraph->id(),
-      'target_revision_id' => $paragraph->getRevisionId(),
-    ];
-  }
-
-  $node->save();
 
   foreach ($info_sidebyside as $info) {
     $paragraphs[] = _drupalx_graphql_create_sidebyside_paragraph($info);

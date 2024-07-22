@@ -297,6 +297,27 @@ export const ParagraphCarouselFragment = graphql(`fragment ParagraphCarouselFrag
   ]
 )
 
+export const ParagraphEmbedFragment = graphql(`fragment ParagraphEmbedFragment on ParagraphEmbed {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  script {
+    ...TextFragment
+  }
+  status
+  title
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    TextFragment,
+  ]
+);
+
 export const ParagraphUnionFragment = graphql(`
   fragment ParagraphUnionFragment on ParagraphUnion {
     ... on ParagraphInterface {
@@ -312,6 +333,7 @@ export const ParagraphUnionFragment = graphql(`
     ...ParagraphGalleryFragment
     ...ParagraphSidebysideFragment
     ...ParagraphCarouselFragment
+    ...ParagraphEmbedFragment
   }
 `, [
   ParagraphTextFragment,
@@ -323,4 +345,5 @@ export const ParagraphUnionFragment = graphql(`
   ParagraphGalleryFragment,
   ParagraphSidebysideFragment,
   ParagraphCarouselFragment,
+  ParagraphEmbedFragment,
 ])
