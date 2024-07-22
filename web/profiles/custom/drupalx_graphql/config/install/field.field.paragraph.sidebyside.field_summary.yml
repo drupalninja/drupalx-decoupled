@@ -16,7 +16,7 @@ third_party_settings:
     full_html: '0'
     plain_text: '0'
 _core:
-  default_config_hash: QLQShnqbGf2ppFgdMX7Q-kbL-emN3DvkjJeM_Gu9uFw
+  default_config_hash: knv0TlwBu-4Nm0ofcoIdDAXoRpw4PNT-pMJUjsy3ekQ
 id: paragraph.sidebyside.field_summary
 field_name: field_summary
 entity_type: paragraph

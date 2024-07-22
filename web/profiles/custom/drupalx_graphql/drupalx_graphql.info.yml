@@ -63,7 +63,7 @@ install:
   - toolbar
   - user
   - views_ui
-  - viewsreference
+  - viewfield
   - webp
 
 themes:

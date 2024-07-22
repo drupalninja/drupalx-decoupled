@@ -9,9 +9,9 @@ dependencies:
     - paragraphs.paragraphs_type.views
   module:
     - link
-    - viewsreference
+    - viewfield
 _core:
-  default_config_hash: lR6et49ORTIu_3wir-k0dVMIMIjrHTO2KZst9tR7X6w
+  default_config_hash: Y-JrnIEWr70TOLKIqY-4JDH_H0Xmf2y1ecrOG7lZeAM
 id: paragraph.views.default
 targetEntityType: paragraph
 bundle: views
@@ -34,14 +34,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_views_ref:
-    type: viewsreference_autocomplete
+    type: viewfield_select
     weight: 1
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
 hidden:
   created: true

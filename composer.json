@@ -38,7 +38,7 @@
         "drupal/simple_oauth": "^5.2",
         "drupal/svg_image_responsive": "^3.0",
         "drupal/taxonomy_access_fix": "^4.0",
-        "drupal/viewsreference": "2.x-dev",
+        "drupal/viewfield": "^3.0@beta",
         "drupal/webp": "^1.0@RC",
         "drupalninja/drupalai": "^1.0@beta",
         "drush/drush": "^11 || ^12",

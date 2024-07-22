@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: NHOP12zAYlqiaSCWFy0gTzvoxFMaN75ssnK5mxJ6E3Q
+  default_config_hash: BzYwq6Rc6Dt73jpb9hbFaDwqOQcO8YFimWnP8-pF7hw
 name: 1_1_medium
 label: '1:1 Medium (400 x 400)'
 effects:

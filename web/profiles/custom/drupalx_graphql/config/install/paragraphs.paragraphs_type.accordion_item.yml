@@ -8,7 +8,7 @@ third_party_settings:
   paragraphs_ee:
     paragraphs_categories: {  }
 _core:
-  default_config_hash: RAnbrl9IjE8NIT5X3iNWBkSxDu6YPOkO2uZpWU8ADTA
+  default_config_hash: T4NWMLpvcFdgw75NBIa3oLHYFd02Powb0p78LGm-fOE
 id: accordion_item
 label: 'Accordion item'
 icon_uuid: null

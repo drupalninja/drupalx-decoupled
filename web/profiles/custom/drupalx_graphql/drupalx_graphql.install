@@ -486,7 +486,7 @@ function _drupalx_graphql_create_articles_paragraph() {
     'field_title' => '',
     'field_views_ref' => [
       'target_id' => 'recent_cards',
-      'display_id' => 'block_1',
+      'display_id' => 'article_cards',
     ],
   ]);
 
@@ -786,6 +786,7 @@ function drupalx_graphql_install_content() {
     _drupalx_graphql_create_accordion_paragraph(),
     _drupalx_graphql_create_quote_paragraph($media_items),
     _drupalx_graphql_create_newsletter_paragraph(),
+    _drupalx_graphql_create_articles_paragraph(),
   ];
 
   // Side by side paragraphs.

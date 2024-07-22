@@ -9,9 +9,9 @@ dependencies:
     - paragraphs.paragraphs_type.views
   module:
     - link
-    - viewsreference
+    - viewfield
 _core:
-  default_config_hash: 3QjqiIOYZ-nI042mpmdSJeIR5Z3SGl8FfLMiABkXq9s
+  default_config_hash: 9NFVMG0UA8W13keW5xEwttLQgALYxOheJQkKdISovmo
 id: paragraph.views.default
 targetEntityType: paragraph
 bundle: views
@@ -38,13 +38,14 @@ content:
     weight: 0
     region: content
   field_views_ref:
-    type: viewsreference_formatter
-    label: hidden
+    type: viewfield_default
+    label: above
     settings:
-      plugin_types:
-        - block
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
 hidden:
   search_api_excerpt: true

@@ -10,7 +10,7 @@ dependencies:
   module:
     - media_library
 _core:
-  default_config_hash: HtqvJHO2C2ful0hEEWXxQ4BbVw31mZgTW0SbOP7Wf-0
+  default_config_hash: SYIST3YIuhuxYhIUgJeNTh9t8mcSZvT_Gsop7Trrg8w
 id: paragraph.carousel_item.default
 targetEntityType: paragraph
 bundle: carousel_item

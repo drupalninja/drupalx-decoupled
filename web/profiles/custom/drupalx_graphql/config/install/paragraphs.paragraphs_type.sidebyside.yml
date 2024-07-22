@@ -11,7 +11,7 @@ third_party_settings:
     paragraphs_categories:
       content: content
 _core:
-  default_config_hash: gzwjHlzbMoImAkagcTeJmbX9qBhzyxhkGHuo3N1Y5ek
+  default_config_hash: 3b2pTooiSXz3_F4Qc5Wqs4IvaStWMvCh2RcMxB8Df6Y
 id: sidebyside
 label: Side-by-side
 icon_uuid: 174a67f8-665f-4f11-82f5-719d21a95cf5

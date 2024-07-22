@@ -11,6 +11,7 @@ import ParagraphSidebyside from "@/components/paragraph-sidebyside/ParagraphSide
 import ParagraphCarousel from "@/components/paragraph-carousel/ParagraphCarousel";
 import ParagraphEmbed from "@/components/paragraph-embed/ParagraphEmbed";
 import ParagraphNewsletter from "@/components/paragraph-newsletter/ParagraphNewsletter";
+import ParagraphView from "@/components/paragraph-view/ParagraphView";
 
 import {
   ParagraphTextFragment,
@@ -24,6 +25,7 @@ import {
   ParagraphCarouselFragment,
   ParagraphEmbedFragment,
   ParagraphNewsletterFragment,
+  ParagraphViewFragment,
   ParagraphUnionFragment,
 } from "@/graphql/fragments/paragraph";
 
@@ -39,7 +41,8 @@ type ParagraphFragmentType =
   FragmentOf<typeof ParagraphSidebysideFragment> |
   FragmentOf<typeof ParagraphCarouselFragment> |
   FragmentOf<typeof ParagraphEmbedFragment> |
-  FragmentOf<typeof ParagraphNewsletterFragment>;
+  FragmentOf<typeof ParagraphNewsletterFragment> |
+  FragmentOf<typeof ParagraphViewFragment>;
 
 interface ResolveProps {
   data: FragmentOf<typeof ParagraphUnionFragment>[] | null;
@@ -80,17 +83,20 @@ const calculateComponent = function (type: string, paragraph: ParagraphFragmentT
   if (type === 'ParagraphNewsletter') {
     return <ParagraphNewsletter paragraph={paragraph as FragmentOf<typeof ParagraphNewsletterFragment>} />;
   }
+  if (type === 'ParagraphView') {
+    return <ParagraphView paragraph={paragraph as FragmentOf<typeof ParagraphViewFragment>} />;
+  }
   return <pre>{JSON.stringify(paragraph, null, 2)}</pre>;
 }
 
-export const resolve = ({data = [], environment = 'preview'}: ResolveProps): ComponentType => {
+export const resolve = ({ data = [], environment = 'preview' }: ResolveProps): ComponentType => {
   if (!data) {
     return [];
   }
 
-  const paragraphUnionFragment = readFragment(ParagraphUnionFragment, data); 
+  const paragraphUnionFragment = readFragment(ParagraphUnionFragment, data);
   const components: Array<JSX.Element> = [];
-  
+
   paragraphUnionFragment.forEach((paragraph) => {
     const type = paragraph.__typename;
 

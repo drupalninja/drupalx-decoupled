@@ -17,7 +17,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: qPb3SYRVFnjOu5ayyKX2dD6FKn9KDwxDv-7a25suykk
+  default_config_hash: ItXB_mQu1UyPBh33r_73hOZEv71c6Q-vzdjfimiW7Ac
 id: node.article.card
 targetEntityType: node
 bundle: article

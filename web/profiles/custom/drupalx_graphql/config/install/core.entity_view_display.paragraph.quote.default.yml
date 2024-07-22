@@ -10,7 +10,7 @@ dependencies:
     - field.field.paragraph.quote.field_thumb
     - paragraphs.paragraphs_type.quote
 _core:
-  default_config_hash: wl5Gp-_cI5joXMZsFJkofSU5Y1mAGwzip1OsQpOI1Z0
+  default_config_hash: cVDy4C6bMNPQH5cy-4ynzjxJoLupby8e5_h0-Qt2wuI
 id: paragraph.quote.default
 targetEntityType: paragraph
 bundle: quote

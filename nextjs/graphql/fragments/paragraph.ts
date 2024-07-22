@@ -334,6 +334,27 @@ export const ParagraphNewsletterFragment = graphql(`fragment ParagraphNewsletter
   ]
 )
 
+export const ParagraphViewFragment = graphql(`fragment ParagraphViewFragment on ParagraphView {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  status
+  title
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    LinkFragment,
+  ]
+)
+
 export const ParagraphUnionFragment = graphql(`
   fragment ParagraphUnionFragment on ParagraphUnion {
     ... on ParagraphInterface {
@@ -351,6 +372,7 @@ export const ParagraphUnionFragment = graphql(`
     ...ParagraphCarouselFragment
     ...ParagraphEmbedFragment
     ...ParagraphNewsletterFragment
+    ...ParagraphViewFragment
   }
 `, [
   ParagraphTextFragment,
@@ -364,4 +386,5 @@ export const ParagraphUnionFragment = graphql(`
   ParagraphCarouselFragment,
   ParagraphEmbedFragment,
   ParagraphNewsletterFragment,
+  ParagraphViewFragment,
 ])

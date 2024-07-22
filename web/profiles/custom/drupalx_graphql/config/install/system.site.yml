@@ -1,8 +1,8 @@
 _core:
-  default_config_hash: ooNkYqaotd7-dVu1UyawlhzOOA6SvqE90lO6345rA-8
+  default_config_hash: mfYUynYbu5efFrDUwqXIfLXwecyJt8b37vSahJJ-tCY
 langcode: en
-uuid: 77290b6a-46bd-4054-a741-c523b10b7fec
-name: 'DrupalX Decoupled'
+uuid: 86d8302b-cf78-4c9a-bb60-49174535ec14
+name: 'Drush Site-Install'
 mail: admin@example.com
 slogan: ''
 page:
