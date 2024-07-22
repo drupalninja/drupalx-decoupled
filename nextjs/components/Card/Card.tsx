@@ -1,8 +1,8 @@
 import React from 'react';
 import { getImage } from '../helpers/Utilities';
-import Badge from '../Badge/Badge';
-import Button from '../Button/Button';
-import Heading, { HeadingProps } from '../Heading/Heading';
+import Badge from '../badge/Badge';
+import Button from '../button/Button';
+import Heading, { HeadingProps } from '../heading/Heading';
 import './Card.scss';
 
 export interface CardProps {

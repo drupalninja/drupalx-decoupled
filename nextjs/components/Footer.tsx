@@ -1,6 +1,6 @@
 import { ResultOf } from "gql.tada";
 import { FooterMenuQuery } from "@/graphql/queries";
-import SiteFooter from './SiteFooter/SiteFooter';
+import SiteFooter from './site-footer/SiteFooter';
 
 type FooterMenuData = ResultOf<typeof FooterMenuQuery>;
 

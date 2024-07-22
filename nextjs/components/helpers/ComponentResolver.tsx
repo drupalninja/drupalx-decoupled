@@ -1,14 +1,14 @@
 import { FragmentOf, readFragment } from "gql.tada";
 
-import ParagraphText from "@/components/ParagraphText/ParagraphText";
-import ParagraphMedia from "@/components/ParagraphMedia/ParagraphMedia";
-import ParagraphQuote from "@/components/ParagraphQuote/ParagraphQuote";
-import ParagraphHero from "@/components/ParagraphHero/ParagraphHero";
-import ParagraphAccordion from "@/components/ParagraphAccordion/ParagraphAccordion";
-import ParagraphCardGroup from "@/components/ParagraphCardGroup/ParagraphCardGroup";
-import ParagraphGallery from "@/components/ParagraphGallery/ParagraphGallery";
-import ParagraphSidebyside from "@/components/ParagraphSidebyside/ParagraphSidebyside";
-import ParagraphCarousel from "@/components/ParagraphCarousel/ParagraphCarousel";
+import ParagraphText from "@/components/paragraph-text/ParagraphText";
+import ParagraphMedia from "@/components/paragraph-media/ParagraphMedia";
+import ParagraphQuote from "@/components/paragraph-quote/ParagraphQuote";
+import ParagraphHero from "@/components/paragraph-hero/ParagraphHero";
+import ParagraphAccordion from "@/components/paragraph-accordion/ParagraphAccordion";
+import ParagraphCardGroup from "@/components/paragraph-card-group/ParagraphCardGroup";
+import ParagraphGallery from "@/components/paragraph-gallery/ParagraphGallery";
+import ParagraphSidebyside from "@/components/paragraph-sidebyside/ParagraphSidebyside";
+import ParagraphCarousel from "@/components/paragraph-carousel/ParagraphCarousel";
 
 import {
   ParagraphTextFragment,

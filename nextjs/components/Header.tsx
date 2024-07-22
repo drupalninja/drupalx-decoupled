@@ -1,6 +1,6 @@
 import { ResultOf } from "gql.tada";
 import { MainMenuQuery } from "@/graphql/queries";
-import MainMenu from "./MainMenu/MainMenu";
+import MainMenu from "./main-menu/MainMenu";
 
 type MainMenuData = ResultOf<typeof MainMenuQuery>;
 

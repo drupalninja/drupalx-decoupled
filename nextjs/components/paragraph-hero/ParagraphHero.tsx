@@ -2,7 +2,7 @@ import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphHeroFragment } from '@/graphql/fragments/paragraph';
 import { getImage } from '../helpers/Utilities';
 import { TextFragment, LinkFragment } from '@/graphql/fragments/misc';
-import Button from '../Button/Button';
+import Button from '../button/Button';
 import './ParagraphHero.scss';
 
 interface ParagraphHeroProps {

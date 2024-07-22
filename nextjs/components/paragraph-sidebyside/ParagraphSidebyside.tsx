@@ -3,8 +3,8 @@ import { FragmentOf, readFragment } from 'gql.tada';
 import { TextFragment, LinkFragment } from "@/graphql/fragments/misc";
 import { ParagraphSidebysideFragment } from "@/graphql/fragments/paragraph";
 import { getImage } from '../helpers/Utilities';
-import Badge from '../Badge/Badge';
-import Button from '../Button/Button';
+import Badge from '../badge/Badge';
+import Button from '../button/Button';
 import './ParagraphSidebyside.scss';
 
 interface ParagraphSidebysideProps {

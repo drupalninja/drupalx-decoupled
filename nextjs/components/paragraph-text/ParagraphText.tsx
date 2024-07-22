@@ -1,7 +1,7 @@
 import { FragmentOf, readFragment } from "gql.tada";
 import { TextSummaryFragment, LinkFragment } from "@/graphql/fragments/misc";
 import { ParagraphTextFragment } from "@/graphql/fragments/paragraph";
-import Button from "../Button/Button";
+import Button from "../button/Button";
 import './ParagraphText.scss';
 
 interface ParagraphTextProps {

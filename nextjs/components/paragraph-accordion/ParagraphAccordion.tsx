@@ -3,8 +3,8 @@
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphAccordionFragment } from '@/graphql/fragments/paragraph';
 import { Accordion } from 'react-bootstrap';
-import Button from '@/components/Button/Button';
-import Heading from '../Heading/Heading';
+import Button from '@/components/button/Button';
+import Heading from '../heading/Heading';
 import './ParagraphAccordion.scss';
 
 interface ParagraphAccordionProps {
