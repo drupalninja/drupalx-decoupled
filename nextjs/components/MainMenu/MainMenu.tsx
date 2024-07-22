@@ -3,6 +3,7 @@
 import React from 'react';
 import { Navbar, Nav, Offcanvas, Container, NavDropdown } from 'react-bootstrap';
 import { MainMenuItem, MainMenuProps } from './Types';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import './MainMenu.scss';
 
@@ -12,6 +13,20 @@ const MainMenu: React.FC<MainMenuProps> = ({
   siteLogo,
   menuItems,
 }) => {
+  const pathname = usePathname();
+  
+  // Add active trail classes to menu items.
+  menuItems = menuItems.map((item) => {
+    item.inActiveTrail = pathname.startsWith(item.url);
+    if (item.below) {
+      item.below = item.below.map((subItem) => {
+        subItem.inActiveTrail = pathname.startsWith(subItem.url);
+        return subItem;
+      });
+    }
+    return item;
+  });
+
   return (
     <Navbar bg="primary" expand="lg" variant="dark" className={`${modifier}`}>
       <Container>
