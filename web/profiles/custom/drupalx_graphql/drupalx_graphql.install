@@ -429,6 +429,19 @@ function _drupalx_graphql_create_embed_paragraph() {
 }
 
 /**
+ * Create a Newsletter paragraph.
+ */
+function _drupalx_graphql_create_newsletter_paragraph() {
+  // Create Newsletter paragraph.
+  $paragraph = Paragraph::create([
+    'type' => 'newsletter',
+  ]);
+
+  $paragraph->save();
+  return $paragraph;
+}
+
+/**
  * Create a Side-by-side paragraph.
  *
  * @param array $info
@@ -772,6 +785,7 @@ function drupalx_graphql_install_content() {
     _drupalx_graphql_create_carousel_paragraph($media_items),
     _drupalx_graphql_create_accordion_paragraph(),
     _drupalx_graphql_create_quote_paragraph($media_items),
+    _drupalx_graphql_create_newsletter_paragraph(),
   ];
 
   // Side by side paragraphs.

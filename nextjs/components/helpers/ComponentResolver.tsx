@@ -10,6 +10,7 @@ import ParagraphGallery from "@/components/paragraph-gallery/ParagraphGallery";
 import ParagraphSidebyside from "@/components/paragraph-sidebyside/ParagraphSidebyside";
 import ParagraphCarousel from "@/components/paragraph-carousel/ParagraphCarousel";
 import ParagraphEmbed from "@/components/paragraph-embed/ParagraphEmbed";
+import ParagraphNewsletter from "@/components/paragraph-newsletter/ParagraphNewsletter";
 
 import {
   ParagraphTextFragment,
@@ -22,6 +23,7 @@ import {
   ParagraphSidebysideFragment,
   ParagraphCarouselFragment,
   ParagraphEmbedFragment,
+  ParagraphNewsletterFragment,
   ParagraphUnionFragment,
 } from "@/graphql/fragments/paragraph";
 
@@ -36,7 +38,8 @@ type ParagraphFragmentType =
   FragmentOf<typeof ParagraphGalleryFragment> |
   FragmentOf<typeof ParagraphSidebysideFragment> |
   FragmentOf<typeof ParagraphCarouselFragment> |
-  FragmentOf<typeof ParagraphEmbedFragment>;
+  FragmentOf<typeof ParagraphEmbedFragment> |
+  FragmentOf<typeof ParagraphNewsletterFragment>;
 
 interface ResolveProps {
   data: FragmentOf<typeof ParagraphUnionFragment>[] | null;
@@ -73,6 +76,9 @@ const calculateComponent = function (type: string, paragraph: ParagraphFragmentT
   }
   if (type === 'ParagraphEmbed') {
     return <ParagraphEmbed paragraph={paragraph as FragmentOf<typeof ParagraphEmbedFragment>} />;
+  }
+  if (type === 'ParagraphNewsletter') {
+    return <ParagraphNewsletter paragraph={paragraph as FragmentOf<typeof ParagraphNewsletterFragment>} />;
   }
   return <pre>{JSON.stringify(paragraph, null, 2)}</pre>;
 }
