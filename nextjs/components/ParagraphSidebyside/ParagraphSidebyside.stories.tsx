@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ParagraphSidebyside from './ParagraphSidebyside';
 
 const meta: Meta<typeof ParagraphSidebyside> = {
-  title: 'Editorial/Paragraph SideBySide',
+  title: 'Editorial/Paragraph Side-By-Side',
   component: ParagraphSidebyside,
   tags: ['autodocs'],
 };

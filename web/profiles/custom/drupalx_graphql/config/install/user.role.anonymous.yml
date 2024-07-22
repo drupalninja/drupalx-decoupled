@@ -1,4 +1,4 @@
-uuid: 1be1b039-339e-42e7-8c3a-e755d906da1e
+uuid: c5d90e27-6e01-422c-9924-1753550b6572
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
     - media
     - system
 _core:
-  default_config_hash: L20jA93RLilrlR0-rckycVepHDHqTolSUwj2poIEFlE
+  default_config_hash: VjXKxBJBEoGkH2I7OlIA-OQ7_aUvCd9156ND4oHr7vk
 id: anonymous
 label: 'Anonymous user'
 weight: 0

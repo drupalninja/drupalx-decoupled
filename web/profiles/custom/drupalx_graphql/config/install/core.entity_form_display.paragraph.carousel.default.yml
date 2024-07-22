@@ -9,7 +9,7 @@ dependencies:
     - paragraphs
     - paragraphs_features
 _core:
-  default_config_hash: 43qSX3UJ-TxkfwmDGdgPIcNs5yYc0AhjsvYusQ1DuRw
+  default_config_hash: RuTZgvS3lZFYI1AHOiWq3WgCQoRqkNdpR-ASa7gFg6g
 id: paragraph.carousel.default
 targetEntityType: paragraph
 bundle: carousel

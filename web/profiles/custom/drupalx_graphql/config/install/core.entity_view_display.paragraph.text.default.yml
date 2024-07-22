@@ -11,7 +11,7 @@ dependencies:
     - link
     - text
 _core:
-  default_config_hash: 3OG80fvfMwUW49d9wfk_N0Fc9K_MQvylDGMVsHdWdsE
+  default_config_hash: 7D1tYdMSlNbyjd_fZ_MPxtuWsNBKLA1-Pj1Rw55Aso4
 id: paragraph.text.default
 targetEntityType: paragraph
 bundle: text

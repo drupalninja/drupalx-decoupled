@@ -6,12 +6,15 @@ dependencies:
     - core.entity_view_mode.node.card
     - node.type.article
     - taxonomy.vocabulary.tags
+  content:
+    - 'taxonomy_term:tags:50113969-80b8-4aa3-b930-cad47d0147b5'
   module:
+    - graphql_compose_views
     - node
     - taxonomy
     - user
 _core:
-  default_config_hash: YF5PoUL3syjp5YwK1FzMmqtqToSFqtYvg0R6puMTMUE
+  default_config_hash: t1ZeE7jIxM_-sFwh05rfT_N1br6LYGMn6No8aQqB59I
 id: recent_cards
 label: 'Recent (Cards)'
 module: node
@@ -405,6 +408,24 @@ display:
       link_url: ''
       header: {  }
       footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  article_cards:
+    id: article_cards
+    display_title: 'GraphQL Article Cards'
+    display_plugin: graphql
+    position: 3
+    display_options:
+      display_description: ''
       display_extenders: {  }
     cache_metadata:
       max-age: -1

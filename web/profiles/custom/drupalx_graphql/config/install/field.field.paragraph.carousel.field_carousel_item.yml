@@ -9,7 +9,7 @@ dependencies:
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: SWEjVYqX4hutZhI2u1BbVhsU5nWXjQiGjLSBgIqjehA
+  default_config_hash: 7c8vnTF2Lo5emxUBH8U8CvXLS1YKiHtzzIE8n1l4hRg
 id: paragraph.carousel.field_carousel_item
 field_name: field_carousel_item
 entity_type: paragraph

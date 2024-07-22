@@ -11,7 +11,7 @@ third_party_settings:
     paragraphs_categories:
       media: media
 _core:
-  default_config_hash: _HYM7XC5K7B5aAJFTWex0Z0i9a65YUxLNIjW-Qk3fXo
+  default_config_hash: gZ3TGcuvzVPzHr5y7CA05I6BtJo7UhgVthfAjq-9-jY
 id: hero
 label: Hero
 icon_uuid: 824aa34b-0e9b-496f-b8e7-df4eb7afe5c4

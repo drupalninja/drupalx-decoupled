@@ -588,6 +588,12 @@ type Query {
     """Internal path to load. Eg /about"""
     path: String!
   ): RouteUnion
+
+  """Recent content."""
+  recentCardsArticleCards(
+    """The page number to display."""
+    page: Int = 0
+  ): RecentCardsArticleCardsResult
 }
 
 """Entity type media."""
@@ -2312,6 +2318,72 @@ type UserEdge implements Edge {
   node: User!
 }
 
+"""Recent content."""
+type RecentCardsArticleCardsResult implements View {
+  """The ID of the view."""
+  id: ID!
+
+  """The machine name of the view."""
+  view: String!
+
+  """The machine name of the display."""
+  display: String!
+
+  """The language code of the view."""
+  langcode: String
+
+  """The human friendly label of the view."""
+  label: String
+
+  """The description of the view."""
+  description: String
+
+  """Information about the page in the view."""
+  pageInfo: ViewPageInfo!
+
+  """The results of the view."""
+  results: [NodeUnion!]!
+}
+
+"""Views represent collections of curated data from the CMS."""
+interface View {
+  """The ID of the view."""
+  id: ID!
+
+  """The machine name of the view."""
+  view: String!
+
+  """The machine name of the display."""
+  display: String!
+
+  """The language code of the view."""
+  langcode: String
+
+  """The human friendly label of the view."""
+  label: String
+
+  """The description of the view."""
+  description: String
+
+  """Information about the page in the view."""
+  pageInfo: ViewPageInfo!
+}
+
+"""Information about the page in a view."""
+type ViewPageInfo {
+  """Any result offset being used."""
+  offset: Int!
+
+  """The current page being returned."""
+  page: Int!
+
+  """How many results per page."""
+  pageSize: Int!
+
+  """How many results total."""
+  total: Int!
+}
+
 """The schema's entry-point for mutations."""
 type Mutation {
   """Placeholder for mutation extension."""
@@ -2404,45 +2476,6 @@ scalar UntypedStructuredData
 """Entity type user."""
 union UserUnion = User
 
-"""Views represent collections of curated data from the CMS."""
-interface View {
-  """The ID of the view."""
-  id: ID!
-
-  """The machine name of the view."""
-  view: String!
-
-  """The machine name of the display."""
-  display: String!
-
-  """The language code of the view."""
-  langcode: String
-
-  """The human friendly label of the view."""
-  label: String
-
-  """The description of the view."""
-  description: String
-
-  """Information about the page in the view."""
-  pageInfo: ViewPageInfo!
-}
-
-"""Information about the page in a view."""
-type ViewPageInfo {
-  """Any result offset being used."""
-  offset: Int!
-
-  """The current page being returned."""
-  page: Int!
-
-  """How many results per page."""
-  pageSize: Int!
-
-  """How many results total."""
-  total: Int!
-}
-
 """An exposed filter option for the view."""
 type ViewFilter {
   """The filter identifier."""
@@ -2497,4 +2530,4 @@ type ViewReference {
 }
 
 """All available view result types."""
-union ViewResultUnion = UnsupportedType
+union ViewResultUnion = RecentCardsArticleCardsResult

@@ -964,7 +964,8 @@ const introspection = {
               "name": "String"
             }
           }
-        ]
+        ],
+        "isOneOf": false
       },
       {
         "kind": "OBJECT",
@@ -8011,6 +8012,24 @@ const introspection = {
             "isDeprecated": false
           },
           {
+            "name": "recentCardsArticleCards",
+            "type": {
+              "kind": "OBJECT",
+              "name": "RecentCardsArticleCardsResult"
+            },
+            "args": [
+              {
+                "name": "page",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                },
+                "defaultValue": "0"
+              }
+            ],
+            "isDeprecated": false
+          },
+          {
             "name": "route",
             "type": {
               "kind": "UNION",
@@ -8256,6 +8275,111 @@ const introspection = {
           }
         ],
         "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "RecentCardsArticleCardsResult",
+        "fields": [
+          {
+            "name": "description",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "display",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "label",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "langcode",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "pageInfo",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ViewPageInfo"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "results",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "UNION",
+                    "name": "NodeUnion"
+                  }
+                }
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "view",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          }
+        ],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "View"
+          }
+        ]
       },
       {
         "kind": "INTERFACE",
@@ -9914,7 +10038,12 @@ const introspection = {
           }
         ],
         "interfaces": [],
-        "possibleTypes": []
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "RecentCardsArticleCardsResult"
+          }
+        ]
       },
       {
         "kind": "OBJECT",
@@ -10156,7 +10285,7 @@ const introspection = {
         "possibleTypes": [
           {
             "kind": "OBJECT",
-            "name": "UnsupportedType"
+            "name": "RecentCardsArticleCardsResult"
           }
         ]
       }

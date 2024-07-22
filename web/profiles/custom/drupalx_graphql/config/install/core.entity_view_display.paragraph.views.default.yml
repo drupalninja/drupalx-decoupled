@@ -11,7 +11,7 @@ dependencies:
     - link
     - viewsreference
 _core:
-  default_config_hash: qk6wb5VW8Q3RGkiN-K7NviIddMr3sXLaN7OOCfTocSk
+  default_config_hash: 3QjqiIOYZ-nI042mpmdSJeIR5Z3SGl8FfLMiABkXq9s
 id: paragraph.views.default
 targetEntityType: paragraph
 bundle: views

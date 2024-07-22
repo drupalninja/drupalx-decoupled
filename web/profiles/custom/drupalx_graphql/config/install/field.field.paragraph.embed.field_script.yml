@@ -16,7 +16,7 @@ third_party_settings:
     full_html: '0'
     plain_text: '0'
 _core:
-  default_config_hash: QwdottzbeaT-WaA1k_6yBxxjkctb8zh0T0hNOib3OQY
+  default_config_hash: OMkvM6a4GQOeWl0jMIGMAa-cY0pXNY-u2RuKVgLf5i4
 id: paragraph.embed.field_script
 field_name: field_script
 entity_type: paragraph

@@ -62,7 +62,7 @@ install:
   - text
   - toolbar
   - user
-  - views
+  - views_ui
   - viewsreference
   - webp
 

@@ -7,7 +7,7 @@ dependencies:
   module:
     - ckeditor5
 _core:
-  default_config_hash: 50i2P-yVhkNRud3lPXKtW7Blk_1gJ8eJBqa-5iN-yOY
+  default_config_hash: nCe-TKPcExjovC2SIEt_kLObjT9wyHh9Po5JpKH1jso
 format: basic_html
 editor: ckeditor5
 settings:

@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_subhead
     - node.type.article
 _core:
-  default_config_hash: jQDyKK5yU8D09Z_Ie9GDUe4_fAdh--gMDnoom72AdMc
+  default_config_hash: K9SqX9zaOSwFSzxIQ19EUaz3I94v_VRff54frXgESAE
 id: node.article.field_subhead
 field_name: field_subhead
 entity_type: node

@@ -5,7 +5,7 @@ dependencies:
   module:
     - media
 _core:
-  default_config_hash: RO0rT9RpZfNJD1_bgKmkE2SiDlcN91VsovLTWYfNQrE
+  default_config_hash: xVWOjS6BEVsMyCYrEwHa5Qzuf7GJqO6_xrw16q4l5kk
 id: media.field_copyright
 field_name: field_copyright
 entity_type: media

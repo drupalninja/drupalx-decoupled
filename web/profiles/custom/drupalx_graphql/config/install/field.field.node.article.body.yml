@@ -15,7 +15,7 @@ third_party_settings:
     full_html: '0'
     plain_text: '0'
 _core:
-  default_config_hash: NkGan5-r_nbNXT3SNRE6_bgPx8e08mIl9VLlDCNH8Js
+  default_config_hash: qNsaMZXWnf0NTXfhPh7AufFZNB6RqJgLJ0_G0tRCVdk
 id: node.article.body
 field_name: body
 entity_type: node

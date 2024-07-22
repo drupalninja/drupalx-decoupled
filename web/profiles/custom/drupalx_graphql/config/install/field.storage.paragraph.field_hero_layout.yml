@@ -6,7 +6,7 @@ dependencies:
     - options
     - paragraphs
 _core:
-  default_config_hash: U999cu4aO-Ge6ZQ1YWiDAywsS7NM_jAQao_naE4G_JU
+  default_config_hash: w_XLQ77SYAsx2xzI91Y6u_SCZgzJaWo-7r3jIxXTM8I
 id: paragraph.field_hero_layout
 field_name: field_hero_layout
 entity_type: paragraph

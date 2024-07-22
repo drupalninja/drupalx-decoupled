@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Form from './Form';
 
 const meta: Meta<typeof Form> = {
-  title: 'Editorial/Form',
+  title: 'Data Entry/Form',
   component: Form,
 };
 
