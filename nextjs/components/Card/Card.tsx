@@ -56,7 +56,7 @@ const Card: React.FC<CardProps> = ({
         )}
         <Heading
           title={heading.title}
-          level={heading.level || 2}
+          level={heading.level || 3}
           url={heading.url}
           modifier={heading.modifier || 'card-title mb-3'}
         />

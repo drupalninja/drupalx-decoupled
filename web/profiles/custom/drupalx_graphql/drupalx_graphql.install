@@ -240,7 +240,7 @@ function _drupalx_graphql_create_article_nodes($media_items, $tag_ids) {
         ['target_id' => $tag_ids[1]],
         ['target_id' => $tag_ids[2]],
       ],
-      'field_summary' => 'Lorem ipsum dolor sit amet consectetur...',
+      'field_summary' => 'Lorem ipsum dolor sit amet consectetur. Congue vel sagittis eu ullamcorper vel. Et et dui est ante tempor egestas pellentesque odio. Ornare erat lacus commodo porttitor ut enim. Ultricies mauris blandit in fermentum fringilla mollis risus ut.',
       'field_lead' => [
         'value' => '<p>Lorem ipsum dolor sit amet consectetur...</p>',
         'format' => 'full_html',
