@@ -419,7 +419,7 @@ display:
       tags: {  }
   article_cards:
     id: article_cards
-    display_title: 'GraphQL Article Cards'
+    display_title: 'Recent Article Cards'
     display_plugin: graphql
     position: 1
     display_options:
