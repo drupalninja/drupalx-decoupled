@@ -1,0 +1,20 @@
+uuid: 1ccfe099-2393-4446-ba59-3eaf90760a2f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: js_R9hC9E6JDOVZzMjxBGUn0ok0BhWVaR06UmnKBnhc
+name: graphql_compose_server
+label: 'GraphQL Compose - Server'
+schema: graphql_compose
+schema_configuration:
+  graphql_compose:
+    enabled: true
+persisted_queries_settings: {  }
+endpoint: /graphql
+debug_flag: 0
+caching: true
+batching: true
+disable_introspection: false
+query_depth: null
+query_complexity: null
