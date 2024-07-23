@@ -1,6 +1,10 @@
+const externalDomain = 'http://drupalx-graphql.ddev.site';
+const externalDomainHost = 'drupalx-graphql.ddev.site';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  pageNotFound: '/node/1',
   async redirects() {
     return [
       {
@@ -8,18 +12,18 @@ const nextConfig = {
         destination: '/welcome',
         permanent: true,
       },
-    ]
+    ];
   },
   async rewrites() {
     return [
       {
         source: '/sites/default/files/:path*',
-        destination: 'http://drupalx-graphql.ddev.site/sites/default/files/:path*', // Proxy to the external domain
+        destination: `${externalDomain}/sites/default/files/:path*`, // Proxy to the external domain
       },
     ];
   },
   images: {
-    domains: ['drupalx-graphql.ddev.site'],
+    domains: [externalDomainHost],
   },
 };
 

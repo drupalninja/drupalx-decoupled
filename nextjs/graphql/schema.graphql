@@ -601,8 +601,11 @@ union MediaUnion = MediaImage | MediaVideo
 
 """Basic image media type."""
 type MediaImage implements MediaInterface & MetaTagInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time the media item was last edited."""
   changed: DateTime!
@@ -631,8 +634,11 @@ type MediaImage implements MediaInterface & MetaTagInterface & EdgeNode {
 
 """Entity type media."""
 interface MediaInterface {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time the media item was last edited."""
   changed: DateTime!
@@ -862,8 +868,11 @@ type ImageStyleDerivative {
 
 """Upload remote video media."""
 type MediaVideo implements MediaInterface & MetaTagInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time the media item was last edited."""
   changed: DateTime!
@@ -895,8 +904,11 @@ union TermUnion = TermAuthor | TermTag
 
 """Content authors."""
 type TermAuthor implements TermInterface & MetaTagInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the term was last edited."""
   changed: DateTime!
@@ -928,8 +940,11 @@ type TermAuthor implements TermInterface & MetaTagInterface & EdgeNode {
 
 """Entity type taxonomy_term."""
 interface TermInterface {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the term was last edited."""
   changed: DateTime!
@@ -982,8 +997,11 @@ scalar Html
 
 """Use tags to group articles on similar topics into categories."""
 type TermTag implements TermInterface & MetaTagInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the term was last edited."""
   changed: DateTime!
@@ -1023,8 +1041,11 @@ insights, stories, or opinions on a specific topic, catering to diverse
 audiences and interests.
 """
 type NodeArticle implements NodeInterface & MetaTagInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The author of this content."""
   author: User
@@ -1083,8 +1104,11 @@ type NodeArticle implements NodeInterface & MetaTagInterface & EdgeNode {
 
 """Entity type node."""
 interface NodeInterface {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The author of this content."""
   author: User
@@ -1119,8 +1143,11 @@ interface NodeInterface {
 
 """Entity type user."""
 type User implements UserInterface & MetaTagInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the user was last edited."""
   changed: DateTime!
@@ -1149,8 +1176,11 @@ type User implements UserInterface & MetaTagInterface & EdgeNode {
 
 """Entity type user."""
 interface UserInterface {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the user was last edited."""
   changed: DateTime!
@@ -1216,8 +1246,11 @@ designing landing pages, product showcases, or blog layouts, this feature-rich
 tool offers unparalleled flexibility and customization options.
 """
 type NodeLayout implements NodeInterface & MetaTagInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The author of this content."""
   author: User
@@ -1270,8 +1303,11 @@ The Accordion component is ideal for rendering FAQs or similar title-description
 pairings, allowing users to expand and collapse sections for a clean, organized
 """
 type ParagraphAccordion implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """List of title/description pairings used to populate the accordion."""
   accordionItem: [ParagraphUnion!]!
@@ -1291,8 +1327,11 @@ type ParagraphAccordion implements ParagraphInterface & EdgeNode {
 
 """Entity type paragraph."""
 interface ParagraphInterface {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the Paragraph was created."""
   created: DateTime!
@@ -1306,8 +1345,11 @@ interface ParagraphInterface {
 
 """Title, description pairing to be used inside of an accordion."""
 type ParagraphAccordionItem implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """Item description."""
   body: TextSummary!
@@ -1344,8 +1386,11 @@ type Link {
 
 """A teaser to a piece of content, local or external."""
 type ParagraphCard implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the Paragraph was created."""
   created: DateTime!
@@ -1375,8 +1420,11 @@ using grouped card layouts, ideal for showcasing articles, products, services,
 or other content types.
 """
 type ParagraphCardGroup implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """Card"""
   card: [ParagraphUnion!]!
@@ -1400,8 +1448,11 @@ interactive slider, perfect for showcasing related content in limited space to
 enhance user engagement and visual appeal.
 """
 type ParagraphCarousel implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """Build a collection of items for the carousel component."""
   carouselItem: [ParagraphUnion!]!
@@ -1418,8 +1469,11 @@ type ParagraphCarousel implements ParagraphInterface & EdgeNode {
 
 """Carousel item for the Carousel component."""
 type ParagraphCarouselItem implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the Paragraph was created."""
   created: DateTime!
@@ -1446,8 +1500,11 @@ pages, ideal for incorporating videos, social media feeds, maps, and other
 interactive elements.
 """
 type ParagraphEmbed implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the Paragraph was created."""
   created: DateTime!
@@ -1471,8 +1528,11 @@ images, in a visually appealing and organized manner, perfect for portfolios,
 photo albums, and product showcases.
 """
 type ParagraphGallery implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """Body"""
   body: TextSummary
@@ -1498,8 +1558,11 @@ The Hero Component, designed for impactful promotional teasers with large images
 at the top of a page, highlights key messages, announcements, or featured
 """
 type ParagraphHero implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the Paragraph was created."""
   created: DateTime!
@@ -1531,8 +1594,11 @@ The Media Component allows you to place images, videos, or audio files on your
 web pages, seamlessly integrating media assets to enhance the user experience.
 """
 type ParagraphMedia implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the Paragraph was created."""
   created: DateTime!
@@ -1556,8 +1622,11 @@ web pages, streamlining subscriber information collection to build and engage
 your audience effectively.
 """
 type ParagraphNewsletter implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the Paragraph was created."""
   created: DateTime!
@@ -1575,8 +1644,11 @@ on web pages, adding credibility by showcasing customer feedback, endorsements,
 or memorable phrases.
 """
 type ParagraphQuote implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """Author of the quote."""
   author: String!
@@ -1609,8 +1681,11 @@ side and a brief text summary or call-to-action on the other, creating an
 engaging and balanced presentation.
 """
 type ParagraphSidebyside implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the Paragraph was created."""
   created: DateTime!
@@ -1642,8 +1717,11 @@ type ParagraphSidebyside implements ParagraphInterface & EdgeNode {
 
 """A list of title + summaries that belong to the stats block."""
 type ParagraphStatsItem implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the Paragraph was created."""
   created: DateTime!
@@ -1670,8 +1748,11 @@ content on web pages, seamlessly incorporating information, narratives, or
 instructions into your design.
 """
 type ParagraphText implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """Body"""
   body: TextSummary!
@@ -1697,8 +1778,11 @@ The Views Component renders Drupal views directly on web pages, ideal for
 displaying dynamic content lists like news articles, blog posts, and product
 """
 type ParagraphView implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The time that the Paragraph was created."""
   created: DateTime!
@@ -1714,6 +1798,114 @@ type ParagraphView implements ParagraphInterface & EdgeNode {
 
   """Provide the primary heading for the list view."""
   title: String
+
+  """
+  This is a viewfield query proxy. Page size and contextual filters are applied
+  within the CMS. See the actual view base query for more documentation on
+  filters and options available. Views Reference
+  """
+  viewsRef(
+    """If enabled: The page number to display."""
+    page: Int
+
+    """If enabled: The number of items skipped from beginning of this view."""
+    offset: Int
+
+    """
+    If enabled: The filters to apply to this view. Filters may not apply unless exposed.
+    """
+    filter: [KeyValueInput]
+
+    """If enabled: Sort the view by this key."""
+    sortKey: String
+
+    """If enabled: Sort the view direction."""
+    sortDir: SortDirection
+  ): ViewResultUnion!
+}
+
+"""Generic input for key-value pairs."""
+input KeyValueInput {
+  key: String!
+  value: String
+}
+
+"""Sort direction."""
+enum SortDirection {
+  """Ascending"""
+  ASC
+
+  """Descending"""
+  DESC
+}
+
+"""All available view result types."""
+union ViewResultUnion = RecentCardsArticleCardsResult
+
+"""Recent content."""
+type RecentCardsArticleCardsResult implements View {
+  """The ID of the view."""
+  id: ID!
+
+  """The machine name of the view."""
+  view: String!
+
+  """The machine name of the display."""
+  display: String!
+
+  """The language code of the view."""
+  langcode: String
+
+  """The human friendly label of the view."""
+  label: String
+
+  """The description of the view."""
+  description: String
+
+  """Information about the page in the view."""
+  pageInfo: ViewPageInfo!
+
+  """The results of the view."""
+  results: [NodeUnion!]!
+}
+
+"""Views represent collections of curated data from the CMS."""
+interface View {
+  """The ID of the view."""
+  id: ID!
+
+  """The machine name of the view."""
+  view: String!
+
+  """The machine name of the display."""
+  display: String!
+
+  """The language code of the view."""
+  langcode: String
+
+  """The human friendly label of the view."""
+  label: String
+
+  """The description of the view."""
+  description: String
+
+  """Information about the page in the view."""
+  pageInfo: ViewPageInfo!
+}
+
+"""Information about the page in a view."""
+type ViewPageInfo {
+  """Any result offset being used."""
+  offset: Int!
+
+  """The current page being returned."""
+  page: Int!
+
+  """How many results per page."""
+  pageSize: Int!
+
+  """How many results total."""
+  total: Int!
 }
 
 """
@@ -1723,8 +1915,11 @@ information. It provides a simple and straightforward layout to convey essential
 information to visitors.
 """
 type NodePage implements NodeInterface & MetaTagInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The author of this content."""
   author: User
@@ -1780,8 +1975,11 @@ enum MenuAvailable {
 
 """Entity type menu."""
 type Menu implements MenuInterface {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The menu items."""
   items: [MenuItem!]!
@@ -1792,8 +1990,11 @@ type Menu implements MenuInterface {
 
 """Entity type menu."""
 interface MenuInterface {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 
   """The menu items."""
   items: [MenuItem!]!
@@ -2318,72 +2519,6 @@ type UserEdge implements Edge {
   node: User!
 }
 
-"""Recent content."""
-type RecentCardsArticleCardsResult implements View {
-  """The ID of the view."""
-  id: ID!
-
-  """The machine name of the view."""
-  view: String!
-
-  """The machine name of the display."""
-  display: String!
-
-  """The language code of the view."""
-  langcode: String
-
-  """The human friendly label of the view."""
-  label: String
-
-  """The description of the view."""
-  description: String
-
-  """Information about the page in the view."""
-  pageInfo: ViewPageInfo!
-
-  """The results of the view."""
-  results: [NodeUnion!]!
-}
-
-"""Views represent collections of curated data from the CMS."""
-interface View {
-  """The ID of the view."""
-  id: ID!
-
-  """The machine name of the view."""
-  view: String!
-
-  """The machine name of the display."""
-  display: String!
-
-  """The language code of the view."""
-  langcode: String
-
-  """The human friendly label of the view."""
-  label: String
-
-  """The description of the view."""
-  description: String
-
-  """Information about the page in the view."""
-  pageInfo: ViewPageInfo!
-}
-
-"""Information about the page in a view."""
-type ViewPageInfo {
-  """Any result offset being used."""
-  offset: Int!
-
-  """The current page being returned."""
-  page: Int!
-
-  """How many results per page."""
-  pageSize: Int!
-
-  """How many results total."""
-  total: Int!
-}
-
 """The schema's entry-point for mutations."""
 type Mutation {
   """Placeholder for mutation extension."""
@@ -2425,41 +2560,30 @@ type File {
 
 """Entity type image_style."""
 type ImageStyle implements ImageStyleInterface {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
-  name: String!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 }
 
 """Entity type image_style."""
 interface ImageStyleInterface {
-  """The Universally Unique IDentifier (UUID)."""
+  """The entity ID."""
   id: ID!
-  name: String!
+
+  """The Universally Unique IDentifier (UUID)."""
+  uuid: ID!
 }
 
 """Entity type image_style."""
 union ImageStyleUnion = ImageStyle
-
-"""Generic input for key-value pairs."""
-input KeyValueInput {
-  key: String!
-  value: String
-}
 
 """Entity type menu."""
 union MenuUnion = Menu
 
 """A field whose value conforms to the standard E.164"""
 scalar PhoneNumber
-
-"""Sort direction."""
-enum SortDirection {
-  """Ascending"""
-  ASC
-
-  """Descending"""
-  DESC
-}
 
 """
 Unsupported entity or field type in the schema.
@@ -2528,6 +2652,3 @@ type ViewReference {
   """
   query: String
 }
-
-"""All available view result types."""
-union ViewResultUnion = RecentCardsArticleCardsResult

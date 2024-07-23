@@ -1146,6 +1146,25 @@ function drupalx_graphql_tasks_simple_oauth() {
     $messages[] = 'Credentials added to ' . $envFile;
   }
 
+  // Get current domain.
+  $host = \Drupal::request()->getSchemeAndHttpHost();
+
+  // If the domain ends with .ddev.site, force http.
+  if (strpos($host, '.ddev.site') !== FALSE) {
+    $host = preg_replace('/^https:/', 'http:', $host);
+  }
+
+  // If ../next.config.mjs exists then append the credentials.
+  $nextConfigFile = '../nextjs/next.config.mjs';
+  if (file_exists($nextConfigFile)) {
+    $nextConfigContents = file_get_contents($nextConfigFile);
+    $nextConfigContents = preg_replace('/externalDomain = \'[^\']+\'/', 'externalDomain = \'' . $host . '\'', $nextConfigContents);
+    $nextConfigContents = preg_replace('/externalDomainHost = \'[^\']+\'/', 'externalDomainHost = \'' . parse_url($host, PHP_URL_HOST) . '\'', $nextConfigContents);
+    file_put_contents($nextConfigFile, $nextConfigContents);
+    // Notify the user.
+    $messages[] = 'Domain added to ' . $nextConfigFile;
+  }
+
   if (PHP_SAPI === 'cli') {
     echo PHP_EOL;
     foreach ($messages as $message) {

@@ -5,5 +5,4 @@
 ddev start
 ddev composer install
 ddev . drush si -y --verbose drupalx_graphql
-ddev . drush webform-libraries-download
 ddev drush uli

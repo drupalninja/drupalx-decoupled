@@ -13,12 +13,14 @@ export default function Header({ mainMenu }: HeaderProps) {
   const menus = mainMenu?.items;
 
   return (
-    <section className="mb-2 mb-lg-8">
-      <MainMenu
-        siteLogo="/images/logo.svg"
-        menuItems={menus || []}
-        modifier=""
-      />
-    </section>
+    <header role="banner" className="sticky-top">
+      <section className="mb-2 mb-lg-8">
+        <MainMenu
+          siteLogo="/images/logo.svg"
+          menuItems={menus || []}
+          modifier="p-0"
+        />
+      </section>
+    </header>
   );
 }
