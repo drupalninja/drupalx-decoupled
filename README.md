@@ -17,7 +17,7 @@ This project template leverages the DrupalX Decoupled distribution, featuring en
 Create your project:
 
 ```bash
-composer create-project drupalninja/drupalx-decoupled:10.x-dev some-dir --no-interaction
+composer create-project drupalninja/drupalx-decoupled:10.x-dev drupalx-decoupled-starter --no-interaction
 ```
 
 Configure DDEV (follow prompts).
