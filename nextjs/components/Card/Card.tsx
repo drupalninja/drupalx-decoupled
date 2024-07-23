@@ -38,8 +38,11 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div className={`card h-100 ${modifier}`}>
-      {media && (
-        <>{getImage(media)}</>
+      {mediaLink && media && (
+        <a href={mediaLink}>{getImage(media)}</a>
+      )}
+      {!mediaLink && media && (
+        getImage(media)
       )}
       <div className={`card-body mt-2 ${bodyModifier}`}>
         {tags.length > 0 && (

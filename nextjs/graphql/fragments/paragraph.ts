@@ -334,20 +334,54 @@ export const ParagraphNewsletterFragment = graphql(`fragment ParagraphNewsletter
   ]
 )
 
-export const ParagraphViewFragment = graphql(`
-  fragment ParagraphViewFragment on ParagraphView {
+export const ParagraphViewFragment = graphql(`fragment ParagraphViewFragment on ParagraphView {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  status
+  title
+  viewsRef {
     __typename
-    id
-    reference {
-      __typename
-      ... on RecentCardsArticleCardsResult {
-        id
-        view
-        display
+    ... on RecentCardsArticleCardsResult {
+      id
+      view
+      display
+      results {
+        ... on NodeArticle {
+          id
+          path
+          title
+          media {
+            ...MediaImageFragment
+          }
+          created {
+            ...DateTimeFragment
+          }
+          langcode {
+            ...LanguageFragment
+          }
+          status
+          summary
+        }
       }
     }
   }
-`)
+}`,
+  [
+    MediaUnionFragment,
+    DateTimeFragment,
+    LanguageFragment,
+    LinkFragment,
+    TextFragment,
+  ]
+)
 
 export const ParagraphUnionFragment = graphql(`
   fragment ParagraphUnionFragment on ParagraphUnion {
