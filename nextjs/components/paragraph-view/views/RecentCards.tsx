@@ -11,25 +11,23 @@ export default function RecentCards(
   ) {
 
   return (
-    <div className="my-6 my-lg-15">
-      <div className='container'>
-        <div className={`row`}>
-          {results.map((result) => (
-            <div className="col-md-6 col-lg-4 mb-2 mb-md-8" key={result.id}>
-              <Card
-                modifier=""
-                heading={{
-                  title: result.title,
-                  url: result.path,
-                }}
-                media={result.media}
-                mediaLink={result.path}
-                summaryText={result.summary}
-              />
-            </div>
-          ))}
-        </div>    
-      </div>
+    <div className='container'>
+      <div className={`row`}>
+        {results.map((result) => (
+          <div className="col-md-6 col-lg-4 mb-2 mb-md-8" key={result.id}>
+            <Card
+              modifier=""
+              heading={{
+                title: result.title,
+                url: result.path,
+              }}
+              media={result.media}
+              mediaLink={result.path}
+              summaryText={result.summary}
+            />
+          </div>
+        ))}
+      </div>    
     </div>
   )
 }

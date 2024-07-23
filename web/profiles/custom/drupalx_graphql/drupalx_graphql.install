@@ -477,18 +477,26 @@ function _drupalx_graphql_create_sidebyside_paragraph(array $info = []) {
 /**
  * Create an Articles paragraph.
  *
+ * @param bool $addTitle
+ *   Whether to add a title to the paragraph.
+ *
  * @return \Drupal\paragraphs\Entity\Paragraph
  *   The Articles paragraph.
  */
-function _drupalx_graphql_create_articles_paragraph() {
+function _drupalx_graphql_create_articles_paragraph($addTitle = FALSE) {
   $paragraph = Paragraph::create([
     'type' => 'views',
-    'field_title' => '',
     'field_views_ref' => [
       'target_id' => 'recent_cards',
       'display_id' => 'article_cards',
     ],
   ]);
+
+  if ($addTitle) {
+    $paragraph->set('field_title', [
+      'value' => 'Recent Articles',
+    ]);
+  }
 
   $paragraph->save();
   return $paragraph;
@@ -786,7 +794,7 @@ function drupalx_graphql_install_content() {
     _drupalx_graphql_create_accordion_paragraph(),
     _drupalx_graphql_create_quote_paragraph($media_items),
     _drupalx_graphql_create_newsletter_paragraph(),
-    _drupalx_graphql_create_articles_paragraph(),
+    _drupalx_graphql_create_articles_paragraph(TRUE),
   ];
 
   // Side by side paragraphs.
