@@ -8,7 +8,7 @@ dependencies:
     - graphql_compose_preview
     - node
 _core:
-  default_config_hash: gg6tKZ4boMZOfApukpLBKLntzUKWTHBcrnvvhKu1aCo
+  default_config_hash: KBsnRJSah2-72Zt8gRC_bL6TEuAPe3fH0yFnbRv_Bz0
 id: previewer
 label: Previewer
 weight: 3

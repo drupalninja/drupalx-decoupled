@@ -10,7 +10,7 @@ dependencies:
     - paragraphs
     - paragraphs_features
 _core:
-  default_config_hash: F2N24s8mURi_gHuiIQpSrFJMlkOYd9a8-01F_UebRdo
+  default_config_hash: KBFT6nrJCs52G5EtVKXH5JajK4Ki9UZ-xqaSvYZ1rY0
 id: paragraph.card_group.default
 targetEntityType: paragraph
 bundle: card_group

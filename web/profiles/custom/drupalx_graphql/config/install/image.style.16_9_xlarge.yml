@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: EDK1AFGfJRbFiqs28xnXKe-fTy9ajVAAHFUT2Dti-CA
+  default_config_hash: 3ZVdTSX6nlsPcVDh-s96hZxnylXcPqjk5clIk7mzm7I
 name: 16_9_xlarge
 label: '16:9 Extra Large (720 x 405)'
 effects:

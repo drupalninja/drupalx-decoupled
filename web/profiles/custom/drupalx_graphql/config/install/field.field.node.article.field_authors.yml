@@ -7,7 +7,7 @@ dependencies:
     - node.type.article
     - taxonomy.vocabulary.authors
 _core:
-  default_config_hash: TG0lQ5IN94AmvYHMseYQ4jU9euRuLlAmthUEK6fIim0
+  default_config_hash: ph5vAjMjEp9rC0TmQhT7za9hPyccITEMw1KlnbRwqTM
 id: node.article.field_authors
 field_name: field_authors
 entity_type: node

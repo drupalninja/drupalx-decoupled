@@ -11,7 +11,7 @@ third_party_settings:
     paragraphs_categories:
       media: media
 _core:
-  default_config_hash: hVsMlsbrYBVgEfq7357WHn4ZRYmCee1ydWbR5kFJ8sY
+  default_config_hash: pZWaNIPNPNGa_aXGbL8gjbmWiQyLFlpC1CWXQq1CLyA
 id: media
 label: Media
 icon_uuid: e1da5d99-e34c-48d9-85dc-67b070fa8794

@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: vQ3YxLp2GmzenMtB0zogj8nFnM8KnguqJKRqGtr-SUk
+  default_config_hash: nrNd9cOD-3a-v6X10caAeVNrESveJrgucPtFbc77Urs
 entity_config:
   image_style:
     16_9_large_2x:
@@ -317,6 +317,9 @@ field_config:
         enabled: true
       field_title:
         enabled: true
+      field_views_ref:
+        enabled: true
+        viewfield_query: true
 settings:
   exclude_unpublished: true
   expose_entity_ids: false

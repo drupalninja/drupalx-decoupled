@@ -6,7 +6,7 @@ dependencies:
     - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.gallery
 _core:
-  default_config_hash: QGgEE2t86sojKs8bY11Zh7qXXU4BSq5gVArqP_M0tAc
+  default_config_hash: DoN3tOhUuZJeAhvPlC-weYmtbvqPFBPCPIb0PdNC76Y
 id: paragraph.gallery.field_title
 field_name: field_title
 entity_type: paragraph

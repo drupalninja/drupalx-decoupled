@@ -11,7 +11,7 @@ dependencies:
     - media_library
     - text
 _core:
-  default_config_hash: pCKyBWkYDV_7lEAla2-4MYr1UKd9dKyW2FpoECflfHo
+  default_config_hash: TfHgggXa8S04rBDHCN_UmUAyvGDHMg6oCYOSkKOfcNw
 id: paragraph.gallery.default
 targetEntityType: paragraph
 bundle: gallery

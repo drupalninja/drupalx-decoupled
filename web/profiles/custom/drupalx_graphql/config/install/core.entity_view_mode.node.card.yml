@@ -5,7 +5,7 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: KRyeRdMPXQI1nN22PaAHr-dDn1Mbq5DVMRm4pF1q-EM
+  default_config_hash: zhtXDlKv_F-29ct-pGWm1t2zKoUfn4HBGh1A_829FOw
 id: node.card
 label: Card
 description: ''

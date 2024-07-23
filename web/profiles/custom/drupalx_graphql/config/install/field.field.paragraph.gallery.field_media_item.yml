@@ -7,7 +7,7 @@ dependencies:
     - media.type.image
     - paragraphs.paragraphs_type.gallery
 _core:
-  default_config_hash: J6fMF5LE-Dfkv8z8rKapVrDCPquhPGtBRjaac4f4H8Q
+  default_config_hash: qPbx9MQYJO4XruTFGDvQkbzVorETIuSkipJuyn83aKo
 id: paragraph.gallery.field_media_item
 field_name: field_media_item
 entity_type: paragraph

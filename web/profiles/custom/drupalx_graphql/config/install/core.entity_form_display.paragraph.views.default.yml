@@ -11,7 +11,7 @@ dependencies:
     - link
     - viewfield
 _core:
-  default_config_hash: Y-JrnIEWr70TOLKIqY-4JDH_H0Xmf2y1ecrOG7lZeAM
+  default_config_hash: eQYjG8uJJ7Ja-avzBENVWmz20xOiRgDTs9lSXZssRKY
 id: paragraph.views.default
 targetEntityType: paragraph
 bundle: views
