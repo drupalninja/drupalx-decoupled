@@ -20,6 +20,12 @@ Create your project:
 composer create-project drupalninja/drupalx-decoupled:10.x-dev drupalx-decoupled-starter --no-interaction
 ```
 
+Make sure that the files directory is writable.
+
+```bash
+chmod -R 755 web/sites/default/files/
+```
+
 Configure DDEV (follow prompts).
 
 ```bash
