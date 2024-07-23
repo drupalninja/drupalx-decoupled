@@ -92,7 +92,7 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
     data?.route.__typename !== "RouteInternal" ||
     !data.route.entity
   ) {
-    return redirect("/node/1");
+    return redirect('/page-not-found');
   }
 
   return {

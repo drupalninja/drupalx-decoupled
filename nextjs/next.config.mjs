@@ -4,7 +4,6 @@ const externalDomainHost = 'drupalx-graphql.ddev.site';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageNotFound: '/node/1',
   async redirects() {
     return [
       {

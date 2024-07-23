@@ -574,7 +574,7 @@ function drupalx_graphql_install_content() {
       'format' => 'full_html',
     ],
     'path' => [
-      'alias' => '/page/page-not-found',
+      'alias' => '/page-not-found',
       'pathauto' => 0,
     ],
   ]);
@@ -595,7 +595,7 @@ function drupalx_graphql_install_content() {
       'format' => 'full_html',
     ],
     'path' => [
-      'alias' => '/page/access-denied',
+      'alias' => '/access-denied',
       'pathauto' => 0,
     ],
   ]);
