@@ -18,10 +18,11 @@ export default function NodeLayoutComponent({ node, environment }: NodeLayoutCom
     data: nodeLayout.content,
     environment,
   });
+  const { title, hidePageTitle } = nodeLayout;
 
   return (
     <>
-      {nodeLayout.hidePageTitle ? null : <Heading level={1} title={nodeLayout.title} modifier="container mb-4" />}
+      {hidePageTitle ? null : <Heading level={1} title={title} modifier="container mb-4" />}
       {components.map((component, index: number) => {
         return <Fragment key={index}>{component}</Fragment>;
       })}

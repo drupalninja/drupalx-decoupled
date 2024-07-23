@@ -15,7 +15,7 @@ export default function Header({ mainMenu }: HeaderProps) {
   return (
     <section className="mb-2 mb-lg-8">
       <MainMenu
-        siteLogo="./images/logo.svg"
+        siteLogo="/images/logo.svg"
         menuItems={menus || []}
         modifier=""
       />

@@ -23,6 +23,6 @@ type Story = StoryObj<typeof Logo>;
 export const Default: Story = {
   args: {
     modifier: 'col-3',
-    siteLogo: './images/logo.svg',
+    siteLogo: '/images/logo.svg',
   }
 };

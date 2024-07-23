@@ -19,7 +19,7 @@ export const Default: Story = {
   args: {
     modifier: '',
     linkModifier: '',
-    siteLogo: './images/logo.svg',
+    siteLogo: '/images/logo.svg',
     menuItems: [
       {
         title: 'Home',

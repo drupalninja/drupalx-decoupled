@@ -2,11 +2,10 @@ import { graphql } from "@/graphql/gql.tada";
 
 import { MediaImageFragment, MediaUnionFragment } from "@/graphql/fragments/media";
 import { UserFragment } from "@/graphql/fragments/user";
-import { TextFragment, DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
+import { TextFragment, TextSummaryFragment, DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
 import { MetatagFragment, MetaTagUnionFragment } from "./metatag";
-import {
-  ParagraphUnionFragment,
-} from "./paragraph";
+import { ParagraphUnionFragment} from "./paragraph";
+import { TermUnionFragment } from "./term";
 
 export const NodePageFragment = graphql(`
   fragment NodePageFragment on NodePage  {
@@ -17,24 +16,60 @@ export const NodePageFragment = graphql(`
   }
 `)
 
-export const NodeArticleFragment = graphql(`
-  fragment NodeArticleFragment on NodeArticle {
-    __typename
-    id
-    title
-    summary
-    path
-    lead {
-      ...TextFragment
-    }
-    metatag {
-      ...MetatagFragment
-    }
-    media {
-      ...MediaImageFragment
-    }
+export const NodeArticleFragment = graphql(`fragment NodeArticleFragment on NodeArticle {
+  id
+  author {
+    ...UserFragment
   }
-`, [MetatagFragment, MediaImageFragment, TextFragment])
+  authors {
+    ...TermUnionFragment
+  }
+  body {
+    ...TextSummaryFragment
+  }
+  changed {
+    ...DateTimeFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  lead {
+    ...TextFragment
+  }
+  media {
+    ...MediaUnionFragment
+  }
+  metatag {
+    ...MetaTagUnionFragment
+  }
+  path
+  promote
+  status
+  sticky
+  subhead
+  summary
+  tags {
+    ...TermUnionFragment
+  }
+  thumbnail {
+    ...MediaUnionFragment
+  }
+  title
+}`,
+  [
+    UserFragment,
+    TermUnionFragment,
+    TextSummaryFragment,
+    DateTimeFragment,
+    LanguageFragment,
+    TextFragment,
+    MediaUnionFragment,
+    MetaTagUnionFragment,
+  ]
+)
 
 export const NodeLayoutFragment = graphql(`fragment NodeLayoutFragment on NodeLayout {
   id

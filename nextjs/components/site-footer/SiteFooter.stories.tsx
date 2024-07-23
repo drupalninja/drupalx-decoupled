@@ -29,7 +29,7 @@ type Story = StoryObj<typeof SiteFooter>;
 
 export const Default: Story = {
   args: {
-    siteLogo: './images/logo.svg',
+    siteLogo: '/images/logo.svg',
     modifier: '',
     linkItemModifier: 'fs-5 text-white',
     links: [
