@@ -2,6 +2,7 @@ import { FragmentOf, readFragment } from "gql.tada";
 import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from "../helpers/Utilities";
 import Heading from "../heading/Heading";
+import './Node.scss';
 
 type NodeArticleComponentProps = {
   node: FragmentOf<typeof NodeArticleFragment>;
@@ -9,7 +10,7 @@ type NodeArticleComponentProps = {
 }
 
 export default function NodeArticleComponent({ node, environment }: NodeArticleComponentProps) {
-  const { title, subhead, lead, path, media, summary } = readFragment(
+  const { title, subhead, lead, media, body } = readFragment(
     NodeArticleFragment,
     node
   );
@@ -26,7 +27,9 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
               {subhead}
             </div>)}
             <Heading level={1} title={title} modifier="heading mb-2 text-secondary display-3" />
+            {lead?.processed && (<div className="lead mb-4" dangerouslySetInnerHTML={{ __html: lead.processed }} />)}
           </div>
+          {body?.processed && (<div className="col-lg-10 col-xl-7 mx-auto" dangerouslySetInnerHTML={{ __html: body.processed }} />)}
         </div>
       </article>
     </>

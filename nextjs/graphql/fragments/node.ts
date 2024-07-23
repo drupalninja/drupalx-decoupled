@@ -7,14 +7,48 @@ import { MetatagFragment, MetaTagUnionFragment } from "./metatag";
 import { ParagraphUnionFragment} from "./paragraph";
 import { TermUnionFragment } from "./term";
 
-export const NodePageFragment = graphql(`
-  fragment NodePageFragment on NodePage  {
-    __typename
-    id
-    title
-    summary
+export const NodePageFragment = graphql(`fragment NodePageFragment on NodePage {
+  id
+  author {
+    ...UserFragment
   }
-`)
+  body {
+    ...TextSummaryFragment
+  }
+  changed {
+    ...DateTimeFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  mediaPage: media {
+    ...MediaUnionFragment
+  }
+  metatag {
+    ...MetaTagUnionFragment
+  }
+  path
+  promote
+  status
+  sticky
+  summary
+  thumbnail {
+    ...MediaUnionFragment
+  }
+  title
+}`,
+  [
+    UserFragment,
+    TextSummaryFragment,
+    DateTimeFragment,
+    LanguageFragment,
+    MediaUnionFragment,
+    MetaTagUnionFragment,
+  ]
+)
 
 export const NodeArticleFragment = graphql(`fragment NodeArticleFragment on NodeArticle {
   id

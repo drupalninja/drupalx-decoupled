@@ -242,11 +242,20 @@ function _drupalx_graphql_create_article_nodes($media_items, $tag_ids) {
       ],
       'field_summary' => 'Lorem ipsum dolor sit amet consectetur. Congue vel sagittis eu ullamcorper vel. Et et dui est ante tempor egestas pellentesque odio. Ornare erat lacus commodo porttitor ut enim. Ultricies mauris blandit in fermentum fringilla mollis risus ut.',
       'field_lead' => [
-        'value' => '<p>Lorem ipsum dolor sit amet consectetur...</p>',
+        'value' => '<p>Lorem ipsum dolor sit amet consectetur. Congue vel sagittis eu ullamcorper vel. Et et dui est ante tempor egestas pellentesque odio. Ornare erat lacus commodo porttitor ut enim. Ultricies mauris blandit in fermentum fringilla mollis risus ut. Nam eget eu suspendisse ut fermentum nascetur pretium lectus. Odio amet amet nam viverra hendrerit diam et. Nibh nunc in senectus odio tempor vitae id. Sit ut sit porta nisl enim.</p>',
         'format' => 'full_html',
       ],
       'body' => [
-        'value' => '<h2>Lorem ipsum dolor sit amet</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>',
+        'value' => '<h2>Lorem ipsum dolor sit amet</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>&nbsp;</p>
+          <h3>Vestibulum ante ipsum primis</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <drupal-media data-align="center" data-caption="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." data-entity-type="media" data-entity-uuid="' . $media_items['card']->uuid() . '" data-view-mode=""></drupal-media>
+          <h3>Curabitur vel sem sit amet</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <drupal-media data-align="center" data-caption="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." data-entity-type="media" data-entity-uuid="' . $media_items['card']->uuid() . '" data-view-mode=""></drupal-media>',
         'format' => 'full_html',
       ],
     ]);
