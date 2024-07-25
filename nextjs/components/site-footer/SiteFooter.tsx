@@ -2,8 +2,8 @@ import React from 'react';
 import './SiteFooter.scss';
 import Image from 'next/image';
 
-type SiteFooterProps = {
-  links: { title: string; url: string }[];
+export type SiteFooterProps = {
+  links: { title: string; url: string | null, children: { title: string; url: string | null } }[];
   siteLogo: string;
   modifier?: string;
   menuModifier?: string;

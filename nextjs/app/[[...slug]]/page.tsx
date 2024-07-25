@@ -30,7 +30,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { entity } = await getPageData({ params })
 
-  let title = entity?.title ?? '';
+  let title = (entity as any).title ?? '';
 
   return {
     title: title,

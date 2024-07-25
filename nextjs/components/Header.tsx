@@ -1,6 +1,7 @@
 import { ResultOf } from "gql.tada";
 import { MainMenuQuery } from "@/graphql/queries";
 import MainMenu from "./main-menu/MainMenu";
+import { MainMenuProps } from "./main-menu/Types";
 
 type MainMenuData = ResultOf<typeof MainMenuQuery>;
 
@@ -12,12 +13,21 @@ type HeaderProps = {
 export default function Header({ mainMenu }: HeaderProps) {
   const menus = mainMenu?.items;
 
+  const links: MainMenuProps['menuItems'] = menus?.map(item => ({
+    title: item.title,
+    url: item.url ?? '',
+    below: item.children.length > 0 ? item.children.map(child => ({
+      title: child.title,
+      url: child.url ?? ''
+    })) : undefined
+  })) || [];
+
   return (
     <header role="banner" className="sticky-top">
       <section className="mb-2 mb-lg-8">
         <MainMenu
           siteLogo="/images/logo.svg"
-          menuItems={menus || []}
+          menuItems={links}
           modifier="p-0"
         />
       </section>
