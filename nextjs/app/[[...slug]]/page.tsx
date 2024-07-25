@@ -1,3 +1,4 @@
+import { GetStaticPaths } from 'next';
 import NodeArticleComponent from "@/components/node/NodeArticle";
 import NodePageComponent from "@/components/node/NodePage";
 import NodeLayoutComponent from "@/components/node/NodeLayout";
@@ -7,7 +8,7 @@ import {
   NodePageFragment,
 } from "@/graphql/fragments/node";
 import { graphql } from "@/graphql/gql.tada";
-import { getClient } from "@/utils/client.server";
+import { getClientWithAuth } from "@/utils/client.server";
 import { calculatePath } from "@/utils/routes";
 import { EntityFragmentType } from "@/utils/types.server";
 import { FragmentOf } from "gql.tada";
@@ -18,6 +19,45 @@ import { Metadata, ResolvingMetadata } from 'next'
 
 type Props = {
   params: { slug: string[] }
+}
+
+// Configure the page type to be a static page.
+const staticTypes = ['nodePages', 'nodeArticles', 'nodeLayouts'];
+
+async function getAllPaths(): Promise<string[]> {
+  const client = await getClientWithAuth();
+  const allPathsQuery = graphql(`
+    query allPaths {
+      ${staticTypes.map(type => `
+        ${type}(first: 100) {
+          nodes {
+            path
+          }
+        }
+      `).join('\n')}
+    }
+  `);
+
+  const { data } = await client.query(allPathsQuery, {});
+
+  if (!data) {
+    console.error('Failed to fetch paths from Drupal');
+    return [];
+  }
+
+  const allPaths = staticTypes.flatMap(type => {
+    return (data as any)[type]?.nodes?.map((node: any) => node.path) || [];
+  });
+
+  return allPaths.filter(path => path && path !== '/welcome');
+}
+
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
+  const paths = await getAllPaths();
+
+  return paths.map((path: string) => ({
+    slug: path.split('/').filter(segment => segment !== ''),
+  }));
 }
 
 async function getPageData({ params }: Props) {
@@ -38,7 +78,7 @@ export async function generateMetadata(
 }
 
 async function getDrupalData({ params }: { params: { slug: string[] } }) {
-  const pathFromParams = params.slug?.join("/") || "/home";
+  const pathFromParams = params.slug?.join("/") || "/welcome";
   const requestUrl = headers().get("x-url");
 
   const path = calculatePath({
@@ -46,14 +86,7 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
     url: requestUrl!,
   });
 
-  const client = await getClient({
-    url: process.env.DRUPAL_GRAPHQL_URI!,
-    auth: {
-      uri: process.env.DRUPAL_AUTH_URI!,
-      clientId: process.env.DRUPAL_CLIENT_ID!,
-      clientSecret: process.env.DRUPAL_CLIENT_SECRET!,
-    },
-  });
+  const client = await getClientWithAuth();
 
   const nodeRouteQuery = graphql(
     `

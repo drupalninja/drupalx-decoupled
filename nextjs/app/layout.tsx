@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import { Suspense } from "react";
 import NavigationEvents from "@/components/helpers/NavigationEvents";
 import { MainMenuQuery, FooterMenuQuery } from "@/graphql/queries";
-import { getClient } from "@/utils/client.server";
+import { getClientWithAuth } from "@/utils/client.server";
 
 function getEnvironment(): string {
   return process.env.ENVIRONMENT || "production";
@@ -18,15 +18,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const environment = getEnvironment();
-
-  const client = await getClient({
-    url: process.env.DRUPAL_GRAPHQL_URI!,
-    auth: {
-      uri: process.env.DRUPAL_AUTH_URI!,
-      clientId: process.env.DRUPAL_CLIENT_ID!,
-      clientSecret: process.env.DRUPAL_CLIENT_SECRET!,
-    },
-  });
+  const client = await getClientWithAuth();
 
   const { data: menuData, error: menuError } = await client.query(MainMenuQuery, {});
   
