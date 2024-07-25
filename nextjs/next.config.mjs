@@ -1,5 +1,5 @@
-const externalDomain = 'http://drupalx-graphql.ddev.site';
-const externalDomainHost = 'drupalx-graphql.ddev.site';
+const externalDomain = process.env.DRUPAL_AUTH_URI;
+const externalDomainHost = new URL(externalDomain).host;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
