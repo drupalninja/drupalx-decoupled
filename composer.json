@@ -150,10 +150,12 @@
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "pre-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion",
+            "DrupalComposerManaged\\ComposerScripts::preUpdate"
         ],
         "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrupalComposerManaged\\ComposerScripts::postUpdate"
         ]
     }
 }
