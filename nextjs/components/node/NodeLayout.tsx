@@ -15,7 +15,7 @@ export default function NodeLayoutComponent({ node, environment }: NodeLayoutCom
     node
   );
   const components = resolve({
-    data: nodeLayout.content,
+    data: nodeLayout.content as any,
     environment,
   });
   const { title, hidePageTitle } = nodeLayout;

@@ -31,6 +31,6 @@ export const Default: Story = {
         url: '#',
         title: 'Read more',
       },
-    },
+    } as any,
   }
 };

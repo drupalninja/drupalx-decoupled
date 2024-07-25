@@ -5,15 +5,15 @@ const meta: Meta<typeof ParagraphCardGroup> = {
   title: 'Editorial/Paragraph Card Group',
   component: ParagraphCardGroup,
   argTypes: {
-    title: {
-      description: 'The title of the card group component',
-      control: 'text'
+    modifier: {
+      control: 'text',
+      description: 'Modifier class for the card group',
     },
-    card: {
-      description: 'Array of the card item content',
+    paragraph: {
+      description: 'FragmentOf<typeof ParagraphCardGroupFragment>',
       control: 'object',
-    }
-  }
+    },
+  },
 };
 
 export default meta;
