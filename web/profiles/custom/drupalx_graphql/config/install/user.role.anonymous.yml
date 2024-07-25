@@ -1,0 +1,18 @@
+uuid: 2d3c4616-95d2-4904-aa4e-dafd489b15d3
+langcode: en
+status: true
+dependencies:
+  module:
+    - graphql
+    - media
+    - system
+_core:
+  default_config_hash: mYpMUfpNcrqEWCYhlHriNgn4rkPH_P3K0C4JAzp8L80
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'execute graphql_compose_server arbitrary graphql requests'
+  - 'view media'

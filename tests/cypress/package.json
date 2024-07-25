@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "cypress": "npx cypress run"
+  },
+  "devDependencies": {
+    "@bahmutov/cy-grep": "^1.10.0",
+    "cypress": "^13.11.0"
+  }
+}

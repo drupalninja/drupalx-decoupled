@@ -1,0 +1,10 @@
+// Import site utilities.
+@import '../../styles/bootstrap-init';
+
+.media {
+
+  img,
+  picture {
+    width: 100%;
+  }
+}

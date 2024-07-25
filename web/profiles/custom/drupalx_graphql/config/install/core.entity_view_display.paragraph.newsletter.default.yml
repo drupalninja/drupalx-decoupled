@@ -1,0 +1,15 @@
+uuid: 0975a012-dbee-4d51-8c36-3d703487737c
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.newsletter
+_core:
+  default_config_hash: 2A_POr6fiKACT7kae7BpUqx7wM0iFA-sFWZy6RsZUm8
+id: paragraph.newsletter.default
+targetEntityType: paragraph
+bundle: newsletter
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

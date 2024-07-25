@@ -1,0 +1,12 @@
+_core:
+  default_config_hash: 1849u0KuBZtxaFR2_neBxsCak-ebF2kTSmPuNblOupg
+redirect_anonymous: true
+redirect_url: 'http://localhost:8080'
+preview_url: 'http://localhost:8080'
+preview_types:
+  node:
+    article: article
+    layout: layout
+    page: page
+route_sync: DECOUPLED_PREVIEW_IFRAME_ROUTE_SYNC
+draft_provider: graphql_compose_preview

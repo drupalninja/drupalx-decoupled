@@ -1,22 +1,39 @@
-# Composer-enabled Drupal template
+# DrupalX Decoupled Enterprise Starter Template
 
-This is Pantheon's recommended starting point for forking new [Drupal](https://www.drupal.org/) upstreams
-that work with the Platform's Integrated Composer build process. It is also the
-Platform's standard Drupal 9 upstream.
+[![CI](https://github.com/drupalninja/drupalx-decoupled/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/drupalninja/drupalx-decoupled/actions/workflows/ci.yml)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
-Unlike with earlier Pantheon upstreams, files such as Drupal Core that you are
-unlikely to adjust while building sites are not in the main branch of the 
-repository. Instead, they are referenced as dependencies that are installed by
-Composer.
+This project template leverages the DrupalX Decoupled distribution, featuring enhanced editorial capabilities, integrated 4GraphQL support and a Next.js frontend starter.
 
-For more information and detailed installation guides, please visit the
-Integrated Composer Pantheon documentation: https://pantheon.io/docs/integrated-composer
+## What does the template do?
 
-## Contributing
+* Extends the [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project) template (visit the README for basic instructions).
+* Adds additional contributed modules to the project via Composer.
+* Sets up [DDEV](https://ddev.com/) as the default development environment.rapid style customization.
+* Configures the DrupalX GraphQL custom profile as the default install profile.
 
-Contributions are welcome in the form of GitHub pull requests. However, the
-`pantheon-upstreams/drupal-composer-managed` repository is a mirror that does not
-directly accept pull requests.
+## Installing
 
-Instead, to propose a change, please fork [pantheon-systems/drupal-composer-managed](https://github.com/pantheon-systems/drupal-composer-managed)
-and submit a PR to that repository.
+Create your project:
+
+```bash
+composer create-project drupalninja/drupalx-decoupled:10.x-dev drupalx-decoupled-starter --no-interaction
+```
+
+Make sure that the files directory is writable.
+
+```bash
+chmod -R 755 web/sites/default/files/
+```
+
+Configure DDEV (follow prompts).
+
+```bash
+ddev config
+```
+
+Start DDEV, download Composer dependencies and install DrupalX CMS.
+
+```bash
+ddev install
+```
