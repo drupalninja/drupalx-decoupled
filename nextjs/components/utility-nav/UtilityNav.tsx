@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import './UtilityNav.scss';
 
 interface UtilityNavLink {
@@ -15,9 +16,9 @@ const UtilityNav: React.FC<UtilityNavProps> = ({ links }) => {
     <ul className="nav">
       {links.map((link, index) => (
         <li key={index} className="nav-item">
-          <a href={link.url} className="nav-link">
+          <Link href={link.url} className="nav-link">
             {link.text}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
