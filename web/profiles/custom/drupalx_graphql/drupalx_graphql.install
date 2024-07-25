@@ -1125,9 +1125,9 @@ function drupalx_graphql_tasks_simple_oauth() {
 
   $messages = [];
 
-  // If '../' is writable generate keys.
-  if (is_writable('../')) {
-    \Drupal::service('simple_oauth.key.generator')->generateKeys('../');
+  // If sites/default/files/private is writable to generate keys.
+  if (is_writable('sites/default/files/private')) {
+    \Drupal::service('simple_oauth.key.generator')->generateKeys('sites/default/files/private');
 
     $messages = [
       'Consumers created successfully. Please save the following credentials.',
