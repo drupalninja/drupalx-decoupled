@@ -8,7 +8,7 @@ import {
   NodePageFragment,
 } from "@/graphql/fragments/node";
 import { graphql } from "@/graphql/gql.tada";
-import { getClient } from "@/utils/client.server";
+import { getClientWithAuth } from "@/utils/client.server";
 import { calculatePath } from "@/utils/routes";
 import { EntityFragmentType } from "@/utils/types.server";
 import { FragmentOf } from "gql.tada";
@@ -21,18 +21,11 @@ type Props = {
   params: { slug: string[] }
 }
 
+// Configure the page type to be a static page.
+const staticTypes = ['nodePages', 'nodeArticles', 'nodeLayouts'];
+
 async function getAllPaths(): Promise<string[]> {
-  const client = await getClient({
-    url: process.env.DRUPAL_GRAPHQL_URI!,
-    auth: {
-      uri: process.env.DRUPAL_AUTH_URI!,
-      clientId: process.env.DRUPAL_CLIENT_ID!,
-      clientSecret: process.env.DRUPAL_CLIENT_SECRET!,
-    },
-  });
-
-  const staticTypes = ['nodePages', 'nodeArticles', 'nodeLayouts'];
-
+  const client = await getClientWithAuth();
   const allPathsQuery = graphql(`
     query allPaths {
       ${staticTypes.map(type => `
@@ -61,8 +54,6 @@ async function getAllPaths(): Promise<string[]> {
 
 export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   const paths = await getAllPaths();
-
-  console.dir(paths);
 
   return paths.map((path: string) => ({
     slug: path.split('/').filter(segment => segment !== ''),
@@ -95,14 +86,7 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
     url: requestUrl!,
   });
 
-  const client = await getClient({
-    url: process.env.DRUPAL_GRAPHQL_URI!,
-    auth: {
-      uri: process.env.DRUPAL_AUTH_URI!,
-      clientId: process.env.DRUPAL_CLIENT_ID!,
-      clientSecret: process.env.DRUPAL_CLIENT_SECRET!,
-    },
-  });
+  const client = await getClientWithAuth();
 
   const nodeRouteQuery = graphql(
     `
