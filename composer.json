@@ -44,7 +44,9 @@
         "drush/drush": "^11 || ^12",
         "oomphinc/composer-installers-extender": "^2.0",
         "vlucas/phpdotenv": "^5.1",
-        "webflo/drupal-finder": "^1.2"
+        "webflo/drupal-finder": "^1.2",
+        "pantheon-upstreams/upstream-configuration": "dev-main",
+        "pantheon-systems/drupal-integrations": "^10"
     },
     "require-dev": {
         "drupal/core-dev": "^10.2.0",
@@ -61,13 +63,18 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "path",
+            "url": "upstream-configuration"
         }
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "classmap": [
-            "scripts/composer/ScriptHandler.php"
+            "scripts/composer/ScriptHandler.php",
+            "upstream-configuration/scripts/ComposerScripts.php"
         ],
         "files": [
             "load.environment.php"
@@ -92,6 +99,12 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "allowed-packages": ["pantheon-systems/drupal-integrations"],
+            "file-mapping": {
+                "[project-root]/.editorconfig": false,
+                "[project-root]/pantheon.upstream.yml": false,
+                "[project-root]/.gitattributes": false
             }
         },
         "installer-paths": {
