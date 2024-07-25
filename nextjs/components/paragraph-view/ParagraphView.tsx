@@ -15,7 +15,7 @@ export default async function ParagraphView({ paragraph }: ParagraphViewProps) {
     <div className={`paragraph-view my-6 my-lg-15`}>
       {title && <Heading level={2} title={title} modifier='heading mb-4 mb-lg-6 text-center'/>}
       {view === 'recent_cards' && display === 'article_cards' && (
-        <RecentCards results={results} />
+        <RecentCards results={results as any} />
       )}
     </div>
   );

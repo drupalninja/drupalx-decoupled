@@ -5,7 +5,7 @@ export const getImage = (media: any, className?: string, imageStyle?: string) =>
   const width = media?.image?.variations?.find((variation: any) => variation.name === imageStyle)?.width;
   const height = media?.image?.variations?.find((variation: any) => variation.name === imageStyle)?.height
 
-  return (
+  return media?.image?.url? (
     <Image 
       src={url ?? media?.image?.url}
       alt={media?.image?.alt} 
@@ -13,5 +13,5 @@ export const getImage = (media: any, className?: string, imageStyle?: string) =>
       height={height ?? media?.image?.height}
       className={className ?? 'img-fluid'}
     />
-  )
+  ) : null;
 };

@@ -1,9 +1,9 @@
 import { graphql } from "@/graphql/gql.tada";
 
-import { MediaImageFragment, MediaUnionFragment } from "@/graphql/fragments/media";
+import { MediaUnionFragment } from "@/graphql/fragments/media";
 import { UserFragment } from "@/graphql/fragments/user";
 import { TextFragment, TextSummaryFragment, DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
-import { MetatagFragment, MetaTagUnionFragment } from "./metatag";
+import { MetaTagUnionFragment } from "./metatag";
 import { ParagraphUnionFragment} from "./paragraph";
 import { TermUnionFragment } from "./term";
 

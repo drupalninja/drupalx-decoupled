@@ -36,14 +36,26 @@ export const Default: Story = {
       {
         title: 'Privacy Policy',
         url: '#',
+        children: {
+          title: 'Sub-link',
+          url: '#',
+        },
       },
       {
         title: 'Terms of Use',
         url: '#',
+        children: {
+          title: 'Sub-link',
+          url: '#',
+        },
       },
       {
         title: 'Contact Us',
         url: '#',
+        children: {
+          title: 'Sub-link',
+          url: '#',
+        },
       },
     ],
   },
