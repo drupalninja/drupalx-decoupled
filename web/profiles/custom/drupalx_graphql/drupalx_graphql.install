@@ -1123,17 +1123,22 @@ function drupalx_graphql_tasks_simple_oauth() {
     'roles' => ['viewer'],
   ])->save();
 
-  \Drupal::service('simple_oauth.key.generator')->generateKeys('../');
+  $messages = [];
 
-  $messages = [
-    'Consumers created successfully. Please save the following credentials.',
-    '--- Previewer ---',
-    'DRUPAL_CLIENT_ID=' . $previewerClientId,
-    'DRUPAL_CLIENT_SECRET=' . $previewerClientSecret,
-    '--- Viewer ---',
-    'DRUPAL_CLIENT_ID=' . $viewerClientId,
-    'DRUPAL_CLIENT_SECRET=' . $viewerClientSecret,
-  ];
+  // If '../' is writable generate keys.
+  if (is_writable('../')) {
+    \Drupal::service('simple_oauth.key.generator')->generateKeys('../');
+
+    $messages = [
+      'Consumers created successfully. Please save the following credentials.',
+      '--- Previewer ---',
+      'DRUPAL_CLIENT_ID=' . $previewerClientId,
+      'DRUPAL_CLIENT_SECRET=' . $previewerClientSecret,
+      '--- Viewer ---',
+      'DRUPAL_CLIENT_ID=' . $viewerClientId,
+      'DRUPAL_CLIENT_SECRET=' . $viewerClientSecret,
+    ];
+  }
 
   // Check to see if ./nextjs/ is writable.
   // If so go aahead and update configuration files.
@@ -1204,6 +1209,10 @@ function drupalx_graphql_tasks_simple_oauth() {
       // Notify the user.
       $messages[] = 'Domain added to ' . $nextConfigFile;
     }
+  }
+
+  if (empty($messages)) {
+    return;
   }
 
   if (PHP_SAPI === 'cli') {
