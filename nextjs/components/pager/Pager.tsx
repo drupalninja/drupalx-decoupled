@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import './Pager.scss';
 
 interface PagerProps {
@@ -32,10 +33,10 @@ const Pager: React.FC<PagerProps> = ({ headingId, pagerItems }) => {
         )}
         {pagerItems.pages.map((page, index) => (
           <li key={index} className={`page-item${index === 0 ? ' active' : ''}`}>
-            <a href={page.href} title={`Go to page (${index + 1})`} className="page-link">
+            <Link href={page.href} title={`Go to page (${index + 1})`} className="page-link">
               <span className="visually-hidden">{index === 0 ? 'Current page' : 'Page'}</span>
               {index + 1}
-            </a>
+            </Link>
           </li>
         ))}
         {pagerItems.next && (

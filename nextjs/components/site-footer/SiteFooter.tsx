@@ -1,6 +1,7 @@
 import React from 'react';
 import './SiteFooter.scss';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export type SiteFooterProps = {
   links: { title: string; url: string | null, children: { title: string; url: string | null } }[];
@@ -30,9 +31,9 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
                 <ul className="nav">
                   {links.map((link, index) => link?.url && (
                     <li key={index} className={`nav-item ${linkItemModifier}`}>
-                      <a href={link.url} className="nav-link text-decoration-none fs-5 text-white">
+                      <Link href={link.url} className="nav-link text-decoration-none fs-5 text-white">
                         {link.title}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

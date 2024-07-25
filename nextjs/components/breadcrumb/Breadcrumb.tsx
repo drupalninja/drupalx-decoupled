@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import './Breadcrumb.scss';
 
 interface BreadcrumbItem {
@@ -17,7 +18,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumb }) => {
       <ol className="breadcrumb">
         {breadcrumb.map((item, index) => (
           <li key={index} className={`breadcrumb-item${item.url ? '' : ' active'}`} aria-current={!item.url ? 'page' : undefined}>
-            {item.url ? <a href={item.url}>{item.text}</a> : item.text}
+            {item.url ? <Link href={item.url}>{item.text}</Link> : item.text}
           </li>
         ))}
       </ol>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import './SearchResults.scss';
 
 interface SearchResultsItemProps {
@@ -12,7 +13,7 @@ const SearchResultsItem: React.FC<SearchResultsItemProps> = ({ title, image, sum
   return (
     <div className="row mb-2">
       <div>{link}</div>
-      <h2><a href={link} className="text-secondary">{title}</a></h2>
+      <h2><Link href={link} className="text-secondary">{title}</Link></h2>
       <div dangerouslySetInnerHTML={{ __html: summary }} />
     </div>
   );
