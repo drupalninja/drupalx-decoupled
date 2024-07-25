@@ -21,14 +21,6 @@ type Props = {
   params: { slug: string[] }
 }
 
-type AllPathsQueryResult = {
-  nodePages: {
-    nodes: {
-      path: string
-    }[]
-  }
-}
-
 async function getAllPaths(): Promise<string[]> {
   const client = await getClient({
     url: process.env.DRUPAL_GRAPHQL_URI!,
@@ -39,40 +31,38 @@ async function getAllPaths(): Promise<string[]> {
     },
   });
 
+  const staticTypes = ['nodePages', 'nodeArticles', 'nodeLayouts'];
+
   const allPathsQuery = graphql(`
     query allPaths {
-      nodePages (first: 100) {
-        nodes {
-          path
+      ${staticTypes.map(type => `
+        ${type}(first: 100) {
+          nodes {
+            path
+          }
         }
-      }
+      `).join('\n')}
     }
-
   `);
 
   const { data } = await client.query(allPathsQuery, {});
-
-  console.log(data);
 
   if (!data) {
     console.error('Failed to fetch paths from Drupal');
     return [];
   }
 
-  const typedData = data as AllPathsQueryResult;
+  const allPaths = staticTypes.flatMap(type => {
+    return (data as any)[type]?.nodes?.map((node: any) => node.path) || [];
+  });
 
-  if (!typedData.nodePages || !typedData.nodePages.nodes) {
-    console.error('Unexpected data structure returned from Drupal');
-    return [];
-  }
-
-  return typedData.nodePages.nodes
-    .map(node => node.path)
-    .filter(path => path !== '/welcome');
+  return allPaths.filter(path => path && path !== '/welcome');
 }
 
 export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   const paths = await getAllPaths();
+
+  console.dir(paths);
 
   return paths.map((path: string) => ({
     slug: path.split('/').filter(segment => segment !== ''),
