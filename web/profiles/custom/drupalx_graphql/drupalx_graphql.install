@@ -1135,7 +1135,9 @@ function drupalx_graphql_tasks_simple_oauth() {
     'DRUPAL_CLIENT_SECRET=' . $viewerClientSecret,
   ];
 
-  if (PHP_SAPI === 'cli') {
+  // Check to see if ./nextjs/ is writable.
+  // If so go aahead and update configuration files.
+  if (is_writable('../nextjs/')) {
     // Get current domain.
     $host = \Drupal::request()->getSchemeAndHttpHost();
 
@@ -1202,7 +1204,9 @@ function drupalx_graphql_tasks_simple_oauth() {
       // Notify the user.
       $messages[] = 'Domain added to ' . $nextConfigFile;
     }
+  }
 
+  if (PHP_SAPI === 'cli') {
     echo PHP_EOL;
     foreach ($messages as $message) {
       echo $message . PHP_EOL;
