@@ -13,7 +13,6 @@ export default function RecentCards({ results }: RecentCardsProps) {
       <div className={`row`}>
         {results.map((result) => {
           const articleData = readFragment(NodeArticleFragment, result);
-          const summaryText = readFragment(TextSummaryFragment, articleData.body);
           return (
             <div className="col-md-6 col-lg-4 mb-2 mb-md-8" key={articleData.id}>
               <Card
@@ -24,7 +23,7 @@ export default function RecentCards({ results }: RecentCardsProps) {
                 }}
                 media={articleData.media}
                 mediaLink={articleData.path}
-                summaryText={summaryText?.value as string}
+                summaryText={articleData?.summary as string}
               />
             </div>
           );
