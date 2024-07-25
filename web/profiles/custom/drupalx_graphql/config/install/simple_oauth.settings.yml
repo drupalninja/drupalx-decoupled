@@ -4,8 +4,8 @@ access_token_expiration: 2592000
 authorization_code_expiration: 2592000
 refresh_token_expiration: 2592000
 token_cron_batch_size: 0
-public_key: ../public.key
-private_key: ../private.key
+public_key: sites/default/files/private/public.key
+private_key: sites/default/files/private/private.key
 remember_clients: true
 use_implicit: false
 disable_openid_connect: false
