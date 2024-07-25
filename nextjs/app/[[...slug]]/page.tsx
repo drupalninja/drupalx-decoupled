@@ -1,3 +1,4 @@
+import { GetStaticPaths } from 'next';
 import NodeArticleComponent from "@/components/node/NodeArticle";
 import NodePageComponent from "@/components/node/NodePage";
 import NodeLayoutComponent from "@/components/node/NodeLayout";
@@ -20,6 +21,64 @@ type Props = {
   params: { slug: string[] }
 }
 
+type AllPathsQueryResult = {
+  nodePages: {
+    nodes: {
+      path: string
+    }[]
+  }
+}
+
+async function getAllPaths(): Promise<string[]> {
+  const client = await getClient({
+    url: process.env.DRUPAL_GRAPHQL_URI!,
+    auth: {
+      uri: process.env.DRUPAL_AUTH_URI!,
+      clientId: process.env.DRUPAL_CLIENT_ID!,
+      clientSecret: process.env.DRUPAL_CLIENT_SECRET!,
+    },
+  });
+
+  const allPathsQuery = graphql(`
+    query allPaths {
+      nodePages (first: 100) {
+        nodes {
+          path
+        }
+      }
+    }
+
+  `);
+
+  const { data } = await client.query(allPathsQuery, {});
+
+  console.log(data);
+
+  if (!data) {
+    console.error('Failed to fetch paths from Drupal');
+    return [];
+  }
+
+  const typedData = data as AllPathsQueryResult;
+
+  if (!typedData.nodePages || !typedData.nodePages.nodes) {
+    console.error('Unexpected data structure returned from Drupal');
+    return [];
+  }
+
+  return typedData.nodePages.nodes
+    .map(node => node.path)
+    .filter(path => path !== '/welcome');
+}
+
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
+  const paths = await getAllPaths();
+
+  return paths.map((path: string) => ({
+    slug: path.split('/').filter(segment => segment !== ''),
+  }));
+}
+
 async function getPageData({ params }: Props) {
   return await getDrupalData({ params });
 }
@@ -38,7 +97,7 @@ export async function generateMetadata(
 }
 
 async function getDrupalData({ params }: { params: { slug: string[] } }) {
-  const pathFromParams = params.slug?.join("/") || "/home";
+  const pathFromParams = params.slug?.join("/") || "/welcome";
   const requestUrl = headers().get("x-url");
 
   const path = calculatePath({
