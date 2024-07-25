@@ -33,7 +33,7 @@ const Tooltip: React.FC<TooltipProps> = ({ title, children }) => {
         >
           <a href="#">real text</a>
         </OverlayTrigger>
-        . And all that just to give you an idea of how tooltips would look when used in real-world situations. So hopefully you've now seen how&nbsp;
+        . And all that just to give you an idea of how tooltips would look when used in real-world situations. So hopefully you&apos;ve now seen how&nbsp;
         <OverlayTrigger
           placement="top"
           delay={{ show: 250, hide: 400 }}

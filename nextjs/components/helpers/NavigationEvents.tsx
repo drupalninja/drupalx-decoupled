@@ -17,7 +17,7 @@ export default function NavigationEvents({ environment }: Props) {
     if (environment === "preview" && !isRevision) {
       syncDrupalPreviewRoutes(url);
     }
-  }, [pathname]);
+  }, [pathname, environment, isRevision]);
 
   return null;
 }
