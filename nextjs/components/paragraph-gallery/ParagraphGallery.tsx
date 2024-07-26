@@ -46,7 +46,7 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
               data-bs-target={`#${item.id}Modal`}
               data-cy="modal-button"
             >
-              {getImage(item)}
+              {getImage(item, 'img-fluid', 'I4_3_SMALL')}
             </Button>
             <Modal
               show={show}
@@ -63,7 +63,7 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
                   <Modal.Title>{item?.image?.alt}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="gallery-body">
-                  {getImage(item)}
+                  {getImage(item, 'img-fluid', ['I4_3_SMALL', 'I4_3_LARGE_2X'])}
                 </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handleClose}>
