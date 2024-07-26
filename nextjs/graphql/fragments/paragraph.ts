@@ -1,6 +1,6 @@
 import { graphql } from "@/graphql/gql.tada";
 import { TextSummaryFragment, TextFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "./misc";
-import { MediaUnionFragment } from "./media";
+import { MediaUnionFragment, SvgMediaFragment } from "./media";
 
 export const ParagraphHeroFragment = graphql(`fragment ParagraphHeroFragment on ParagraphHero {
   id
@@ -91,7 +91,7 @@ export const ParagraphQuoteFragment = graphql(`fragment ParagraphQuoteFragment o
     ...LanguageFragment
   }
   logo {
-    ...MediaUnionFragment
+    ...SvgMediaFragment
   }
   quote
   status
@@ -102,6 +102,7 @@ export const ParagraphQuoteFragment = graphql(`fragment ParagraphQuoteFragment o
   [
     DateTimeFragment,
     LanguageFragment,
+    SvgMediaFragment,
     MediaUnionFragment,
   ]
 )

@@ -33,8 +33,8 @@ export const getImage = (media: any, className?: string, imageStyle?: string | s
       <Image 
         src={desktopUrl}
         alt={media?.image?.alt} 
-        width={width}
-        height={height}
+        width={width > 0 ? width : 1920}
+        height={height > 0 ? height : 1080}
         className={className ?? 'img-fluid'}
         sizes="(max-width: 767px) 100vw, 50vw"
         quality={75}
