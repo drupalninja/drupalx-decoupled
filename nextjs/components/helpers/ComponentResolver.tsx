@@ -42,7 +42,8 @@ type ParagraphFragmentType =
   FragmentOf<typeof ParagraphCarouselFragment> |
   FragmentOf<typeof ParagraphEmbedFragment> |
   FragmentOf<typeof ParagraphNewsletterFragment> |
-  FragmentOf<typeof ParagraphViewFragment>;
+  FragmentOf<typeof ParagraphViewFragment> |
+  { __typename: string; id: string; };
 
 interface ResolveProps {
   data: FragmentOf<typeof ParagraphUnionFragment>[] | null;
@@ -50,43 +51,34 @@ interface ResolveProps {
 }
 
 const calculateComponent = function (type: string, paragraph: ParagraphFragmentType): JSX.Element {
-  if (type === 'ParagraphText') {
-    return <ParagraphText paragraph={paragraph as FragmentOf<typeof ParagraphTextFragment>} />;
+  switch (type) {
+    case 'ParagraphText':
+      return <ParagraphText paragraph={paragraph as FragmentOf<typeof ParagraphTextFragment>} />;
+    case 'ParagraphMedia':
+      return <ParagraphMedia paragraph={paragraph as FragmentOf<typeof ParagraphMediaFragment>} />;
+    case 'ParagraphQuote':
+      return <ParagraphQuote paragraph={paragraph as FragmentOf<typeof ParagraphQuoteFragment>} />;
+    case 'ParagraphHero':
+      return <ParagraphHero paragraph={paragraph as FragmentOf<typeof ParagraphHeroFragment>} />;
+    case 'ParagraphAccordion':
+      return <ParagraphAccordion paragraph={paragraph as FragmentOf<typeof ParagraphAccordionFragment>} />;
+    case 'ParagraphCardGroup':
+      return <ParagraphCardGroup paragraph={paragraph as FragmentOf<typeof ParagraphCardGroupFragment>} />;
+    case 'ParagraphGallery':
+      return <ParagraphGallery paragraph={paragraph as FragmentOf<typeof ParagraphGalleryFragment>} />;
+    case 'ParagraphSidebyside':
+      return <ParagraphSidebyside paragraph={paragraph as FragmentOf<typeof ParagraphSidebysideFragment>} />;
+    case 'ParagraphCarousel':
+      return <ParagraphCarousel paragraph={paragraph as FragmentOf<typeof ParagraphCarouselFragment>} />;
+    case 'ParagraphEmbed':
+      return <ParagraphEmbed paragraph={paragraph as FragmentOf<typeof ParagraphEmbedFragment>} />;
+    case 'ParagraphNewsletter':
+      return <ParagraphNewsletter paragraph={paragraph as FragmentOf<typeof ParagraphNewsletterFragment>} />;
+    case 'ParagraphView':
+      return <ParagraphView paragraph={paragraph as FragmentOf<typeof ParagraphViewFragment>} />;
+    default:
+      return <pre>{JSON.stringify(paragraph, null, 2)}</pre>;
   }
-  if (type === 'ParagraphMedia') {
-    return <ParagraphMedia paragraph={paragraph as FragmentOf<typeof ParagraphMediaFragment>} />;
-  }
-  if (type === 'ParagraphQuote') {
-    return <ParagraphQuote paragraph={paragraph as FragmentOf<typeof ParagraphQuoteFragment>} />;
-  }
-  if (type === 'ParagraphHero') {
-    return <ParagraphHero paragraph={paragraph as FragmentOf<typeof ParagraphHeroFragment>} />;
-  }
-  if (type === 'ParagraphAccordion') {
-    return <ParagraphAccordion paragraph={paragraph as FragmentOf<typeof ParagraphAccordionFragment>} />;
-  }
-  if (type === 'ParagraphCardGroup') {
-    return <ParagraphCardGroup paragraph={paragraph as FragmentOf<typeof ParagraphCardGroupFragment>} />;
-  }
-  if (type === 'ParagraphGallery') {
-    return <ParagraphGallery paragraph={paragraph as FragmentOf<typeof ParagraphGalleryFragment>} />;
-  }
-  if (type === 'ParagraphSidebyside') {
-    return <ParagraphSidebyside paragraph={paragraph as FragmentOf<typeof ParagraphSidebysideFragment>} />;
-  }
-  if (type === 'ParagraphCarousel') {
-    return <ParagraphCarousel paragraph={paragraph as FragmentOf<typeof ParagraphCarouselFragment>} />;
-  }
-  if (type === 'ParagraphEmbed') {
-    return <ParagraphEmbed paragraph={paragraph as FragmentOf<typeof ParagraphEmbedFragment>} />;
-  }
-  if (type === 'ParagraphNewsletter') {
-    return <ParagraphNewsletter paragraph={paragraph as FragmentOf<typeof ParagraphNewsletterFragment>} />;
-  }
-  if (type === 'ParagraphView') {
-    return <ParagraphView paragraph={paragraph as FragmentOf<typeof ParagraphViewFragment>} />;
-  }
-  return <pre>{JSON.stringify(paragraph, null, 2)}</pre>;
 }
 
 export const resolve = ({ data = [], environment = 'preview' }: ResolveProps): ComponentType => {

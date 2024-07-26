@@ -1,9 +1,10 @@
 import React from 'react';
 import './SiteFooter.scss';
 import Image from 'next/image';
+import Link from 'next/link';
 
-type SiteFooterProps = {
-  links: { title: string; url: string }[];
+export type SiteFooterProps = {
+  links: { title: string; url: string | null, children: { title: string; url: string | null } }[];
   siteLogo: string;
   modifier?: string;
   menuModifier?: string;
@@ -28,11 +29,11 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
             <div className="mb-2">
               <nav className={`d-lg-flex justify-content-lg-end ${menuModifier}`}>
                 <ul className="nav">
-                  {links.map((link, index) => (
+                  {links.map((link, index) => link?.url && (
                     <li key={index} className={`nav-item ${linkItemModifier}`}>
-                      <a href={link.url} className="nav-link text-decoration-none fs-5 text-white">
+                      <Link href={link.url} className="nav-link text-decoration-none fs-5 text-white">
                         {link.title}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

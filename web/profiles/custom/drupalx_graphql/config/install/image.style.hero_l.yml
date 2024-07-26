@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: jNWOmyabWWTa4VqOrNXEwiDYQryC3WCE4U4MFyNk9pc
 name: hero_l
-label: hero_l
+label: Hero Large
 effects:
   5982e31c-0259-4b4b-bf01-0f708b50f482:
     uuid: 5982e31c-0259-4b4b-bf01-0f708b50f482

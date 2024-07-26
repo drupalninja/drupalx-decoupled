@@ -25,3 +25,13 @@ export const getClient = async ({url, auth}: ClientArgs) => {
   });
 }
 
+export const getClientWithAuth = async () => {
+  return getClient({
+    url: process.env.DRUPAL_GRAPHQL_URI!,
+    auth: {
+      uri: process.env.DRUPAL_AUTH_URI!,
+      clientId: process.env.DRUPAL_CLIENT_ID!,
+      clientSecret: process.env.DRUPAL_CLIENT_SECRET!,
+    },
+  });
+}

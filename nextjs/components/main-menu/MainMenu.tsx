@@ -5,6 +5,7 @@ import { Navbar, Nav, Offcanvas, Container, NavDropdown } from 'react-bootstrap'
 import { MainMenuItem, MainMenuProps } from './Types';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import './MainMenu.scss';
 
 const MainMenu: React.FC<MainMenuProps> = ({
@@ -86,13 +87,13 @@ const MainMenuItems: React.FC<{
             ))}
           </NavDropdown>
         ) : (
-          <Nav.Link
+          <Link
             key={index}
             href={item.url}
             className={`nav-link fs-5 ${linkModifier ?? ''} ${item.inActiveTrail ? 'active' : ''}`}
           >
             {item.title}
-          </Nav.Link>
+          </Link>
         )
       ))}
     </>

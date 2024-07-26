@@ -1,4 +1,5 @@
 import React from 'react';
+import NextLink from 'next/link';
 import './Link.scss';
 
 interface LinkProps {
@@ -9,9 +10,9 @@ interface LinkProps {
 
 const Link: React.FC<LinkProps> = ({ href, className, children }) => {
   return (
-    <a href={href} className={`link ${className || ''}`}>
+    <NextLink href={href} className={`link ${className || ''}`}>
       {children}
-    </a>
+    </NextLink>
   );
 };
 

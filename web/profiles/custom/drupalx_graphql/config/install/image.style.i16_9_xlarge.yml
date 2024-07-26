@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: 3ZVdTSX6nlsPcVDh-s96hZxnylXcPqjk5clIk7mzm7I
-name: 16_9_xlarge
+name: i16_9_xlarge
 label: '16:9 Extra Large (720 x 405)'
 effects:
   f21e3d77-58b0-4b5a-b01c-9a82b0a380ac:

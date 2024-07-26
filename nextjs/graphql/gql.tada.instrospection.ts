@@ -804,12 +804,12 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "uuid",
+            "name": "name",
             "type": {
               "kind": "NON_NULL",
               "ofType": {
                 "kind": "SCALAR",
-                "name": "ID"
+                "name": "String"
               }
             },
             "args": [],
@@ -828,11 +828,87 @@ const introspection = {
         "name": "ImageStyleAvailable",
         "enumValues": [
           {
+            "name": "HERO_L",
+            "isDeprecated": false
+          },
+          {
             "name": "HERO_L_X2",
             "isDeprecated": false
           },
           {
+            "name": "HERO_M",
+            "isDeprecated": false
+          },
+          {
+            "name": "HERO_M_X2",
+            "isDeprecated": false
+          },
+          {
             "name": "HERO_S",
+            "isDeprecated": false
+          },
+          {
+            "name": "HERO_S_X2",
+            "isDeprecated": false
+          },
+          {
+            "name": "I16_9_LARGE_2X",
+            "isDeprecated": false
+          },
+          {
+            "name": "I16_9_XLARGE",
+            "isDeprecated": false
+          },
+          {
+            "name": "I1_1_LARGE",
+            "isDeprecated": false
+          },
+          {
+            "name": "I1_1_MEDIUM",
+            "isDeprecated": false
+          },
+          {
+            "name": "I1_1_SMALL",
+            "isDeprecated": false
+          },
+          {
+            "name": "I4_3_LARGE",
+            "isDeprecated": false
+          },
+          {
+            "name": "I4_3_LARGE_2X",
+            "isDeprecated": false
+          },
+          {
+            "name": "I4_3_MEDIUM",
+            "isDeprecated": false
+          },
+          {
+            "name": "I4_3_SMALL",
+            "isDeprecated": false
+          },
+          {
+            "name": "LARGE",
+            "isDeprecated": false
+          },
+          {
+            "name": "LINKIT_RESULT_THUMBNAIL",
+            "isDeprecated": false
+          },
+          {
+            "name": "MEDIA_LIBRARY",
+            "isDeprecated": false
+          },
+          {
+            "name": "MEDIUM",
+            "isDeprecated": false
+          },
+          {
+            "name": "THUMBNAIL",
+            "isDeprecated": false
+          },
+          {
+            "name": "WIDE",
             "isDeprecated": false
           }
         ]
@@ -909,12 +985,12 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "uuid",
+            "name": "name",
             "type": {
               "kind": "NON_NULL",
               "ofType": {
                 "kind": "SCALAR",
-                "name": "ID"
+                "name": "String"
               }
             },
             "args": [],
@@ -1152,18 +1228,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -1382,18 +1446,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [],
@@ -1535,18 +1587,6 @@ const introspection = {
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Boolean"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
               }
             },
             "args": [],
@@ -1709,18 +1749,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -1785,18 +1813,6 @@ const introspection = {
               "ofType": {
                 "kind": "SCALAR",
                 "name": "String"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
               }
             },
             "args": [],
@@ -2624,18 +2640,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -2887,18 +2891,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [],
@@ -3096,18 +3088,6 @@ const introspection = {
               "ofType": {
                 "kind": "SCALAR",
                 "name": "String"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
               }
             },
             "args": [],
@@ -3399,18 +3379,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -3620,18 +3588,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -3821,18 +3777,6 @@ const introspection = {
               "ofType": {
                 "kind": "SCALAR",
                 "name": "String"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
               }
             },
             "args": [],
@@ -4036,18 +3980,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -4235,18 +4167,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -4421,18 +4341,6 @@ const introspection = {
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Boolean"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
               }
             },
             "args": [],
@@ -4627,18 +4535,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -4814,18 +4710,6 @@ const introspection = {
             "type": {
               "kind": "SCALAR",
               "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
             },
             "args": [],
             "isDeprecated": false
@@ -5022,18 +4906,6 @@ const introspection = {
             "type": {
               "kind": "SCALAR",
               "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
             },
             "args": [],
             "isDeprecated": false
@@ -5245,18 +5117,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -5417,18 +5277,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [],
@@ -5568,18 +5416,6 @@ const introspection = {
             "type": {
               "kind": "SCALAR",
               "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
             },
             "args": [],
             "isDeprecated": false
@@ -5739,18 +5575,6 @@ const introspection = {
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Boolean"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
               }
             },
             "args": [],
@@ -5963,18 +5787,6 @@ const introspection = {
             "type": {
               "kind": "UNION",
               "name": "MediaUnion"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
             },
             "args": [],
             "isDeprecated": false
@@ -6204,18 +6016,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -6409,18 +6209,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -6608,18 +6396,6 @@ const introspection = {
             "type": {
               "kind": "SCALAR",
               "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
             },
             "args": [],
             "isDeprecated": false
@@ -6868,18 +6644,6 @@ const introspection = {
             "type": {
               "kind": "SCALAR",
               "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
             },
             "args": [],
             "isDeprecated": false
@@ -9306,18 +9070,6 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
             "name": "weight",
             "type": {
               "kind": "NON_NULL",
@@ -9557,18 +9309,6 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
             "name": "weight",
             "type": {
               "kind": "NON_NULL",
@@ -9703,18 +9443,6 @@ const introspection = {
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Boolean"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
               }
             },
             "args": [],
@@ -10084,18 +9812,6 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -10322,18 +10038,6 @@ const introspection = {
               "ofType": {
                 "kind": "ENUM",
                 "name": "UserStatus"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "uuid",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
               }
             },
             "args": [],

@@ -52,7 +52,6 @@ install:
   - path
   - pathauto
   - redirect
-  - responsive_image
   - simple_oauth
   - svg_image
   - svg_image_responsive

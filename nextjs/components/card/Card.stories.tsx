@@ -38,11 +38,11 @@ export const SingleCard: Story = {
       'This copy is optional, if nothing is entered nothing will display. Facit nulla in vulputate vulputate aliquam. Commodo esse habent tation nam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci lacus.',
     link: {
       url: '#',
-      text: 'Link 1',
+      title: 'Link 1',
     },
     link2: {
       url: '#',
-      text: 'Link 2',
+      title: 'Link 2',
     },
   },
 };
@@ -66,11 +66,11 @@ export const SingleCardNoTags: Story = {
       'This copy is optional, if nothing is entered nothing will display. Facit nulla in vulputate vulputate aliquam. Commodo esse habent tation nam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci lacus.',
     link: {
       url: '#',
-      text: 'Link 1',
+      title: 'Link 1',
     },
     link2: {
       url: '#',
-      text: 'Link 2',
+      title: 'Link 2',
     },
   },
 };

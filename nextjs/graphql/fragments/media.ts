@@ -9,7 +9,7 @@ export const ImageFragment = graphql(`
     height
     alt
     title
-    variations(styles: [HERO_L_X2]) {
+    variations(styles: [HERO_L_X2, HERO_S, I4_3_SMALL, I4_3_LARGE_2X, I16_9_LARGE_2X, LARGE]) {
       name
       url
       width
@@ -17,6 +17,25 @@ export const ImageFragment = graphql(`
     }
   }
 `)
+
+export const SvgImageFragment = graphql(`
+  fragment SvgImageFragment on Image {
+    url
+    width
+    height
+    alt
+    title
+  }
+`)
+
+export const SvgMediaFragment = graphql(`
+  fragment SvgMediaFragment on MediaImage {
+    id
+    image {
+      ...SvgImageFragment
+    }
+  }
+`, [SvgImageFragment])
 
 export const MediaImageFragment = graphql(`
   fragment MediaImageFragment on MediaImage {

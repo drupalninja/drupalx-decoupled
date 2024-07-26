@@ -8,9 +8,12 @@ const meta: Meta<typeof ParagraphNewsletter> = {
   component: ParagraphNewsletter,
   argTypes: {
     modifier: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
+      description: 'Modifier class for the newsletter',
+    },
+    paragraph: {
+      description: 'FragmentOf<typeof ParagraphNewsletterFragment>',
+      control: 'object',
     },
   },
   tags: ['autodocs'],
@@ -20,13 +23,9 @@ export default meta;
 
 type Story = StoryObj<typeof ParagraphNewsletter>;
 
-const mockParagraph: FragmentOf<typeof ParagraphNewsletterFragment> = {
-  // Add mock data here based on your ParagraphNewsletterFragment structure
-};
-
 export const Default: Story = {
   args: {
-    paragraph: mockParagraph,
+    paragraph: {} as any,
     modifier: "container",
   },
 };

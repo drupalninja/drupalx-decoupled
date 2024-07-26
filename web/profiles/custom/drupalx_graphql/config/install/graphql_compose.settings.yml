@@ -2,48 +2,48 @@ _core:
   default_config_hash: nrNd9cOD-3a-v6X10caAeVNrESveJrgucPtFbc77Urs
 entity_config:
   image_style:
-    16_9_large_2x:
-      enabled: false
-    16_9_xlarge:
-      enabled: false
-    1_1_large:
-      enabled: false
-    1_1_medium:
-      enabled: false
-    1_1_small:
-      enabled: false
-    4_3_large:
-      enabled: false
-    4_3_large_2x:
-      enabled: false
-    4_3_medium:
-      enabled: false
-    4_3_small:
-      enabled: false
+    i16_9_large_2x:
+      enabled: true
+    i16_9_xlarge:
+      enabled: true
+    i1_1_large:
+      enabled: true
+    i1_1_medium:
+      enabled: true
+    i1_1_small:
+      enabled: true
+    i4_3_large:
+      enabled: true
+    i4_3_large_2x:
+      enabled: true
+    i4_3_medium:
+      enabled: true
+    i4_3_small:
+      enabled: true
     hero_l:
-      enabled: false
+      enabled: true
     hero_l_x2:
       enabled: true
     hero_m:
-      enabled: false
+      enabled: true
     hero_m_x2:
-      enabled: false
+      enabled: true
     hero_s:
       enabled: true
     hero_s_x2:
-      enabled: false
+      enabled: true
     large:
-      enabled: false
+      enabled: true
     linkit_result_thumbnail:
-      enabled: false
+      enabled: true
     media_library:
-      enabled: false
+      enabled: true
     medium:
-      enabled: false
+      enabled: true
     thumbnail:
-      enabled: false
+      enabled: true
     wide:
-      enabled: false
+      enabled: true
   media:
     image:
       enabled: true

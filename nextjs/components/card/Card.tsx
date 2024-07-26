@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { getImage } from '../helpers/Utilities';
 import Badge from '../badge/Badge';
 import Button from '../button/Button';
@@ -39,10 +40,10 @@ const Card: React.FC<CardProps> = ({
   return (
     <div className={`card h-100 ${modifier}`}>
       {mediaLink && media && (
-        <a href={mediaLink}>{getImage(media)}</a>
+        <Link href={mediaLink}>{getImage(media, 'img-fluid', ['LARGE', 'I16_9_LARGE_2X'])}</Link>
       )}
       {!mediaLink && media && (
-        getImage(media)
+        getImage(media, 'img-fluid', ['LARGE', 'I16_9_LARGE_2X'])
       )}
       <div className={`card-body mt-2 ${bodyModifier}`}>
         {tags.length > 0 && (

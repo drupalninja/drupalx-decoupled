@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: 8tv5ty5w-ZKRzkcdAcMhynDkndSnITjNf7H64O6i1ho
 name: hero_m_x2
-label: hero_m_x2
+label: Hero Medium 2x
 effects:
   63781f86-33ce-48d5-9189-f6ccd90a4ebc:
     uuid: 63781f86-33ce-48d5-9189-f6ccd90a4ebc

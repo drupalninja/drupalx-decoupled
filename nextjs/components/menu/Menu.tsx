@@ -1,5 +1,6 @@
 import React from 'react';
 import { Attributes } from 'react';
+import Link from 'next/link';
 import './Menu.scss';
 
 interface MenuItemProps {
@@ -25,9 +26,9 @@ const Menu: React.FC<MenuProps> = ({
       <ul className="nav flex-column flex-lg-row">
         {menuItems.map((item, index) => (
           <li key={index} className="nav-item">
-            <a href={item.url} className={`nav-link text-decoration-none ${itemModifier}`}>
+            <Link href={item.url} className={`nav-link text-decoration-none ${itemModifier}`}>
               {item.title}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

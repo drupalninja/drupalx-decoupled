@@ -30,7 +30,7 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
           <div className="d-flex justify-content-center align-items-center">
             {thumb && (
               <div className="quote-image me-3">
-                {getImage(thumb, 'img-fluid rounded')}
+                {getImage(thumb, 'img-fluid rounded', 'THUMBNAIL')}
               </div>
             )}
             <div className="quote-text">

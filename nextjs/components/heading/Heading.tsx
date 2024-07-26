@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Link from 'next/link';
 import './Heading.scss';
 
 export interface HeadingProps {
@@ -17,7 +18,7 @@ const Heading: React.FC<HeadingProps> = ({ title, level = 2, modifier = '', icon
       {title && (
         React.createElement(headingLevel, { className: `heading ${modifier}` },
           icon,
-          url ? <a href={url} className="text-decoration-none">{title}</a> : title
+          url ? <Link href={url} className="text-decoration-none">{title}</Link> : title
         )
       )}
     </React.Fragment>

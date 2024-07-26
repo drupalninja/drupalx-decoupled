@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: qIGfPtfSOeoKkDkIkpyX2YXbD3id0GMNDGst-RE3tcM
-name: 1_1_small
+name: i1_1_small
 label: '1:1 Small'
 effects:
   b784ff57-4083-477d-b950-143497182bef:

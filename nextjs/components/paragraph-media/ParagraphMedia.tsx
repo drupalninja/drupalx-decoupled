@@ -16,7 +16,7 @@ export default function ParagraphMedia({ paragraph, modifier }: ParagraphMediaPr
       <div className="flex items-center justify-center">
         {media && (
           <div className="image">
-            {getImage(media)}
+            {getImage(media, 'img-fluid', ['LARGE', 'I16_9_LARGE_2X'])}
           </div>
         )}
       </div>
