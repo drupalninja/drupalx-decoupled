@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: Gtcc4IunnjOWSNFAHe7H1UfP5a5mqSgy_eyVmXw5pBs
-name: 4_3_medium
+name: i4_3_medium
 label: '4:3 Medium (640 x 480)'
 effects:
   40726c34-c520-4222-baf9-646a9570f9a3:

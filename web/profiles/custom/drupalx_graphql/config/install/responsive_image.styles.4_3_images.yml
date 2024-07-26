@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - image.style.4_3_large
-    - image.style.4_3_large_2x
-    - image.style.4_3_medium
-    - image.style.4_3_small
+    - image.style.i4_3_large
+    - image.style.i4_3_large_2x
+    - image.style.i4_3_medium
+    - image.style.i4_3_small
 _core:
   default_config_hash: DLVxMy--UcHQJrURXy-QSwOH75JPTrK8lK0fsRsqtRw
 id: 4_3_images
@@ -17,11 +17,11 @@ image_style_mappings:
     image_mapping:
       sizes: '(min-width:720px) 33vw, 100vw'
       sizes_image_styles:
-        - 4_3_large
-        - 4_3_large_2x
-        - 4_3_medium
-        - 4_3_small
+        - i4_3_large
+        - i4_3_large_2x
+        - i4_3_medium
+        - i4_3_small
     breakpoint_id: responsive_image.viewport_sizing
     multiplier: 1x
 breakpoint_group: responsive_image
-fallback_image_style: 4_3_small
+fallback_image_style: i4_3_small

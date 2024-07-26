@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: SMuIcHG0Qy1w2xx35BFc37MKlbgzmlFmy68fLRC1BiI
-name: 4_3_large
+name: i4_3_large
 label: '4:3 Large (800 x 600)'
 effects:
   0d48265d-3edb-40fa-a566-7fd33b6b5cf8:

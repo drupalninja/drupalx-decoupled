@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - image.style.16_9_large_2x
-    - image.style.16_9_xlarge
+    - image.style.i16_9_large_2x
+    - image.style.i16_9_xlarge
     - image.style.large
     - image.style.medium
     - image.style.thumbnail
@@ -18,12 +18,12 @@ image_style_mappings:
     image_mapping:
       sizes: 100vw
       sizes_image_styles:
-        - 16_9_large_2x
-        - 16_9_xlarge
-        - large
+        - i16_9_large_2x
+        - i16_9_xlarge
+        - ilarge
         - medium
         - thumbnail
     breakpoint_id: responsive_image.viewport_sizing
     multiplier: 1x
 breakpoint_group: responsive_image
-fallback_image_style: 16_9_xlarge
+fallback_image_style: i16_9_xlarge
