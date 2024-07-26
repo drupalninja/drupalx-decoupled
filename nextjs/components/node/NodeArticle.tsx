@@ -28,7 +28,7 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
         <div className="container">
           {mediaFragment && (
             <div className="mb-7 rounded shadow">
-              {getImage(mediaFragment, 'img-fluid', 'HERO_L_X2')}
+              {getImage(mediaFragment, 'img-fluid', ['HERO_S', 'HERO_L_X2'])}
             </div>
           )}
           <div className="col-lg-10 col-xl-8 mx-auto mb-2 mb-lg-10">
