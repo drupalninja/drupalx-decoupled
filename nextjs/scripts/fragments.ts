@@ -2,21 +2,14 @@ import path from "path";
 import * as dotenv from "dotenv";
 import fs from "fs";
 import { graphql } from "@/graphql/gql.tada";
-import { getClient } from "@/utils/client.server";
+import { getClientWithAuth } from "@/utils/client.server";
 
 (async () => {
 
   const envPath = path.join(process.cwd(), ".env");
   dotenv.config({ path: envPath });
 
-  const client = await getClient({
-    url: process.env.DRUPAL_GRAPHQL_URI!,
-    auth: {
-      uri: process.env.DRUPAL_AUTH_URI!,
-      clientId: process.env.DRUPAL_CLIENT_ID!,
-      clientSecret: process.env.DRUPAL_CLIENT_SECRET!,
-    }
-  })
+  const client = await getClientWithAuth();
 
   const query = graphql(`query fragments {
     info {
