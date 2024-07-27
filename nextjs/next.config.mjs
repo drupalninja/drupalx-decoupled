@@ -14,6 +14,7 @@ const nextConfig = {
   },
   images: {
     domains: [externalDomainHost],
+    formats: ['image/webp'],
   },
 };
 
