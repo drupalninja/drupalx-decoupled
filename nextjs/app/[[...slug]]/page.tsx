@@ -1,4 +1,3 @@
-import { GetStaticPaths } from 'next';
 import NodeArticleComponent from "@/components/node/NodeArticle";
 import NodePageComponent from "@/components/node/NodePage";
 import NodeLayoutComponent from "@/components/node/NodeLayout";
@@ -16,6 +15,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Fragment } from "react";
 import { Metadata, ResolvingMetadata } from 'next'
+import { frontpagePath } from '@/utils/routes';
 
 type Props = {
   params: { slug: string[] }
@@ -49,7 +49,7 @@ async function getAllPaths(): Promise<string[]> {
     return (data as any)[type]?.nodes?.map((node: any) => node.path) || [];
   });
 
-  return allPaths.filter(path => path && path !== '/welcome');
+  return allPaths.filter(path => path && path !== frontpagePath);
 }
 
 export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
@@ -78,7 +78,7 @@ export async function generateMetadata(
 }
 
 async function getDrupalData({ params }: { params: { slug: string[] } }) {
-  const pathFromParams = params.slug?.join("/") || "/welcome";
+  const pathFromParams = params.slug?.join("/") || frontpagePath;
   const requestUrl = headers().get("x-url");
 
   const path = calculatePath({
