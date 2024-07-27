@@ -3,8 +3,6 @@ import "../styles/bootstrap.scss";
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { Suspense } from "react";
-import NavigationEvents from "@/components/helpers/NavigationEvents";
 import { MainMenuQuery, FooterMenuQuery } from "@/graphql/queries";
 import { getClientWithAuth } from "@/utils/client.server";
 
@@ -40,9 +38,6 @@ export default async function RootLayout({
           {children}
           <Footer footerMenu={footerData?.menu || null} />
         </Container>
-        <Suspense fallback={null}>
-          <NavigationEvents environment={environment} />
-        </Suspense>
       </body>
     </html>
   );
