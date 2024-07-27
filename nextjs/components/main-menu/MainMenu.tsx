@@ -4,6 +4,7 @@ import React from 'react';
 import { Navbar, Nav, Offcanvas, Container, NavDropdown } from 'react-bootstrap';
 import { MainMenuItem, MainMenuProps } from './Types';
 import { usePathname } from 'next/navigation';
+import { frontpagePath } from '@/utils/routes';
 import Image from 'next/image';
 import Link from 'next/link';
 import './MainMenu.scss';
@@ -18,7 +19,12 @@ const MainMenu: React.FC<MainMenuProps> = ({
   
   // Add active trail classes to menu items.
   menuItems = menuItems.map((item) => {
-    item.inActiveTrail = pathname.startsWith(item.url);
+    if (item.url === frontpagePath && pathname === '/') {
+      item.inActiveTrail = true;
+    }
+    else {
+      item.inActiveTrail = pathname.startsWith(item.url);
+    }
     if (item.below) {
       item.below = item.below.map((subItem) => {
         subItem.inActiveTrail = pathname.startsWith(subItem.url);
