@@ -36,6 +36,7 @@
         "drupal/paragraphs_features": "^2.0",
         "drupal/pathauto": "^1.12",
         "drupal/redirect": "^1.9",
+        "drupal/redis": "^1.7",
         "drupal/simple_oauth": "^5.2",
         "drupal/svg_image_responsive": "^3.0",
         "drupal/taxonomy_access_fix": "^4.0",
