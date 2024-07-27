@@ -29,6 +29,7 @@
         "drupal/material_icons": "^2.0",
         "drupal/metatag": "^2.0",
         "drupal/node_revision_delete": "^2.0@RC",
+        "drupal/pantheon_advanced_page_cache": "^2.2",
         "drupal/paragraphs": "^1.17",
         "drupal/paragraphs_browser": "^1.2",
         "drupal/paragraphs_ee": "^10.0",
@@ -43,10 +44,10 @@
         "drupalninja/drupalai": "^1.0@beta",
         "drush/drush": "^11 || ^12",
         "oomphinc/composer-installers-extender": "^2.0",
-        "vlucas/phpdotenv": "^5.1",
-        "webflo/drupal-finder": "^1.2",
+        "pantheon-systems/drupal-integrations": "^10",
         "pantheon-upstreams/upstream-configuration": "dev-main",
-        "pantheon-systems/drupal-integrations": "^10"
+        "vlucas/phpdotenv": "^5.1",
+        "webflo/drupal-finder": "^1.2"
     },
     "require-dev": {
         "drupal/core-dev": "^10.2.0",
@@ -76,9 +77,7 @@
             "scripts/composer/ScriptHandler.php",
             "upstream-configuration/scripts/ComposerScripts.php"
         ],
-        "files": [
-            "load.environment.php"
-        ]
+        "files": ["load.environment.php"]
     },
     "config": {
         "allow-plugins": {
@@ -92,7 +91,10 @@
             "phpstan/extension-installer": true
         },
         "discard-changes": true,
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "8.2.0"
+        }
     },
     "extra": {
         "composer-exit-on-patch-failure": true,
@@ -108,26 +110,16 @@
             }
         },
         "installer-paths": {
-            "web/core": [
-                "type:drupal-core"
-            ],
+            "web/core": ["type:drupal-core"],
             "web/libraries/{$name}": [
                 "type:drupal-library",
                 "type:bower-asset",
                 "type:npm-asset"
             ],
-            "web/modules/contrib/{$name}": [
-                "type:drupal-module"
-            ],
-            "web/profiles/contrib/{$name}": [
-                "type:drupal-profile"
-            ],
-            "web/themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "drush/Commands/contrib/{$name}": [
-                "type:drupal-drush"
-            ]
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
         },
         "installer-types": [
             "bower-asset",
@@ -143,12 +135,8 @@
         }
     },
     "scripts": {
-        "pre-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ],
+        "pre-install-cmd": ["DrupalProject\\composer\\ScriptHandler::checkComposerVersion"],
+        "post-install-cmd": ["DrupalProject\\composer\\ScriptHandler::createRequiredFiles"],
         "pre-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion",
             "DrupalComposerManaged\\ComposerScripts::preUpdate"
