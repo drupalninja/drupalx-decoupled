@@ -7,6 +7,10 @@ export function middleware(request: NextRequest) {
         },
     })
     response.headers.set('x-url', request.url)
+    
+    // Set Cache-Control header to cache the response for 1 hour
+    response.headers.set('Cache-Control', 'public, max-age=3600');
+
     return response
 }
 
