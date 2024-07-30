@@ -849,46 +849,46 @@ enum ImageStyleAvailable {
   HERO_L
 
   """Hero Large 2x"""
-  HERO_L_X2
+  HERO_LX2
 
   """Hero Medium"""
   HERO_M
 
   """Hero Medium 2x"""
-  HERO_M_X2
+  HERO_MX2
 
   """Hero Small"""
   HERO_S
 
   """Hero Small 2x"""
-  HERO_S_X2
+  HERO_SX2
 
   """16:9 Large 2x (1280 x 720)"""
-  I16_9_LARGE_2X
+  I169_LARGE2X
 
   """16:9 Extra Large (720 x 405)"""
-  I16_9_XLARGE
+  I169_XLARGE
 
   """1:1 Large (800 x 800)"""
-  I1_1_LARGE
+  I11_LARGE
 
   """1:1 Medium (400 x 400)"""
-  I1_1_MEDIUM
+  I11_MEDIUM
 
   """1:1 Small"""
-  I1_1_SMALL
+  I11_SMALL
 
   """4:3 Large (800 x 600)"""
-  I4_3_LARGE
+  I43_LARGE
 
   """4:3 Large 2x (1280 x 960)"""
-  I4_3_LARGE_2X
+  I43_LARGE2X
 
   """4:3 Medium (640 x 480)"""
-  I4_3_MEDIUM
+  I43_MEDIUM
 
   """4:3 Small (420x 315)"""
-  I4_3_SMALL
+  I43_SMALL
 
   """Large (480×480)"""
   LARGE
