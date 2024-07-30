@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: 1s0zGu5eI_xzfAIbxR2fkaZJcgNyvEqaJOlDm80hJSI
-name: hero_s
+name: heros
 label: Hero Small
 effects:
   cbad684e-8e75-475a-9810-5e746ce24bfa:

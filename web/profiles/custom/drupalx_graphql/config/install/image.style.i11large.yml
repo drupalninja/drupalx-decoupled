@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: v7PinUloBM3Ic_tK5gH2wpFMoaBPprpkGDhr8C8aOco
-name: i1_1_large
+name: i11large
 label: '1:1 Large (800 x 800)'
 effects:
   d2813a8e-0575-41d9-9682-ab4694631f65:

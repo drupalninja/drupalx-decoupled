@@ -22,7 +22,7 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
       <div className={classNames('row', 'flex-column', 'gy-3', { 'flex-lg-row-reverse': layout === 'right', 'flex-lg-row': layout === 'left' }, 'justify-content-between', 'align-items-center')}>
         <div className="col-lg-6">
           <div className="shadow rounded">
-            {getImage(media, 'img-fluid', ['I4_3_SMALL', 'I4_3_LARGE_2X'])}
+            {getImage(media, 'img-fluid', ['I43SMALL', 'I43LARGE2X'])}
           </div>
         </div>
         <div className="col-lg-6 col-xxl-5 d-flex flex-column gap-3">

@@ -828,63 +828,59 @@ const introspection = {
         "name": "ImageStyleAvailable",
         "enumValues": [
           {
-            "name": "HERO_L",
+            "name": "HEROL",
             "isDeprecated": false
           },
           {
-            "name": "HERO_LX2",
+            "name": "HEROLX2",
             "isDeprecated": false
           },
           {
-            "name": "HERO_M",
+            "name": "HEROM",
             "isDeprecated": false
           },
           {
-            "name": "HERO_MX2",
+            "name": "HEROMX2",
             "isDeprecated": false
           },
           {
-            "name": "HERO_S",
+            "name": "HEROS",
             "isDeprecated": false
           },
           {
-            "name": "HERO_SX2",
+            "name": "HEROSX2",
             "isDeprecated": false
           },
           {
-            "name": "I169_LARGE2X",
+            "name": "I11LARGE",
             "isDeprecated": false
           },
           {
-            "name": "I169_XLARGE",
+            "name": "I11MEDIUM",
             "isDeprecated": false
           },
           {
-            "name": "I11_LARGE",
+            "name": "I11SMALL",
             "isDeprecated": false
           },
           {
-            "name": "I11_MEDIUM",
+            "name": "I169LARGE2X",
             "isDeprecated": false
           },
           {
-            "name": "I11_SMALL",
+            "name": "I169XLARGE",
             "isDeprecated": false
           },
           {
-            "name": "I43_LARGE",
+            "name": "I43LARGE",
             "isDeprecated": false
           },
           {
-            "name": "I43_LARGE2X",
+            "name": "I43MEDIUM",
             "isDeprecated": false
           },
           {
-            "name": "I43_MEDIUM",
-            "isDeprecated": false
-          },
-          {
-            "name": "I43_SMALL",
+            "name": "I43SMALL",
             "isDeprecated": false
           },
           {

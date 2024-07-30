@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: QljBFHHSbQIXvxkERpUy9vkKqUC4Pu0ZZeF0M5ghDKo
-name: hero_s_x2
+name: herosx2
 label: Hero Small 2x
 effects:
   724a1494-fcb6-4e09-bfed-cb011d938e65:

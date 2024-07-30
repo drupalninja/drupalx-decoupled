@@ -1,28 +1,18 @@
 import { Client, fetchExchange } from '@urql/core';
 import { getToken } from './auth.server';
-import { cache } from 'react';
 
 interface ClientArgs {
-  url: string;
+  url: string
   auth: {
-    uri: string;
-    clientId: string;
-    clientSecret: string;
-  };
+    uri: string
+    clientId: string
+    clientSecret: string
+  }
 }
 
-function getEnvironment(): string {
-  return process.env.ENVIRONMENT || "production";
-}
-
-// Cache the token retrieval
-const getTokenCached = cache(async ({ uri, clientId, clientSecret }: ClientArgs['auth']) => {
-  return getToken({ uri, clientId, clientSecret });
-});
-
-// Cache the client creation
-const getClientCached = cache(async ({ url, auth }: ClientArgs) => {
-  const token = await getTokenCached(auth);
+export const getClient = async ({url, auth}: ClientArgs) => {
+  const { uri, clientId, clientSecret } = auth;
+  const token = await getToken({ uri, clientId, clientSecret });
 
   return new Client({
     url,
@@ -31,13 +21,10 @@ const getClientCached = cache(async ({ url, auth }: ClientArgs) => {
         Authorization: token,
       },
     },
-    exchanges: [
-      fetchExchange,
-    ],
+    exchanges: [fetchExchange],
   });
-});
+}
 
-// Cache environment variables
 const DRUPAL_CONFIG = {
   url: process.env.DRUPAL_GRAPHQL_URI!,
   auth: {
@@ -47,4 +34,4 @@ const DRUPAL_CONFIG = {
   },
 };
 
-export const getClientWithAuth = () => getClientCached(DRUPAL_CONFIG);
+export const getClientWithAuth = () => getClient(DRUPAL_CONFIG);
