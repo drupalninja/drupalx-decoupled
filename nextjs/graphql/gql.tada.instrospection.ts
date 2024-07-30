@@ -832,7 +832,7 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "HERO_L_X2",
+            "name": "HERO_LX2",
             "isDeprecated": false
           },
           {
@@ -840,7 +840,7 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "HERO_M_X2",
+            "name": "HERO_MX2",
             "isDeprecated": false
           },
           {
@@ -848,43 +848,43 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "HERO_S_X2",
+            "name": "HERO_SX2",
             "isDeprecated": false
           },
           {
-            "name": "I16_9_LARGE_2X",
+            "name": "I169_LARGE2X",
             "isDeprecated": false
           },
           {
-            "name": "I16_9_XLARGE",
+            "name": "I169_XLARGE",
             "isDeprecated": false
           },
           {
-            "name": "I1_1_LARGE",
+            "name": "I11_LARGE",
             "isDeprecated": false
           },
           {
-            "name": "I1_1_MEDIUM",
+            "name": "I11_MEDIUM",
             "isDeprecated": false
           },
           {
-            "name": "I1_1_SMALL",
+            "name": "I11_SMALL",
             "isDeprecated": false
           },
           {
-            "name": "I4_3_LARGE",
+            "name": "I43_LARGE",
             "isDeprecated": false
           },
           {
-            "name": "I4_3_LARGE_2X",
+            "name": "I43_LARGE2X",
             "isDeprecated": false
           },
           {
-            "name": "I4_3_MEDIUM",
+            "name": "I43_MEDIUM",
             "isDeprecated": false
           },
           {
-            "name": "I4_3_SMALL",
+            "name": "I43_SMALL",
             "isDeprecated": false
           },
           {

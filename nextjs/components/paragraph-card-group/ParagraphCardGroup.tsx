@@ -27,6 +27,7 @@ export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCar
               summaryText={item?.summary?.value ?? ''}
               link={item?.link}
               media={item?.media}
+              tags={item?.tags}
             />
           </div>
         ))}

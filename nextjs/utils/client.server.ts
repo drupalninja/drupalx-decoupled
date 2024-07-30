@@ -11,6 +11,10 @@ interface ClientArgs {
   };
 }
 
+function getEnvironment(): string {
+  return process.env.ENVIRONMENT || "production";
+}
+
 // Cache the token retrieval
 const getTokenCached = cache(async ({ uri, clientId, clientSecret }: ClientArgs['auth']) => {
   return getToken({ uri, clientId, clientSecret });

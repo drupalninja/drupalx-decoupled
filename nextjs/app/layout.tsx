@@ -6,16 +6,11 @@ import Header from "@/components/Header";
 import { MainMenuQuery, FooterMenuQuery } from "@/graphql/queries";
 import { getClientWithAuth } from "@/utils/client.server";
 
-function getEnvironment(): string {
-  return process.env.ENVIRONMENT || "production";
-}
-
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const environment = getEnvironment();
   const client = await getClientWithAuth();
 
   const { data: menuData, error: menuError } = await client.query(MainMenuQuery, {});

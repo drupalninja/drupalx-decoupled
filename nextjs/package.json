@@ -10,7 +10,8 @@
     "lint": "next lint",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "cypress": "npx cypress run"
   },
   "dependencies": {
     "@0no-co/graphqlsp": "^1.11.0",
@@ -50,5 +51,8 @@
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "cypress": "^13.13.1"
   }
 }
