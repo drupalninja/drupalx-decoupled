@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - image.style.hero_l
-    - image.style.hero_l_x2
-    - image.style.hero_m
-    - image.style.hero_m_x2
-    - image.style.hero_s
-    - image.style.hero_s_x2
+    - image.style.herol
+    - image.style.herolx2
+    - image.style.herom
+    - image.style.heromx2
+    - image.style.heros
+    - image.style.herosx2
   module:
     - toolbar
 _core:
@@ -21,8 +21,8 @@ image_style_mappings:
     image_mapping:
       sizes: 100vw
       sizes_image_styles:
-        - hero_l
-        - hero_l_x2
+        - herol
+        - herolx2
     breakpoint_id: toolbar.wide
     multiplier: 1x
   -
@@ -30,8 +30,8 @@ image_style_mappings:
     image_mapping:
       sizes: 100vw
       sizes_image_styles:
-        - hero_m
-        - hero_m_x2
+        - herom
+        - heromx2
     breakpoint_id: toolbar.standard
     multiplier: 1x
   -
@@ -39,9 +39,9 @@ image_style_mappings:
     image_mapping:
       sizes: 100vw
       sizes_image_styles:
-        - hero_s
-        - hero_s_x2
+        - heros
+        - herosx2
     breakpoint_id: toolbar.narrow
     multiplier: 1x
 breakpoint_group: toolbar
-fallback_image_style: hero_l
+fallback_image_style: herol

@@ -846,49 +846,46 @@ type Image {
 """List of image styles available to use."""
 enum ImageStyleAvailable {
   """Hero Large"""
-  HERO_L
+  HEROL
 
   """Hero Large 2x"""
-  HERO_LX2
+  HEROLX2
 
   """Hero Medium"""
-  HERO_M
+  HEROM
 
   """Hero Medium 2x"""
-  HERO_MX2
+  HEROMX2
 
   """Hero Small"""
-  HERO_S
+  HEROS
 
   """Hero Small 2x"""
-  HERO_SX2
-
-  """16:9 Large 2x (1280 x 720)"""
-  I169_LARGE2X
-
-  """16:9 Extra Large (720 x 405)"""
-  I169_XLARGE
+  HEROSX2
 
   """1:1 Large (800 x 800)"""
-  I11_LARGE
+  I11LARGE
 
   """1:1 Medium (400 x 400)"""
-  I11_MEDIUM
+  I11MEDIUM
 
   """1:1 Small"""
-  I11_SMALL
+  I11SMALL
+
+  """16:9 Large 2x (1280 x 720)"""
+  I169LARGE2X
+
+  """16:9 Extra Large (720 x 405)"""
+  I169XLARGE
 
   """4:3 Large (800 x 600)"""
-  I43_LARGE
-
-  """4:3 Large 2x (1280 x 960)"""
-  I43_LARGE2X
+  I43LARGE
 
   """4:3 Medium (640 x 480)"""
-  I43_MEDIUM
+  I43MEDIUM
 
   """4:3 Small (420x 315)"""
-  I43_SMALL
+  I43SMALL
 
   """Large (480×480)"""
   LARGE

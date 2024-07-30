@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: K7XzRqLxh9i62prxKBt-z75lqwarYCg9aU02w0-s0aU
-name: i1_1_medium
+name: i11medium
 label: '1:1 Medium (400 x 400)'
 effects:
   d4ae36f2-bbef-4247-93bd-c2e68e6c0429:

@@ -40,10 +40,10 @@ const Card: React.FC<CardProps> = ({
   return (
     <div className={`card h-100 ${modifier}`}>
       {mediaLink && media && (
-        <Link href={mediaLink}>{getImage(media, 'img-fluid', ['LARGE', 'I16_9_LARGE_2X'])}</Link>
+        <Link href={mediaLink}>{getImage(media, 'img-fluid', ['LARGE', 'I169LARGE2X'])}</Link>
       )}
       {!mediaLink && media && (
-        getImage(media, 'card-img-top', ['LARGE', 'I16_9_LARGE_2X'])
+        getImage(media, 'card-img-top', ['LARGE', 'I169LARGE2X'])
       )}
       <div className={`card-body mt-2 ${bodyModifier}`}>
         {tags.length > 0 && (
