@@ -101,6 +101,20 @@ jobs:
         env:
           DISPLAY: :99.0
 
+      # New steps for Next.js Cypress tests
+      - name: Install Next.js dependencies
+        run: npm install
+        working-directory: ./nextjs
+
+      - name: Copy Next.js Cypress configuration
+        run: cp ./nextjs/cypress.config.ts.shippable ./nextjs/cypress.config.ts
+
+      - name: Run Next.js Cypress tests
+        run: npm run cypress
+        working-directory: ./nextjs
+        env:
+          DISPLAY: :99.0
+
   # Using outdated Composer version to test the Composer version constraint.
   test-composer:
     runs-on: ubuntu-latest
