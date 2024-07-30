@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3034ad1d9458642c742297855e9ed425",
+    "content-hash": "de1cb59f2d3ae030053089de830a96ed",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4952,38 +4952,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/x_originating_ip"
             }
-        },
-        {
-            "name": "drupalninja/drupalai",
-            "version": "2.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupalninja/drupalai.git",
-                "reference": "330968cf28b042e3fa865834e26500c523ad2732"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drupalninja/drupalai/zipball/330968cf28b042e3fa865834e26500c523ad2732",
-                "reference": "330968cf28b042e3fa865834e26500c523ad2732",
-                "shasum": ""
-            },
-            "default-branch": true,
-            "type": "drupal-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Jay Callicott"
-                }
-            ],
-            "description": "A Drupal module for integrating AI capabilities into your website.",
-            "support": {
-                "issues": "https://github.com/drupalninja/drupalai/issues",
-                "source": "https://github.com/drupalninja/drupalai/tree/2.x"
-            },
-            "time": "2024-07-28T20:51:20+00:00"
         },
         {
             "name": "drush/drush",
@@ -16379,8 +16347,7 @@
         "drupal/graphql_compose_fragments-graphql_compose_fragments": 20,
         "drupal/node_revision_delete": 5,
         "drupal/viewfield": 10,
-        "drupal/webp": 5,
-        "drupalninja/drupalai": 20
+        "drupal/webp": 5
     },
     "prefer-stable": true,
     "prefer-lowest": false,
