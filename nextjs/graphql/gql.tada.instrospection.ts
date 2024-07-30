@@ -876,6 +876,10 @@ const introspection = {
             "isDeprecated": false
           },
           {
+            "name": "I43LARGE2X",
+            "isDeprecated": false
+          },
+          {
             "name": "I43MEDIUM",
             "isDeprecated": false
           },
@@ -900,11 +904,11 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "THUMBNAIL",
+            "name": "WIDE",
             "isDeprecated": false
           },
           {
-            "name": "WIDE",
+            "name": "THUMBNAIL",
             "isDeprecated": false
           }
         ]
