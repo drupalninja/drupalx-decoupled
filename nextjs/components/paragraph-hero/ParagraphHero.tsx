@@ -20,7 +20,7 @@ export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProp
     <div className={modifier ?? 'container'}>
       <div className={`mb-6 mb-lg-12 text-center ${modifier || ''}`}>
         {heroLayout === 'image_top' && requiredMedia && (
-          <div className="row">
+          <div className="image-top row">
             <div className="mb-4 mb-lg-8 d-flex justify-content-center align-items-center">
               <div className="shadow rounded">
                 {getImage(requiredMedia, 'img-fluid', ['HERO_S', 'HERO_L_X2'])}
@@ -54,7 +54,7 @@ export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProp
         </div>
 
         {heroLayout === 'image_bottom' && requiredMedia && (
-          <div className="row mt-6">
+          <div className="image-bottom row mt-6">
             <div className="d-flex justify-content-center align-items-center">
               <div className="shadow rounded">
                 {getImage(requiredMedia, 'img-fluid', ['HERO_S', 'HERO_L_X2'])}

@@ -43,7 +43,7 @@ const Card: React.FC<CardProps> = ({
         <Link href={mediaLink}>{getImage(media, 'img-fluid', ['LARGE', 'I16_9_LARGE_2X'])}</Link>
       )}
       {!mediaLink && media && (
-        getImage(media, 'img-fluid', ['LARGE', 'I16_9_LARGE_2X'])
+        getImage(media, 'card-img-top', ['LARGE', 'I16_9_LARGE_2X'])
       )}
       <div className={`card-body mt-2 ${bodyModifier}`}>
         {tags.length > 0 && (

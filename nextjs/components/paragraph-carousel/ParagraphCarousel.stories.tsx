@@ -39,6 +39,19 @@ const mockParagraph = {
       title: 'Second Slide',
       summary: 'This is the second slide',
     },
+    {
+      active: false,
+      media: {
+        image: {
+          url: './images/stars.jpg',
+          alt: 'Image 3',
+          width: 1920,
+          height: 1280,
+        },
+      },
+      title: 'Third Slide',
+      summary: 'This is the third slide',
+    },
   ],
 };
 

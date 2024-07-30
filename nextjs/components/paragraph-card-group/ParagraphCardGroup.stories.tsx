@@ -35,6 +35,7 @@ const mockParagraph = {
           height: 300,
         },
       },
+      tags: ['Tag 1', 'Tag 2'],
     },
     {
       title: 'Card 2',
@@ -48,6 +49,7 @@ const mockParagraph = {
           height: 300,
         },
       },
+      tags: ['Tag 1', 'Tag 2'],
     },
     {
       title: 'Card 3',
@@ -61,6 +63,49 @@ const mockParagraph = {
           height: 300,
         },
       },
+      tags: ['Tag 1', 'Tag 2'],
+    },
+    {
+      title: 'Card 4',
+      summary: { value: 'This is a summary for Card 4' },
+      link: { url: '#', title: 'Discover' },
+      media: {
+        image: {
+          url: './images/card.webp',
+          alt: 'Card 4 Image',
+          width: 500,
+          height: 300,
+        },
+      },
+      tags: ['Tag 1', 'Tag 2'],
+    },
+    {
+      title: 'Card 5',
+      summary: { value: 'This is a summary for Card 5' },
+      link: { url: '#', title: 'Learn More' },
+      media: {
+        image: {
+          url: './images/card.webp',
+          alt: 'Card 5 Image',
+          width: 500,
+          height: 300,
+        },
+      },
+      tags: ['Tag 1', 'Tag 2'],
+    },
+    {
+      title: 'Card 6',
+      summary: { value: 'This is a summary for Card 6' },
+      link: { url: '#', title: 'Explore' },
+      media: {
+        image: {
+          url: './images/card.webp',
+          alt: 'Card 6 Image',
+          width: 500,
+          height: 300,
+        },
+      },
+      tags: ['Tag 1', 'Tag 2'],
     },
   ],
 };

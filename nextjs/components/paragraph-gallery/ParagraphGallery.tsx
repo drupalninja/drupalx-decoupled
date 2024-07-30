@@ -17,9 +17,10 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
   const { title, gallerySummary, mediaItem } = readFragment(ParagraphGalleryFragment, paragraph);
   const gallerySummaryFragment = readFragment(TextSummaryFragment, gallerySummary);
 
-  const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const [modalStates, setModalStates] = useState<Record<string, boolean>>({})
+
+  const handleClose = (id: string) => setModalStates(prev => ({ ...prev, [id]: false }))
+  const handleShow = (id: string) => setModalStates(prev => ({ ...prev, [id]: true }))
 
   return (
     <div className={modifier ?? 'container my-6 my-lg-15' }>
@@ -36,12 +37,12 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
         </div>
       )}
       <div className="row">
-        {mediaItem.map((item: any, index: number) => (
+        {mediaItem.map((item: any) => (
           <div key={item.id} className="col-6 col-md-3 mb-3">
             <Button
               className='p-0'
               variant='link'
-              onClick={handleShow}
+              onClick={() => handleShow(item.id)}
               data-bs-toggle="modal"
               data-bs-target={`#${item.id}Modal`}
               data-cy="modal-button"
@@ -49,8 +50,8 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
               {getImage(item, 'img-fluid', 'I4_3_SMALL')}
             </Button>
             <Modal
-              show={show}
-              onHide={handleClose}
+              show={modalStates[item.id] || false}
+              onHide={() => handleClose(item.id)}
               size="lg"
               className="fade"
               id={`${item.id}Modal`}
@@ -66,7 +67,7 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
                   {getImage(item, 'img-fluid', ['I4_3_SMALL', 'I4_3_LARGE_2X'])}
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
+                  <Button variant="secondary" className="close" onClick={() => handleClose(item.id)}>
                     Close
                   </Button>
                 </Modal.Footer>

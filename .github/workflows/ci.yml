@@ -37,6 +37,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -98,6 +103,29 @@ jobs:
       - name: Run Cypress tests
         run: npm run cypress
         working-directory: ./tests/cypress
+        env:
+          DISPLAY: :99.0
+
+      # New steps for Next.js Cypress tests
+      - name: Install Next.js dependencies
+        run: npm install
+        working-directory: ./nextjs
+
+      - name: Copy Next.js Cypress configuration
+        run: cp ./nextjs/cypress.config.ts.shippable ./nextjs/cypress.config.ts
+
+      - name: Start Storybook
+        run: npm run storybook &
+        working-directory: ./nextjs
+        env:
+          DISPLAY: :99.0
+
+      - name: Wait for Storybook to be ready
+        run: npx wait-on --timeout http://localhost:6006
+
+      - name: Run Next.js Cypress tests
+        run: npm run cypress
+        working-directory: ./nextjs
         env:
           DISPLAY: :99.0
 
