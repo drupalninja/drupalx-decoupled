@@ -115,7 +115,7 @@ jobs:
         run: cp ./nextjs/cypress.config.ts.shippable ./nextjs/cypress.config.ts
 
       - name: Run Next.js Cypress tests
-        run: npm cypress run
+        run: npm run cypress
         working-directory: ./nextjs
         env:
           DISPLAY: :99.0
