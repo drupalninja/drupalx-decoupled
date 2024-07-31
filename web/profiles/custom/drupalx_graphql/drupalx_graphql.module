@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @file
+ * DrupalX GraphQL module.
+ */
+
+// Include menu demo content functions.
+include 'drupalx_graphql_menus.inc';
+
+// Include node demo content functions.
+include 'drupalx_graphql_nodes.inc';
