@@ -902,11 +902,11 @@ enum ImageStyleAvailable {
   """Medium (220×220)"""
   MEDIUM
 
-  """Wide (1090)"""
-  WIDE
-
   """Thumbnail (100×100)"""
   THUMBNAIL
+
+  """Wide (1090)"""
+  WIDE
 }
 
 """ImageStyle derivatives for an Image."""

@@ -904,11 +904,11 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "WIDE",
+            "name": "THUMBNAIL",
             "isDeprecated": false
           },
           {
-            "name": "THUMBNAIL",
+            "name": "WIDE",
             "isDeprecated": false
           }
         ]
