@@ -56,9 +56,7 @@ export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProp
         {heroLayout === 'image_bottom' && requiredMedia && (
           <div className="image-bottom row mt-6">
             <div className="d-flex justify-content-center align-items-center">
-              <div className="shadow rounded">
-                {getImage(requiredMedia, 'img-fluid', ['HEROS', 'HEROLX2'])}
-              </div>  
+              {getImage(requiredMedia, 'img-fluid rounded shadow', ['HEROS', 'HEROLX2'])}
             </div>
           </div>
         )}
