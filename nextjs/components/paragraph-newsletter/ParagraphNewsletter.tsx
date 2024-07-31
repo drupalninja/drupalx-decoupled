@@ -9,7 +9,7 @@ interface ParagraphNewsletterProps {
 
 export default function ParagraphNewsletter({ paragraph, modifier }: ParagraphNewsletterProps) {
   return (
-    <div className="bg-light">
+    <div className="bg-light text-dark">
       <div className={`newsletter-form py-5 py-lg-12 ${modifier ?? 'container'}`}>
         <div className="row">
           <div className="col-lg-6">

@@ -15,7 +15,7 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
   const { id, carouselItem } = readFragment(ParagraphCarouselFragment, paragraph);
 
   return (
-    <div className={modifier ?? 'container'}>
+    <div className={modifier ?? 'container my-6 my-lg-15'}>
       <Carousel id={`carousel-${id}`} className="carousel-single">
         {carouselItem.map((item: any, index: number) => (
           <Carousel.Item key={index} className={`carousel-item ${item.active ? 'active' : ''}`}>
