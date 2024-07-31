@@ -94,33 +94,28 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
         'type' => 'quote',
         'logo' => $media_items['quote-logo'],
         'thumb' => $media_items['quote-thumb'],
-        'quote' => 'This is a quote from a satisfied DrupalX user.',
-        'author' => 'John Doe',
-        'job' => 'Web Developer',
+        'quote' => 'Bringing people together under a shared passion is at the heart of what Drupal does',
+        'author' => 'Dries Buytaert',
+        'job' => 'Drupal Founder, Acquia CTO/Co-Founder',
       ],
       [
         'type' => 'accordion',
         'title' => 'DrupalX Accordion',
         'items' => [
-          'Accordion Item 1' => [
-            'answer' => 'This is the answer to accordion item 1.',
-            'link' => [
-              'uri' => 'internal:/accordion-item-1',
-              'title' => 'Read more',
-            ],
+          'What is included with DrupalX?' => [
+            'answer' => 'DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.',
           ],
-          'Accordion Item 2' => [
-            'answer' => 'This is the answer to accordion item 2.',
-            'link' => [
-              'uri' => 'internal:/accordion-item-2',
-              'title' => 'Read more',
-            ],
+          'How much can I customize?' => [
+            'answer' => 'Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.',
           ],
-          'Accordion Item 3' => [
-            'answer' => 'This is the answer to accordion item 3.',
+          'Is DrupalX accessible?' => [
+            'answer' => 'Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.',
+          ],
+          'Can I see examples of other sites created with DrupalX?' => [
+            'answer' => 'Of course. Explore how DrupalX can be used across various types of sites.',
             'link' => [
-              'uri' => 'internal:/accordion-item-3',
-              'title' => 'Read more',
+              'uri' => 'internal:/articles',
+              'title' => 'Read DrupalX articles',
             ],
           ],
         ],
