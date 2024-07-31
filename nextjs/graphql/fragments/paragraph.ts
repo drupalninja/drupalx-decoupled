@@ -179,10 +179,34 @@ export const ParagraphCardFragment = graphql(`fragment ParagraphCardFragment on 
   ]
 )
 
+export const ParagraphStatsItemFragment = graphql(`fragment ParagraphStatsItemFragment on ParagraphStatsItem {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  customIcon {
+    ...SvgMediaFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  status
+  statSummary: summary
+  title
+}`,
+  [
+    DateTimeFragment,
+    SvgMediaFragment,
+    LanguageFragment,
+  ]
+)
+
 export const ParagraphCardGroupFragment = graphql(`fragment ParagraphCardGroupFragment on ParagraphCardGroup {
   id
   card {
+    __typename
     ...ParagraphCardFragment
+    ...ParagraphStatsItemFragment
   }
   created {
     ...DateTimeFragment
@@ -195,6 +219,7 @@ export const ParagraphCardGroupFragment = graphql(`fragment ParagraphCardGroupFr
 }`,
   [
     ParagraphCardFragment,
+    ParagraphStatsItemFragment,
     DateTimeFragment,
     LanguageFragment,
   ]

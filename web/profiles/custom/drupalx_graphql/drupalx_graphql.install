@@ -80,10 +80,11 @@ function _drupalx_graphql_create_menu_link($title, $uri, $menu_name, $expanded, 
  */
 function _drupalx_graphql_create_media_items() {
   $media_names = [
-    'card' => 'card.png',
+    'card' => 'card.jpg',
     'stars' => 'stars.jpg',
     'bootstrap' => 'bootstrap.svg',
     'storybook' => 'storybook.svg',
+    'bootswatch' => 'bootswatch.svg',
     'quote-logo' => 'quote-logo.svg',
     'quote-thumb' => 'dries.jpg',
   ];
@@ -189,17 +190,16 @@ function _drupalx_graphql_create_card_group_paragraph($media_items) {
         'uri' => 'https://fonts.google.com/icons',
         'title' => 'View icons',
       ],
-      'icon' => 'stars',
+      'icon' => 'bootswatch',
     ],
   ];
 
   foreach ($card_items as $info) {
     $card_paragraph = Paragraph::create([
-      'type' => 'card',
+      'type' => 'stats_item',
       'field_title' => $info['title'],
-      'field_media' => $media_items['card'],
+      'field_custom_icon' => $media_items[$info['icon']],
       'field_summary' => $info['summary'],
-      'field_link' => $info['link'],
     ]);
     $card_paragraph->save();
     $paragraph->field_card[] = [
