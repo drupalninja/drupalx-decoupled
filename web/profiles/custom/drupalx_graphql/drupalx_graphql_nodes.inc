@@ -11,13 +11,16 @@ use Drupal\node\Entity\Node;
 include 'drupalx_graphql_paragraphs.inc';
 
 /**
- * Create layout nodes.
+ * Get layout homepage node info.
  *
  * @param array $media_items
  *   The media items.
+ *
+ * @return array
+ *   The layout homepage node info.
  */
-function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
-  // Create Homepage node.
+function _drupalx_graphql_create_layout_homepage(array $media_items = []): array {
+
   $node_info = [
     'title' => 'DrupalX - The Enterprise CMS Starter',
     'path' => '/welcome',
@@ -28,7 +31,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
           'uri' => 'https://drupalx-react.netlify.app/',
           'title' => 'See our demo',
         ],
-        'media' => $media_items['card'],
+        'media' => 'card',
         'heading' => 'The <strong>Ultimate</strong> CMS Starter Kit for <strong>Enterprise</strong> Developers',
         'summary' => '',
         'layout' => 'image_top',
@@ -44,7 +47,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
               'uri' => 'https://storybook.js.org/',
               'title' => 'Learn more',
             ],
-            'icon' => $media_items['storybook'],
+            'icon' => 'storybook',
           ],
           [
             'title' => 'Bootstrap 5',
@@ -53,7 +56,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
               'uri' => 'https://getbootstrap.com/',
               'title' => 'Explore Bootstrap',
             ],
-            'icon' => $media_items['bootstrap'],
+            'icon' => 'bootstrap',
           ],
           [
             'title' => 'Material Icons',
@@ -62,7 +65,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
               'uri' => 'https://fonts.google.com/icons',
               'title' => 'View icons',
             ],
-            'icon' => $media_items['bootswatch'],
+            'icon' => 'bootswatch',
           ],
         ],
       ],
@@ -76,7 +79,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
         ],
         'summary' => 'The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.',
         'layout' => 'right',
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
       [
         'type' => 'sidebyside',
@@ -88,12 +91,12 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
         ],
         'summary' => 'DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.',
         'layout' => 'left',
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
       [
         'type' => 'quote',
-        'logo' => $media_items['quote-logo'],
-        'thumb' => $media_items['quote-thumb'],
+        'logo' => 'quote-logo',
+        'thumb' => 'quote-thumb',
         'quote' => 'Bringing people together under a shared passion is at the heart of what Drupal does',
         'author' => 'Dries Buytaert',
         'job' => 'Drupal Founder, Acquia CTO/Co-Founder',
@@ -123,14 +126,27 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
     ],
   ];
 
-  _drupalx_graphql_create_layout($node_info);
+  return $node_info;
+}
+
+/**
+ * Create layout nodes.
+ *
+ * @param array $media_items
+ *   The media items.
+ */
+function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
+  // Create Homepage node.
+  $node_info = _drupalx_graphql_create_layout_homepage($media_items);
+
+  _drupalx_graphql_create_layout($node_info, $media_items);
 
   $node_info = [
     'title' => 'Kitchen Sink Layout',
     'content' => [
       [
         'type' => 'hero',
-        'media' => $media_items['card'],
+        'media' => 'card',
         'heading' => 'Example Layout',
         'summary' => 'This is an example layout with various components.',
         'layout' => 'image_top',
@@ -146,7 +162,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
               'uri' => 'https://storybook.js.org/',
               'title' => 'Learn more',
             ],
-            'icon' => $media_items['storybook'],
+            'icon' => 'storybook',
           ],
           [
             'title' => 'Bootstrap 5',
@@ -155,7 +171,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
               'uri' => 'https://getbootstrap.com/',
               'title' => 'Explore Bootstrap',
             ],
-            'icon' => $media_items['bootstrap'],
+            'icon' => 'bootstrap',
           ],
           [
             'title' => 'Material Icons',
@@ -164,7 +180,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
               'uri' => 'https://fonts.google.com/icons',
               'title' => 'View icons',
             ],
-            'icon' => $media_items['bootswatch'],
+            'icon' => 'bootswatch',
           ],
         ],
       ],
@@ -178,7 +194,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
         ],
         'summary' => 'The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.',
         'layout' => 'right',
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
       [
         'type' => 'sidebyside',
@@ -190,7 +206,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
         ],
         'summary' => 'DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.',
         'layout' => 'left',
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
       [
         'type' => 'text',
@@ -204,30 +220,30 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
       [
         'type' => 'media',
         'title' => 'DrupalX Media',
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
       [
         'type' => 'gallery',
         'title' => 'DrupalX Gallery',
         'body' => 'View images of the DrupalX template and its components.',
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
       [
         'type' => 'carousel',
         'items' => [
           [
             'title' => 'DrupalX Carousel Item 1',
-            'thumb' => $media_items['card'],
+            'thumb' => 'card',
             'summary' => 'This is the first carousel item.',
           ],
           [
             'title' => 'DrupalX Carousel Item 2',
-            'thumb' => $media_items['card'],
+            'thumb' => 'card',
             'summary' => 'This is the second carousel item.',
           ],
           [
             'title' => 'DrupalX Carousel Item 3',
-            'thumb' => $media_items['card'],
+            'thumb' => 'card',
             'summary' => 'This is the third carousel item.',
           ],
         ],
@@ -261,8 +277,8 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
       ],
       [
         'type' => 'quote',
-        'logo' => $media_items['quote-logo'],
-        'thumb' => $media_items['quote-thumb'],
+        'logo' => 'quote-logo',
+        'thumb' => 'quote-thumb',
         'quote' => 'This is a quote from a satisfied DrupalX user.',
         'author' => 'John Doe',
         'job' => 'Web Developer',
@@ -283,7 +299,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
     'path' => '/kitchen-sink',
   ];
 
-  _drupalx_graphql_create_layout($node_info);
+  _drupalx_graphql_create_layout($node_info, $media_items);
 
   // Create Contact us page node.
   $node_info = [
@@ -291,7 +307,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
     'content' => [
       [
         'type' => 'hero',
-        'media' => $media_items['card'],
+        'media' => 'card',
         'heading' => 'Contact Us',
         'summary' => 'Have a question about DrupalX? We\'re here to help! Drop us a message and we\'ll get back to you soon.',
         'layout' => 'image_top',
@@ -305,7 +321,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
     'path' => '/contact',
   ];
 
-  _drupalx_graphql_create_layout($node_info);
+  _drupalx_graphql_create_layout($node_info, $media_items);
 
   // Create Features layout node.
   $node_info = [
@@ -313,7 +329,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
     'content' => [
       [
         'type' => 'hero',
-        'media' => $media_items['card'],
+        'media' => 'card',
         'heading' => 'DrupalX Features',
         'summary' => '<p>DrupalX is a comprehensive system that provides a robust starting point for designers and developers to fully customize components.</p>',
         'layout' => 'image_bottom',
@@ -324,7 +340,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
         'eyebrow' => 'Customizable Components',
         'summary' => 'Each component in DrupalX is fully customizable, allowing you to create a unique site tailored to your organization\'s needs.',
         'layout' => 'right',
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
       [
         'type' => 'sidebyside',
@@ -332,7 +348,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
         'eyebrow' => 'User-Friendly Editing',
         'summary' => 'Utilize over a dozen built-in layout builder components for seamless content management, powered by Bootstrap 5.',
         'layout' => 'left',
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
       [
         'type' => 'sidebyside',
@@ -340,13 +356,13 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
         'eyebrow' => 'WCAG 2.0 AA Standard',
         'summary' => 'Our solution adheres to WCAG 2.0 AA accessibility guidelines out of the box, ensuring an inclusive experience.',
         'layout' => 'right',
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
     ],
     'path' => '/features',
   ];
 
-  _drupalx_graphql_create_layout($node_info);
+  _drupalx_graphql_create_layout($node_info, $media_items);
 
   // Create Get Started layout node.
   $node_info = [
@@ -354,7 +370,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
     'content' => [
       [
         'type' => 'hero',
-        'media' => $media_items['card'],
+        'media' => 'card',
         'heading' => "Get Started",
         'summary' => 'Whether you\'re a designer or a developer, DrupalX provides the perfect foundation to start customizing to your specific needs.',
         'layout' => 'image_bottom',
@@ -369,7 +385,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
           'uri' => 'https://www.figma.com/community/search?resource_type=mixed&sort_by=relevancy&query=bootstrap+5&editor_type=all&price=all&creators=all',
           'title' => 'Browse Figma UI kits',
         ],
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
       [
         'type' => 'sidebyside',
@@ -381,13 +397,13 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
           'uri' => 'https://github.com/drupalninja/drupalx-graphql',
           'title' => 'Find out more',
         ],
-        'media' => $media_items['card'],
+        'media' => 'card',
       ],
     ],
     'path' => '/get-started',
   ];
 
-  _drupalx_graphql_create_layout($node_info);
+  _drupalx_graphql_create_layout($node_info, $media_items);
 
   // Create Articles layout node.
   $node_info = [
@@ -395,7 +411,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
     'content' => [
       [
         'type' => 'hero',
-        'media' => $media_items['card'],
+        'media' => 'card',
         'heading' => 'DrupalX Articles',
         'layout' => 'image_top',
       ],
@@ -406,7 +422,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
     'path' => '/articles',
   ];
 
-  _drupalx_graphql_create_layout($node_info);
+  _drupalx_graphql_create_layout($node_info, $media_items);
 }
 
 /**
@@ -414,8 +430,10 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
  *
  * @param array $node_info
  *   The layout node info.
+ * @param array $media_items
+ *   The media items.
  */
-function _drupalx_graphql_create_layout($node_info) {
+function _drupalx_graphql_create_layout($node_info, $media_items) {
 
   $node = Node::create([
     'type' => 'layout',
@@ -437,7 +455,7 @@ function _drupalx_graphql_create_layout($node_info) {
   foreach ($node_info['content'] as $paragraph_info) {
     $function = '_drupalx_graphql_create_' . $paragraph_info['type'] . '_paragraph';
     if (function_exists($function)) {
-      $paragraph = $function($paragraph_info);
+      $paragraph = $function($paragraph_info, $media_items);
       $paragraphs[] = $paragraph;
     }
   }

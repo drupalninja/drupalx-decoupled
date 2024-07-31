@@ -11,6 +11,12 @@ use Drupal\media\Entity\Media;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 
+// Include menu demo content functions.
+include 'drupalx_graphql_menus.inc';
+
+// Include node demo content functions.
+include 'drupalx_graphql_nodes.inc';
+
 /**
  * Implements hook_install_tasks().
  */
