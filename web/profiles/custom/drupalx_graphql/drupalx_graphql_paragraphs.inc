@@ -22,9 +22,9 @@ function _drupalx_graphql_create_hero_paragraph(array $info = [], array $media_i
   $paragraph = Paragraph::create([
     'type' => 'hero',
     'field_media' => [
-      'target_id' => $media_items[$info['media']]->id(),
+      'target_id' => !empty($media_items[$info['media']]) ? $media_items[$info['media']]->id() : $media_items['card']->id(),
     ],
-    'field_hero_layout' => $info['layout'],
+    'field_hero_layout' => $info['layout'] ?? 'image_top',
   ]);
 
   if (!empty($info['heading'])) {
@@ -73,7 +73,7 @@ function _drupalx_graphql_create_card_group_paragraph(array $info = [], array $m
     $card_paragraph = Paragraph::create([
       'type' => 'stats_item',
       'field_title' => $info['title'],
-      'field_custom_icon' => $media_items[$info['icon']],
+      'field_custom_icon' => $media_items[$info['icon']] ?? $media_items['bootstrap'],
       'field_summary' => $info['summary'],
     ]);
     $card_paragraph->save();
@@ -109,7 +109,7 @@ function _drupalx_graphql_create_sidebyside_paragraph(array $info = [], array $m
 
   if (!empty($info['media'])) {
     $paragraph->set('field_media', [
-      'target_id' => $media_items[$info['media']]->id(),
+      'target_id' => $media_items[$info['media']] ? $media_items[$info['media']]->id() : $media_items['card']->id(),
     ]);
   }
 
@@ -162,7 +162,7 @@ function _drupalx_graphql_create_media_paragraph(array $info = [], array $media_
   $paragraph = Paragraph::create([
     'type' => 'media',
     'field_title' => $info['title'],
-    'field_media' => $media_items[$info['media']],
+    'field_media' => $media_items[$info['media']] ?? $media_items['card'],
   ]);
   $paragraph->save();
   return $paragraph;
@@ -180,7 +180,7 @@ function _drupalx_graphql_create_media_paragraph(array $info = [], array $media_
  *   The created paragraph entity.
  */
 function _drupalx_graphql_create_gallery_paragraph(array $info = [], array $media_items = []): Paragraph {
-  $gallery_items = array_fill(0, 8, $media_items[$info['media']]);
+  $gallery_items = array_fill(0, 8, $media_items[$info['media']] ?? $media_items['card']);
 
   $paragraph = Paragraph::create([
     'type' => 'gallery',
@@ -212,7 +212,7 @@ function _drupalx_graphql_create_carousel_paragraph(array $info = [], array $med
     $carousel_item = Paragraph::create([
       'type' => 'carousel_item',
       'field_title' => $item['title'],
-      'field_media' => $media_items[$item['thumb']],
+      'field_media' => $media_items[$item['thumb']] ?? $media_items['card'],
       'field_summary' => $item['summary'],
     ]);
     $carousel_item->save();
@@ -276,8 +276,8 @@ function _drupalx_graphql_create_accordion_paragraph(array $info = []): Paragrap
 function _drupalx_graphql_create_quote_paragraph(array $info = [], array $media_items = []): Paragraph {
   $paragraph = Paragraph::create([
     'type' => 'quote',
-    'field_logo' => $media_items[$info['logo']],
-    'field_thumb' => $media_items[$info['thumb']],
+    'field_logo' => $media_items[$info['logo']] ?? $media_items['quote-logo'],
+    'field_thumb' => $media_items[$info['thumb']] ?? $media_items['quote-thumb'],
     'field_quote' => $info['quote'],
     'field_author' => $info['author'],
     'field_job_title' => $info['job'],

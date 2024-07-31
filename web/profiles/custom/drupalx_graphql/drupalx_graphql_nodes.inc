@@ -13,13 +13,10 @@ include 'drupalx_graphql_paragraphs.inc';
 /**
  * Get layout homepage node info.
  *
- * @param array $media_items
- *   The media items.
- *
  * @return array
  *   The layout homepage node info.
  */
-function _drupalx_graphql_create_layout_homepage(array $media_items = []): array {
+function _drupalx_graphql_create_layout_homepage(): array {
 
   $node_info = [
     'title' => 'DrupalX - The Enterprise CMS Starter',
