@@ -109,7 +109,7 @@ function _drupalx_graphql_create_sidebyside_paragraph(array $info = [], array $m
 
   if (!empty($info['media'])) {
     $paragraph->set('field_media', [
-      'target_id' => $media_items[$info['media']] ? $media_items[$info['media']]->id() : $media_items['card']->id(),
+      'target_id' => isset($media_items[$info['media']]) ? $media_items[$info['media']]->id() : $media_items['card']->id(),
     ]);
   }
 
@@ -276,12 +276,22 @@ function _drupalx_graphql_create_accordion_paragraph(array $info = []): Paragrap
 function _drupalx_graphql_create_quote_paragraph(array $info = [], array $media_items = []): Paragraph {
   $paragraph = Paragraph::create([
     'type' => 'quote',
-    'field_logo' => $media_items[$info['logo']] ?? $media_items['quote-logo'],
-    'field_thumb' => $media_items[$info['thumb']] ?? $media_items['quote-thumb'],
     'field_quote' => $info['quote'],
     'field_author' => $info['author'],
     'field_job_title' => $info['job'],
   ]);
+
+  if (!empty($info['logo'])) {
+    $paragraph->set('field_logo', [
+      'target_id' => $media_items[$info['logo']]->id(),
+    ]);
+  }
+  if (!empty($info['thumb'])) {
+    $paragraph->set('field_thumb', [
+      'target_id' => $media_items[$info['thumb']]->id(),
+    ]);
+  }
+
   $paragraph->save();
   return $paragraph;
 }

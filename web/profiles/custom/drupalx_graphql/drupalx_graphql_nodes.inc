@@ -12,11 +12,14 @@ include 'drupalx_graphql_paragraphs.inc';
 
 /**
  * Get layout homepage node info.
+ * 
+ * @param array $exclude_media
+ *   Media to exclude.
  *
  * @return array
  *   The layout homepage node info.
  */
-function _drupalx_graphql_create_layout_homepage(): array {
+function _drupalx_graphql_create_layout_homepage(array $exclude_media = []): array {
 
   $node_info = [
     'title' => 'DrupalX - The Enterprise CMS Starter',
@@ -92,8 +95,8 @@ function _drupalx_graphql_create_layout_homepage(): array {
       ],
       [
         'type' => 'quote',
-        'logo' => 'quote-logo',
-        'thumb' => 'quote-thumb',
+        'logo' => in_array('quote-logo', $exclude_media) ? NULL : 'quote-logo',
+        'thumb' => in_array('quote-thumb', $exclude_media) ? NULL : 'quote-thumb',
         'quote' => 'Bringing people together under a shared passion is at the heart of what Drupal does',
         'author' => 'Dries Buytaert',
         'job' => 'Drupal Founder, Acquia CTO/Co-Founder',

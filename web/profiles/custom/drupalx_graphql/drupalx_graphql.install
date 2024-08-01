@@ -7,7 +7,6 @@
 
 use Drupal\Component\Utility\Crypt;
 use Drupal\Component\Utility\Random;
-use Drupal\media\Entity\Media;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 
@@ -16,6 +15,9 @@ include 'drupalx_graphql_menus.inc';
 
 // Include node demo content functions.
 include 'drupalx_graphql_nodes.inc';
+
+// Include media demo content functions.
+include 'drupalx_graphql_media.inc';
 
 /**
  * Implements hook_install_tasks().
@@ -29,42 +31,6 @@ function drupalx_graphql_install_tasks(&$install_state) {
   ];
 
   return $tasks;
-}
-
-/**
- * Create media items.
- */
-function _drupalx_graphql_create_media_items() {
-  $media_names = [
-    'card' => 'card.jpg',
-    'bootstrap' => 'bootstrap.svg',
-    'storybook' => 'storybook.svg',
-    'bootswatch' => 'bootswatch.svg',
-    'quote-logo' => 'quote-logo.svg',
-    'quote-thumb' => 'dries.jpg',
-  ];
-
-  $media_items = [];
-
-  foreach ($media_names as $media_name => $file_name) {
-    $image_path = \Drupal::service('extension.list.profile')->getPath('drupalx_graphql') . '/images/' . $file_name;
-    $data = file_get_contents($image_path);
-    $file = \Drupal::service('file.repository')->writeData($data, 'public://' . $file_name);
-    $media = Media::create([
-      'bundle' => 'image',
-      'name' => $media_name,
-      'field_image' => [
-        'target_id' => $file->id(),
-        'alt' => $media_name,
-        'title' => $media_name,
-      ],
-    ]);
-
-    $media->save();
-    $media_items[$media_name] = $media;
-  }
-
-  return $media_items;
 }
 
 /**
