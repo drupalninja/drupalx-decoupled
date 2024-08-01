@@ -13,7 +13,7 @@ describe('Side-by-Side Component', () => {
     cy.get('.badge').contains('Featured');
 
     // Check if media image is present
-    cy.get('.side-by-side .shadow img').should('have.attr', 'src').and('include', 'images/card.webp');
+    cy.get('.side-by-side img').should('have.attr', 'src').and('include', 'images/card.webp');
 
     // Check for body text
     cy.contains('This is a sample summary for the side-by-side component.');
@@ -34,7 +34,7 @@ describe('Side-by-Side Component', () => {
     cy.get('.badge').contains('Featured');
 
     // Check if media image is present
-    cy.get('.side-by-side .shadow img').should('have.attr', 'src').and('include', 'images/card.webp');
+    cy.get('.side-by-side img').should('have.attr', 'src').and('include', 'images/card.webp');
 
     // Check for body text
     cy.contains('This is a sample summary for the side-by-side component.');
@@ -56,7 +56,7 @@ describe('Side-by-Side Component', () => {
 
         cy.get('.badge').contains('Featured');
         cy.contains('Side by Side Component').should('be.visible');
-        cy.get('.side-by-side .shadow img')
+        cy.get('.side-by-side img')
           .should('have.attr', 'src').and('include', 'images/card.webp');
         cy.contains('This is a sample summary for the side-by-side component.')
           .should('be.visible');
