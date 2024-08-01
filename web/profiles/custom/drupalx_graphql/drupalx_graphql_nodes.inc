@@ -11,15 +11,12 @@ use Drupal\node\Entity\Node;
 include 'drupalx_graphql_paragraphs.inc';
 
 /**
- * Get layout homepage node info.
- * 
- * @param array $exclude_media
- *   Media to exclude.
+ * Get sample layout homepage node info.
  *
  * @return array
  *   The layout homepage node info.
  */
-function _drupalx_graphql_create_layout_homepage(array $exclude_media = []): array {
+function _drupalx_graphql_create_layout_page(): array {
 
   $node_info = [
     'title' => 'DrupalX - The Enterprise CMS Starter',
@@ -47,7 +44,6 @@ function _drupalx_graphql_create_layout_homepage(array $exclude_media = []): arr
               'uri' => 'https://storybook.js.org/',
               'title' => 'Learn more',
             ],
-            'icon' => 'storybook',
           ],
           [
             'title' => 'Bootstrap 5',
@@ -56,7 +52,6 @@ function _drupalx_graphql_create_layout_homepage(array $exclude_media = []): arr
               'uri' => 'https://getbootstrap.com/',
               'title' => 'Explore Bootstrap',
             ],
-            'icon' => 'bootstrap',
           ],
           [
             'title' => 'Material Icons',
@@ -65,7 +60,6 @@ function _drupalx_graphql_create_layout_homepage(array $exclude_media = []): arr
               'uri' => 'https://fonts.google.com/icons',
               'title' => 'View icons',
             ],
-            'icon' => 'bootswatch',
           ],
         ],
       ],
@@ -95,8 +89,122 @@ function _drupalx_graphql_create_layout_homepage(array $exclude_media = []): arr
       ],
       [
         'type' => 'quote',
-        'logo' => in_array('quote-logo', $exclude_media) ? NULL : 'quote-logo',
-        'thumb' => in_array('quote-thumb', $exclude_media) ? NULL : 'quote-thumb',
+        'quote' => 'Bringing people together under a shared passion is at the heart of what Drupal does',
+        'author' => 'Dries Buytaert',
+        'job' => 'Drupal Founder, Acquia CTO/Co-Founder',
+      ],
+      [
+        'type' => 'accordion',
+        'title' => 'DrupalX Accordion',
+        'items' => [
+          'What is included with DrupalX?' => [
+            'answer' => 'DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.',
+          ],
+          'How much can I customize?' => [
+            'answer' => 'Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.',
+          ],
+          'Is DrupalX accessible?' => [
+            'answer' => 'Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.',
+          ],
+          'Can I see examples of other sites created with DrupalX?' => [
+            'answer' => 'Of course. Explore how DrupalX can be used across various types of sites.',
+            'link' => [
+              'uri' => 'internal:/articles',
+              'title' => 'Read DrupalX articles',
+            ],
+          ],
+        ],
+      ],
+    ],
+  ];
+
+  return $node_info;
+}
+
+/**
+ * Get layout homepage node info.
+ *
+ * @return array
+ *   The layout homepage node info.
+ */
+function _drupalx_graphql_create_layout_homepage(): array {
+
+  $node_info = [
+    'title' => 'DrupalX - The Enterprise CMS Starter',
+    'path' => '/welcome',
+    'content' => [
+      [
+        'type' => 'hero',
+        'link' => [
+          'uri' => 'https://drupalx-react.netlify.app/',
+          'title' => 'See our demo',
+        ],
+        'media' => 'card',
+        'heading' => 'The <strong>Ultimate</strong> CMS Starter Kit for <strong>Enterprise</strong> Developers',
+        'summary' => '',
+        'layout' => 'image_top',
+      ],
+      [
+        'type' => 'card_group',
+        'title' => 'Discover DrupalX',
+        'items' => [
+          [
+            'title' => 'Storybook.js',
+            'summary' => 'Learn how Storybook integration allows you to develop and test UI components in isolation.',
+            'link' => [
+              'uri' => 'https://storybook.js.org/',
+              'title' => 'Learn more',
+            ],
+            'custom_icon' => 'storybook',
+          ],
+          [
+            'title' => 'Bootstrap 5',
+            'summary' => 'Explore the latest features and components in the Bootstrap 5 framework.',
+            'link' => [
+              'uri' => 'https://getbootstrap.com/',
+              'title' => 'Explore Bootstrap',
+            ],
+            'custom_icon' => 'bootstrap',
+          ],
+          [
+            'title' => 'Material Icons',
+            'summary' => 'Discover the Material Icons library and how it can enhance your site design.',
+            'link' => [
+              'uri' => 'https://fonts.google.com/icons',
+              'title' => 'View icons',
+            ],
+            'custom_icon' => 'bootswatch',
+          ],
+        ],
+      ],
+      [
+        'type' => 'sidebyside',
+        'title' => 'DrupalX Rapid Development',
+        'eyebrow' => 'DrupalX Features',
+        'link' => [
+          'uri' => 'internal:/features',
+          'title' => 'Explore features',
+        ],
+        'summary' => 'The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.',
+        'layout' => 'right',
+        'media' => 'card',
+      ],
+      [
+        'type' => 'sidebyside',
+        'title' => 'DrupalX Content Management',
+        'eyebrow' => 'DrupalX Content',
+        'link' => [
+          'uri' => 'internal:/articles',
+          'title' => 'Read DrupalX articles',
+        ],
+        'summary' => 'DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.',
+        'layout' => 'left',
+        'media' => 'card',
+      ],
+      [
+        'type' => 'quote',
+        'logo' => 'quote-logo',
+        'thumb' => 'quote-thumb',
         'quote' => 'Bringing people together under a shared passion is at the heart of what Drupal does',
         'author' => 'Dries Buytaert',
         'job' => 'Drupal Founder, Acquia CTO/Co-Founder',
@@ -162,7 +270,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
               'uri' => 'https://storybook.js.org/',
               'title' => 'Learn more',
             ],
-            'icon' => 'storybook',
+            'custom_icon' => 'storybook',
           ],
           [
             'title' => 'Bootstrap 5',
@@ -171,7 +279,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
               'uri' => 'https://getbootstrap.com/',
               'title' => 'Explore Bootstrap',
             ],
-            'icon' => 'bootstrap',
+            'custom_icon' => 'bootstrap',
           ],
           [
             'title' => 'Material Icons',
@@ -180,7 +288,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
               'uri' => 'https://fonts.google.com/icons',
               'title' => 'View icons',
             ],
-            'icon' => 'bootswatch',
+            'custom_icon' => 'bootswatch',
           ],
         ],
       ],

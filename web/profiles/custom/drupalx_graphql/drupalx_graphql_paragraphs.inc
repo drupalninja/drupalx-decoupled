@@ -73,9 +73,19 @@ function _drupalx_graphql_create_card_group_paragraph(array $info = [], array $m
     $card_paragraph = Paragraph::create([
       'type' => 'stats_item',
       'field_title' => $info['title'],
-      'field_custom_icon' => $media_items[$info['icon']] ?? $media_items['bootstrap'],
       'field_summary' => $info['summary'],
     ]);
+
+    if (!empty($info['custom_icon'])) {
+      $card_paragraph->set('field_custom_icon', [
+        'target_id' => $media_items[$info['custom_icon']]->id(),
+      ]);
+    }
+
+    if (!empty($info['icon'])) {
+      $card_paragraph->set('field_icon', $info['icon']);
+    }
+
     $card_paragraph->save();
     $paragraph->field_card[] = [
       'target_id' => $card_paragraph->id(),
@@ -103,8 +113,8 @@ function _drupalx_graphql_create_sidebyside_paragraph(array $info = [], array $m
     'type' => 'sidebyside',
     'field_title' => $info['title'],
     'field_eyebrow' => !empty($info['eyebrow']) ? $info['eyebrow'] : '',
-    'field_summary' => $info['summary'],
-    'field_sidebyside_layout' => $info['layout'],
+    'field_summary' => $info['summary'] ?? '',
+    'field_sidebyside_layout' => $info['layout'] ?? 'left',
   ]);
 
   if (!empty($info['media'])) {
@@ -114,7 +124,10 @@ function _drupalx_graphql_create_sidebyside_paragraph(array $info = [], array $m
   }
 
   if (!empty($info['link'])) {
-    $paragraph->set('field_link', $info['link']);
+    $paragraph->set('field_link', [
+      'uri' => $info['link']['uri'],
+      'title' => $info['link']['title'],
+    ]);
   }
 
   $paragraph->save();
