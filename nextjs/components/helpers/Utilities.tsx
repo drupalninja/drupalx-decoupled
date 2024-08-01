@@ -27,18 +27,18 @@ export const getImage = (media: any, className?: string, imageStyle?: string | s
   const isSvg = (url: string) => url.endsWith('.svg');
 
   return (
-    <picture>
-      <source
-        media="(max-width: 767px)"
-        srcSet={mobileUrl}
+    isSvg(desktopUrl) ? (
+      <img
+        src={desktopUrl}
+        alt={media?.image?.alt}
+        className={className ?? 'img-fluid'}
       />
-      {isSvg(desktopUrl) ? (
-        <img
-          src={desktopUrl}
-          alt={media?.image?.alt}
-          className={className ?? 'img-fluid'}
+    ) : (
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcSet={mobileUrl}
         />
-      ) : (
         <Image
           src={desktopUrl}
           alt={media?.image?.alt}
@@ -48,7 +48,7 @@ export const getImage = (media: any, className?: string, imageStyle?: string | s
           sizes="(max-width: 767px) 100vw, 50vw"
           quality={75}
         />
-      )}
-    </picture>
+      </picture>
+    )
   );
 };
