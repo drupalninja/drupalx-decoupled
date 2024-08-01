@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 export const getImage = (media: any, className?: string, imageStyle?: string | string[]) => {
-  const getVariation = (name: string) => 
+  const getVariation = (name: string) =>
     media?.image?.variations?.find((variation: any) => variation.name === name);
 
   let desktopStyle: string | undefined;
@@ -24,21 +24,31 @@ export const getImage = (media: any, className?: string, imageStyle?: string | s
 
   if (!desktopUrl) return null;
 
+  const isSvg = (url: string) => url.endsWith('.svg');
+
   return (
     <picture>
       <source
         media="(max-width: 767px)"
         srcSet={mobileUrl}
       />
-      <Image 
-        src={desktopUrl}
-        alt={media?.image?.alt} 
-        width={width > 0 ? width : 1920}
-        height={height > 0 ? height : 1080}
-        className={className ?? 'img-fluid'}
-        sizes="(max-width: 767px) 100vw, 50vw"
-        quality={75}
-      />
+      {isSvg(desktopUrl) ? (
+        <img
+          src={desktopUrl}
+          alt={media?.image?.alt}
+          className={className ?? 'img-fluid'}
+        />
+      ) : (
+        <Image
+          src={desktopUrl}
+          alt={media?.image?.alt}
+          width={width}
+          height={height}
+          className={className ?? 'img-fluid'}
+          sizes="(max-width: 767px) 100vw, 50vw"
+          quality={75}
+        />
+      )}
     </picture>
   );
 };
