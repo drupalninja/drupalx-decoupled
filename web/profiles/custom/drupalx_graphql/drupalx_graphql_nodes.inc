@@ -19,18 +19,13 @@ include 'drupalx_graphql_paragraphs.inc';
 function _drupalx_graphql_create_layout_page(): array {
 
   $node_info = [
-    'title' => 'DrupalX - The Enterprise CMS Starter',
-    'path' => '/welcome',
+    'title' => 'Kitchen Sink Layout',
     'content' => [
       [
         'type' => 'hero',
-        'link' => [
-          'uri' => 'https://drupalx-react.netlify.app/',
-          'title' => 'See our demo',
-        ],
         'media' => 'card',
-        'heading' => 'The <strong>Ultimate</strong> CMS Starter Kit for <strong>Enterprise</strong> Developers',
-        'summary' => '',
+        'heading' => 'Example Layout',
+        'summary' => 'This is an example layout with various components.',
         'layout' => 'image_top',
       ],
       [
@@ -88,32 +83,89 @@ function _drupalx_graphql_create_layout_page(): array {
         'media' => 'card',
       ],
       [
-        'type' => 'quote',
-        'quote' => 'Bringing people together under a shared passion is at the heart of what Drupal does',
-        'author' => 'Dries Buytaert',
-        'job' => 'Drupal Founder, Acquia CTO/Co-Founder',
+        'type' => 'text',
+        'title' => 'DrupalX Documentation',
+        'body' => 'The DrupalX documentation provides detailed information on how to use the DrupalX template and its components.',
+        'link' => [
+          'uri' => 'internal:/documentation',
+          'title' => 'Read documentation',
+        ],
+      ],
+      [
+        'type' => 'media',
+        'title' => 'DrupalX Media',
+        'media' => 'card',
+      ],
+      [
+        'type' => 'gallery',
+        'title' => 'DrupalX Gallery',
+        'body' => 'View images of the DrupalX template and its components.',
+        'media' => 'card',
+      ],
+      [
+        'type' => 'carousel',
+        'items' => [
+          [
+            'title' => 'DrupalX Carousel Item 1',
+            'thumb' => 'card',
+            'summary' => 'This is the first carousel item.',
+          ],
+          [
+            'title' => 'DrupalX Carousel Item 2',
+            'thumb' => 'card',
+            'summary' => 'This is the second carousel item.',
+          ],
+          [
+            'title' => 'DrupalX Carousel Item 3',
+            'thumb' => 'card',
+            'summary' => 'This is the third carousel item.',
+          ],
+        ],
       ],
       [
         'type' => 'accordion',
         'title' => 'DrupalX Accordion',
         'items' => [
-          'What is included with DrupalX?' => [
-            'answer' => 'DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.',
-          ],
-          'How much can I customize?' => [
-            'answer' => 'Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.',
-          ],
-          'Is DrupalX accessible?' => [
-            'answer' => 'Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.',
-          ],
-          'Can I see examples of other sites created with DrupalX?' => [
-            'answer' => 'Of course. Explore how DrupalX can be used across various types of sites.',
+          'Accordion Item 1' => [
+            'answer' => 'This is the answer to accordion item 1.',
             'link' => [
-              'uri' => 'internal:/articles',
-              'title' => 'Read DrupalX articles',
+              'uri' => 'internal:/accordion-item-1',
+              'title' => 'Read more',
+            ],
+          ],
+          'Accordion Item 2' => [
+            'answer' => 'This is the answer to accordion item 2.',
+            'link' => [
+              'uri' => 'internal:/accordion-item-2',
+              'title' => 'Read more',
+            ],
+          ],
+          'Accordion Item 3' => [
+            'answer' => 'This is the answer to accordion item 3.',
+            'link' => [
+              'uri' => 'internal:/accordion-item-3',
+              'title' => 'Read more',
             ],
           ],
         ],
+      ],
+      [
+        'type' => 'quote',
+        'quote' => 'This is a quote from a satisfied DrupalX user.',
+        'author' => 'John Doe',
+        'job' => 'Web Developer',
+      ],
+      [
+        'type' => 'embed',
+        'title' => 'DrupalX Embed',
+        'script' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50704.05332036616!2d-122.12246645666515!3d37.413396126075966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7495bec0189%3A0x7c17d44a466baf9b!2sMountain%20View%2C%20CA!5e0!3m2!1sen!2sus!4v1716313314254!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+      ],
+      [
+        'type' => 'newsletter',
+      ],
+      [
+        'type' => 'articles',
+        'title' => 'DrupalX Articles',
       ],
     ],
   ];
