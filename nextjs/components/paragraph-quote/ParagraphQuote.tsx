@@ -20,7 +20,7 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
                 {getImage(logo)}
               </div>
             )}
-            <blockquote className="blockquote fs-4 mb-3">
+            <blockquote className="d-flex justify-content-center align-items-center fs-4 mb-3">
               <p className="p-3 fw-semibold d-flex align-items-center">
                 {quote}
                 <span className="material-symbols-outlined mb-3">format_quote</span>
