@@ -172,7 +172,6 @@ function _drupalx_graphql_create_layout_page(): array {
         'title' => 'DrupalX Articles',
       ],
     ],
-    'path' => '/kitchen-sink',
   ];
 
   return $node_info;
@@ -597,8 +596,11 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
  *   The layout node info.
  * @param array $media_items
  *   The media items.
+ *
+ * @return \Drupal\node\Entity\Node
+ *   The layout node.
  */
-function _drupalx_graphql_create_layout($node_info, $media_items) {
+function _drupalx_graphql_create_layout($node_info, $media_items): Node {
 
   $node = Node::create([
     'type' => 'layout',
@@ -634,6 +636,8 @@ function _drupalx_graphql_create_layout($node_info, $media_items) {
   }
 
   $node->save();
+
+  return $node;
 }
 
 /**
