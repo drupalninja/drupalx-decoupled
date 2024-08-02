@@ -70,20 +70,37 @@ function _drupalx_graphql_create_card_group_paragraph(array $info = [], array $m
   ]);
 
   foreach ($info['items'] as $info) {
-    $card_paragraph = Paragraph::create([
-      'type' => 'stats_item',
-      'field_title' => $info['title'],
-      'field_summary' => $info['summary'],
-    ]);
 
-    if (!empty($info['custom_icon'])) {
-      $card_paragraph->set('field_custom_icon', [
-        'target_id' => $media_items[$info['custom_icon']]->id(),
+    if (!empty($info['media'])) {
+      $card_paragraph = Paragraph::create([
+        'type' => 'card',
+        'field_title' => $info['title'],
+        'field_summary' => $info['summary'],
+        'field_media' => [
+          'target_id' => isset($media_items[$info['media']]) ? $media_items[$info['media']]->id() : $media_items['card']->id(),
+        ],
+        'field_link' => [
+          'uri' => $info['link']['uri'],
+          'title' => $info['link']['title'],
+        ],
       ]);
     }
+    else {
+      $card_paragraph = Paragraph::create([
+        'type' => 'stats_item',
+        'field_title' => $info['title'],
+        'field_summary' => $info['summary'],
+      ]);
 
-    if (!empty($info['icon'])) {
-      $card_paragraph->set('field_icon', $info['icon']);
+      if (!empty($info['custom_icon'])) {
+        $card_paragraph->set('field_custom_icon', [
+          'target_id' => $media_items[$info['custom_icon']]->id(),
+        ]);
+      }
+
+      if (!empty($info['icon'])) {
+        $card_paragraph->set('field_icon', $info['icon']);
+      }
     }
 
     $card_paragraph->save();
@@ -193,7 +210,7 @@ function _drupalx_graphql_create_media_paragraph(array $info = [], array $media_
  *   The created paragraph entity.
  */
 function _drupalx_graphql_create_gallery_paragraph(array $info = [], array $media_items = []): Paragraph {
-  $gallery_items = array_fill(0, 8, $media_items[$info['media']] ?? $media_items['card']);
+  $gallery_items = array_fill(0, 8, $media_items[$info['media']]);
 
   $paragraph = Paragraph::create([
     'type' => 'gallery',

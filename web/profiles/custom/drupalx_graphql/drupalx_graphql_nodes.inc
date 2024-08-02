@@ -39,6 +39,7 @@ function _drupalx_graphql_create_layout_page(): array {
               'uri' => 'https://storybook.js.org/',
               'title' => 'Learn more',
             ],
+            'media' => 'card',
           ],
           [
             'title' => 'Bootstrap 5',
@@ -47,6 +48,7 @@ function _drupalx_graphql_create_layout_page(): array {
               'uri' => 'https://getbootstrap.com/',
               'title' => 'Explore Bootstrap',
             ],
+            'media' => 'card',
           ],
           [
             'title' => 'Material Icons',
@@ -55,6 +57,7 @@ function _drupalx_graphql_create_layout_page(): array {
               'uri' => 'https://fonts.google.com/icons',
               'title' => 'View icons',
             ],
+            'media' => 'card',
           ],
         ],
       ],
@@ -154,6 +157,7 @@ function _drupalx_graphql_create_layout_page(): array {
         'quote' => 'This is a quote from a satisfied DrupalX user.',
         'author' => 'John Doe',
         'job' => 'Web Developer',
+        'thumb' => 'quote-thumb',
       ],
       [
         'type' => 'embed',
@@ -168,6 +172,7 @@ function _drupalx_graphql_create_layout_page(): array {
         'title' => 'DrupalX Articles',
       ],
     ],
+    'path' => '/kitchen-sink',
   ];
 
   return $node_info;
