@@ -60,14 +60,18 @@ function _drupalx_graphql_create_hero_paragraph(array $info = [], array $media_i
  * @param array $media_items
  *   The media items.
  *
- * @return \Drupal\paragraphs\Entity\Paragraph
+ * @return \Drupal\paragraphs\Entity\Paragraph|null
  *   The Card Group paragraph.
  */
-function _drupalx_graphql_create_card_group_paragraph(array $info = [], array $media_items = []): Paragraph {
+function _drupalx_graphql_create_card_group_paragraph(array $info = [], array $media_items = []): ?Paragraph {
   $paragraph = Paragraph::create([
     'type' => 'card_group',
     'field_title' => $info['title'],
   ]);
+
+  if (!empty($info['items'])) {
+    return NULL;
+  }
 
   foreach ($info['items'] as $info) {
 
@@ -168,11 +172,15 @@ function _drupalx_graphql_create_text_paragraph(array $info = []): Paragraph {
       'value' => $info['body'],
       'format' => 'full_html',
     ],
-    'field_link' => [
+  ]);
+
+  if (!empty($info['link']['uri'])) {
+    $paragraph->set('field_link', [
       'uri' => $info['link']['uri'],
       'title' => $info['link']['title'],
-    ],
-  ]);
+    ]);
+  }
+
   $paragraph->save();
   return $paragraph;
 }
@@ -206,10 +214,14 @@ function _drupalx_graphql_create_media_paragraph(array $info = [], array $media_
  * @param array $media_items
  *   The media items.
  *
- * @return \Drupal\paragraphs\Entity\Paragraph
+ * @return \Drupal\paragraphs\Entity\Paragraph|null
  *   The created paragraph entity.
  */
-function _drupalx_graphql_create_gallery_paragraph(array $info = [], array $media_items = []): Paragraph {
+function _drupalx_graphql_create_gallery_paragraph(array $info = [], array $media_items = []): ?Paragraph {
+  if (empty($media_items[$info['media']])) {
+    return NULL;
+  }
+
   $gallery_items = array_fill(0, 8, $media_items[$info['media']]);
 
   $paragraph = Paragraph::create([
@@ -316,7 +328,7 @@ function _drupalx_graphql_create_quote_paragraph(array $info = [], array $media_
       'target_id' => $media_items[$info['logo']]->id(),
     ]);
   }
-  if (!empty($info['thumb'])) {
+  if (!empty($info['thumb'] && !empty($media_items[$info['thumb']]))) {
     $paragraph->set('field_thumb', [
       'target_id' => $media_items[$info['thumb']]->id(),
     ]);

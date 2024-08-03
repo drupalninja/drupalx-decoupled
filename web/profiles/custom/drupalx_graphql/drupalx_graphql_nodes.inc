@@ -623,7 +623,9 @@ function _drupalx_graphql_create_layout($node_info, $media_items): Node {
     $function = '_drupalx_graphql_create_' . $paragraph_info['type'] . '_paragraph';
     if (function_exists($function)) {
       $paragraph = $function($paragraph_info, $media_items);
-      $paragraphs[] = $paragraph;
+      if (!empty($paragraph)) {
+        $paragraphs[] = $paragraph;
+      }
     }
   }
 
