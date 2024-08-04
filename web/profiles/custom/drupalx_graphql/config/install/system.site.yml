@@ -1,7 +1,7 @@
 _core:
-  default_config_hash: Ib3_J6LdBla79jCliFCCH-DVs7zk_LRoLBcH7EPta_w
+  default_config_hash: ls3U3uEk9aKW4gXId4FfQtIgB2S7Pc5dU96L-He_ER8
 langcode: en
-uuid: 9ccb23ad-19ea-49e5-a8f9-e39cf6e6cdd0
+uuid: 294a6300-746c-4943-9eab-841005b5aa9d
 name: 'Drush Site-Install'
 mail: admin@example.com
 slogan: ''

@@ -218,11 +218,20 @@ function _drupalx_graphql_create_media_paragraph(array $info = [], array $media_
  *   The created paragraph entity.
  */
 function _drupalx_graphql_create_gallery_paragraph(array $info = [], array $media_items = []): ?Paragraph {
-  if (empty($media_items[$info['media']])) {
+
+  if (empty($info['media'])) {
     return NULL;
   }
 
-  $gallery_items = array_fill(0, 8, $media_items[$info['media']]);
+  $gallery_items = [];
+
+  foreach ($info['media'] as $media_name) {
+    if (!empty($media_items[$media_name])) {
+      $gallery_items[] = [
+        'target_id' => $media_items[$media_name]->id(),
+      ];
+    }
+  }
 
   $paragraph = Paragraph::create([
     'type' => 'gallery',
@@ -368,13 +377,18 @@ function _drupalx_graphql_create_embed_paragraph(array $info = []): Paragraph {
 /**
  * Create a Newsletter paragraph.
  *
+ * @param array $info
+ *   The paragraph info.
+ *
  * @return \Drupal\paragraphs\Entity\Paragraph
  *   The created paragraph entity.
  */
-function _drupalx_graphql_create_newsletter_paragraph(): Paragraph {
+function _drupalx_graphql_create_newsletter_paragraph(array $info = []): Paragraph {
   // Create Newsletter paragraph.
   $paragraph = Paragraph::create([
     'type' => 'newsletter',
+    'field_title' => $info['title'],
+    'field_summary' => $info['summary'],
   ]);
 
   $paragraph->save();

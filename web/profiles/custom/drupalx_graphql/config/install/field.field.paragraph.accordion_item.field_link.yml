@@ -8,7 +8,7 @@ dependencies:
   module:
     - link
 _core:
-  default_config_hash: zfB9UVPE_z3BiWyoNpDPQU26meUyboHznf_06_uJANc
+  default_config_hash: FzwDbdC1COOArpX-zcS1bua1gvM8p1AUAsXIhc-eyHA
 id: paragraph.accordion_item.field_link
 field_name: field_link
 entity_type: paragraph

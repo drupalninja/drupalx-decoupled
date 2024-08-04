@@ -845,6 +845,9 @@ type Image {
 
 """List of image styles available to use."""
 enum ImageStyleAvailable {
+  """Thumbnail (100×100)"""
+  THUMBNAIL
+
   """Hero Large"""
   HEROL
 
@@ -901,9 +904,6 @@ enum ImageStyleAvailable {
 
   """Medium (220×220)"""
   MEDIUM
-
-  """Thumbnail (100×100)"""
-  THUMBNAIL
 
   """Wide (1090)"""
   WIDE
@@ -1624,6 +1624,12 @@ type ParagraphNewsletter implements ParagraphInterface & EdgeNode {
 
   """Published"""
   status: Boolean!
+
+  """Newsletter summary."""
+  summary: Text
+
+  """Newsletter title."""
+  title: String!
 }
 
 """

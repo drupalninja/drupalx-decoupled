@@ -828,6 +828,10 @@ const introspection = {
         "name": "ImageStyleAvailable",
         "enumValues": [
           {
+            "name": "THUMBNAIL",
+            "isDeprecated": false
+          },
+          {
             "name": "HEROL",
             "isDeprecated": false
           },
@@ -901,10 +905,6 @@ const introspection = {
           },
           {
             "name": "MEDIUM",
-            "isDeprecated": false
-          },
-          {
-            "name": "THUMBNAIL",
             "isDeprecated": false
           },
           {
@@ -5575,6 +5575,27 @@ const introspection = {
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Boolean"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "summary",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Text"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "title",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String"
               }
             },
             "args": [],

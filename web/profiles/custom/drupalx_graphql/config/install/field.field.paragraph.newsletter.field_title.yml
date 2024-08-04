@@ -1,18 +1,16 @@
-uuid: 3b62b440-4652-45c9-923c-36884a925a21
+uuid: 533734ee-9708-4be0-adc6-96aca5e85be4
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_title
-    - paragraphs.paragraphs_type.card
-_core:
-  default_config_hash: 5pSLKQqA945fXtSvC0GTOCJVm6cGC1zQ8-uj5qr1LD0
-id: paragraph.card.field_title
+    - paragraphs.paragraphs_type.newsletter
+id: paragraph.newsletter.field_title
 field_name: field_title
 entity_type: paragraph
-bundle: card
+bundle: newsletter
 label: Title
-description: ''
+description: 'Newsletter title.'
 required: true
 translatable: false
 default_value: {  }

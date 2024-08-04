@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: QljBFHHSbQIXvxkERpUy9vkKqUC4Pu0ZZeF0M5ghDKo
+  default_config_hash: jUlVwUP15E3EELSOrNdTv2uJthP2iyr3UHOSzenR9hU
 name: herosx2
-label: Hero Small 2x
+label: 'Hero Small 2x'
 effects:
   724a1494-fcb6-4e09-bfed-cb011d938e65:
     uuid: 724a1494-fcb6-4e09-bfed-cb011d938e65

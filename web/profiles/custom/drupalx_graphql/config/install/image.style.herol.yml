@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: jNWOmyabWWTa4VqOrNXEwiDYQryC3WCE4U4MFyNk9pc
+  default_config_hash: '-XAxwUQd360JsrpH0qJiQDSZAelmdRL_1o3MvD1VZ70'
 name: herol
-label: Hero Large
+label: 'Hero Large'
 effects:
   5982e31c-0259-4b4b-bf01-0f708b50f482:
     uuid: 5982e31c-0259-4b4b-bf01-0f708b50f482

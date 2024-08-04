@@ -1,9 +1,9 @@
-uuid: 1ccfe099-2393-4446-ba59-3eaf90760a2f
+uuid: 9c158842-53f4-4d7c-884a-4ac901750a65
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: js_R9hC9E6JDOVZzMjxBGUn0ok0BhWVaR06UmnKBnhc
+  default_config_hash: CMI4LoUBbFDxhHTaxyluK5lXfKTivqquBCExo8uwfa8
 name: graphql_compose_server
 label: 'GraphQL Compose - Server'
 schema: graphql_compose

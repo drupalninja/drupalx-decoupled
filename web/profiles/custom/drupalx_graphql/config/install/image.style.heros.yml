@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 1s0zGu5eI_xzfAIbxR2fkaZJcgNyvEqaJOlDm80hJSI
+  default_config_hash: peGqN83zL-QPW48yVX-lS2RsaDq4DLgzGb6P9_5I7Lg
 name: heros
-label: Hero Small
+label: 'Hero Small'
 effects:
   cbad684e-8e75-475a-9810-5e746ce24bfa:
     uuid: cbad684e-8e75-475a-9810-5e746ce24bfa

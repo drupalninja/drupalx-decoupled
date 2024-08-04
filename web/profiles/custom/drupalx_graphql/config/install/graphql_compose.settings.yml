@@ -1,25 +1,7 @@
 _core:
-  default_config_hash: nrNd9cOD-3a-v6X10caAeVNrESveJrgucPtFbc77Urs
+  default_config_hash: Jf44FVWy5p33yhRdyuchGhv7A1P3wbJ2hUmjA-5hlyc
 entity_config:
   image_style:
-    i169large2x:
-      enabled: true
-    i169xlarge:
-      enabled: true
-    i11large:
-      enabled: true
-    i11medium:
-      enabled: true
-    i11small:
-      enabled: true
-    i43large:
-      enabled: true
-    i43large2x:
-      enabled: true
-    i43medium:
-      enabled: true
-    i43small:
-      enabled: true
     herol:
       enabled: true
     herolx2:
@@ -31,6 +13,24 @@ entity_config:
     heros:
       enabled: true
     herosx2:
+      enabled: true
+    i11large:
+      enabled: true
+    i11medium:
+      enabled: true
+    i11small:
+      enabled: true
+    i169large2x:
+      enabled: true
+    i169xlarge:
+      enabled: true
+    i43large:
+      enabled: true
+    i43large2x:
+      enabled: true
+    i43medium:
+      enabled: true
+    i43small:
       enabled: true
     large:
       enabled: true
@@ -271,6 +271,11 @@ field_config:
         enabled: true
     media:
       field_media:
+        enabled: true
+      field_title:
+        enabled: true
+    newsletter:
+      field_summary:
         enabled: true
       field_title:
         enabled: true

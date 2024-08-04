@@ -103,7 +103,7 @@ function _drupalx_graphql_create_layout_page(): array {
         'type' => 'gallery',
         'title' => 'DrupalX Gallery',
         'body' => 'View images of the DrupalX template and its components.',
-        'media' => 'card',
+        'media' => array_fill(0, 8, 'card'),
       ],
       [
         'type' => 'carousel',
@@ -166,6 +166,8 @@ function _drupalx_graphql_create_layout_page(): array {
       ],
       [
         'type' => 'newsletter',
+        'title' => 'DrupalX Newsletter',
+        'summary' => 'Sign up for the DrupalX newsletter to receive updates on new features and components.',
       ],
       [
         'type' => 'articles',
@@ -390,7 +392,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
         'type' => 'gallery',
         'title' => 'DrupalX Gallery',
         'body' => 'View images of the DrupalX template and its components.',
-        'media' => 'card',
+        'media' => array_fill(0, 8, 'card'),
       ],
       [
         'type' => 'carousel',
@@ -454,6 +456,8 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
       ],
       [
         'type' => 'newsletter',
+        'title' => 'DrupalX Newsletter',
+        'summary' => 'Sign up for the DrupalX newsletter to receive updates on new features and components.',
       ],
       [
         'type' => 'articles',

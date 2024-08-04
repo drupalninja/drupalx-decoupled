@@ -8,7 +8,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: 7OA9hdVIP72-qX7gE8ZetvTV4hFKmHVqJebIvwJmItg
+  default_config_hash: VeyupWR1b98vUu3bQI1hqAFYL-YdLBH60fbCrcDEmIg
 id: paragraph.gallery.field_body
 field_name: field_body
 entity_type: paragraph

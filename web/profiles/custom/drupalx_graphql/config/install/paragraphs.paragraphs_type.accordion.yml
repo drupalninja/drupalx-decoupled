@@ -11,7 +11,7 @@ third_party_settings:
     paragraphs_categories:
       content: content
 _core:
-  default_config_hash: yf54KS0vooe8tFARZxNk6FEglQNpgwsQGX2AhZOcDZs
+  default_config_hash: 5P35FhYwURZYkUZ7sihcK8pBpoWyzl-HqqNBoesFi7c
 id: accordion
 label: Accordion
 icon_uuid: bff41380-4624-4c23-ae58-95fa4e4438d4

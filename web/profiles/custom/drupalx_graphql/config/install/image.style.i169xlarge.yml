@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 3ZVdTSX6nlsPcVDh-s96hZxnylXcPqjk5clIk7mzm7I
+  default_config_hash: C7UhlQg0FLUta998D8J1fPkxF9abLHbB3Dpcws6A0Yg
 name: i169xlarge
 label: '16:9 Extra Large (720 x 405)'
 effects:

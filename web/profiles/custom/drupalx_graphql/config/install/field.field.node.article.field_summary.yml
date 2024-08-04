@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_summary
     - node.type.article
 _core:
-  default_config_hash: yNWZCGmks6-4lI9nP_aK8CpsoQhs_Xc_m7BdfiIhV_I
+  default_config_hash: 64-DsZfdmLJEUaTsh0pIbotcDuwzH_6Cce_ZMF23jIc
 id: node.article.field_summary
 field_name: field_summary
 entity_type: node

@@ -353,10 +353,15 @@ export const ParagraphNewsletterFragment = graphql(`fragment ParagraphNewsletter
     ...LanguageFragment
   }
   status
+  newsletterTitle: title
+  summary {
+    ...TextFragment
+  }
 }`,
   [
     DateTimeFragment,
     LanguageFragment,
+    TextFragment,
   ]
 )
 

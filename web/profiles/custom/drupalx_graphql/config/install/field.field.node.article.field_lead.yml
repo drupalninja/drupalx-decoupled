@@ -9,7 +9,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: qObtIo9NnBQUOvqTE9ebPAzFsO8SKMzjIGIWi8eXT5A
+  default_config_hash: Vh9bj04s8z-e99ldLrYqsG56d09e-sxD915VRyPSAzw
 id: node.article.field_lead
 field_name: field_lead
 entity_type: node

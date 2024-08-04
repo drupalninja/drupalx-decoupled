@@ -9,7 +9,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: vR3Wkk6bySmUYgNJSUfvViQPsOnPHJ-H-FHNxRmYgko
+  default_config_hash: J0sLHVt1TrY6o6pK5uz5IshZsx6S9ovDV6pzZQeQiLk
 id: paragraph.hero.field_heading
 field_name: field_heading
 entity_type: paragraph
