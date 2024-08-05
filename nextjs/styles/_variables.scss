@@ -1,5 +1,6 @@
 // Custom variables / overrides.
 
+//$font-family-sans-serif: 'Work Sans', sans-serif !default;
 $font-size-base: 1.25rem !default;
 $form-label-font-size: 0.875rem !default;
 
@@ -48,28 +49,3 @@ $spacers: (
   20: $spacer * 10,
   // 160px
 );
-
-// Bootstrap 5 Color Variables
-$primary: #3E272B !default;   // Coffee brown
-$secondary: #FFEB3B !default; // Cream
-$success: #1B5E20 !default;   // Dark green
-$info: #1976D2 !default;       // Blue for informational messages
-$warning: #FFC107 !default;    // Warning yellow
-$danger: #D32F2F !default;      // Red for errors
-$light: #FFF3E0 !default;      // Light cream for light backgrounds
-$dark: #212529 !default;       // Dark gray text color
-
-// Background and Text Color
-$body-bg: #FFF8E1 !default;     // Light background for the body
-$body-color: #3E272B !default;  // Coffee brown text color
-
-// Font Sizes
-$font-size-base: 1.25rem !default;
-
-// Border Radius for Rounded Elements
-$border-radius: .25rem !default;
-
-// Accordion Specific Variables
-$accordion-color: #3E272B !default;            // Text color for accordion headers
-$accordion-bg-color: #FFF3E0 !default;        // Background color for accordion
-$accordion-button-color: #3E272B !default;    // Color for accordion button text
