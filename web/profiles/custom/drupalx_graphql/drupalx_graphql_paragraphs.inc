@@ -219,13 +219,13 @@ function _drupalx_graphql_create_media_paragraph(array $info = [], array $media_
  */
 function _drupalx_graphql_create_gallery_paragraph(array $info = [], array $media_items = []): ?Paragraph {
 
-  if (empty($info['media'])) {
+  if (empty($info['gallery'])) {
     return NULL;
   }
 
   $gallery_items = [];
 
-  foreach ($info['media'] as $media_name) {
+  foreach ($info['gallery'] as $media_name) {
     if (!empty($media_items[$media_name])) {
       $gallery_items[] = [
         'target_id' => $media_items[$media_name]->id(),
@@ -297,7 +297,7 @@ function _drupalx_graphql_create_accordion_paragraph(array $info = []): Paragrap
       'type' => 'accordion_item',
       'field_title' => $heading,
       'field_body' => [
-        'value' => '<p>' . $info['answer'] . '</p>',
+        'value' => '<p>' . ($info['answer'] ?? 'lorem ipsum') . '</p>',
         'format' => 'full_html',
       ],
       'field_link' => $info['link'] ?? NULL,

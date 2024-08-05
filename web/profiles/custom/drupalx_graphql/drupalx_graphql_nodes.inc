@@ -95,17 +95,6 @@ function _drupalx_graphql_create_layout_page(): array {
         ],
       ],
       [
-        'type' => 'media',
-        'title' => 'DrupalX Media',
-        'media' => 'card',
-      ],
-      [
-        'type' => 'gallery',
-        'title' => 'DrupalX Gallery',
-        'body' => 'View images of the DrupalX template and its components.',
-        'media' => array_fill(0, 8, 'card'),
-      ],
-      [
         'type' => 'carousel',
         'items' => [
           [
@@ -387,7 +376,7 @@ function _drupalx_graphql_create_layout_nodes(array $media_items = []) {
         'type' => 'gallery',
         'title' => 'DrupalX Gallery',
         'body' => 'View images of the DrupalX template and its components.',
-        'media' => array_fill(0, 8, 'card'),
+        'gallery' => array_fill(0, 8, 'card'),
       ],
       [
         'type' => 'carousel',
