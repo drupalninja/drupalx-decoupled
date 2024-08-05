@@ -24,7 +24,7 @@ function _drupalx_graphql_create_media_items() {
 
   foreach ($media_names as $media_name => $file_name) {
     $image_path = \Drupal::service('extension.list.profile')->getPath('drupalx_graphql') . '/images/' . $file_name;
-    $media = _drupalx_graphql_create_media($media_name, $image_path);
+    $media = _drupalx_graphql_create_media($media_name, $file_name, $image_path);
     $media_items[$media_name] = $media;
   }
 
@@ -36,15 +36,17 @@ function _drupalx_graphql_create_media_items() {
  *
  * @param string $media_name
  *   The media name.
+ * @param string $file_name
+ *   The file name.
  * @param string $image_path
  *   The path or url to the image.
  *
  * @return \Drupal\media\Entity\Media
  *   The media entity.
  */
-function _drupalx_graphql_create_media($media_name, $image_path) {
+function _drupalx_graphql_create_media($media_name, $file_name, $image_path) {
   $data = file_get_contents($image_path);
-  $file = \Drupal::service('file.repository')->writeData($data, 'public://' . $media_name);
+  $file = \Drupal::service('file.repository')->writeData($data, 'public://' . $file_name);
   $media = Media::create([
     'bundle' => 'image',
     'name' => $media_name,
