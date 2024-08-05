@@ -22,6 +22,6 @@ type Story = StoryObj<typeof Badge>;
 export const Default: Story = {
   args: {
     tag: 'New feature',
-    modifier: 'text-bg-primary'
+    modifier: ''
   }
 };

@@ -24,7 +24,7 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
           {getImage(media, 'img-fluid shadow rounded', ['I43SMALL', 'I43LARGE2X'])}
         </div>
         <div className="col-lg-6 col-xxl-5 d-flex flex-column gap-3">
-          {eyebrow && <Badge tag={eyebrow} modifier="text-bg-secondary text-uppercase" />}
+          {eyebrow && <Badge tag={eyebrow} modifier="text-uppercase" />}
           <h2 className="mb-2">{sidebysideTitle}</h2>
           {textFragment && (
             <div dangerouslySetInnerHTML={{ __html: textFragment?.value ?? '' }}></div>
