@@ -2075,6 +2075,9 @@ type SchemaInformation {
   """The internal path to the front page."""
   home: String
 
+  """The site name."""
+  name: String
+
   """The schema version."""
   version: String
 

@@ -8927,6 +8927,15 @@ const introspection = {
             "isDeprecated": false
           },
           {
+            "name": "name",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
             "name": "version",
             "type": {
               "kind": "SCALAR",
