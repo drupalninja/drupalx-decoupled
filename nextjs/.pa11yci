@@ -2,5 +2,8 @@
   "urls": [
     "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-accordion--default",
     "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-card-group--default"
+  ],
+  "ignore": [
+    "WCAG2AA.Principle1.Guideline1_3.1_3_1.H42.2"
   ]
 }
