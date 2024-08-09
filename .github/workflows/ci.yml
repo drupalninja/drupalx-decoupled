@@ -114,24 +114,6 @@ jobs:
         run: npm install
         working-directory: ./nextjs
 
-      - name: Build Next.js app
-        run: npm run build
-        working-directory: ./nextjs
-
-      - name: Start Next.js server
-        run: npm run start &
-        working-directory: ./nextjs
-
-      - name: Wait for Next.js server to be ready
-        run: npx wait-on --timeout 60000 http://localhost:3000
-
-      - name: Run pa11y accessibility tests
-        run: |
-          # Run pa11y tests
-          pa11y-ci http://localhost:3000/kitchen-sink
-        env:
-          DISPLAY: :99.0
-
       - name: Copy Next.js Cypress configuration
         run: cp ./nextjs/cypress.config.ts.shippable ./nextjs/cypress.config.ts
 
@@ -144,11 +126,20 @@ jobs:
       - name: Wait for Storybook to be ready
         run: npx wait-on --timeout http://localhost:6006
 
+      - name: Run pa11y accessibility tests
+        run: |
+          # Run pa11y tests
+          pa11y-ci --config .pa11yci
+        working-directory: ./nextjs
+        env:
+          DISPLAY: :99.0
+
       - name: Run Next.js Cypress tests
         run: npm run cypress
         working-directory: ./nextjs
         env:
           DISPLAY: :99.0
+
 
   # Using outdated Composer version to test the Composer version constraint.
   test-composer:
