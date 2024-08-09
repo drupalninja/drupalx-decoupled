@@ -88,38 +88,38 @@ function drupalx_graphql_install_content() {
  * Callback function to generate Consumers.
  */
 function drupalx_graphql_tasks_simple_oauth() {
-  $random = new Random();
-  $consumerStorage = \Drupal::entityTypeManager()->getStorage('consumer');
-
-  $previewerClientId = Crypt::randomBytesBase64();
-  $previewerClientSecret = $random->word(8);
-  $consumerStorage->create([
-    'client_id' => $previewerClientId,
-    'client_secret ' => $previewerClientSecret,
-    'label' => 'Previewer',
-    'user_id' => 2,
-    'third_party' => TRUE,
-    'is_default' => FALSE,
-    'roles' => ['previewer'],
-  ])->save();
-
-  $viewerClientId = Crypt::randomBytesBase64();
-  $viewerClientSecret = $random->word(8);
-  $consumerStorage->create([
-    'client_id' => $viewerClientId,
-    'client_secret ' => $viewerClientSecret,
-    'label' => 'Viewer',
-    'user_id' => 2,
-    'third_party' => TRUE,
-    'is_default' => FALSE,
-    'roles' => ['viewer'],
-  ])->save();
-
   $messages = [];
 
   // If sites/default/files/private is writable to generate keys.
   if (is_writable('sites/default/files/private')) {
     \Drupal::service('simple_oauth.key.generator')->generateKeys('sites/default/files/private');
+
+    $random = new Random();
+    $consumerStorage = \Drupal::entityTypeManager()->getStorage('consumer');
+
+    $previewerClientId = Crypt::randomBytesBase64();
+    $previewerClientSecret = $random->word(8);
+    $consumerStorage->create([
+      'client_id' => $previewerClientId,
+      'client_secret ' => $previewerClientSecret,
+      'label' => 'Previewer',
+      'user_id' => 2,
+      'third_party' => TRUE,
+      'is_default' => FALSE,
+      'roles' => ['previewer'],
+    ])->save();
+
+    $viewerClientId = Crypt::randomBytesBase64();
+    $viewerClientSecret = $random->word(8);
+    $consumerStorage->create([
+      'client_id' => $viewerClientId,
+      'client_secret ' => $viewerClientSecret,
+      'label' => 'Viewer',
+      'user_id' => 2,
+      'third_party' => TRUE,
+      'is_default' => FALSE,
+      'roles' => ['viewer'],
+    ])->save();
 
     $messages = [
       'Consumers created successfully. Please save the following credentials.',

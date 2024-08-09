@@ -28,3 +28,4 @@
 /.env
 /.editorconfig
 /.gitattributes
+.vercel
