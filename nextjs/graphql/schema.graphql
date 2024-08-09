@@ -845,6 +845,9 @@ type Image {
 
 """List of image styles available to use."""
 enum ImageStyleAvailable {
+  """Thumbnail (100×100)"""
+  THUMBNAIL
+
   """Hero Large"""
   HEROL
 
@@ -881,6 +884,9 @@ enum ImageStyleAvailable {
   """4:3 Large (800 x 600)"""
   I43LARGE
 
+  """4:3 Large 2x (1280 x 960)"""
+  I43LARGE2X
+
   """4:3 Medium (640 x 480)"""
   I43MEDIUM
 
@@ -898,9 +904,6 @@ enum ImageStyleAvailable {
 
   """Medium (220×220)"""
   MEDIUM
-
-  """Thumbnail (100×100)"""
-  THUMBNAIL
 
   """Wide (1090)"""
   WIDE
@@ -1621,6 +1624,12 @@ type ParagraphNewsletter implements ParagraphInterface & EdgeNode {
 
   """Published"""
   status: Boolean!
+
+  """Newsletter summary."""
+  summary: Text
+
+  """Newsletter title."""
+  title: String!
 }
 
 """
@@ -2065,6 +2074,9 @@ type SchemaInformation {
 
   """The internal path to the front page."""
   home: String
+
+  """The site name."""
+  name: String
 
   """The schema version."""
   version: String

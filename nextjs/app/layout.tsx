@@ -1,10 +1,13 @@
 import 'material-symbols';
+import { Open_Sans } from "next/font/google";
 import "../styles/bootstrap.scss";
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { MainMenuQuery, FooterMenuQuery } from "@/graphql/queries";
 import { getClientWithAuth } from "@/utils/client.server";
+
+const font = Open_Sans({ subsets: ["latin"] });
 
 export default async function RootLayout({
   children,
@@ -14,7 +17,7 @@ export default async function RootLayout({
   const client = await getClientWithAuth();
 
   const { data: menuData, error: menuError } = await client.query(MainMenuQuery, {});
-  
+
   if (menuError) {
     throw menuError;
   }
@@ -27,7 +30,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      <body className={font.className}>
         <Container>
           <Header mainMenu={menuData?.menu || null} />
           {children}

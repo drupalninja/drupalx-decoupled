@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.video.field_source
     - media.type.video
 _core:
-  default_config_hash: 1AcH1LfifkxlN8Ndy0nli9vYo-aE3WHs11BN1vuPXk4
+  default_config_hash: N9R-g6g3BDl1au3jwbMp2sNntgly-Qk1_Vzb2kXF_Ls
 id: media.video.media_library
 targetEntityType: media
 bundle: video

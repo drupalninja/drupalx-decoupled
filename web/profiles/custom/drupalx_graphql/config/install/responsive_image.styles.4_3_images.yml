@@ -8,7 +8,7 @@ dependencies:
     - image.style.i43medium
     - image.style.i43small
 _core:
-  default_config_hash: DLVxMy--UcHQJrURXy-QSwOH75JPTrK8lK0fsRsqtRw
+  default_config_hash: bkNA5TGi-rRTdkxeY3gLy9rPrwh3q3eY7j3jC4hl_iY
 id: 4_3_images
 label: '4:3 Images'
 image_style_mappings:

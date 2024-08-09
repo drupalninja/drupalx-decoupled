@@ -27,15 +27,15 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
       <article className="mb-6 mb-lg-12">
         <div className="container">
           {mediaFragment && (
-            <div className="mb-7 rounded shadow">
-              {getImage(mediaFragment, 'img-fluid', ['HEROS', 'HEROLX2'])}
+            <div className="mb-7">
+              {getImage(mediaFragment, 'img-fluid rounded shadow', ['HEROS', 'HEROLX2'])}
             </div>
           )}
           <div className="col-lg-10 col-xl-8 mx-auto mb-2 mb-lg-10">
-            {subhead && (<div className="text-dark text-uppercase mb-2 fs-7">
+            {subhead && (<div className="text-uppercase mb-2 fs-7">
               {subhead}
             </div>)}
-            <Heading level={1} title={title} modifier="heading mb-2 text-secondary display-3" />
+            <Heading level={1} title={title} modifier="heading mb-2 display-3" />
             {leadFragment?.value && (<div className="lead mb-4" dangerouslySetInnerHTML={{ __html: leadFragment.value }} />)}
           </div>
           {bodyProcessed && (

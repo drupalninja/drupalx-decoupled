@@ -828,6 +828,10 @@ const introspection = {
         "name": "ImageStyleAvailable",
         "enumValues": [
           {
+            "name": "THUMBNAIL",
+            "isDeprecated": false
+          },
+          {
             "name": "HEROL",
             "isDeprecated": false
           },
@@ -876,6 +880,10 @@ const introspection = {
             "isDeprecated": false
           },
           {
+            "name": "I43LARGE2X",
+            "isDeprecated": false
+          },
+          {
             "name": "I43MEDIUM",
             "isDeprecated": false
           },
@@ -897,10 +905,6 @@ const introspection = {
           },
           {
             "name": "MEDIUM",
-            "isDeprecated": false
-          },
-          {
-            "name": "THUMBNAIL",
             "isDeprecated": false
           },
           {
@@ -5575,6 +5579,27 @@ const introspection = {
             },
             "args": [],
             "isDeprecated": false
+          },
+          {
+            "name": "summary",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Text"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "title",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
           }
         ],
         "interfaces": [
@@ -8894,6 +8919,15 @@ const introspection = {
           },
           {
             "name": "home",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "name",
             "type": {
               "kind": "SCALAR",
               "name": "String"

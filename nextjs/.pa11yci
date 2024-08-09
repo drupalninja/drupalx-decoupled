@@ -1,0 +1,23 @@
+{
+  "urls": [
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-accordion--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-card-group--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-carousel--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-embed--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-gallery--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-hero--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-media--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-newsletter--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-quote--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-sidebyside--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-text--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-paragraph-view--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-site-footer--default",
+    "http://localhost:6006/iframe.html?args=&id=editorial-main-menu--default"
+  ],
+  "defaults": {
+    "ignore": [
+      "WCAG2AA.Principle1.Guideline1_3.1_3_1.H42.2"
+    ]
+  }
+}

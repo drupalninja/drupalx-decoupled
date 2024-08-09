@@ -14,7 +14,7 @@ dependencies:
     - media_library
     - text
 _core:
-  default_config_hash: SfLDNGVrll1A1qGZdgvkhK1utTTusWYqUBsrVnGCLpw
+  default_config_hash: 3Yi-RdredMmYrkUYCwMg2pGnJ1699rS3XHLdX9qYkNc
 id: paragraph.hero.default
 targetEntityType: paragraph
 bundle: hero

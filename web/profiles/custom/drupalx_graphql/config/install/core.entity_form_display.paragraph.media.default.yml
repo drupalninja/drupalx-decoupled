@@ -9,7 +9,7 @@ dependencies:
   module:
     - media_library
 _core:
-  default_config_hash: qyxVyggSPuaQxKJabWndMKYcogUYwv1YSDCDiCecNJM
+  default_config_hash: TfJaxKvpyRnignLxLVOyGbERGGGmqA6WaboSKlhG62k
 id: paragraph.media.default
 targetEntityType: paragraph
 bundle: media

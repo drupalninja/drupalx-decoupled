@@ -8,7 +8,7 @@ interface BadgeProps {
 
 const BadgeComponent: React.FC<BadgeProps> = ({ tag, modifier }) => {
   return (
-    <Badge className={`rounded-pill d-block fs-7 px-2 py-1 fw-semibold${modifier ? ` ${modifier}` : ''}`}>{tag}</Badge>
+    <Badge bg="secondary" className={`rounded-pill d-block fs-7 px-2 py-1 fw-semibold${modifier ? ` ${modifier}` : ''}`}>{tag}</Badge>
   );
 };
 

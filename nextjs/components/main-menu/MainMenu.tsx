@@ -13,10 +13,12 @@ const MainMenu: React.FC<MainMenuProps> = ({
   modifier,
   linkModifier,
   siteLogo,
+  siteName,
+  showLogo,
   menuItems,
 }) => {
   const pathname = usePathname();
-  
+
   // Add active trail classes to menu items.
   menuItems = menuItems.map((item) => {
     if (item.url === frontpagePath && pathname === '/') {
@@ -37,8 +39,9 @@ const MainMenu: React.FC<MainMenuProps> = ({
   return (
     <Navbar bg="primary" expand="lg" variant="dark" className={`${modifier}`}>
       <Container>
-        <Navbar.Brand href="/">
-          <Image src={siteLogo} alt="Site Name" width={312} height={96} style={{ marginRight: '4px' }} />
+        <Navbar.Brand href="/" className={!showLogo ? "py-4 fs-2 fw-bold" : ""}>
+          {showLogo && <Image src={siteLogo ?? ''} alt="Site Name" width={312} height={96} style={{ marginRight: '4px' }} />}
+          {!showLogo && siteName}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Offcanvas

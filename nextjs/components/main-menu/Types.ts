@@ -9,6 +9,8 @@ export interface MainMenuItem {
 export interface MainMenuProps {
   modifier?: string;
   linkModifier?: string;
-  siteLogo: string;
+  siteLogo?: string;
+  siteName?: string;
+  showLogo?: boolean;
   menuItems: MainMenuItem[];
 }

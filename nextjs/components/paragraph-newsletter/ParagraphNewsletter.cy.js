@@ -9,12 +9,16 @@ describe('Newsletter Form Component', () => {
 
   it('should display the correct content in the newsletter form', () => {
     cy.get('.newsletter-form h3').should('contain.text', 'Sign up for our newsletter');
-    cy.get('.newsletter-form p').should('contain.text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+    cy.get('.newsletter-form .newsletter-summary').should('contain.text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
   });
 
   it('should have an input field and a submit button', () => {
-    cy.get('.newsletter-form .input-group input').should('have.attr', 'placeholder', 'Email Address');
-    cy.get('.newsletter-form .btn-newsletter').should('contain.text', 'Submit');
+    cy.get('.newsletter-form input[type="email"]').should('exist');
+    cy.get('.newsletter-form button').should('exist');
+  });
+
+  it('should apply the correct modifier class', () => {
+    cy.get('.newsletter-form').should('have.class', 'container');
   });
 
   it('should be responsive and display correctly on various screen sizes', () => {

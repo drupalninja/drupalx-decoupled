@@ -6,7 +6,7 @@ dependencies:
     - link
     - node
 _core:
-  default_config_hash: gPbV6SDzxhLz3jVjz84i5LUBm5bgaRGtumMDJuR2BK4
+  default_config_hash: UgvYhMgRcyOVGmS2zhpMOlBSsaBKjfe9bJGbyVfZwTE
 id: node.field_link
 field_name: field_link
 entity_type: node

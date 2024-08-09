@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: Hxplm_UtQVNUqjZSDDdWXmuNd9O0ROVF1KLkBPi1KCo
+  default_config_hash: mMvgA8Jh34Kj7zS4CerllBv5CU0T0UWG9pwQHoAYO1A
 name: herom
-label: Hero Medium
+label: 'Hero Medium'
 effects:
   65d75b07-0995-4f83-a29d-74cd1a3b5f05:
     uuid: 65d75b07-0995-4f83-a29d-74cd1a3b5f05

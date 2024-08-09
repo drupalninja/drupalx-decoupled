@@ -5,7 +5,9 @@ import Link from 'next/link';
 
 export type SiteFooterProps = {
   links: { title: string; url: string | null, children: { title: string; url: string | null } }[];
-  siteLogo: string;
+  siteLogo?: string;
+  siteName?: string;
+  showLogo?: boolean;
   modifier?: string;
   menuModifier?: string;
   linkItemModifier?: string;
@@ -14,6 +16,8 @@ export type SiteFooterProps = {
 const SiteFooter: React.FC<SiteFooterProps> = ({
   links,
   siteLogo,
+  siteName = '',
+  showLogo = true,
   modifier = '',
   menuModifier = '',
   linkItemModifier = 'fs-5 text-white',
@@ -23,7 +27,8 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
       <div className="container">
         <div className="row d-lg-flex flex-wrap justify-content-lg-between align-items-center">
           <div className="col-lg-3 footer-logo mb-2">
-            <Image src={siteLogo} width={312} height={96} alt="Site Logo" className="footer-logo w-100" />
+            {showLogo && <Image src={siteLogo ?? ''} width={312} height={96} alt="Site Logo" className="footer-logo w-100" />}
+            {!showLogo && <span className="py-4 fs-2 fw-bold text-white">{siteName}</span>}
           </div>
           <div className="col-lg-8 text-right justify-lg-content-end">
             <div className="mb-2">

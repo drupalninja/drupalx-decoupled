@@ -5,7 +5,7 @@ dependencies:
   config:
     - node.type.page
 _core:
-  default_config_hash: BtfnJ_dapJ7WVP_8tAZPWh5zhr_2ZC9B9W8jHYWeUf0
+  default_config_hash: ug1TGmhcFiXaC18UOQCYJ5zOeQpxhZ68eEG_B3_uCoI
 id: node.page.promote
 field_name: promote
 entity_type: node

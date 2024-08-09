@@ -6,7 +6,7 @@ dependencies:
     - media
     - paragraphs
 _core:
-  default_config_hash: a37XNY7MtujWU60BM_uQww_vjcoB9EzgowJwNDmMLF0
+  default_config_hash: GMFH6gGrjCSRcPqCS4glPFUrsEnICkQetY8VvwFqlsg
 id: paragraph.field_media
 field_name: field_media
 entity_type: paragraph

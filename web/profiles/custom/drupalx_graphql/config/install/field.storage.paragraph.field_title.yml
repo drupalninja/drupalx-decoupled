@@ -5,7 +5,7 @@ dependencies:
   module:
     - paragraphs
 _core:
-  default_config_hash: BmL00Axv0mENWuaTHqZEk5FnZHJgeeBEVWIsy3DBYnY
+  default_config_hash: 4YC4aWq6KxW20eMOy7an-0sJAbgEf2Od3T17ijyLdxw
 id: paragraph.field_title
 field_name: field_title
 entity_type: paragraph

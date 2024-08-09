@@ -25,7 +25,10 @@ type Story = StoryObj<typeof ParagraphNewsletter>;
 
 export const Default: Story = {
   args: {
-    paragraph: {} as any,
+    paragraph: {
+      newsletterTitle: 'Sign up for our newsletter',
+      summary: { value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    } as any,
     modifier: "container",
   },
 };

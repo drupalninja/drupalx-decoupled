@@ -10,7 +10,7 @@ dependencies:
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: OgXb2A2NbhESsj1OigFVN1_psGCgoDyRD5bxtwHnWRU
+  default_config_hash: q4RurHSbsGb4cpBeAHKH96kNDUETJt-N5Qkgg_Fzhuw
 id: paragraph.card_group.field_card
 field_name: field_card
 entity_type: paragraph
