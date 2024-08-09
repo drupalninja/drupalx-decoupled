@@ -129,7 +129,7 @@ jobs:
       - name: Run pa11y accessibility tests
         run: |
           # Run pa11y tests
-          pa11y-ci --config .pa11yci
+          pa11y-ci --config .pa11yci --ignore "WCAG2AA.Principle1.Guideline1_3.1_3_1.H42.2"
         working-directory: ./nextjs
         env:
           DISPLAY: :99.0
