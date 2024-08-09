@@ -31,8 +31,8 @@ export const getImage = (media: any, className?: string, imageStyle?: string | s
       <Image
         src={desktopUrl}
         alt={media?.image?.alt}
-        width={24}
-        height={24}
+        width={500}
+        height={500}
         className={className ?? 'img-fluid'}
       />
     ) : (
