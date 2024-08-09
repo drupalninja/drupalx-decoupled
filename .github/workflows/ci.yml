@@ -42,6 +42,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install pa11y-ci
+        run: npm install -g pa11y-ci
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -126,6 +129,13 @@ jobs:
       - name: Run Next.js Cypress tests
         run: npm run cypress
         working-directory: ./nextjs
+        env:
+          DISPLAY: :99.0
+
+      - name: Run pa11y accessibility tests
+        run: |
+          # Run pa11y tests
+          pa11y-ci $SIMPLETEST_BASE_URL/kitchen-sink
         env:
           DISPLAY: :99.0
 
