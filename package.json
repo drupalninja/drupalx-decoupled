@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "axios": "^1.7.3",
+    "pa11y": "^8.0.0"
+  }
+}
