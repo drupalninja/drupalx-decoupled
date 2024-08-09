@@ -91,7 +91,7 @@ jobs:
       - name: Run pa11y accessibility tests
         run: |
           # Run pa11y tests
-          pa11y-ci $SIMPLETEST_BASE_URL/kitchen-sink
+          pa11y-ci $SIMPLETEST_BASE_URL
         env:
           DISPLAY: :99.0
 
