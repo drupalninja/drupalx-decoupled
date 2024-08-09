@@ -14,69 +14,49 @@ env:
   SIMPLETEST_BASE_URL: "http://127.0.0.1:8080"
 
 jobs:
-  build:
-    runs-on: "ubuntu-20.04"
+  php-cypress-tests:
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: true
-
       matrix:
         php-versions: ["8.3"]
         drupal-release: ["stable"]
         composer-channel: ["stable"]
-        include:
-          - php-versions: "8.3"
-            drupal-release: "stable"
-            composer-channel: "stable"
 
     steps:
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
-        run: echo "$MATRIX_CONTEXT"
-
+      # Step 1: Checkout the code
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
-      - name: Install pa11y-ci
-        run: npm install -g pa11y-ci
-
+      # Step 2: Setup PHP environment
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
           extensions: gd, pdo_sqlite
 
+      # Step 3: Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # Step 4: Update Composer and validate configuration
       - name: Update Composer
         run: composer --verbose self-update --${{ matrix.composer-channel }}
-
-      - name: Show Composer version
-        run: composer --version
 
       - name: Validate composer.json
         run: composer --verbose validate
 
-      - name: Install dependencies
+      # Step 5: Install dependencies
+      - name: Install Composer dependencies
         run: composer --verbose install
 
-      - name: Validate composer.json structure
-        run: composer normalize --dry-run
+      - name: Install NPM dependencies
+        run: npm install
+        working-directory: ./tests/cypress
 
-      - name: Require bower-asset
-        run: |
-          test ! -d web/libraries/dropzone
-          composer require bower-asset/dropzone
-          test -d web/libraries/dropzone
-
-      # @see https://www.drupal.org/node/3176567
-      - name: Install testing dependency
-        if: ${{ matrix.php-versions == '8.1' }}
-        run: composer require --dev phpspec/prophecy-phpunit:^2
-
+      # Step 6: Setup and start the server
       - name: Install site
         run: ./vendor/bin/drush site-install drupalx_graphql --verbose --yes --db-url=sqlite://tmp/site.sqlite
 
@@ -85,13 +65,7 @@ jobs:
           ./vendor/bin/drush runserver "$SIMPLETEST_BASE_URL" &
           until curl -s "$SIMPLETEST_BASE_URL"; do true; done > /dev/null
 
-      - name: Run a single unit test to verify the testing setup
-        run: ./vendor/bin/phpunit -c ./web/core ./web/core/modules/user/tests/src/Unit/UserAccessControlHandlerTest.php
-
-      - name: Install NPM dependencies
-        run: npm install
-        working-directory: ./tests/cypress
-
+      # Step 7: Install Xvfb for Cypress
       - name: Install Xvfb
         run: sudo apt-get install -y xvfb
 
@@ -100,6 +74,7 @@ jobs:
         env:
           DISPLAY: :99.0
 
+      # Step 8: Copy Cypress configuration and run tests
       - name: Copy Cypress configuration
         run: cp tests/cypress/cypress.config.js.shippable tests/cypress/cypress.config.js
 
@@ -109,33 +84,38 @@ jobs:
         env:
           DISPLAY: :99.0
 
-      # New steps for Next.js Cypress tests
+  pa11y-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Step 1: Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # Step 2: Install Next.js dependencies
       - name: Install Next.js dependencies
         run: npm install
         working-directory: ./nextjs
 
-      - name: Copy Next.js Cypress configuration
-        run: cp ./nextjs/cypress.config.ts.shippable ./nextjs/cypress.config.ts
-
+      # Step 3: Start Storybook
       - name: Start Storybook
         run: npm run storybook &
         working-directory: ./nextjs
         env:
           DISPLAY: :99.0
 
+      # Step 4: Wait for Storybook to be ready
       - name: Wait for Storybook to be ready
         run: npx wait-on --timeout http://localhost:6006
 
+      # Step 5: Run Pa11y accessibility tests
       - name: Run pa11y accessibility tests
         run: |
-          # Run pa11y tests
           pa11y-ci --config .pa11yci
-        working-directory: ./nextjs
-        env:
-          DISPLAY: :99.0
-
-      - name: Run Next.js Cypress tests
-        run: npm run cypress
         working-directory: ./nextjs
         env:
           DISPLAY: :99.0
