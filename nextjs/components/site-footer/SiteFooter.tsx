@@ -27,7 +27,7 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
       <div className="container">
         <div className="row d-lg-flex flex-wrap justify-content-lg-between align-items-center">
           <div className="col-lg-3 footer-logo mb-2">
-            {showLogo && <Image src={siteLogo} width={312} height={96} alt="Site Logo" className="footer-logo w-100" />}
+            {showLogo && <Image src={siteLogo ?? ''} width={312} height={96} alt="Site Logo" className="footer-logo w-100" />}
             {!showLogo && <span className="py-4 fs-2 fw-bold text-white">{siteName}</span>}
           </div>
           <div className="col-lg-8 text-right justify-lg-content-end">

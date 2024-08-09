@@ -28,9 +28,11 @@ export const getImage = (media: any, className?: string, imageStyle?: string | s
 
   return (
     isSvg(desktopUrl) ? (
-      <img
+      <Image
         src={desktopUrl}
         alt={media?.image?.alt}
+        width={24}
+        height={24}
         className={className ?? 'img-fluid'}
       />
     ) : (

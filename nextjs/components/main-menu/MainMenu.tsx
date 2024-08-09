@@ -40,7 +40,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
     <Navbar bg="primary" expand="lg" variant="dark" className={`${modifier}`}>
       <Container>
         <Navbar.Brand href="/" className={!showLogo ? "py-4 fs-2 fw-bold" : ""}>
-          {showLogo && <Image src={siteLogo} alt="Site Name" width={312} height={96} style={{ marginRight: '4px' }} />}
+          {showLogo && <Image src={siteLogo ?? ''} alt="Site Name" width={312} height={96} style={{ marginRight: '4px' }} />}
           {!showLogo && siteName}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
