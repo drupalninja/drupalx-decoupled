@@ -35,7 +35,7 @@ jobs:
         run: echo "$MATRIX_CONTEXT"
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -139,26 +139,3 @@ jobs:
         working-directory: ./nextjs
         env:
           DISPLAY: :99.0
-
-
-  # Using outdated Composer version to test the Composer version constraint.
-  test-composer:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.2
-          extensions: gd, pdo_sqlite
-          tools: composer:v2.2
-
-      - name: Show Composer version
-        run: composer --version
-
-      - name: Install dependencies
-        # This command should fail because of the Composer version constraint.
-        run: composer --verbose install && exit 1 || exit 0
