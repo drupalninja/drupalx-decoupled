@@ -96,23 +96,27 @@ jobs:
         with:
           node-version: '20'
 
-      # Step 2: Install Next.js dependencies
+      # Step 2: Install pa11y-ci
+      - name: Install pa11y-ci
+        run: npm install -g pa11y-ci
+
+      # Step 3: Install Next.js dependencies
       - name: Install Next.js dependencies
         run: npm install
         working-directory: ./nextjs
 
-      # Step 3: Start Storybook
+      # Step 4: Start Storybook
       - name: Start Storybook
         run: npm run storybook &
         working-directory: ./nextjs
         env:
           DISPLAY: :99.0
 
-      # Step 4: Wait for Storybook to be ready
+      # Step 5: Wait for Storybook to be ready
       - name: Wait for Storybook to be ready
         run: npx wait-on --timeout http://localhost:6006
 
-      # Step 5: Run Pa11y accessibility tests
+      # Step 6: Run Pa11y accessibility tests
       - name: Run pa11y accessibility tests
         run: |
           pa11y-ci --config .pa11yci
