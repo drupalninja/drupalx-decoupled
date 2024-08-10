@@ -21,15 +21,15 @@ SITE_LABEL=$(prompt_with_default "Enter site label" "My DrupalX Site")
 SITE_NEW_YESNO=$(prompt_with_default "Is this new site?" "y")
 
 if [ "$SITE_NEW_YESNO" == "y" ]; then
-  echo "Creating new Pantheon site..."
-  terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
+echo "Creating new Pantheon site..."
+terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
 fi
 
 # Run the terminus command and store the output in a variable
-output=$(terminus connection:info $SITE_NAME.dev)
+output=$(terminus connection:info $SITE_NAME.dev --format=json)
 
 # Use awk to extract the Git URL lines and concatenate them
-GIT_REMOTE_URL=$(echo "$output" | sed -n 's/.*\(ssh:\/\/.*\.git\).*/\1/p' )
+GIT_REMOTE_URL=$(echo "$output" | sed -n 's/.*git clone \(ssh[^"]*.git\).*/\1/p' )
 
 # Output the Git remote URL
 echo "Git remote URL: $GIT_REMOTE_URL"
