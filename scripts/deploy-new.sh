@@ -19,15 +19,8 @@ TIMESTAMP=$(date +%s)
 SITE_NAME=$(prompt_with_default "Enter site name" "drupalx-$TIMESTAMP")
 SITE_LABEL=$(prompt_with_default "Enter site label" "My DrupalX Site")
 
-# Check for existing site
-ID=$(terminus site:info $SITE_NAME | grep -Eo 'ID\s+[a-z0-9-]{36}' | awk '{print $2}')
-
-if [ -n "$ID" ]; then
-echo "Found existing site with ID: $ID, skipping creation step."
-else
 echo "Creating new Pantheon site..."
 terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
-fi
 
 # Run the terminus command and store the output in a variable
 output=$(terminus connection:info $SITE_NAME.dev)
