@@ -19,8 +19,18 @@ TIMESTAMP=$(date +%s)
 SITE_NAME=$(prompt_with_default "Enter site name" "drupalx-$TIMESTAMP")
 SITE_LABEL=$(prompt_with_default "Enter site label" "My DrupalX Site")
 
+#!/bin/bash
+
+# Execute the terminus command and capture output
+output=$(terminus site:list)
+
+# Check if the string is present in the output
+if [[ "$output" =~ "$SITE_NAME" ]]; then
+echo "'$SITE_NAME' found, will update."
+else
 echo "Creating new Pantheon site..."
 terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
+fi
 
 # Run the terminus command and store the output in a variable
 output=$(terminus connection:info $SITE_NAME.dev)
