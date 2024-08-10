@@ -29,3 +29,6 @@
 /.editorconfig
 /.gitattributes
 .vercel
+
+# Local Netlify folder
+.netlify
