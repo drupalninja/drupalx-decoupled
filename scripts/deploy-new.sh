@@ -26,7 +26,7 @@ terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
 output=$(terminus connection:info $SITE_NAME.dev)
 
 # Use awk to extract the Git URL lines and concatenate them
-GIT_REMOTE_URL=$(echo "$output" | awk '/ssh:\/\/codeserver/ {getline nextline; print $0 nextline}' | tr -d ' ')
+GIT_REMOTE_URL=$(echo "$output" | sed -n 's/.*\(ssh:\/\/.*\.git\).*/\1/p')
 
 # Output the Git remote URL
 echo "Git remote URL: $GIT_REMOTE_URL"
