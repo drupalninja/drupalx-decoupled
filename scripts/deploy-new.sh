@@ -30,10 +30,10 @@ terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
 fi
 
 # Run the terminus command and store the output in a variable
-output=$(terminus connection:info $SITE_NAME)
+output=$(terminus connection:info $SITE_NAME.dev)
 
 # Use regex to extract the Git URL
-GIT_REMOTE_URL=$(echo "$output" | grep -oP 'ssh://[^\s]+\.git')
+GIT_REMOTE_URL=$(echo "$output" | sed -n 's/.*\(ssh:\/\/[^[:space:]]*\.git\).*/\1/p')
 
 # Output the Git remote URL
 echo "Git remote URL: $GIT_REMOTE_URL"
