@@ -84,3 +84,10 @@ fi
 
 echo "DRUPAL_CLIENT_ID: $DRUPAL_CLIENT_ID"
 echo "DRUPAL_CLIENT_SECRET: $DRUPAL_CLIENT_SECRET"
+
+# Run the terminus command to clear the cache
+terminus drush "$PANTHEON_SITE" cr
+
+# Run the terminus command to get a one-time login link
+terminus drush "$PANTHEON_SITE" uli
+
