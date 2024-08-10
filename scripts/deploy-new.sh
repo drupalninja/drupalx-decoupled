@@ -18,25 +18,18 @@ TIMESTAMP=$(date +%s)
 # Get site details
 SITE_NAME=$(prompt_with_default "Enter site name" "drupalx-$TIMESTAMP")
 SITE_LABEL=$(prompt_with_default "Enter site label" "My DrupalX Site")
+SITE_NEW_YESNO=$(prompt_with_default "Is this new site?" "y")
 
-#!/bin/bash
-
-# Execute the terminus command and capture output
-output=$(terminus site:list --format=json)
-
-# Check if the site exists using jq
-if jq -r '.[] | select(.name == "'"$SITE_NAME"'") | .name' <<< "$output"; then
-    echo "Pantheon $SITE_NAME found, will update."
-else
-    echo "Creating new Pantheon site..."
-    terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
+if [ "$SITE_NEW_YESNO" == "y" ]; then
+  echo "Creating new Pantheon site..."
+  terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
 fi
 
 # Run the terminus command and store the output in a variable
 output=$(terminus connection:info $SITE_NAME.dev)
 
 # Use awk to extract the Git URL lines and concatenate them
-GIT_REMOTE_URL=$(echo "$output" | sed -n 's/.*\(ssh:\/\/.*\.git\).*/\1/p')
+GIT_REMOTE_URL=$(echo "$output" | sed -n 's/.*\(ssh:\/\/.*\.git\).*/\1/p' )
 
 # Output the Git remote URL
 echo "Git remote URL: $GIT_REMOTE_URL"
@@ -48,7 +41,7 @@ exit 1
 fi
 
 # Check if redis-cli is present in the output
-if echo "$output" | grep -q 'redis-cli'; then
+if echo "$output" | grep -q 'redis-cli' ; then
 echo "Redis is already enabled."
 else
 echo "Enabling redis..."
@@ -67,7 +60,7 @@ echo "Pushing to Pantheon remote (will overwrite existing git)..."
 git push $SITE_NAME master --force
 
 echo "Installing Drupal..."
-echo "Running terminus drush "$PANTHEON_SITE" si -- -y drupalx_graphql"
+echo "Running terminus drush " $PANTHEON_SITE" si -- -y drupalx_graphql"
 
 set -e # Exit immediately if a command exits with a non-zero status.
 
@@ -81,7 +74,7 @@ echo "$output"
 DRUPAL_CLIENT_ID=$(echo "$output" | awk '/--- Previewer ---/{flag=1; next} /DRUPAL_CLIENT_ID=/{if(flag==1) {print $1; flag=0}}' | cut -d'=' -f2)
 
 # Extract DRUPAL_CLIENT_SECRET for Previewer
-DRUPAL_CLIENT_SECRET=$(echo "$output" | awk '/--- Previewer ---/{flag=1; next} /DRUPAL_CLIENT_SECRET=/{if(flag==1) {print $1; flag=0}}' | cut -d'=' -f2)
+DRUPAL_CLIENT_SECRET=$(echo "$output" | awk ' /--- Previewer ---/{flag=1; next} /DRUPAL_CLIENT_SECRET=/{if(flag==1) {print $1; flag=0}}' | cut -d'=' -f2)
 
 # Check if the values were successfully extracted
 if [ -z "$DRUPAL_CLIENT_ID" ] || [ -z "$DRUPAL_CLIENT_SECRET" ]; then
