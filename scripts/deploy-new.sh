@@ -22,14 +22,14 @@ SITE_LABEL=$(prompt_with_default "Enter site label" "My DrupalX Site")
 #!/bin/bash
 
 # Execute the terminus command and capture output
-output=$(terminus site:list)
+output=$(terminus site:list --format=json)
 
-# Check if the string is present in the output
-if [[ "$output" =~ "$SITE_NAME" ]]; then
-echo "Pantheon $SITE_NAME found, will update."
+# Check if the site exists using jq
+if jq -r '.[] | select(.name == "'"$SITE_NAME"'") | .name' <<< "$output"; then
+    echo "Pantheon $SITE_NAME found, will update."
 else
-echo "Creating new Pantheon site..."
-terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
+    echo "Creating new Pantheon site..."
+    terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
 fi
 
 # Run the terminus command and store the output in a variable
