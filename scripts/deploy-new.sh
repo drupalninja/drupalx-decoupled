@@ -23,20 +23,17 @@ SITE_LABEL=$(prompt_with_default "Enter site label" "My DrupalX Site")
 ID=$(terminus site:info $SITE_NAME | grep -Eo 'ID\s+[a-z0-9-]{36}' | awk '{print $2}')
 
 if [ -n "$ID" ]; then
-  echo "Found existing site with ID: $ID, skipping creation step."
+echo "Found existing site with ID: $ID, skipping creation step."
 else
-  echo "Creating new Pantheon site..."
-  terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
+echo "Creating new Pantheon site..."
+terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
 fi
 
-echo "Enabling redis..."
-terminus redis:enable "$SITE_NAME"
+# Run the terminus command and store the output in a variable
+output=$(terminus connection:info $SITE_NAME)
 
-ID=$(terminus site:info $SITE_NAME | grep -Eo 'ID\s+[a-z0-9-]{36}' | awk '{print $2}')
-echo "Pantheon Site ID: $ID"
-
-# Create the Git remote URL using the extracted ID
-GIT_REMOTE_URL="ssh://codeserver.dev.$ID@codeserver.dev.$ID.drush.in:2222/~/repository.git"
+# Use regex to extract the Git URL
+GIT_REMOTE_URL=$(echo "$output" | grep -oP 'ssh://[^\s]+\.git')
 
 # Output the Git remote URL
 echo "Git remote URL: $GIT_REMOTE_URL"
@@ -45,6 +42,14 @@ echo "Git remote URL: $GIT_REMOTE_URL"
 if ! git checkout master; then
 echo "Failed to checkout master branch."
 exit 1
+fi
+
+# Check if redis-cli is present in the output
+if echo "$output" | grep -q 'redis-cli'; then
+echo "Redis is already enabled."
+else
+echo "Enabling redis..."
+terminus redis:enable "$SITE_NAME"
 fi
 
 # Continue with the rest of your script if successful
