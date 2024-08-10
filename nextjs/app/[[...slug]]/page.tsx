@@ -52,13 +52,13 @@ async function getAllPaths(): Promise<string[]> {
   return allPaths.filter(path => path && path !== frontpagePath);
 }
 
-// export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
-//   const paths = await getAllPaths();
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
+  const paths = await getAllPaths();
 
-//   return paths.map((path: string) => ({
-//     slug: path.split('/').filter(segment => segment !== ''),
-//   }));
-// }
+  return paths.map((path: string) => ({
+    slug: path.split('/').filter(segment => segment !== ''),
+  }));
+}
 
 async function getPageData({ params }: Props) {
   return await getDrupalData({ params });
