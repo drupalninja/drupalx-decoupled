@@ -26,7 +26,7 @@ output=$(terminus site:list)
 
 # Check if the string is present in the output
 if [[ "$output" =~ "$SITE_NAME" ]]; then
-echo "'$SITE_NAME' found, will update."
+echo "Pantheon $SITE_NAME' found, will update."
 else
 echo "Creating new Pantheon site..."
 terminus site:create "$SITE_NAME" "$SITE_LABEL" "drupal-composer-managed"
