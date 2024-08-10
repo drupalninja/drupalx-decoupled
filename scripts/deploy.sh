@@ -4,18 +4,18 @@ set -e # Exit immediately if a command exits with a non-zero status.
 
 # Check if PANTHEON_SITE is set, if not, use a default value or exit
 if [ -z "$PANTHEON_SITE" ]; then
-echo "Error: PANTHEON_SITE environment variable is not set."
-echo "Please set it before running this script, e.g.:"
-echo "export PANTHEON_SITE=drupalx-decoupled.dev"
-exit 1
+  echo "Error: PANTHEON_SITE environment variable is not set."
+  echo "Please set it before running this script, e.g.:"
+  echo "export PANTHEON_SITE=drupalx-decoupled.dev"
+  exit 1
 fi
 
 # Check if NETLIFY_APP_URL is set
 if [ -z "$NETLIFY_APP_URL" ]; then
-echo "Error: NETLIFY_APP_URL environment variable is not set."
-echo "Please set it before running this script, e.g.:"
-echo "export NETLIFY_APP_URL=https://drupalx-decoupled.netlify.app"
-exit 1
+  echo "Error: NETLIFY_APP_URL environment variable is not set."
+  echo "Please set it before running this script, e.g.:"
+  echo "export NETLIFY_APP_URL=https://drupalx-decoupled.netlify.app"
+  exit 1
 fi
 
 export TERMINUS_HIDE_GIT_MODE_WARNING=1
@@ -38,8 +38,8 @@ DRUPAL_CLIENT_SECRET=$(echo "$output" | awk '/--- Previewer ---/{flag=1; next} /
 
 # Check if the values were successfully extracted
 if [ -z "$DRUPAL_CLIENT_ID" ] || [ -z "$DRUPAL_CLIENT_SECRET" ]; then
-echo "Failed to extract DRUPAL_CLIENT_ID or DRUPAL_CLIENT_SECRET"
-exit 1
+  echo "Failed to extract DRUPAL_CLIENT_ID or DRUPAL_CLIENT_SECRET"
+  exit 1
 fi
 
 echo "DRUPAL_CLIENT_ID: $DRUPAL_CLIENT_ID"
