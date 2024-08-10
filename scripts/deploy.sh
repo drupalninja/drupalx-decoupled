@@ -1,13 +1,31 @@
 #!/bin/bash
 
+set -e # Exit immediately if a command exits with a non-zero status.
+
+# Check if PANTHEON_SITE is set, if not, use a default value or exit
+if [ -z "$PANTHEON_SITE" ]; then
+echo "Error: PANTHEON_SITE environment variable is not set."
+echo "Please set it before running this script, e.g.:"
+echo "export PANTHEON_SITE=drupalx-decoupled.dev"
+exit 1
+fi
+
+# Check if NETLIFY_APP_URL is set
+if [ -z "$NETLIFY_APP_URL" ]; then
+echo "Error: NETLIFY_APP_URL environment variable is not set."
+echo "Please set it before running this script, e.g.:"
+echo "export NETLIFY_APP_URL=https://drupalx-decoupled.netlify.app"
+exit 1
+fi
+
 export TERMINUS_HIDE_GIT_MODE_WARNING=1
 
-echo "Running terminus drush drupalx-decoupled.dev si -- -y drupalx_graphql"
+echo "Running terminus drush "$PANTHEON_SITE" si -- -y drupalx_graphql"
 
 set -e # Exit immediately if a command exits with a non-zero status.
 
 # Run the terminus command and capture its output
-output=$(terminus drush drupalx-decoupled.dev si -- -y drupalx_graphql)
+output=$(terminus drush "$PANTHEON_SITE" si -- -y drupalx_graphql)
 
 echo "Command output:"
 echo "$output"
@@ -27,7 +45,10 @@ fi
 echo "DRUPAL_CLIENT_ID: $DRUPAL_CLIENT_ID"
 echo "DRUPAL_CLIENT_SECRET: $DRUPAL_CLIENT_SECRET"
 
-terminus drush drupalx-decoupled.dev cr
+terminus drush "$PANTHEON_SITE" -- config:set decoupled_preview_iframe.settings redirect_url "$NETLIFY_APP_URL" -y
+terminus drush "$PANTHEON_SITE" -- config:set decoupled_preview_iframe.settings preview_url "$NETLIFY_APP_URL" -y
+
+terminus drush "$PANTHEON_SITE" cr
 
 # Set the environment variables for the Vercel environment
 echo -n "$DRUPAL_CLIENT_ID" | vercel env add DRUPAL_CLIENT_ID production --force
@@ -38,7 +59,7 @@ echo "Deploying to Vercel..."
 # Deploy to Vercel
 curl -X POST -H "Content-Type: application/json" https://api.vercel.com/v1/integrations/deploy/prj_YmQ0eV8HSqQ1AhDsxpsTfmKdotSt/KrCZvy8LfY
 
-# Set the environment variables for Netlify  environment
+# Set the environment variables for Netlify environment
 netlify env:set DRUPAL_CLIENT_ID "$DRUPAL_CLIENT_ID"
 netlify env:set DRUPAL_CLIENT_SECRET "$DRUPAL_CLIENT_SECRET"
 
@@ -46,3 +67,6 @@ echo "Deploying to Netlify..."
 
 # Deploy to Netlify
 curl -X POST -H "Content-Type: application/json" https://api.netlify.com/build_hooks/66b75a76eded4f2916b339ae
+
+# Print the login link
+terminus drush "$PANTHEON_SITE" uli
