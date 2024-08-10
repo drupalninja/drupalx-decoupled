@@ -60,12 +60,12 @@ echo "Pushing to Pantheon remote (will overwrite existing git)..."
 git push $SITE_NAME master --force
 
 echo "Installing Drupal..."
-echo "Running terminus drush " $PANTHEON_SITE" si -- -y drupalx_graphql"
+echo "Running terminus drush " $SITE_NAME" si -- -y drupalx_graphql"
 
 set -e # Exit immediately if a command exits with a non-zero status.
 
 # Run the terminus command and capture its output
-output=$(terminus drush "$PANTHEON_SITE" si -- -y drupalx_graphql)
+output=$(terminus drush "$SITE_NAME" si -- -y drupalx_graphql)
 
 echo "Command output:"
 echo "$output"
@@ -86,8 +86,7 @@ echo "DRUPAL_CLIENT_ID: $DRUPAL_CLIENT_ID"
 echo "DRUPAL_CLIENT_SECRET: $DRUPAL_CLIENT_SECRET"
 
 # Run the terminus command to clear the cache
-terminus drush "$PANTHEON_SITE" cr
+terminus drush "$SITE_NAME" cr
 
 # Run the terminus command to get a one-time login link
-terminus drush "$PANTHEON_SITE" uli
-
+terminus drush "$SITE_NAME" uli
