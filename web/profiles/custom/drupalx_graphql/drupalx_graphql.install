@@ -11,13 +11,13 @@ use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 
 // Include menu demo content functions.
-include 'drupalx_graphql_menus.inc';
+require_once 'drupalx_graphql_menus.inc';
 
 // Include node demo content functions.
-include 'drupalx_graphql_nodes.inc';
+require_once 'drupalx_graphql_nodes.inc';
 
 // Include media demo content functions.
-include 'drupalx_graphql_media.inc';
+require_once 'drupalx_graphql_media.inc';
 
 /**
  * Implements hook_install_tasks().
