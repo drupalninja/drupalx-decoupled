@@ -58,7 +58,7 @@ jobs:
 
       # Step 6: Setup and start the server
       - name: Install site
-        run: ./vendor/bin/drush site-install drupalx_graphql --verbose --yes --db-url=sqlite://tmp/site.sqlite
+        run: ./vendor/bin/drush site-install drupalx_graphql --verbose --yes --db-url=sqlite://tmp/site.sqlite --account-name=admin --account-pass=admin
 
       - name: Start server
         run: |
