@@ -1,0 +1,146 @@
+name: 'DrupalX Decoupled'
+description: 'Drupal installation ready to make decoupled sites using GraphQL'
+type: 'Site'
+
+install:
+  - admin_toolbar
+  - admin_toolbar_tools
+  - allowed_formats
+  - block
+  - ckeditor5
+  - content_moderation
+  - contextual
+  - datetime_range
+  - decoupled_preview_iframe
+  - editor
+  - entity_reference_revisions
+  - features
+  - field
+  - field_group
+  - field_ui
+  - file
+  - filter
+  - gin_login
+  - graphql
+  - graphql_compose
+  - graphql_compose_edges
+  - graphql_compose_fragments
+  - graphql_compose_image_style
+  - graphql_compose_menus
+  - graphql_compose_metatags
+  - graphql_compose_preview
+  - graphql_compose_routes
+  - graphql_compose_users
+  - graphql_compose_views
+  - graphql_compose_preview
+  - guardr_core
+  - image
+  - link
+  - linkit
+  - material_icons
+  - media
+  - media_library
+  - menu_ui
+  - metatag
+  - node
+  - node_revision_delete
+  - options
+  - paragraphs
+  - paragraphs_ee
+  - paragraphs_features
+  - path
+  - pathauto
+  - redirect
+  - simple_oauth
+  - svg_image
+  - svg_image_responsive
+  - system
+  - taxonomy
+  - taxonomy_access_fix
+  - text
+  - toolbar
+  - user
+  - views_ui
+  - viewfield
+  - webp
+
+config:
+  import:
+    simple_oauth: '*'
+
+  actions:
+    # Set home page
+    system.site:
+      simple_config_update:
+        page.front: /user
+    # Set and unset Gin blocks.
+    block.block.gin_admin:
+      simple_config_update:
+        status: false
+    block.block.gin_branding:
+      simple_config_update:
+        status: false
+    block.block.gin_local_actions:
+      simple_config_update:
+        region: content
+        weight: -10
+    block.block.gin_local_tasks:
+      simple_config_update:
+        status: false
+    block.block.gin_page_title:
+      simple_config_update:
+        region: header
+        weight: -10
+    block.block.gin_primary_local_tasks:
+      simple_config_update:
+        region: header
+        weight: -5
+        settings.secondary: true
+    block.block.gin_tools:
+      simple_config_update:
+        status: false
+    # Update the admin theme to Gin in Theme settings.
+    node.settings:
+      simple_config_update:
+        use_admin_theme: true
+    system.theme:
+      simple_config_update:
+        admin: 'gin'
+        default: 'gin'
+    # Set metatag defaults.
+    metatag.metatag_defaults.global:
+      simple_config_update:
+        tags.canonical_url: '[current-page:url]'
+        tags.title: '[current-page:title] | [site:name]'
+    metatag.metatag_defaults.node:
+      simple_config_update:
+        tags.abstract: '[node:summary]'
+        tags.canonical_url: '[node:url]'
+        tags.description: '[node:summary]'
+        tags.image_src: '[node:field_image:entity:field_media_image:entity:url]'
+        tags.og_description: '[node:summary]'
+        tags.og_image: '[node:field_image:entity:field_media_image:entity:url]'
+        tags.og_image_url: '[node:field_image:entity:field_media_image:entity:url]'
+        tags.og_site_name: '[site:name]'
+        tags.og_title: '[node:title] | [site:name]'
+        tags.og_type: website
+        tags.og_url: '[node:url]'
+        tags.title: '[node:title] | [site:name]'
+     # Set permissions for content editor role.
+    user.role.content_editor:
+      ensure_exists:
+        id: content_editor
+      grantPermissions:
+        - 'use text format basic_html'
+        - 'use text format full_html'
+    simple_oauth.settings:
+      simple_config_update:
+        access_token_expiration: 2592000
+        authorization_code_expiration: 2592000
+        refresh_token_expiration: 2592000
+        token_cron_batch_size: 0
+        public_key: sites/default/files/private/keys/public.key
+        private_key: sites/default/files/private/keys/private.key
+        remember_clients: true
+        use_implicit: false
+        disable_openid_connect: false
