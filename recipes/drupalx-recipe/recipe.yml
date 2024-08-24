@@ -56,9 +56,14 @@ install:
   - node_revision_delete
   - pathauto
   - paragraphs
+  - paragraphs_ee
+  - paragraphs_features
   - redirect
   - responsive_image
+  - svg_image
+  - svg_image_responsive
   - viewfield
+  - webp
   # Decoupled contrib
   - decoupled_preview_iframe
   - graphql_compose
@@ -114,9 +119,14 @@ config:
     node_revision_delete: '*'
     pathauto: '*'
     paragraphs: '*'
+    paragraphs_ee: '*'
+    paragraphs_features: '*'
     redirect: '*'
     responsive_image: '*'
+    svg_image: '*'
+    svg_image_responsive: '*'
     viewfield: '*'
+    webp: '*'
     # Decoupled contrib
     graphql_compose: '*'
 
