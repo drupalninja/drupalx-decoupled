@@ -53,15 +53,12 @@ install:
   - gin_toolbar
   - material_icons
   - metatag
-  - metatag_open_graph
-  - metatag_twitter_cards
   - node_revision_delete
   - pathauto
   - paragraphs
   - redirect
   - responsive_image
   - viewfield
-  - simple_oauth
   # Decoupled contrib
   - decoupled_preview_iframe
   - graphql_compose
@@ -82,7 +79,8 @@ config:
       - views.view.block_content
     content_moderation: '*'
     shortcut: '*'
-    # file: '*'
+    editor: '*'
+    file: '*'
     field_ui: '*'
     menu_ui: '*'
     node:
@@ -119,7 +117,6 @@ config:
     redirect: '*'
     responsive_image: '*'
     viewfield: '*'
-    simple_oauth: '*'
     # Decoupled contrib
     graphql_compose: '*'
 
@@ -167,10 +164,6 @@ config:
       simple_config_update:
         tags.canonical_url: '[current-page:url]'
         tags.title: '[current-page:title] | [site:name]'
-        tags.twitter_cards_creator_id: '@OctahedroidHQ'
-        tags.twitter_cards_site: '@OctahedroidHQ'
-        tags.twitter_cards_title: '[current-page:title] | [site:name]'
-        tags.twitter_cards_type: summary
     metatag.metatag_defaults.node:
       simple_config_update:
         tags.abstract: '[node:summary]'
@@ -185,12 +178,6 @@ config:
         tags.og_type: website
         tags.og_url: '[node:url]'
         tags.title: '[node:title] | [site:name]'
-        tags.twitter_cards_creator: '@OctahedroidHQ'
-        tags.twitter_cards_description: '[node:summary]'
-        tags.twitter_cards_image: '[node:field_image:entity:field_media_image:entity:url]'
-        tags.twitter_cards_site: '@OctahedroidHQ'
-        tags.twitter_cards_title: '[node:title]'
-        tags.twitter_cards_type: summary_large_image
      # Set permissions for content editor role.
     user.role.content_editor:
       ensure_exists:
@@ -198,14 +185,3 @@ config:
       grantPermissions:
         - 'use text format basic_html'
         - 'use text format full_html'
-    simple_oauth.settings:
-      simple_config_update:
-        access_token_expiration: 2592000
-        authorization_code_expiration: 2592000
-        refresh_token_expiration: 2592000
-        token_cron_batch_size: 0
-        public_key: ../keys/public.key
-        private_key: ../keys/private.key
-        remember_clients: true
-        use_implicit: false
-        disable_openid_connect: false
