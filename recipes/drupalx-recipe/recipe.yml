@@ -19,7 +19,6 @@ recipes:
 
 install:
   # Core
-  - block_content
   - ckeditor5
   - config
   - content_moderation
@@ -62,6 +61,7 @@ install:
   - paragraphs_features
   - redirect
   - responsive_image
+  - simple_oauth
   - svg_image
   - svg_image_responsive
   - taxonomy_access_fix
@@ -82,9 +82,6 @@ install:
 
 config:
   import:
-    block_content:
-      # View to list custom blocks.
-      - views.view.block_content
     content_moderation: '*'
     shortcut: '*'
     editor: '*'
@@ -201,3 +198,14 @@ config:
       grantPermissions:
         - 'use text format basic_html'
         - 'use text format full_html'
+    simple_oauth.settings:
+      simple_config_update:
+        access_token_expiration: 2592000
+        authorization_code_expiration: 2592000
+        refresh_token_expiration: 2592000
+        token_cron_batch_size: 0
+        public_key: sites/default/files/private/keys/public.key
+        private_key: sites/default/files/private/keys/private.key
+        remember_clients: true
+        use_implicit: false
+        disable_openid_connect: false
