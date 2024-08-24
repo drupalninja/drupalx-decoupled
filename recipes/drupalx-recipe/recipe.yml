@@ -1,126 +1,127 @@
 name: 'DrupalX Decoupled'
 description: 'Drupal installation ready to make decoupled sites using GraphQL'
 type: 'Site'
+recipes:
+  # Core recipes with basic functionality
+  # Adding tags vocabulary and taxonomy field to article
+  - core/recipes/tags_taxonomy
+  # Adding media image type
+  - core/recipes/image_media_type
+  # Adding format editors
+  - core/recipes/basic_html_format_editor
+  - core/recipes/full_html_format_editor
+  - core/recipes/restricted_html_format
+  # Adding user roles
+  - core/recipes/administrator_role
+  - core/recipes/content_editor_role
+  # Adding core recommended maintenance modules
+  - core/recipes/core_recommended_maintenance
 
 install:
-  - admin_toolbar
-  - admin_toolbar_tools
-  - allowed_formats
-  - block
+  # Core
+  - block_content
   - ckeditor5
+  - config
   - content_moderation
+  - help
   - contextual
+  - datetime
   - datetime_range
-  - decoupled_preview_iframe
   - editor
-  - entity_reference_revisions
-  - features
-  - field
-  - field_group
   - field_ui
   - file
-  - filter
+  - history
+  - image
+  - link
+  - media
+  - media_library
+  - menu_link_content
+  - menu_ui
+  - node
+  - options
+  - path
+  - taxonomy
+  - views
+  - views_ui
+  # Contrib
+  - admin_toolbar
+  - admin_toolbar_tools
+  - admin_toolbar_search
+  - field_group
+  - gin
   - gin_login
-  - graphql
+  - gin_toolbar
+  - material_icons
+  - metatag
+  - metatag_open_graph
+  - metatag_twitter_cards
+  - node_revision_delete
+  - pathauto
+  - paragraphs
+  - redirect
+  - responsive_image
+  - viewfield
+  - simple_oauth
+  # Decoupled contrib
+  - decoupled_preview_iframe
   - graphql_compose
   - graphql_compose_edges
-  - graphql_compose_fragments
   - graphql_compose_image_style
   - graphql_compose_menus
-  - graphql_compose_metatags
-  - graphql_compose_preview
   - graphql_compose_routes
   - graphql_compose_users
   - graphql_compose_views
+  - graphql_compose_metatags
   - graphql_compose_preview
-  - guardr_core
-  - image
-  - link
-  - linkit
-  - material_icons
-  - media
-  - media_library
-  - menu_ui
-  - metatag
-  - node
-  - node_revision_delete
-  - options
-  - paragraphs
-  - paragraphs_ee
-  - paragraphs_features
-  - path
-  - pathauto
-  - redirect
-  - simple_oauth
-  - svg_image
-  - svg_image_responsive
-  - taxonomy
-  - taxonomy_access_fix
-  - text
-  - toolbar
-  - views_ui
-  - viewfield
-  - webp
+  - graphql_compose_fragments
 
 config:
   import:
+    block_content:
+      # View to list custom blocks.
+      - views.view.block_content
+    content_moderation: '*'
+    shortcut: '*'
+    # file: '*'
+    field_ui: '*'
+    menu_ui: '*'
+    node:
+      - views.view.content
+      - views.view.content_recent
+    datetime: '*'
+    datetime_range: '*'
+    views: '*'
+    views_ui: '*'
+    user:
+      # View to list users.
+      - views.view.user_admin_people
+    #contrib
     admin_toolbar: '*'
     admin_toolbar_tools: '*'
-    allowed_formats: '*'
-    block: '*'
-    ckeditor5: '*'
-    content_moderation: '*'
-    contextual: '*'
-    datetime_range: '*'
-    decoupled_preview_iframe: '*'
-    editor: '*'
-    entity_reference_revisions: '*'
-    features: '*'
-    field: '*'
+    admin_toolbar_search: '*'
     field_group: '*'
-    field_ui: '*'
-    file: '*'
-    filter: '*'
+    gin:
+      - gin.settings
+      - block.block.gin_breadcrumbs
+      - block.block.gin_content
+      - block.block.gin_help
+      - block.block.gin_local_actions
+      - block.block.gin_messages
+      - block.block.gin_page_title
+      - block.block.gin_primary_local_tasks
+    gin_toolbar: '*'
     gin_login: '*'
-    graphql: '*'
-    graphql_compose: '*'
-    graphql_compose_edges: '*'
-    graphql_compose_fragments: '*'
-    graphql_compose_image_style: '*'
-    graphql_compose_menus: '*'
-    graphql_compose_metatags: '*'
-    graphql_compose_preview: '*'
-    graphql_compose_routes: '*'
-    graphql_compose_users: '*'
-    graphql_compose_views: '*'
-    guardr_core: '*'
-    image: '*'
-    link: '*'
-    linkit: '*'
     material_icons: '*'
-    media: '*'
-    media_library: '*'
-    menu_ui: '*'
     metatag: '*'
-    node: '*'
     node_revision_delete: '*'
-    options: '*'
-    paragraphs: '*'
-    paragraphs_ee: '*'
-    paragraphs_features: '*'
-    path: '*'
     pathauto: '*'
+    paragraphs: '*'
     redirect: '*'
-    simple_oauth: '*'
-    svg_image: '*'
-    svg_image_responsive: '*'
-    taxonomy: '*'
-    taxonomy_access_fix: '*'
-    text: '*'
-    toolbar: '*'
-    views_ui: '*'
+    responsive_image: '*'
     viewfield: '*'
-    webp: '*'
+    simple_oauth: '*'
+    # Decoupled contrib
+    graphql_compose: '*'
 
   actions:
     # Set home page
@@ -166,6 +167,10 @@ config:
       simple_config_update:
         tags.canonical_url: '[current-page:url]'
         tags.title: '[current-page:title] | [site:name]'
+        tags.twitter_cards_creator_id: '@OctahedroidHQ'
+        tags.twitter_cards_site: '@OctahedroidHQ'
+        tags.twitter_cards_title: '[current-page:title] | [site:name]'
+        tags.twitter_cards_type: summary
     metatag.metatag_defaults.node:
       simple_config_update:
         tags.abstract: '[node:summary]'
@@ -180,6 +185,12 @@ config:
         tags.og_type: website
         tags.og_url: '[node:url]'
         tags.title: '[node:title] | [site:name]'
+        tags.twitter_cards_creator: '@OctahedroidHQ'
+        tags.twitter_cards_description: '[node:summary]'
+        tags.twitter_cards_image: '[node:field_image:entity:field_media_image:entity:url]'
+        tags.twitter_cards_site: '@OctahedroidHQ'
+        tags.twitter_cards_title: '[node:title]'
+        tags.twitter_cards_type: summary_large_image
      # Set permissions for content editor role.
     user.role.content_editor:
       ensure_exists:
@@ -193,8 +204,8 @@ config:
         authorization_code_expiration: 2592000
         refresh_token_expiration: 2592000
         token_cron_batch_size: 0
-        public_key: sites/default/files/private/keys/public.key
-        private_key: sites/default/files/private/keys/private.key
+        public_key: ../keys/public.key
+        private_key: ../keys/private.key
         remember_clients: true
         use_implicit: false
         disable_openid_connect: false
