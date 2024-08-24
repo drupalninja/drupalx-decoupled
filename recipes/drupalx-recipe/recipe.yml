@@ -51,6 +51,8 @@ install:
   - gin
   - gin_login
   - gin_toolbar
+  - guardr_core
+  - linkit
   - material_icons
   - metatag
   - node_revision_delete
@@ -62,6 +64,7 @@ install:
   - responsive_image
   - svg_image
   - svg_image_responsive
+  - taxonomy_access_fix
   - viewfield
   - webp
   # Decoupled contrib
@@ -114,6 +117,8 @@ config:
       - block.block.gin_primary_local_tasks
     gin_toolbar: '*'
     gin_login: '*'
+    guardr_core: '*'
+    linkit: '*'
     material_icons: '*'
     metatag: '*'
     node_revision_delete: '*'
@@ -125,6 +130,7 @@ config:
     responsive_image: '*'
     svg_image: '*'
     svg_image_responsive: '*'
+    taxonomy_access_fix: '*'
     viewfield: '*'
     webp: '*'
     # Decoupled contrib
