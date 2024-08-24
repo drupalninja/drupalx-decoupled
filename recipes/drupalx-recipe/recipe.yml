@@ -54,19 +54,73 @@ install:
   - simple_oauth
   - svg_image
   - svg_image_responsive
-  - system
   - taxonomy
   - taxonomy_access_fix
   - text
   - toolbar
-  - user
   - views_ui
   - viewfield
   - webp
 
 config:
   import:
+    admin_toolbar: '*'
+    admin_toolbar_tools: '*'
+    allowed_formats: '*'
+    block: '*'
+    ckeditor5: '*'
+    content_moderation: '*'
+    contextual: '*'
+    datetime_range: '*'
+    decoupled_preview_iframe: '*'
+    editor: '*'
+    entity_reference_revisions: '*'
+    features: '*'
+    field: '*'
+    field_group: '*'
+    field_ui: '*'
+    file: '*'
+    filter: '*'
+    gin_login: '*'
+    graphql: '*'
+    graphql_compose: '*'
+    graphql_compose_edges: '*'
+    graphql_compose_fragments: '*'
+    graphql_compose_image_style: '*'
+    graphql_compose_menus: '*'
+    graphql_compose_metatags: '*'
+    graphql_compose_preview: '*'
+    graphql_compose_routes: '*'
+    graphql_compose_users: '*'
+    graphql_compose_views: '*'
+    guardr_core: '*'
+    image: '*'
+    link: '*'
+    linkit: '*'
+    material_icons: '*'
+    media: '*'
+    media_library: '*'
+    menu_ui: '*'
+    metatag: '*'
+    node: '*'
+    node_revision_delete: '*'
+    options: '*'
+    paragraphs: '*'
+    paragraphs_ee: '*'
+    paragraphs_features: '*'
+    path: '*'
+    pathauto: '*'
+    redirect: '*'
     simple_oauth: '*'
+    svg_image: '*'
+    svg_image_responsive: '*'
+    taxonomy: '*'
+    taxonomy_access_fix: '*'
+    text: '*'
+    toolbar: '*'
+    views_ui: '*'
+    viewfield: '*'
+    webp: '*'
 
   actions:
     # Set home page
