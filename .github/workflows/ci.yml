@@ -61,7 +61,7 @@ jobs:
         run: ./vendor/bin/drush site-install minimal --verbose --yes --db-url=sqlite://tmp/site.sqlite --account-name=admin --account-pass=admin
 
       - name: Apply DrupalX Recipe
-        run:  /var/www/html/web php core/scripts/drupal -v recipe ../recipes/drupalx-recipe
+        run:  php core/scripts/drupal -v recipe ../recipes/drupalx-recipe
 
       - name: Start server
         run: |
