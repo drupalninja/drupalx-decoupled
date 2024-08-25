@@ -8,3 +8,4 @@ ddev drush site:install minimal --verbose -y
 ddev exec -d /var/www/html/web php core/scripts/drupal -v recipe ../recipes/drupalx-recipe
 ddev drush cr
 ddev drush uli
+ddev drush scr scripts/consumers.php
