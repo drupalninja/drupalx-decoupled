@@ -12,7 +12,7 @@ default:
       value: card.jpg
   uri:
     -
-      value: 'public://card_45.jpg'
+      value: 'public://card.jpg'
   filemime:
     -
       value: image/jpeg

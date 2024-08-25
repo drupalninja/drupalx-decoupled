@@ -12,7 +12,7 @@ default:
       value: dries.jpg
   uri:
     -
-      value: 'public://dries_80.jpg'
+      value: 'public://dries.jpg'
   filemime:
     -
       value: image/jpeg

@@ -42,7 +42,7 @@
         "drupal/taxonomy_access_fix": "^4.0",
         "drupal/viewfield": "^3.0@beta",
         "drupal/webp": "^1.0@RC",
-        "drush/drush": "^11 || ^12",
+        "drush/drush": "^11 || ^12 || ^13",
         "oomphinc/composer-installers-extender": "^2.0",
         "pantheon-systems/drupal-integrations": "^10",
         "pantheon-upstreams/upstream-configuration": "dev-main",
