@@ -37,7 +37,7 @@ terminus drush "$PANTHEON_SITE" -- recipe ../recipes/drupalx-recipe
 # Run Consumers/next script
 echo "Running Consumers/next script for keys"
 
-$output=$(terminus drush "$PANTHEON_SITE" -- scr scripts/consumers-next.php)
+output=$(terminus drush "$PANTHEON_SITE" -- scr scripts/consumers-next.php)
 
 echo "Command output:"
 echo "$output"
