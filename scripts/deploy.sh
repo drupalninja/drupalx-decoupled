@@ -66,6 +66,14 @@ terminus drush "$PANTHEON_SITE" cr
 echo -n "$DRUPAL_CLIENT_ID" | vercel env add DRUPAL_CLIENT_ID production --force
 echo -n "$DRUPAL_CLIENT_SECRET" | vercel env add DRUPAL_CLIENT_SECRET production --force
 
+echo "Deploying to Netlify..."
+
+# Deploy to Netlify
+curl -X POST -H "Content-Type: application/json" https://api.netlify.com/build_hooks/66b75a76eded4f2916b339ae
+
+# Print the login link
+terminus drush "$PANTHEON_SITE" uli
+
 echo "Deploying to Vercel..."
 
 # Deploy to Vercel
@@ -74,11 +82,3 @@ curl -X POST -H "Content-Type: application/json" https://api.vercel.com/v1/integ
 # Set the environment variables for Netlify environment
 netlify env:set DRUPAL_CLIENT_ID "$DRUPAL_CLIENT_ID"
 netlify env:set DRUPAL_CLIENT_SECRET "$DRUPAL_CLIENT_SECRET"
-
-echo "Deploying to Netlify..."
-
-# Deploy to Netlify
-curl -X POST -H "Content-Type: application/json" https://api.netlify.com/build_hooks/66b75a76eded4f2916b339ae
-
-# Print the login link
-terminus drush "$PANTHEON_SITE" uli
