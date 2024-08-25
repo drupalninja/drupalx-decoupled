@@ -33,7 +33,9 @@ echo "$output"
 echo "Applying DrupalX Decoupled recipe"
 
 # Run the terminus command and capture its output
-output=$(terminus drush "$PANTHEON_SITE" -- ev "passthru('php core/scripts/drupal recipe ../recipes/drupalx-recipe');")
+output=$(terminus drush "$PANTHEON_SITE" -- recipe ../recipes/drupalx-recipe)
+
+ddev drush recipe ../recipes/drupalx-recipe
 
 echo "Command output:"
 echo "$output"
