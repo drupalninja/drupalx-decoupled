@@ -122,7 +122,11 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
-        "patches": {}
+        "patches": {
+            "drupal/core": {
+                "Suppress unexpected type error when Recipes are applied": "patches/recipes-unexpected-type.patch"
+            }
+        }
     },
     "scripts": {
         "pre-install-cmd": [
