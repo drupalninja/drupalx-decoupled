@@ -97,6 +97,10 @@ config:
       - system.action.media_save_action
       - system.action.media_unpublish_action
       - views.view.media
+    image:
+      - image.style.medium
+      - image.style.large
+      - image.style.thumbnail
     menu_ui: '*'
     node:
       - views.view.content
