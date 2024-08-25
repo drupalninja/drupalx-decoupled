@@ -62,6 +62,7 @@ jobs:
 
       - name: Apply DrupalX Recipe
         run:  php core/scripts/drupal -v recipe ../recipes/drupalx-recipe
+        working-directory: ./web
 
       - name: Start server
         run: |
