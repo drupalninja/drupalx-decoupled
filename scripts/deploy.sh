@@ -24,24 +24,20 @@ echo "Running drush minimal site install"
 
 set -e # Exit immediately if a command exits with a non-zero status.
 
-# Run the terminus command and capture its output
-output=$(terminus drush "$PANTHEON_SITE" si -- -y minimal)
-
-echo "Command output:"
-echo "$output"
+terminus drush "$PANTHEON_SITE" si -- -y minimal
 
 # Clear caches
-output=$(terminus drush "$PANTHEON_SITE" cr)
-
-echo "Command output:"
-echo "$output"
+terminus drush "$PANTHEON_SITE" cr
 
 echo "Applying DrupalX Decoupled recipe"
 
 # Run the terminus command and capture its output
-output=$(terminus drush "$PANTHEON_SITE" -- recipe ../recipes/drupalx-recipe)
+terminus drush "$PANTHEON_SITE" -- recipe ../recipes/drupalx-recipe
 
-ddev drush recipe ../recipes/drupalx-recipe
+# Run Consumers/next script
+echo "Running Consumers/next script for keys"
+
+$output=$(terminus drush "$PANTHEON_SITE" -- scr scripts/consumers-next.php)
 
 echo "Command output:"
 echo "$output"
