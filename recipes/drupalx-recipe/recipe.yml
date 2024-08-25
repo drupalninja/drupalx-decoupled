@@ -5,8 +5,6 @@ recipes:
   # Core recipes with basic functionality
   # Adding tags vocabulary and taxonomy field to article
   - core/recipes/tags_taxonomy
-  # Adding media image type
-  - core/recipes/image_media_type
   # Adding format editors
   - core/recipes/basic_html_format_editor
   - core/recipes/full_html_format_editor
@@ -87,6 +85,18 @@ config:
     editor: '*'
     file: '*'
     field_ui: '*'
+    media_library:
+      - core.entity_view_mode.media.media_library
+      - core.entity_form_mode.media.media_library
+      - image.style.media_library
+      - views.view.media_library
+    media:
+      - core.entity_view_mode.media.full
+      - system.action.media_delete_action
+      - system.action.media_publish_action
+      - system.action.media_save_action
+      - system.action.media_unpublish_action
+      - views.view.media
     menu_ui: '*'
     node:
       - views.view.content
@@ -182,15 +192,6 @@ config:
         tags.abstract: '[node:summary]'
         tags.canonical_url: '[node:url]'
         tags.description: '[node:summary]'
-        tags.image_src: '[node:field_image:entity:field_media_image:entity:url]'
-        tags.og_description: '[node:summary]'
-        tags.og_image: '[node:field_image:entity:field_media_image:entity:url]'
-        tags.og_image_url: '[node:field_image:entity:field_media_image:entity:url]'
-        tags.og_site_name: '[site:name]'
-        tags.og_title: '[node:title] | [site:name]'
-        tags.og_type: website
-        tags.og_url: '[node:url]'
-        tags.title: '[node:title] | [site:name]'
      # Set permissions for content editor role.
     user.role.content_editor:
       ensure_exists:
