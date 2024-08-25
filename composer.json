@@ -40,7 +40,7 @@
         "drupal/taxonomy_access_fix": "^4.0",
         "drupal/viewfield": "^3.0@beta",
         "drupal/webp": "^1.0@RC",
-        "drush/drush": "^11 || ^12",
+        "drush/drush": "^11 || ^12 || ^13",
         "oomphinc/composer-installers-extender": "^2.0",
         "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.2"

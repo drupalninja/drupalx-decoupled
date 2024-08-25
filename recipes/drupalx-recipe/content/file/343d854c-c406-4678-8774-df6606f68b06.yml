@@ -12,7 +12,7 @@ default:
       value: quote-logo.svg
   uri:
     -
-      value: 'public://quote-logo_80.svg'
+      value: 'public://quote-logo.svg'
   filemime:
     -
       value: image/svg+xml
