@@ -7,5 +7,7 @@ ddev composer install
 ddev drush site:install minimal --verbose -y
 ddev exec -d /var/www/html/web php core/scripts/drupal -v recipe ../recipes/drupalx-recipe
 ddev drush cr
+
+# Add consumer keys and next.js environment variables.
+ddev drush scr scripts/consumers-next.php
 ddev drush uli
-ddev drush scr scripts/consumers.php
