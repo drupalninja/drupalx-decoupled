@@ -30,6 +30,12 @@ output=$(terminus drush "$PANTHEON_SITE" si -- -y minimal)
 echo "Command output:"
 echo "$output"
 
+# Clear caches
+output=$(terminus drush "$PANTHEON_SITE" cr)
+
+echo "Command output:"
+echo "$output"
+
 echo "Applying DrupalX Decoupled recipe"
 
 # Run the terminus command and capture its output
