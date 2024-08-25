@@ -22,3 +22,12 @@
     max-width: 230px;
   }
 }
+
+.navbar {
+
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background-color: $dropdown-link-active-bg;
+    color: $dropdown-link-active-color;
+  }
+}

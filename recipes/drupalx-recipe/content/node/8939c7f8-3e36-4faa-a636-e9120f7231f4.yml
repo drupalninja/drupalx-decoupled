@@ -1,0 +1,664 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 8939c7f8-3e36-4faa-a636-e9120f7231f4
+  bundle: layout
+  default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    4be51289-637f-4ea0-9909-09f719d36683: media
+    49c0b5e2-429d-4059-a2d9-6fd5be19c948: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Kitchen Sink Layout'
+  created:
+    -
+      value: 1724541785
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Kitchen Sink Layout | Drush Site-Install'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'https://drupalx-graphql.ddev.site/kitchen-sink'
+  path:
+    -
+      alias: /kitchen-sink
+      langcode: en
+      pathauto: 0
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 2a67cb45-ebc8-43cc-851e-3204ec0d87ac
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_heading:
+            -
+              value: 'Example Layout'
+              format: restricted_html
+          field_hero_layout:
+            -
+              value: image_top
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_summary:
+            -
+              value: 'This is an example layout with various components.'
+              format: basic_html
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 17abe610-24a9-4a12-ba6c-38b44f5a2ef1
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_eyebrow:
+            -
+              value: 'DrupalX Features'
+          field_link:
+            -
+              uri: 'internal:/features'
+              title: 'Explore features'
+              options: {  }
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: right
+          field_summary:
+            -
+              value: 'The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.'
+              format: ''
+          field_title:
+            -
+              value: 'DrupalX Rapid Development'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 4e31b53a-fa02-48d4-bf21-50416499f085
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_eyebrow:
+            -
+              value: 'DrupalX Content'
+          field_link:
+            -
+              uri: 'internal:/articles'
+              title: 'Read DrupalX articles'
+              options: {  }
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: left
+          field_summary:
+            -
+              value: 'DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.'
+              format: ''
+          field_title:
+            -
+              value: 'DrupalX Content Management'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 2e88b6b1-5591-4512-86b9-582f5307e80b
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_body:
+            -
+              value: 'The DrupalX documentation provides detailed information on how to use the DrupalX template and its components.'
+              format: full_html
+              summary: ''
+          field_link:
+            -
+              uri: 'internal:/documentation'
+              title: 'Read documentation'
+              options: {  }
+          field_title:
+            -
+              value: 'DrupalX Documentation'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: e63fa4e2-3b5c-4357-b64d-0d2d63aea2ea
+          bundle: media
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_title:
+            -
+              value: 'DrupalX Media'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 45653689-2cfa-4e14-89f6-c9390be76c57
+          bundle: gallery
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_body:
+            -
+              value: 'View images of the DrupalX template and its components.'
+              format: ''
+              summary: ''
+          field_media_item:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_title:
+            -
+              value: 'DrupalX Gallery'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: a3545a9e-536a-4181-80ab-12f061a16379
+          bundle: carousel
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_carousel_item:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 34482f1f-8840-4b55-aa15-40303b5e9232
+                  bundle: carousel_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_media:
+                    -
+                      entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+                  field_summary:
+                    -
+                      value: 'This is the first carousel item.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'DrupalX Carousel Item 1'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 08d10e45-6d4d-4be3-b8bf-44ffb2021e9c
+                  bundle: carousel_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_media:
+                    -
+                      entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+                  field_summary:
+                    -
+                      value: 'This is the second carousel item.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'DrupalX Carousel Item 2'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 879e5e64-9dd4-455b-85a2-c3b9d745f939
+                  bundle: carousel_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_media:
+                    -
+                      entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+                  field_summary:
+                    -
+                      value: 'This is the third carousel item.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'DrupalX Carousel Item 3'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: c4666fd4-5675-4761-a001-f4fd6ec97cf2
+          bundle: accordion
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_accordion_item:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 66c418ef-2e3b-4ccb-8bbb-eb0333282952
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_body:
+                    -
+                      value: '<p>DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.</p>'
+                      format: full_html
+                      summary: ''
+                  field_title:
+                    -
+                      value: 'What is included with DrupalX?'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: e63d2a40-de98-46f8-ad11-d0d5b738ea94
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_body:
+                    -
+                      value: '<p>Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.</p>'
+                      format: full_html
+                      summary: ''
+                  field_title:
+                    -
+                      value: 'How much can I customize?'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 985a5178-73d7-4238-a4e7-c113ff93fac8
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_body:
+                    -
+                      value: '<p>Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.</p>'
+                      format: full_html
+                      summary: ''
+                  field_title:
+                    -
+                      value: 'Is DrupalX accessible?'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 845faa33-0f5b-4deb-89da-eefff1991b05
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_body:
+                    -
+                      value: '<p>Of course. Explore how DrupalX can be used across various types of sites.</p>'
+                      format: full_html
+                      summary: ''
+                  field_link:
+                    -
+                      uri: 'internal:/articles'
+                      title: 'Read DrupalX articles'
+                      options: {  }
+                  field_title:
+                    -
+                      value: 'Can I see examples of other sites created with DrupalX?'
+          field_title:
+            -
+              value: 'DrupalX Accordion'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 60e62e71-1248-4bf5-950c-b277f6be5aa4
+          bundle: quote
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_author:
+            -
+              value: 'John Doe'
+          field_job_title:
+            -
+              value: 'Web Developer'
+          field_logo:
+            -
+              entity: 4be51289-637f-4ea0-9909-09f719d36683
+          field_quote:
+            -
+              value: 'This is a quote from a satisfied DrupalX user.'
+          field_thumb:
+            -
+              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 11cf657b-d24c-4580-87bd-193509a8491d
+          bundle: embed
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_script:
+            -
+              value: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50704.05332036616!2d-122.12246645666515!3d37.413396126075966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7495bec0189%3A0x7c17d44a466baf9b!2sMountain%20View%2C%20CA!5e0!3m2!1sen!2sus!4v1716313314254!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps view of Mountain View, CA"></iframe>'
+              format: scripts
+          field_title:
+            -
+              value: 'DrupalX Embed'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 54d52c13-278a-4855-8de0-ecec00d7f73d
+          bundle: newsletter
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_summary:
+            -
+              value: 'Sign up for the DrupalX newsletter to receive updates on new features and components.'
+              format: ''
+          field_title:
+            -
+              value: 'DrupalX Newsletter'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 3e60ef8e-bd6d-4801-9dee-0e4476dad546
+          bundle: views
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_title:
+            -
+              value: 'DrupalX Articles'
+          field_views_ref:
+            -
+              target_id: recent_cards
+              display_id: article_cards
+              arguments: ''
+              items_to_display: ''
+  field_hide_page_title:
+    -
+      value: true

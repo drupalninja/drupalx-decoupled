@@ -24,10 +24,10 @@ const MainMenu: React.FC<MainMenuProps> = ({
     if (item.url === frontpagePath && pathname === '/') {
       item.inActiveTrail = true;
     }
-    else {
+    else if (pathname) {
       item.inActiveTrail = pathname.startsWith(item.url);
     }
-    if (item.below) {
+    if (item.below && pathname) {
       item.below = item.below.map((subItem) => {
         subItem.inActiveTrail = pathname.startsWith(subItem.url);
         return subItem;

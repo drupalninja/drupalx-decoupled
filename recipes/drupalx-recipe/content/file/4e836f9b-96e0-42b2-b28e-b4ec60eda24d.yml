@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 4e836f9b-96e0-42b2-b28e-b4ec60eda24d
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 0
+  filename:
+    -
+      value: dries.jpg
+  uri:
+    -
+      value: 'public://dries_80.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 20776
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1724541785

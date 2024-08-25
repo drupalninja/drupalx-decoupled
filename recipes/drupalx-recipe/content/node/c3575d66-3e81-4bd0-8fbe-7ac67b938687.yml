@@ -1,0 +1,357 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c3575d66-3e81-4bd0-8fbe-7ac67b938687
+  bundle: layout
+  default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    4be51289-637f-4ea0-9909-09f719d36683: media
+    49c0b5e2-429d-4059-a2d9-6fd5be19c948: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'DrupalX - The Enterprise CMS Starter'
+  created:
+    -
+      value: 1724541785
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'DrupalX - The Enterprise CMS Starter | Drush Site-Install'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'https://drupalx-graphql.ddev.site/welcome'
+  path:
+    -
+      alias: /welcome
+      langcode: en
+      pathauto: 0
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 9627102d-ac79-4040-b137-662a4e97a1c5
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_heading:
+            -
+              value: 'The <strong>Ultimate</strong> CMS Starter Kit for <strong>Enterprise</strong> Developers'
+              format: restricted_html
+          field_hero_layout:
+            -
+              value: image_top
+          field_link:
+            -
+              uri: 'https://drupalx-react.netlify.app/'
+              title: 'See our demo'
+              options: {  }
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: e513b14e-b9b2-4f90-b556-f6f1e4796dd9
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_eyebrow:
+            -
+              value: 'DrupalX Features'
+          field_link:
+            -
+              uri: 'internal:/features'
+              title: 'Explore features'
+              options: {  }
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: right
+          field_summary:
+            -
+              value: 'The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.'
+              format: ''
+          field_title:
+            -
+              value: 'DrupalX Rapid Development'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 2ca38ce2-5d7b-4e6c-bea7-2fc5357f9b44
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_eyebrow:
+            -
+              value: 'DrupalX Content'
+          field_link:
+            -
+              uri: 'internal:/articles'
+              title: 'Read DrupalX articles'
+              options: {  }
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: left
+          field_summary:
+            -
+              value: 'DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.'
+              format: ''
+          field_title:
+            -
+              value: 'DrupalX Content Management'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 23e57574-726b-4ade-9f97-30bf2e4aa7ad
+          bundle: quote
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_author:
+            -
+              value: 'Dries Buytaert'
+          field_job_title:
+            -
+              value: 'Drupal Founder, Acquia CTO/Co-Founder'
+          field_logo:
+            -
+              entity: 4be51289-637f-4ea0-9909-09f719d36683
+          field_quote:
+            -
+              value: 'Bringing people together under a shared passion is at the heart of what Drupal does'
+          field_thumb:
+            -
+              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 820bc409-40ef-4226-a922-3d9790d7afa4
+          bundle: accordion
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_accordion_item:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 143b5b0b-b1f8-4a12-a739-150ac5e9abce
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_body:
+                    -
+                      value: '<p>DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.</p>'
+                      format: full_html
+                      summary: ''
+                  field_title:
+                    -
+                      value: 'What is included with DrupalX?'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: c9f40864-04b7-4c33-8952-69aca4604a00
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_body:
+                    -
+                      value: '<p>Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.</p>'
+                      format: full_html
+                      summary: ''
+                  field_title:
+                    -
+                      value: 'How much can I customize?'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: a19e5603-bed0-4f69-97dc-bda89b815145
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_body:
+                    -
+                      value: '<p>Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.</p>'
+                      format: full_html
+                      summary: ''
+                  field_title:
+                    -
+                      value: 'Is DrupalX accessible?'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 99706e92-fdf5-4384-b3c8-e53c184705e3
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_body:
+                    -
+                      value: '<p>Of course. Explore how DrupalX can be used across various types of sites.</p>'
+                      format: full_html
+                      summary: ''
+                  field_link:
+                    -
+                      uri: 'internal:/articles'
+                      title: 'Read DrupalX articles'
+                      options: {  }
+                  field_title:
+                    -
+                      value: 'Can I see examples of other sites created with DrupalX?'
+          field_title:
+            -
+              value: 'DrupalX Accordion'
+  field_hide_page_title:
+    -
+      value: true

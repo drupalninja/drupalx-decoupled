@@ -1,0 +1,12 @@
+uuid: f6ffe847-0406-4341-83ef-2ac8cafcf1b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - graphql
+id: viewer
+label: Viewer
+weight: 4
+is_admin: null
+permissions:
+  - 'execute graphql_compose_server arbitrary graphql requests'

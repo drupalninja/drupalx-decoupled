@@ -30,3 +30,6 @@
 /.gitattributes
 /.drush-lock-update
 .vercel
+
+# Local Netlify folder
+.netlify
