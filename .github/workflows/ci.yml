@@ -57,12 +57,8 @@ jobs:
         working-directory: ./tests/cypress
 
       # Step 6: Setup and start the server
-      - name: Install site
-        run: ./vendor/bin/drush site-install minimal --verbose --yes --db-url=sqlite://tmp/site.sqlite --account-name=admin --account-pass=admin
-
-      - name: Apply DrupalX Recipe
-        run:  php core/scripts/drupal -v recipe ../recipes/drupalx-recipe
-        working-directory: ./web
+      - name: Install site (with sync)
+        run: ./vendor/bin/drush site-install minimal --existing-config --verbose --yes --db-url=sqlite://tmp/site.sqlite --account-name=admin --account-pass=admin
 
       - name: Start server
         run: |

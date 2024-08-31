@@ -1,0 +1,22 @@
+uuid: 28e6bd51-c5aa-4b73-a738-d00b6935dccb
+langcode: en
+status: false
+dependencies:
+  theme:
+    - gin
+_core:
+  default_config_hash: T0wbI6qVdThbbIqXDZFg_1VZ3_ittXBdEoUH7d7ux_E
+id: gin_local_tasks
+theme: gin
+region: content
+weight: -20
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

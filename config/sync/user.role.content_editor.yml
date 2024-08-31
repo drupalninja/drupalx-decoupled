@@ -1,0 +1,20 @@
+uuid: e71b0b55-c05d-42a3-9f52-c8cc009006de
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - filter
+    - node
+    - system
+id: content_editor
+label: 'Content editor'
+weight: 2
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'view own unpublished content'

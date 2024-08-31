@@ -1,0 +1,25 @@
+uuid: ae7a9139-4d62-4bc3-b29f-129617bcadb2
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - gin
+_core:
+  default_config_hash: sG8t_FghbUscJ-GrnQ8zs_vx5YM4bJCfntrK-J5HcAY
+id: gin_branding
+theme: gin
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }
