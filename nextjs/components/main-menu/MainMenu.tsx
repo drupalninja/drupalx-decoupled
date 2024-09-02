@@ -88,7 +88,7 @@ const MainMenuItems: React.FC<{
               key={index}
               url={item.url}
               text={item.title}
-              modifier={index === items.length - ctaLinkCount ? "btn-primary" : "btn-outline-primary"}
+              modifier={`${index === items.length - ctaLinkCount ? "btn-primary" : "btn-outline-primary"} mt-2`}
             />
           );
         }
