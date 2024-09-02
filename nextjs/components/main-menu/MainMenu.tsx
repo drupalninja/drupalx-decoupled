@@ -40,7 +40,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
   });
 
   return (
-    <Navbar bg="white" expand="lg" className={`${modifier} border-bottom`}>
+    <Navbar bg="white" expand="xl" className={`${modifier} border-bottom`}>
       <Container>
         <Navbar.Brand href="/" className={!showLogo ? "py-4 fs-2 fw-bold" : ""}>
           {showLogo && <Image src={siteLogo ?? ''} alt="Site Name" width={312} height={96} style={{ marginRight: '4px' }} />}
@@ -51,7 +51,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
           placement="end"
-          className="d-lg-none"
+          className="d-xl-none"
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
@@ -62,7 +62,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
-        <Navbar.Collapse id="navbarSupportedContent" className="d-none d-lg-block">
+        <Navbar.Collapse id="navbarSupportedContent" className="d-none d-xl-block">
           <Nav className="ms-auto gap-3 align-items-center">
             <MainMenuItems items={menuItems} linkModifier={linkModifier} depth={0} ctaLinkCount={ctaLinkCount} isDesktop={true} />
           </Nav>
@@ -88,7 +88,7 @@ const MainMenuItems: React.FC<{
               key={index}
               url={item.url}
               text={item.title}
-              modifier={`${index === items.length - ctaLinkCount ? "btn-primary" : "btn-outline-primary"} mt-2`}
+              modifier={`${index === items.length - ctaLinkCount ? "btn-primary" : "btn-outline-primary"} mt-2 mt-xl-0`}
             />
           );
         }
