@@ -36,12 +36,12 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Contact Us | Drush Site-Install'
+        content: 'Contact Us | DrupalX'
     -
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/contact'
+        href: '/contact'
   path:
     -
       alias: /contact
