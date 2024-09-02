@@ -24,16 +24,20 @@ echo "Running drush minimal site install"
 
 set -e # Exit immediately if a command exits with a non-zero status.
 
-# Run the terminus command and capture its output
-output=$(terminus drush "$PANTHEON_SITE" si -- -y minimal)
+terminus drush "$PANTHEON_SITE" si -- -y minimal
 
-echo "Command output:"
-echo "$output"
+# Clear caches
+terminus drush "$PANTHEON_SITE" cr
 
 echo "Applying DrupalX Decoupled recipe"
 
 # Run the terminus command and capture its output
-output=$(terminus drush "$PANTHEON_SITE" -- ev "passthru('php core/scripts/drupal recipe ../recipes/drupalx-recipe');")
+terminus drush "$PANTHEON_SITE" -- recipe ../recipes/drupalx-recipe
+
+# Run Consumers/next script
+echo "Running Consumers/next script for keys"
+
+output=$(terminus drush "$PANTHEON_SITE" -- scr scripts/consumers-next.php)
 
 echo "Command output:"
 echo "$output"
@@ -62,6 +66,14 @@ terminus drush "$PANTHEON_SITE" cr
 echo -n "$DRUPAL_CLIENT_ID" | vercel env add DRUPAL_CLIENT_ID production --force
 echo -n "$DRUPAL_CLIENT_SECRET" | vercel env add DRUPAL_CLIENT_SECRET production --force
 
+echo "Deploying to Netlify..."
+
+# Deploy to Netlify
+curl -X POST -H "Content-Type: application/json" https://api.netlify.com/build_hooks/66b75a76eded4f2916b339ae
+
+# Print the login link
+terminus drush "$PANTHEON_SITE" uli
+
 echo "Deploying to Vercel..."
 
 # Deploy to Vercel
@@ -70,11 +82,3 @@ curl -X POST -H "Content-Type: application/json" https://api.vercel.com/v1/integ
 # Set the environment variables for Netlify environment
 netlify env:set DRUPAL_CLIENT_ID "$DRUPAL_CLIENT_ID"
 netlify env:set DRUPAL_CLIENT_SECRET "$DRUPAL_CLIENT_SECRET"
-
-echo "Deploying to Netlify..."
-
-# Deploy to Netlify
-curl -X POST -H "Content-Type: application/json" https://api.netlify.com/build_hooks/66b75a76eded4f2916b339ae
-
-# Print the login link
-terminus drush "$PANTHEON_SITE" uli

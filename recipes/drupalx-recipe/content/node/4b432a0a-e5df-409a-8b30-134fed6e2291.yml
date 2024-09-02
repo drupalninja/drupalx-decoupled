@@ -36,12 +36,12 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Get Started | Drush Site-Install'
+        content: 'Get Started | DrupalX'
     -
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/get-started'
+        href: '/get-started'
   path:
     -
       alias: /get-started

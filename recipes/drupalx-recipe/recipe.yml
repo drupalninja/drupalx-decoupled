@@ -17,6 +17,7 @@ recipes:
 
 install:
   # Core
+  - allowed_formats
   - ckeditor5
   - config
   - content_moderation
@@ -29,6 +30,7 @@ install:
   - file
   - history
   - image
+  - language
   - link
   - media
   - media_library
@@ -37,6 +39,7 @@ install:
   - node
   - options
   - path
+  - shortcut
   - taxonomy
   - views
   - views_ui

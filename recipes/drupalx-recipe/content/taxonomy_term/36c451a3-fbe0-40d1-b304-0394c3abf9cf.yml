@@ -25,12 +25,12 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Announcement | Drush Site-Install'
+        content: 'Announcement | DrupalX'
     -
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/taxonomy/term/2'
+        href: '/taxonomy/term/2'
   path:
     -
       alias: ''

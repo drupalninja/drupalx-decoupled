@@ -34,7 +34,7 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Oops! Page not found | Drush Site-Install'
+        content: 'Oops! Page not found | DrupalX'
     -
       tag: meta
       attributes:
@@ -44,7 +44,7 @@ default:
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/page-not-found'
+        href: '/page-not-found'
   path:
     -
       alias: /page-not-found

@@ -31,6 +31,7 @@ export default function Header({ mainMenu }: HeaderProps) {
           showLogo={process.env.NEXT_PUBLIC_SHOW_LOGO === '1'}
           menuItems={links}
           modifier="p-0"
+          ctaLinkCount={2}
         />
       </section>
     </header>

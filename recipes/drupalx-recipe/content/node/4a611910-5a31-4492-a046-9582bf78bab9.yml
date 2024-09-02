@@ -38,7 +38,7 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Article title 6 | Drush Site-Install'
+        content: 'Article title 6 | DrupalX'
     -
       tag: meta
       attributes:
@@ -48,7 +48,7 @@ default:
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/article/article-title-6'
+        href: '/article/article-title-6'
   path:
     -
       alias: /article/article-title-6

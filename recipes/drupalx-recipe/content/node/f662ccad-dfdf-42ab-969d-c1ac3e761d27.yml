@@ -36,7 +36,7 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Privacy Policy | Drush Site-Install'
+        content: 'Privacy Policy | DrupalX'
     -
       tag: meta
       attributes:
@@ -46,7 +46,7 @@ default:
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/privacy'
+        href: '/privacy'
   path:
     -
       alias: /privacy

@@ -33,17 +33,17 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'editor | Drush Site-Install'
+        content: 'editor | DrupalX'
     -
       tag: meta
       attributes:
         name: description
-        content: 'Drush Site-Install'
+        content: 'DrupalX'
     -
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/user/2'
+        href: '/user/2'
   path:
     -
       alias: ''
