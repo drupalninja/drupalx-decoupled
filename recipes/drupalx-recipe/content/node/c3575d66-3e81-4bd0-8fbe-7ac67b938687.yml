@@ -38,12 +38,12 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'DrupalX - The Enterprise CMS Starter | Drush Site-Install'
+        content: 'DrupalX - The Enterprise CMS Starter | DrupalX'
     -
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/welcome'
+        href: '/welcome'
   path:
     -
       alias: /welcome

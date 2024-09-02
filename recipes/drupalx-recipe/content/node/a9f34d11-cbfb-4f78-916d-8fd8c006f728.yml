@@ -36,12 +36,12 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Features | Drush Site-Install'
+        content: 'Features | DrupalX'
     -
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/features'
+        href: '/features'
   path:
     -
       alias: /features

@@ -38,12 +38,12 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Kitchen Sink Layout | Drush Site-Install'
+        content: 'Kitchen Sink Layout | DrupalX'
     -
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/kitchen-sink'
+        href: '/kitchen-sink'
   path:
     -
       alias: /kitchen-sink
