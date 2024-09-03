@@ -73,6 +73,7 @@ module:
   session_limit: 0
   shortcut: 0
   simple_oauth: 0
+  sqlite: 0
   svg_image: 0
   svg_image_responsive: 0
   system: 0

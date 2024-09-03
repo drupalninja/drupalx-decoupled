@@ -1,0 +1,91 @@
+name: PR Review and Cypress Test Creation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  review_and_create_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Fetch the pull request ref and 2.x branch
+      run: |
+        git fetch origin +refs/pull/${{ github.event.pull_request.number }}/merge:pr-merge
+        git fetch origin 2.x:2.x
+
+    - name: Ensure we're on the PR merge commit
+      run: git checkout pr-merge
+
+    - name: Get PR Diff
+      run: git diff 2.x pr-merge > diff.txt
+
+    - name: Send Diff to OpenAI
+      id: openai_review
+      run: |
+        DIFF_CONTENT=$(cat diff.txt)
+        PROMPT="You are a Drupal 10 senior developer reviewing a pull request. The following diff shows lines that have been added or removed as well as context:
+
+        ${DIFF_CONTENT}
+
+        Based on these changes, create a Cypress test that validates the new functionality or changes introduced. Provide the full Cypress test code."
+
+        ESCAPED_PROMPT=$(echo "$PROMPT" | jq -Rs .)
+
+        RESPONSE=$(curl https://api.openai.com/v1/chat/completions \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
+          -d "{
+            \"model\": \"gpt-4\",
+            \"messages\": [{
+              \"role\": \"user\",
+              \"content\": $ESCAPED_PROMPT
+            }],
+            \"max_tokens\": 1000
+          }")
+        echo "$RESPONSE" > response.txt
+
+    - name: Parse OpenAI Response
+      id: parse_response
+      run: |
+        CYPRESS_TEST=$(cat response.txt | jq -r '.choices[0].message.content')
+        echo "cypress_test<<EOF" >> $GITHUB_OUTPUT
+        echo "$CYPRESS_TEST" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+
+    - name: Create Cypress Test File
+      run: |
+        mkdir -p cypress/e2e
+        echo "${{ steps.parse_response.outputs.cypress_test }}" > cypress/e2e/auto_generated_test.cy.js
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: Add Cypress test for recent changes
+        title: 'Add Cypress test for PR #${{ github.event.pull_request.number }}'
+        body: |
+          This PR adds a Cypress test to validate the changes introduced in PR #${{ github.event.pull_request.number }}.
+
+          Please review and adjust the test as needed.
+        branch: add-cypress-test-for-pr-${{ github.event.pull_request.number }}
+        base: ${{ github.head_ref }}
+
+    - name: Comment on Original PR
+      uses: peter-evans/create-or-update-comment@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          A new PR has been created with a Cypress test for the changes in this PR. Please review and merge it after this PR is approved.
+
+          [Link to test PR]({{ steps.create_pr.outputs.pull-request-url }})
