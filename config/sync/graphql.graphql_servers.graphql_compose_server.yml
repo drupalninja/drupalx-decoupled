@@ -6,15 +6,15 @@ _core:
   default_config_hash: xink_1y6S1sGQ58ZoIPHaKk-viBS8km91al0AOd77aI
 name: graphql_compose_server
 label: 'GraphQL Compose - Server'
-schema: graphql_compose
-schema_configuration:
-  graphql_compose:
-    enabled: true
-persisted_queries_settings: {  }
 endpoint: /graphql
 debug_flag: 0
+schema: graphql_compose
 caching: true
 batching: true
 disable_introspection: false
 query_depth: null
 query_complexity: null
+schema_configuration:
+  graphql_compose:
+    enabled: true
+persisted_queries_settings: {  }

@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: azJ8ICN23Kyq72uQqJpxHrzpPUjbPUQuiRRmv8gjbj4
+  default_config_hash: F0KbB1iWOV06VRAi6xW9xS3s2QSH3nTqIo3w7G-UzBA
 name: herolx2
 label: 'Hero Large 2x'
 effects:
@@ -14,4 +14,4 @@ effects:
     data:
       width: 1536
       height: 594
-      anchor: center-top
+      anchor: center-center
