@@ -33,7 +33,8 @@ jobs:
       id: fireworks_review
       run: |
         DIFF_CONTENT=$(cat diff.txt)
-        PROMPT="You are a Drupal 10 senior developer reviewing a pull request.
+        PROMPT=$(cat << EOF
+        You are a Drupal 10 senior developer reviewing a pull request.
         The following diff shows lines that have been added or removed as well as context:
 
         ${DIFF_CONTENT}
@@ -41,9 +42,11 @@ jobs:
         Based on these changes, create a Cypress test that validates the new functionality or changes introduced.
         Provide the full Cypress test code in between the code block markers.
 
-        ```javascript
+        \`\`\`javascript
         // Cypress test code goes here
-        ```"
+        \`\`\`
+        EOF
+        )
 
         ESCAPED_PROMPT=$(echo "$PROMPT" | jq -Rs .)
 
