@@ -114,4 +114,4 @@ jobs:
         body: |
           A new PR has been created with a Cypress test for the changes in this PR. Please review and merge it after this PR is approved.
 
-          [Link to test PR]({{ steps.create_pr.outputs.pull-request-url }})
+          [Link to test PR](${{ steps.create_pr.outputs.pull-request-url }})
