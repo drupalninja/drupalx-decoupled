@@ -33,13 +33,17 @@ jobs:
       id: openai_review
       run: |
         DIFF_CONTENT=$(cat diff.txt)
-        PROMPT="You are a Drupal 10 senior developer reviewing a pull request. The following diff shows lines that have been added or removed as well as context:
+        PROMPT="As a Drupal 10 senior developer, you are tasked with reviewing a pull request and creating a Cypress test to validate the new functionality or changes introduced. The following diff highlights the lines that have been added or removed, along with their context:
 
         ${DIFF_CONTENT}
 
-        Based on these changes, create a Cypress test that validates the new functionality or changes introduced. Provide the full Cypress test code.
+        Please write a comprehensive Cypress test that covers the modified functionality. Ensure the test code is placed within the code block markers.
 
-        Also to login to Drupal you will need to go to /user/login and use the following credentials:
+        ```javascript
+        // Cypress test code goes here
+        ```
+
+        To facilitate the testing process, you will need to simulate a login to Drupal within the Cypress test. To do this, navigate to /user/login and use the following credentials:
 
         cy.get('[data-drupal-selector="edit-name"]').type('admin')
         cy.get('[data-drupal-selector="edit-pass"]').type('admin')
