@@ -37,7 +37,13 @@ jobs:
 
         ${DIFF_CONTENT}
 
-        Based on these changes, create a Cypress test that validates the new functionality or changes introduced. Provide the full Cypress test code."
+        Based on these changes, create a Cypress test that validates the new functionality or changes introduced. Provide the full Cypress test code.
+
+        Also to login to Drupal you will need to go to /user/login and use the following credentials:
+
+        cy.get('[data-drupal-selector="edit-name"]').type('admin')
+        cy.get('[data-drupal-selector="edit-pass"]').type('admin')
+        cy.get('[data-drupal-selector="edit-submit"]').click()"
 
         ESCAPED_PROMPT=$(echo "$PROMPT" | jq -Rs .)
 
@@ -64,11 +70,14 @@ jobs:
 
     - name: Create Cypress Test File
       run: |
-        mkdir -p cypress/e2e
-        echo "${{ steps.parse_response.outputs.cypress_test }}" > cypress/e2e/auto_generated_test.cy.js
+        echo "${{ steps.parse_response.outputs.cypress_test }}" > tests/cypress/e2e/generated-test-${{ github.event.pull_request.number }}.cy.js
 
     - name: Checkout original branch
       run: git checkout ${{ github.base_ref }}
+
+    - name: Cleanup temporary files
+      run: |
+        rm diff.txt response.txt
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
