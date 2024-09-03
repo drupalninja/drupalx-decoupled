@@ -1,0 +1,11 @@
+uuid: c6a5601d-63cb-4726-8427-ea1ff91608b1
+langcode: en
+status: true
+dependencies: {  }
+name: Event
+type: event
+description: 'Use this content type to create events.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true
