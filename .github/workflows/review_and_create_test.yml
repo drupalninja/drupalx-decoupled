@@ -18,56 +18,80 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Fetch PR and base branches
+    - name: Fetch the pull request ref and base branch
       run: |
         git fetch origin +refs/pull/${{ github.event.pull_request.number }}/merge:pr-merge
         git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
 
     - name: Ensure we're on the PR merge commit
-      run: |
-        git checkout pr-merge || git checkout -b pr-merge
-        git reset --hard FETCH_HEAD
+      run: git checkout pr-merge
 
     - name: Get PR Diff
       run: git diff ${{ github.base_ref }} pr-merge > diff.txt
 
-    - name: Send Diff to OpenAI
-      id: openai_review
+    - name: Send Diff to Fireworks
+      id: fireworks_review
       run: |
         DIFF_CONTENT=$(cat diff.txt)
-        PROMPT="You are a Drupal 10 senior developer reviewing a pull request. The following diff shows lines that have been added or removed as well as context:
+        PROMPT=$(cat << EOF
+        You are a Drupal 10 senior developer reviewing a pull request.
+        The following diff shows lines that have been added or removed as well as context:
 
         ${DIFF_CONTENT}
 
-        Based on these changes, create a Cypress test that validates the new functionality or changes introduced. Provide the full Cypress test code."
+        Based on these changes, create a Cypress test that validates the new functionality or changes introduced.
+        Ensure the test logs into Drupal at /user/login with:
+          cy.get('[data-drupal-selector="edit-name"]').type('admin')
+          cy.get('[data-drupal-selector="edit-pass"]').type('admin')
+          cy.get('[data-drupal-selector="edit-submit"]').click()
+        Provide the full Cypress test code in between the code block markers.
+
+        \`\`\`javascript
+        // Cypress test code goes here
+        \`\`\`
+        EOF
+        )
 
         ESCAPED_PROMPT=$(echo "$PROMPT" | jq -Rs .)
 
-        RESPONSE=$(curl https://api.openai.com/v1/chat/completions \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
-          -d "{
-            \"model\": \"gpt-4\",
+        RESPONSE=$(curl --request POST \
+          --url https://api.fireworks.ai/inference/v1/chat/completions \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer ${{ secrets.FIREWORKS_API_KEY }}" \
+          --data "{
+            \"model\": \"accounts/fireworks/models/firefunction-v2\",
+            \"max_tokens\": 4000,
+            \"top_p\": 1,
+            \"top_k\": 40,
+            \"presence_penalty\": 0,
+            \"frequency_penalty\": 0,
+            \"temperature\": 0.6,
             \"messages\": [{
               \"role\": \"user\",
               \"content\": $ESCAPED_PROMPT
-            }],
-            \"max_tokens\": 1000
+            }]
           }")
         echo "$RESPONSE" > response.txt
 
-    - name: Parse OpenAI Response
+    - name: Parse Fireworks Response
       id: parse_response
       run: |
-        CYPRESS_TEST=$(cat response.txt | jq -r '.choices[0].message.content')
+        CYPRESS_TEST=$(cat response.txt | jq -r '.choices[0].message.content' | sed -n '/```javascript/,/```/p' | sed '1d;$d')
         echo "cypress_test<<EOF" >> $GITHUB_OUTPUT
         echo "$CYPRESS_TEST" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
 
     - name: Create Cypress Test File
       run: |
-        mkdir -p cypress/e2e
-        echo "${{ steps.parse_response.outputs.cypress_test }}" > cypress/e2e/auto_generated_test.cy.js
+        echo "${{ steps.parse_response.outputs.cypress_test }}" > tests/cypress/cypress/e2e/generated-test-${{ github.event.pull_request.number }}.cy.js
+
+    - name: Checkout original branch
+      run: git checkout ${{ github.base_ref }}
+
+    - name: Cleanup temporary files
+      run: |
+        rm diff.txt response.txt
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
@@ -80,7 +104,7 @@ jobs:
 
           Please review and adjust the test as needed.
         branch: add-cypress-test-for-pr-${{ github.event.pull_request.number }}
-        base: ${{ github.head_ref }}
+        base: ${{ github.event.pull_request.head.ref }}
 
     - name: Comment on Original PR
       uses: peter-evans/create-or-update-comment@v3
