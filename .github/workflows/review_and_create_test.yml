@@ -62,13 +62,13 @@ jobs:
         echo "$CYPRESS_TEST" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
 
-    - name: Checkout original branch
-      run: git checkout ${{ github.base_ref }}
-
     - name: Create Cypress Test File
       run: |
         mkdir -p cypress/e2e
         echo "${{ steps.parse_response.outputs.cypress_test }}" > cypress/e2e/auto_generated_test.cy.js
+
+    - name: Checkout original branch
+      run: git checkout ${{ github.base_ref }}
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
