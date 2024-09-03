@@ -40,6 +40,7 @@ jobs:
         ${DIFF_CONTENT}
 
         Based on these changes, create a Cypress test that validates the new functionality or changes introduced.
+        Ensure the test logs into Drupal at /user/login with the credentials 'admin' for both username and password.
         Provide the full Cypress test code in between the code block markers.
 
         \`\`\`javascript
