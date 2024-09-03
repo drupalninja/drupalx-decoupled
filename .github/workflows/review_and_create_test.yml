@@ -29,8 +29,8 @@ jobs:
     - name: Get PR Diff
       run: git diff ${{ github.base_ref }} pr-merge > diff.txt
 
-    - name: Send Diff to OpenAI
-      id: openai_review
+    - name: Send Diff to Fireworks
+      id: fireworks_review
       run: |
         DIFF_CONTENT=$(cat diff.txt)
         PROMPT="You are a Drupal 10 senior developer reviewing a pull request.
@@ -47,23 +47,30 @@ jobs:
 
         ESCAPED_PROMPT=$(echo "$PROMPT" | jq -Rs .)
 
-        RESPONSE=$(curl https://api.openai.com/v1/chat/completions \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
-          -d "{
-            \"model\": \"gpt-3.5-turbo\",
+        RESPONSE=$(curl --request POST \
+          --url https://api.fireworks.ai/inference/v1/chat/completions \
+          -H 'Accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer ${{ secrets.FIREWORKS_API_KEY }}" \
+          --data "{
+            \"model\": \"accounts/fireworks/models/firefunction-v2\",
+            \"max_tokens\": 4000,
+            \"top_p\": 1,
+            \"top_k\": 40,
+            \"presence_penalty\": 0,
+            \"frequency_penalty\": 0,
+            \"temperature\": 0.6,
             \"messages\": [{
               \"role\": \"user\",
               \"content\": $ESCAPED_PROMPT
-            }],
-            \"max_tokens\": 1000
+            }]
           }")
         echo "$RESPONSE" > response.txt
 
-    - name: Parse OpenAI Response
+    - name: Parse Fireworks Response
       id: parse_response
       run: |
-        CYPRESS_TEST=$(cat response.txt | jq -r '.choices[0].message.content' | sed -n '/```javascript/,/```/p' | sed '1,2d; $d')
+        CYPRESS_TEST=$(cat response.txt | jq -r '.choices[0].message.content' | sed -n '/```javascript/,/```/p' | sed '1d;$d')
         echo "cypress_test<<EOF" >> $GITHUB_OUTPUT
         echo "$CYPRESS_TEST" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
