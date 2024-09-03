@@ -21,13 +21,13 @@ jobs:
     - name: Fetch the pull request ref and base branch
       run: |
         git fetch origin +refs/pull/${{ github.event.pull_request.number }}/merge:pr-merge
-        git fetch origin feature/install-sync:feature/install-sync
+        git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
 
     - name: Ensure we're on the PR merge commit
       run: git checkout pr-merge
 
     - name: Get PR Diff
-      run: git diff feature/install-sync pr-merge > diff.txt
+      run: git diff ${{ github.base_ref }} pr-merge > diff.txt
 
     - name: Send Diff to OpenAI
       id: openai_review
@@ -78,7 +78,7 @@ jobs:
 
           Please review and adjust the test as needed.
         branch: add-cypress-test-for-pr-${{ github.event.pull_request.number }}
-        base: ${{ github.head_ref }}
+        base: ${{ github.event.pull_request.head.ref }}
 
     - name: Comment on Original PR
       uses: peter-evans/create-or-update-comment@v3
