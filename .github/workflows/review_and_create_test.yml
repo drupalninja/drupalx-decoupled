@@ -18,16 +18,18 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Fetch the pull request ref and feature/install-sync branch
+    - name: Fetch PR and base branches
       run: |
         git fetch origin +refs/pull/${{ github.event.pull_request.number }}/merge:pr-merge
-        git fetch origin feature/install-sync:feature/install-sync
+        git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
 
     - name: Ensure we're on the PR merge commit
-      run: git checkout pr-merge
+      run: |
+        git checkout pr-merge || git checkout -b pr-merge
+        git reset --hard FETCH_HEAD
 
     - name: Get PR Diff
-      run: git diff feature/install-sync pr-merge > diff.txt
+      run: git diff ${{ github.base_ref }} pr-merge > diff.txt
 
     - name: Send Diff to OpenAI
       id: openai_review
