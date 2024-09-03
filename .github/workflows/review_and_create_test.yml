@@ -57,10 +57,13 @@ jobs:
     - name: Parse OpenAI Response
       id: parse_response
       run: |
-        CYPRESS_TEST=$(cat response.txt | jq -r '.choices[0].message.content')
+        CYPRESS_TEST=$(cat response.txt | jq -r '.choices[0].message.content' | sed -n '/```javascript/,/```/p' | sed '1,2d; $d')
         echo "cypress_test<<EOF" >> $GITHUB_OUTPUT
         echo "$CYPRESS_TEST" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
+
+    - name: Checkout original branch
+      run: git checkout ${{ github.base_ref }}
 
     - name: Create Cypress Test File
       run: |
