@@ -31,7 +31,6 @@ settings:
       accordion_item: accordion_item
       card: card
       carousel_item: carousel_item
-      sidebyside: sidebyside
       stats_item: stats_item
     negate: 1
     target_bundles_drag_drop:

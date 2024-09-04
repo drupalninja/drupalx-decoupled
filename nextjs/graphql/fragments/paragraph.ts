@@ -60,6 +60,7 @@ export const ParagraphTextFragment = graphql(`fragment ParagraphTextFragment on 
   body {
     ...TextSummaryFragment
   }
+  textLayout
   created {
     ...DateTimeFragment
   }

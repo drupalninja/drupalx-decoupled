@@ -22,18 +22,18 @@ export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProp
         {heroLayout === 'image_top' && requiredMedia && (
           <div className="image-top row">
             <div className="mb-4 mb-lg-8 d-flex justify-content-center align-items-center">
-              {getImage(requiredMedia, 'img-fluid shadow rounded', ['HEROS', 'HEROLX2'])}
+              {getImage(requiredMedia, 'img-fluid', ['HEROS', 'HEROLX2'])}
             </div>
           </div>
         )}
 
         {headingFragment && (
-          <div>
+          <div className="col-lg-8 mx-auto">
             <h1 className="heading display-5 fw-semibold mb-4 mb-lg-4" dangerouslySetInnerHTML={{ __html: headingFragment?.value ?? '' }} />
           </div>
         )}
 
-        <div className="col-lg-6 mx-auto">
+        <div className="col-lg-8 mx-auto">
           {summaryFragment && (
             <div className="lead mb-2 mb-lg-4" dangerouslySetInnerHTML={{ __html: summaryFragment?.value ?? '' }} />
           )}
@@ -54,7 +54,7 @@ export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProp
         {heroLayout === 'image_bottom' && requiredMedia && (
           <div className="image-bottom row mt-6">
             <div className="d-flex justify-content-center align-items-center">
-              {getImage(requiredMedia, 'img-fluid rounded shadow', ['HEROS', 'HEROLX2'])}
+              {getImage(requiredMedia, 'img-fluid', ['HEROS', 'HEROLX2'])}
             </div>
           </div>
         )}

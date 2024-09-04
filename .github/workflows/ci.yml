@@ -41,12 +41,15 @@ jobs:
         with:
           node-version: '20'
 
-      # Step 4: Update Composer and validate configuration
+      # Step 4: Update Composer, validate configuration, and audit dependencies
       - name: Update Composer
         run: composer --verbose self-update --${{ matrix.composer-channel }}
 
       - name: Validate composer.json
         run: composer --verbose validate
+
+      - name: Audit Composer dependencies
+        run: composer --verbose audit
 
       # Step 5: Install dependencies
       - name: Install Composer dependencies

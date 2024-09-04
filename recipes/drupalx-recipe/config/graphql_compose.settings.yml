@@ -317,6 +317,8 @@ field_config:
         enabled: true
       field_title:
         enabled: true
+      field_text_layout:
+        enabled: true
     views:
       field_link:
         enabled: true
