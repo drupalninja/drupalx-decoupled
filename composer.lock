@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfe7fa0cf7713422c2a4c345c3047daa",
+    "content-hash": "b25eebd80b46c7f57ca06cfc6ac432e0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4994,6 +4994,52 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/x_originating_ip"
             }
+        },
+        {
+            "name": "drupalninja/drupalx-paragraphs",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupalninja/drupalx-paragraphs.git",
+                "reference": "7813a1be851b6e75c849300da8c2d8870d0e6523"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/7813a1be851b6e75c849300da8c2d8870d0e6523",
+                "reference": "7813a1be851b6e75c849300da8c2d8870d0e6523",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/material_icons": "^2.0",
+                "drupal/paragraphs": "^1.17",
+                "drupal/paragraphs_ee": "^10.0",
+                "drupal/paragraphs_features": "^2.0",
+                "drupal/viewfield": "^3.0@beta"
+            },
+            "default-branch": true,
+            "type": "drupal-recipe",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jay Callicott",
+                    "role": "Project Lead"
+                }
+            ],
+            "description": "Paragraph types used in the DrupalX distribution recipe.",
+            "keywords": [
+                "drupal decopled recipe",
+                "drupal decoupled",
+                "drupal recipe",
+                "recipe"
+            ],
+            "support": {
+                "issues": "https://github.com/drupalninja/drupalx-paragraphs/issues",
+                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.x"
+            },
+            "time": "2024-09-04T17:35:25+00:00"
         },
         {
             "name": "drush/drush",
@@ -16701,7 +16747,6 @@
         "drupal/gin": 5,
         "drupal/graphql_compose_fragments-graphql_compose_fragments": 20,
         "drupal/node_revision_delete": 5,
-        "drupal/viewfield": 10,
         "drupal/webp": 5
     },
     "prefer-stable": true,
