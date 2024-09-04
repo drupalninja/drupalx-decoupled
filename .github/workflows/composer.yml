@@ -1,0 +1,76 @@
+name: Composer Security Update Check
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+  workflow_dispatch:  # Allow manual triggering
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check_security_updates:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'  # Adjust this to your project's PHP version
+
+    - name: Install Composer
+      run: |
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php composer-setup.php
+        php -r "unlink('composer-setup.php');"
+        sudo mv composer.phar /usr/local/bin/composer
+
+    - name: Install dependencies
+      run: composer install --no-interaction --no-progress
+
+    - name: Check for security updates
+      id: security_check
+      run: |
+        UPDATE_OUTPUT=$(composer audit --format=plain)
+        echo "UPDATE_OUTPUT<<EOF" >> $GITHUB_OUTPUT
+        echo "$UPDATE_OUTPUT" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+        if [[ $UPDATE_OUTPUT == *"Security vulnerabilities found"* ]]; then
+          echo "UPDATES_AVAILABLE=true" >> $GITHUB_OUTPUT
+        else
+          echo "UPDATES_AVAILABLE=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Create Pull Request
+      if: steps.security_check.outputs.UPDATES_AVAILABLE == 'true'
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: Update Composer dependencies for security
+        title: 'Security: Update Composer dependencies'
+        body: |
+          This PR addresses security vulnerabilities in Composer dependencies.
+
+          Security audit output:
+          ```
+          ${{ steps.security_check.outputs.UPDATE_OUTPUT }}
+          ```
+
+          Please review and merge after testing.
+        branch: security-updates-composer
+        base: main  # Adjust this to your main branch name if different
+
+    - name: Check PR creation
+      if: steps.security_check.outputs.UPDATES_AVAILABLE == 'true'
+      run: |
+        echo "A pull request for security updates has been created."
+        echo "Please review and merge it after testing."
+
+    - name: No updates required
+      if: steps.security_check.outputs.UPDATES_AVAILABLE != 'true'
+      run: |
+        echo "No security updates are required at this time."
