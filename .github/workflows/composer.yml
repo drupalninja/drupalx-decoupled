@@ -85,7 +85,7 @@ jobs:
           The `composer update drupal/core --with-all-dependencies` command has been run to update Drupal core to the latest secure version.
 
           Please review and test these changes before merging.
-        branch: security-updates-drupal-core-${{ github.head_ref || github.ref_name }}
+        branch: security-updates-drupal-core-${{ github.sha }}
         base: feature/security-test
         delete-branch: true
 
