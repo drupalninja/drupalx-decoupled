@@ -9,17 +9,17 @@ interface ParagraphTextProps {
   modifier?: string;
 }
 
-export default function ParagraphText({ paragraph, modifier } : ParagraphTextProps) {
-  const { title, body, link } = readFragment(ParagraphTextFragment, paragraph);
+export default function ParagraphText({ paragraph, modifier }: ParagraphTextProps) {
+  const { title, body, link, textLayout } = readFragment(ParagraphTextFragment, paragraph);
   const textSummaryFragment = readFragment(TextSummaryFragment, body)
   const linkFragment = readFragment(LinkFragment, link);
-  
+
   return (
     <div className={modifier ?? 'container my-6 my-lg-15'}>
       <div className={`row ${modifier}`}>
-        <div className="col-lg-10 mx-auto">
+        <div className={`col-lg-10 ${textLayout == 'centered' ? 'mx-auto text-center' : ''}`}>
           {title && (
-            <h2 className={`mb-2 display-3`}>{title}</h2>
+            <h2 className={`mb-2`}>{title}</h2>
           )}
           {body && (
             <div dangerouslySetInnerHTML={{ __html: textSummaryFragment?.value ?? '' }}></div>
@@ -29,7 +29,7 @@ export default function ParagraphText({ paragraph, modifier } : ParagraphTextPro
               <Button
                 url={linkFragment?.url}
                 text={linkFragment?.title ?? 'Read more'}
-                modifier="btn-primary"
+                modifier={`btn-primary ${textLayout == 'centered' ? 'mx-auto' : ''}`}
               />
             </div>
           )}

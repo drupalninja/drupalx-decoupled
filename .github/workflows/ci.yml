@@ -41,12 +41,15 @@ jobs:
         with:
           node-version: '20'
 
-      # Step 4: Update Composer and validate configuration
+      # Step 4: Update Composer, validate configuration, and audit dependencies
       - name: Update Composer
         run: composer --verbose self-update --${{ matrix.composer-channel }}
 
       - name: Validate composer.json
         run: composer --verbose validate
+
+      - name: Audit Composer dependencies
+        run: composer --verbose audit
 
       # Step 5: Install dependencies
       - name: Install Composer dependencies
@@ -58,7 +61,11 @@ jobs:
 
       # Step 6: Setup and start the server
       - name: Install site
-        run: ./vendor/bin/drush site-install drupalx_graphql --verbose --yes --db-url=sqlite://tmp/site.sqlite
+        run: ./vendor/bin/drush site-install minimal --verbose --yes --db-url=sqlite://tmp/site.sqlite --account-name=admin --account-pass=admin
+
+      - name: Apply DrupalX Recipe
+        run:  php core/scripts/drupal -v recipe ../recipes/drupalx-recipe
+        working-directory: ./web
 
       - name: Start server
         run: |

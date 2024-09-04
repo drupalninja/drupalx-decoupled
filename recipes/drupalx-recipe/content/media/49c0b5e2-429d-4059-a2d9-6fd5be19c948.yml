@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+  bundle: image
+  default_langcode: en
+  depends:
+    4e836f9b-96e0-42b2-b28e-b4ec60eda24d: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 0
+  name:
+    -
+      value: quote-thumb
+  created:
+    -
+      value: 1724541785
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: '| DrupalX'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: '/user'
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 1
+  field_image:
+    -
+      entity: 4e836f9b-96e0-42b2-b28e-b4ec60eda24d
+      alt: quote-thumb
+      title: quote-thumb
+      width: 200
+      height: 187

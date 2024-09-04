@@ -30,3 +30,9 @@
 /.gitattributes
 /.drush-lock-update
 .vercel
+
+# Local Netlify folder
+.netlify
+
+# DrupalX paragraphs recipe
+/recipes/drupalx-paragraphs

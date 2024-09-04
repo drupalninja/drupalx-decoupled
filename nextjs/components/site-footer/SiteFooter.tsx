@@ -1,16 +1,13 @@
 import React from 'react';
-import './SiteFooter.scss';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export type SiteFooterProps = {
-  links: { title: string; url: string | null, children: { title: string; url: string | null } }[];
+  links: { title: string; url: string | null }[];
   siteLogo?: string;
   siteName?: string;
   showLogo?: boolean;
-  modifier?: string;
-  menuModifier?: string;
-  linkItemModifier?: string;
+  currentYear?: number;
 };
 
 const SiteFooter: React.FC<SiteFooterProps> = ({
@@ -18,36 +15,39 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
   siteLogo,
   siteName = '',
   showLogo = true,
-  modifier = '',
-  menuModifier = '',
-  linkItemModifier = 'fs-5 text-white',
+  currentYear = new Date().getFullYear(),
 }) => {
   return (
-    <div className={`bg-black px-2 py-4 ${modifier}`}>
-      <div className="container">
-        <div className="row d-lg-flex flex-wrap justify-content-lg-between align-items-center">
-          <div className="col-lg-3 footer-logo mb-2">
-            {showLogo && <Image src={siteLogo ?? ''} width={312} height={96} alt="Site Logo" className="footer-logo w-100" />}
-            {!showLogo && <span className="py-4 fs-2 fw-bold text-white">{siteName}</span>}
-          </div>
-          <div className="col-lg-8 text-right justify-lg-content-end">
-            <div className="mb-2">
-              <nav className={`d-lg-flex justify-content-lg-end ${menuModifier}`}>
-                <ul className="nav">
-                  {links.map((link, index) => link?.url && (
-                    <li key={index} className={`nav-item ${linkItemModifier}`}>
-                      <Link href={link.url} className="nav-link text-decoration-none fs-5 text-white">
-                        {link.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top container">
+      <p className="col-md-4 mb-0 text-body-secondary">
+        © {currentYear} {siteName}
+      </p>
+
+      <Link
+        href="/"
+        className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+      >
+        {showLogo && siteLogo ? (
+          <Image src={siteLogo} width={250} height={70} alt={siteName} />
+        ) : (
+          <svg className="bi me-2" width="40" height="32">
+            <use xlinkHref="#bootstrap"></use>
+          </svg>
+        )}
+      </Link>
+
+      <ul className="nav col-md-4 justify-content-end">
+        {links.map((link, index) =>
+          link?.url && (
+            <li key={index} className="nav-item">
+              <Link href={link.url} className="nav-link px-2 text-body-secondary">
+                {link.title}
+              </Link>
+            </li>
+          )
+        )}
+      </ul>
+    </footer>
   );
 };
 

@@ -22,3 +22,14 @@
     max-width: 230px;
   }
 }
+
+.navbar {
+
+  border-bottom: 1px solid $gray-600;
+
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background-color: $dropdown-link-active-bg;
+    color: $dropdown-link-active-color;
+  }
+}

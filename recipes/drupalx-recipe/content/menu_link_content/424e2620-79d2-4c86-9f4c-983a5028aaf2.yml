@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 424e2620-79d2-4c86-9f4c-983a5028aaf2
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: Components
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      uri: 'internal:/kitchen-sink'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: 2
+  expanded:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: '| DrupalX'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: '/user'

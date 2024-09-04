@@ -1,8 +1,13 @@
 #!/bin/bash
 
-## Description: Installs DrupalX and opens it in a browser.
+## Description: Installs DrupalX using a recipe and opens it in a browser.
 
 ddev start
 ddev composer install
-ddev . drush si -y --verbose drupalx_graphql
+ddev drush site:install minimal --verbose -y
+ddev drush recipe ../recipes/drupalx-recipe
+ddev drush cr
+
+# Add consumer keys and next.js environment variables.
+ddev drush scr scripts/consumers-next.php
 ddev drush uli

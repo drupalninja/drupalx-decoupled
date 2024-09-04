@@ -1,0 +1,199 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: a9f34d11-cbfb-4f78-916d-8fd8c006f728
+  bundle: layout
+  default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Features
+  created:
+    -
+      value: 1724541785
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Features | DrupalX'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: '/features'
+  path:
+    -
+      alias: /features
+      langcode: en
+      pathauto: 0
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: f3d44b05-d809-4ef9-812d-bbe334d4c71d
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_heading:
+            -
+              value: 'DrupalX Features'
+              format: restricted_html
+          field_hero_layout:
+            -
+              value: image_bottom
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_summary:
+            -
+              value: '<p>DrupalX is a comprehensive system that provides a robust starting point for designers and developers to fully customize components.</p>'
+              format: basic_html
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: f8b269e8-122f-41bb-a12c-29c6f6540ba6
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_eyebrow:
+            -
+              value: 'Customizable Components'
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: right
+          field_summary:
+            -
+              value: "Each component in DrupalX is fully customizable, allowing you to create a unique site tailored to your organization's needs."
+              format: ''
+          field_title:
+            -
+              value: 'Ultimate Flexibility'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: a3057a7e-d71c-483c-8d3f-8b16dc5f4c60
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_eyebrow:
+            -
+              value: 'User-Friendly Editing'
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: left
+          field_summary:
+            -
+              value: 'Utilize over a dozen built-in layout builder components for seamless content management, powered by Bootstrap 5.'
+              format: ''
+          field_title:
+            -
+              value: 'Easy Content Management'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 4406477e-bd04-4518-a250-fd4a057ce35f
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_eyebrow:
+            -
+              value: 'WCAG 2.0 AA Standard'
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: right
+          field_summary:
+            -
+              value: 'Our solution adheres to WCAG 2.0 AA accessibility guidelines out of the box, ensuring an inclusive experience.'
+              format: ''
+          field_title:
+            -
+              value: 'Accessibility First'
+  field_hide_page_title:
+    -
+      value: true
