@@ -62,13 +62,10 @@ jobs:
         git config user.email github-actions@github.com
         CURRENT_BRANCH="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
         SECURITY_BRANCH="security-updates-drupal-core-${CURRENT_BRANCH}"
-        echo "Current branch: $CURRENT_BRANCH"
-        echo "Security branch: $SECURITY_BRANCH"
         git checkout -b "$SECURITY_BRANCH"
         composer update drupal/core --with-all-dependencies
         git add composer.lock
         git commit -m "Update Drupal core for security vulnerabilities" || echo "No changes to commit"
-        git push origin "$SECURITY_BRANCH"
 
     - name: Create Pull Request
       if: steps.security_check.outputs.UPDATES_AVAILABLE == 'true'
@@ -97,5 +94,8 @@ jobs:
       run: |
         echo "A pull request for Drupal core security updates has been created."
         echo "Please review and merge it after testing."
-        echo "Branch: security-updates-drupal-core-${{ github.head_ref || github.ref_name }}"
-        echo "Base: feature/security-test"
+
+    - name: No updates required
+      if: steps.security_check.outputs.UPDATES_AVAILABLE != 'true'
+      run: |
+        echo "No security updates are required at this time."
