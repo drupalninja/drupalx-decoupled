@@ -28,7 +28,7 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
         <div className="container">
           {mediaFragment && (
             <div className="mb-7">
-              {getImage(mediaFragment, 'img-fluid rounded shadow', ['HEROS', 'HEROLX2'])}
+              {getImage(mediaFragment, 'img-fluid', ['HEROS', 'HEROLX2'])}
             </div>
           )}
           <div className="col-lg-10 col-xl-8 mx-auto mb-2 mb-lg-10">
@@ -39,9 +39,9 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
             {leadFragment?.value && (<div className="lead mb-4" dangerouslySetInnerHTML={{ __html: leadFragment.value }} />)}
           </div>
           {bodyProcessed && (
-            <div 
-              className="col-lg-10 col-xl-7 mx-auto" 
-              dangerouslySetInnerHTML={{ __html: bodyProcessed }} 
+            <div
+              className="col-lg-10 col-xl-7 mx-auto"
+              dangerouslySetInnerHTML={{ __html: bodyProcessed }}
             />
           )}
         </div>

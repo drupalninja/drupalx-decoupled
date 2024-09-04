@@ -75,6 +75,10 @@ default:
             -
               value: 'The <strong>Ultimate</strong> CMS Starter Kit for <strong>Enterprise</strong> Developers'
               format: restricted_html
+          field_summary:
+            -
+              value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt pharetra elit, ut dignissim nunc tincidunt ac. Duis cursus a justo id dapibus. Mauris a massa nec elit commodo sodales vel et orci. Sed risus justo, varius eu arcu at, interdum accumsan libero. Sed consectetur efficitur ultricies.'
+              format: 'basic_html'
           field_hero_layout:
             -
               value: image_top

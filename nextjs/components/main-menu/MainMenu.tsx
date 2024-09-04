@@ -40,7 +40,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
   });
 
   return (
-    <Navbar bg="white" expand="xl" className={`${modifier} border-bottom`}>
+    <Navbar bg="white" expand="xl" className={`${modifier}`}>
       <Container>
         <Navbar.Brand href="/" className={!showLogo ? "py-4 fs-2 fw-bold" : ""}>
           {showLogo && <Image src={siteLogo ?? ''} alt="Site Name" width={312} height={96} style={{ marginRight: '4px' }} />}

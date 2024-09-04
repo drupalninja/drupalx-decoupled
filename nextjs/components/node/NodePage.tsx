@@ -26,7 +26,7 @@ export default function NodePageComponent({ node, environment }: NodePageCompone
       <article className="mb-6 mb-lg-12">
         <div className="container">
           {mediaFragment && (<div className="mb-7">
-            {getImage(mediaFragment, 'img-fluid rounded shadow', ['HEROS', 'HEROLX2'])}
+            {getImage(mediaFragment, 'img-fluid', ['HEROS', 'HEROLX2'])}
           </div>)}
           <div className="col-lg-8 mx-auto">
             <Heading level={1} title={title} modifier="heading display-3 mb-6 text-center" />
