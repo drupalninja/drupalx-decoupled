@@ -195,6 +195,9 @@ default:
               value: 'The DrupalX documentation provides detailed information on how to use the DrupalX template and its components.'
               format: full_html
               summary: ''
+          field_text_layout:
+            -
+              value: centered
           field_link:
             -
               uri: 'internal:/documentation'
@@ -202,7 +205,44 @@ default:
               options: {  }
           field_title:
             -
-              value: 'DrupalX Documentation'
+              value: 'Centered Text'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: dcfe639c-bf23-4f08-8437-d02337cd3cf7
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_body:
+            -
+              value: 'The DrupalX documentation provides detailed information on how to use the DrupalX template and its components.'
+              format: full_html
+              summary: ''
+          field_text_layout:
+            -
+              value: left
+          field_link:
+            -
+              uri: 'internal:/documentation'
+              title: 'Read documentation'
+              options: {  }
+          field_title:
+            -
+              value: 'Left-aligned Text'
     -
       entity:
         _meta:
