@@ -60,8 +60,7 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        CURRENT_BRANCH="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
-        SECURITY_BRANCH="security-updates-drupal-core-${CURRENT_BRANCH}"
+        SECURITY_BRANCH="security-updates-drupal"
         git checkout -b "$SECURITY_BRANCH"
         composer update drupal/core --with-all-dependencies
         git add composer.lock
@@ -85,7 +84,7 @@ jobs:
           The `composer update drupal/core --with-all-dependencies` command has been run to update Drupal core to the latest secure version.
 
           Please review and test these changes before merging.
-        branch: security-updates-drupal-core-${{ github.sha }}
+        branch: security-updates-drupal
         base: ${{ github.event.pull_request.head.ref || github.base_ref }}
         delete-branch: true
 
