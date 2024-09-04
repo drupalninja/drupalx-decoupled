@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b25eebd80b46c7f57ca06cfc6ac432e0",
+    "content-hash": "83fa7ac746676622d9db667e830d39f9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4997,16 +4997,16 @@
         },
         {
             "name": "drupalninja/drupalx-paragraphs",
-            "version": "1.x-dev",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalninja/drupalx-paragraphs.git",
-                "reference": "7813a1be851b6e75c849300da8c2d8870d0e6523"
+                "reference": "04b8d49948aa161dff8b91d6ecb22ce70a12ba79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/7813a1be851b6e75c849300da8c2d8870d0e6523",
-                "reference": "7813a1be851b6e75c849300da8c2d8870d0e6523",
+                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/04b8d49948aa161dff8b91d6ecb22ce70a12ba79",
+                "reference": "04b8d49948aa161dff8b91d6ecb22ce70a12ba79",
                 "shasum": ""
             },
             "require": {
@@ -5016,7 +5016,6 @@
                 "drupal/paragraphs_features": "^2.0",
                 "drupal/viewfield": "^3.0@beta"
             },
-            "default-branch": true,
             "type": "drupal-recipe",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -5037,9 +5036,9 @@
             ],
             "support": {
                 "issues": "https://github.com/drupalninja/drupalx-paragraphs/issues",
-                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.x"
+                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.0"
             },
-            "time": "2024-09-04T17:35:25+00:00"
+            "time": "2024-09-04T17:42:21+00:00"
         },
         {
             "name": "drush/drush",
@@ -5858,16 +5857,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v11.21.0",
+            "version": "v11.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "d373c9f382f38dc5e612dbe1cd196b154cd1063c"
+                "reference": "66d2c9bdf5641599735d402c1c504b54734a9cca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/d373c9f382f38dc5e612dbe1cd196b154cd1063c",
-                "reference": "d373c9f382f38dc5e612dbe1cd196b154cd1063c",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/66d2c9bdf5641599735d402c1c504b54734a9cca",
+                "reference": "66d2c9bdf5641599735d402c1c504b54734a9cca",
                 "shasum": ""
             },
             "require": {
@@ -5909,11 +5908,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-08-19T02:05:39+00:00"
+            "time": "2024-08-23T18:49:36+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.21.0",
+            "version": "v11.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -5959,16 +5958,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.21.0",
+            "version": "v11.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "34ead9385e0eab7e947807d77da66faf9bdf95ff"
+                "reference": "af9b459f195d57f279ec30a45446ddaeb3337bcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/34ead9385e0eab7e947807d77da66faf9bdf95ff",
-                "reference": "34ead9385e0eab7e947807d77da66faf9bdf95ff",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/af9b459f195d57f279ec30a45446ddaeb3337bcb",
+                "reference": "af9b459f195d57f279ec30a45446ddaeb3337bcb",
                 "shasum": ""
             },
             "require": {
@@ -6003,11 +6002,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-08-01T19:08:33+00:00"
+            "time": "2024-08-21T16:02:16+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.21.0",
+            "version": "v11.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -11412,16 +11411,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.7.8",
+            "version": "2.7.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "a2edd4e4414c17008ab585e0c62574fdb644ebfc"
+                "reference": "e30ccdd665828ae66eb1be78f056e39e1d5f55ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/a2edd4e4414c17008ab585e0c62574fdb644ebfc",
-                "reference": "a2edd4e4414c17008ab585e0c62574fdb644ebfc",
+                "url": "https://api.github.com/repos/composer/composer/zipball/e30ccdd665828ae66eb1be78f056e39e1d5f55ab",
+                "reference": "e30ccdd665828ae66eb1be78f056e39e1d5f55ab",
                 "shasum": ""
             },
             "require": {
@@ -11506,7 +11505,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.7.8"
+                "source": "https://github.com/composer/composer/tree/2.7.9"
             },
             "funding": [
                 {
@@ -11522,7 +11521,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-22T13:28:36+00:00"
+            "time": "2024-09-04T12:43:28+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -14195,16 +14194,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.0",
+            "version": "1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "384af967d35b2162f69526c7276acadce534d0e1"
+                "reference": "d8ed7fffa66de1db0d2972267d8ed1d8fa0fe5a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/384af967d35b2162f69526c7276acadce534d0e1",
-                "reference": "384af967d35b2162f69526c7276acadce534d0e1",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d8ed7fffa66de1db0d2972267d8ed1d8fa0fe5a2",
+                "reference": "d8ed7fffa66de1db0d2972267d8ed1d8fa0fe5a2",
                 "shasum": ""
             },
             "require": {
@@ -14249,7 +14248,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-27T09:18:05+00:00"
+            "time": "2024-09-03T19:55:22+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",

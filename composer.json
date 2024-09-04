@@ -35,7 +35,7 @@
         "drupal/svg_image_responsive": "^3.0",
         "drupal/taxonomy_access_fix": "^4.0",
         "drupal/webp": "^1.0@RC",
-        "drupalninja/drupalx-paragraphs": "1.x-dev",
+        "drupalninja/drupalx-paragraphs": "^1.0",
         "drush/drush": "^11 || ^12 || ^13",
         "oomphinc/composer-installers-extender": "^2.0",
         "vlucas/phpdotenv": "^5.1",
