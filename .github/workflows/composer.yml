@@ -81,7 +81,7 @@ jobs:
 
           Please review and test these changes before merging.
         branch: security-updates-drupal-core
-        base: main  # Adjust this to your main branch name if different
+        base: 10.x
 
     - name: Check PR creation
       if: steps.security_check.outputs.UPDATES_AVAILABLE == 'true'
