@@ -44,35 +44,46 @@ jobs:
         echo "UPDATE_OUTPUT<<EOF" >> $GITHUB_OUTPUT
         echo "$UPDATE_OUTPUT" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
-        if [[ $UPDATE_OUTPUT == *"Security vulnerabilities found"* ]]; then
+        if [[ $UPDATE_OUTPUT == *"security vulnerability advisories affecting"* ]]; then
           echo "UPDATES_AVAILABLE=true" >> $GITHUB_OUTPUT
         else
           echo "UPDATES_AVAILABLE=false" >> $GITHUB_OUTPUT
         fi
+
+    - name: Update Drupal Core
+      if: steps.security_check.outputs.UPDATES_AVAILABLE == 'true'
+      run: |
+        composer update drupal/core --with-all-dependencies
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add composer.lock
+        git commit -m "Update Drupal core for security vulnerabilities" || echo "No changes to commit"
 
     - name: Create Pull Request
       if: steps.security_check.outputs.UPDATES_AVAILABLE == 'true'
       uses: peter-evans/create-pull-request@v5
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: Update Composer dependencies for security
-        title: 'Security: Update Composer dependencies'
+        commit-message: Update Drupal core for security vulnerabilities
+        title: 'Security: Update Drupal core dependencies'
         body: |
-          This PR addresses security vulnerabilities in Composer dependencies.
+          This PR addresses security vulnerabilities in Drupal core dependencies.
 
           Security audit output:
           ```
           ${{ steps.security_check.outputs.UPDATE_OUTPUT }}
           ```
 
-          Please review and merge after testing.
-        branch: security-updates-composer
+          The `composer update drupal/core --with-all-dependencies` command has been run to update Drupal core to the latest secure version.
+
+          Please review and test these changes before merging.
+        branch: security-updates-drupal-core
         base: main  # Adjust this to your main branch name if different
 
     - name: Check PR creation
       if: steps.security_check.outputs.UPDATES_AVAILABLE == 'true'
       run: |
-        echo "A pull request for security updates has been created."
+        echo "A pull request for Drupal core security updates has been created."
         echo "Please review and merge it after testing."
 
     - name: No updates required
