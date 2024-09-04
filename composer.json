@@ -15,8 +15,8 @@
         "drupal/admin_toolbar": "^3.4",
         "drupal/admin_toolbar_tools": "^3.4",
         "drupal/allowed_formats": "^3.0",
-        "drupal/core-composer-scaffold": "^10.3",
-        "drupal/core-recommended": "^10.3",
+        "drupal/core-composer-scaffold": "10.2.0",
+        "drupal/core-recommended": "10.2.0",
         "drupal/decoupled_preview_iframe": "^1.0",
         "drupal/default_content": "^2.0@alpha",
         "drupal/features": "^3.14",
@@ -122,11 +122,7 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
-        "patches": {
-            "drupal/core": {
-                "Suppress unexpected type error when Recipes are applied": "patches/recipes-unexpected-type.patch"
-            }
-        }
+        "patches": {}
     },
     "scripts": {
         "pre-install-cmd": [
