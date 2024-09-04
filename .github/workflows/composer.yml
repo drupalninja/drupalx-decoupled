@@ -40,11 +40,14 @@ jobs:
     - name: Check for security updates
       id: security_check
       run: |
+        set +e
         UPDATE_OUTPUT=$(composer audit --format=plain)
+        AUDIT_EXIT_CODE=$?
+        set -e
         echo "UPDATE_OUTPUT<<EOF" >> $GITHUB_OUTPUT
         echo "$UPDATE_OUTPUT" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
-        if [[ $UPDATE_OUTPUT == *"security vulnerability advisories affecting"* ]]; then
+        if [ $AUDIT_EXIT_CODE -ne 0 ]; then
           echo "UPDATES_AVAILABLE=true" >> $GITHUB_OUTPUT
         else
           echo "UPDATES_AVAILABLE=false" >> $GITHUB_OUTPUT
