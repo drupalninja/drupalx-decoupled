@@ -19,9 +19,9 @@ export default function Footer({ footerMenu }: Readonly<{ footerMenu: FooterMenu
       siteLogo={process.env.NEXT_PUBLIC_LOGO_URL}
       siteName={process.env.NEXT_PUBLIC_SITE_NAME}
       showLogo={process.env.NEXT_PUBLIC_SHOW_LOGO === '1'}
-      modifier="bg-black"
-      menuModifier="fs-5 text-white"
-      linkItemModifier="fs-5 text-white"
+      modifier=""
+      menuModifier="fs-5"
+      linkItemModifier="fs-5"
     />
   )
 }
