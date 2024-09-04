@@ -5,13 +5,18 @@ on:
     - cron: '0 0 * * *'  # Run daily at midnight
   workflow_dispatch:  # Allow manual triggering
 
-permissions:
-  contents: write
-  pull-requests: write
+env:
+  COMPOSER_MEMORY_LIMIT: -1
 
 jobs:
   check_security_updates:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: true
+      matrix:
+        php-versions: ["8.3"]
+        drupal-release: ["stable"]
+        composer-channel: ["stable"]
 
     steps:
     - name: Checkout code
@@ -20,17 +25,17 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.1'  # Adjust this to your project's PHP version
+        php-version: ${{ matrix.php-versions }}
+        extensions: gd, pdo_sqlite
 
-    - name: Install Composer
-      run: |
-        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-        php composer-setup.php
-        php -r "unlink('composer-setup.php');"
-        sudo mv composer.phar /usr/local/bin/composer
+    - name: Update Composer
+      run: composer --verbose self-update --${{ matrix.composer-channel }}
 
-    - name: Install dependencies
-      run: composer install --no-interaction --no-progress
+    - name: Validate composer.json
+      run: composer --verbose validate
+
+    - name: Install Composer dependencies
+      run: composer --verbose install
 
     - name: Check for security updates
       id: security_check
