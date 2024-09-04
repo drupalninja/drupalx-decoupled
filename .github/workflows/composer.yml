@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: '0 0 * * *'  # Run daily at midnight
   workflow_dispatch:  # Allow manual triggering
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 env:
   COMPOSER_MEMORY_LIMIT: -1
@@ -56,9 +58,12 @@ jobs:
     - name: Update Drupal Core
       if: steps.security_check.outputs.UPDATES_AVAILABLE == 'true'
       run: |
-        composer update drupal/core --with-all-dependencies
         git config user.name github-actions
         git config user.email github-actions@github.com
+        CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+        SECURITY_BRANCH="security-updates-drupal-core-${CURRENT_BRANCH}"
+        git checkout -b $SECURITY_BRANCH
+        composer update drupal/core --with-all-dependencies
         git add composer.lock
         git commit -m "Update Drupal core for security vulnerabilities" || echo "No changes to commit"
 
@@ -80,8 +85,8 @@ jobs:
           The `composer update drupal/core --with-all-dependencies` command has been run to update Drupal core to the latest secure version.
 
           Please review and test these changes before merging.
-        branch: security-updates-drupal-core
-        base: ${{ github.ref }}
+        branch: security-updates-drupal-core-${{ github.head_ref || github.ref_name }}
+        base: ${{ github.head_ref || github.ref_name }}
 
     - name: Check PR creation
       if: steps.security_check.outputs.UPDATES_AVAILABLE == 'true'
