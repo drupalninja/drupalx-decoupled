@@ -86,7 +86,7 @@ jobs:
 
           Please review and test these changes before merging.
         branch: security-updates-drupal-core-${{ github.sha }}
-        base: feature/security-test
+        base: ${{ github.event.pull_request.head.ref || github.base_ref }}
         delete-branch: true
 
     - name: Check PR creation
