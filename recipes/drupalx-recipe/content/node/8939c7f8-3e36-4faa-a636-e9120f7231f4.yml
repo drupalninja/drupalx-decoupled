@@ -536,7 +536,7 @@ default:
                       value: 'Can I see examples of other sites created with DrupalX?'
           field_title:
             -
-              value: 'DrupalX Accordion'
+              value: 'DrupalX FAQ'
     -
       entity:
         _meta:

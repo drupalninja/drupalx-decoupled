@@ -355,7 +355,7 @@ default:
                       value: 'Can I see examples of other sites created with DrupalX?'
           field_title:
             -
-              value: 'DrupalX Accordion'
+              value: 'DrupalX FAQ'
   field_hide_page_title:
     -
       value: true
