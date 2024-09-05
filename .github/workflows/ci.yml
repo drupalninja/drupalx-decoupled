@@ -91,6 +91,45 @@ jobs:
         env:
           DISPLAY: :99.0
 
+  nextjs-storybook-cypress-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Install NPM dependencies
+        run: npm install
+        working-directory: ./nextjs
+
+      - name: Install Xvfb
+        run: sudo apt-get install -y xvfb
+
+      - name: Start Xvfb
+        run: Xvfb :99 -screen 0 1280x1024x24 &
+        env:
+          DISPLAY: :99.0
+
+      - name: Start Storybook
+        run: npm run storybook &
+        working-directory: ./nextjs
+        env:
+          DISPLAY: :99.0
+
+      - name: Wait for Storybook to be ready
+        run: npx wait-on --timeout 60000 http://localhost:6006
+        working-directory: ./nextjs
+
+      - name: Run Cypress tests
+        run: npm run cypress
+        working-directory: ./nextjs
+        env:
+          DISPLAY: :99.0
+
   pa11y-tests:
     runs-on: ubuntu-20.04
     steps:
