@@ -16,10 +16,10 @@ const nextConfig = {
     domains: [externalDomainHost],
     formats: ['image/webp'],
   },
-  env: {
-    NEXT_PUBLIC_LOGO_URL: process.env.NEXT_PUBLIC_LOGO_URL ?? '/images/logo.svg',
-    NEXT_PUBLIC_SITE_NAME: process.env.NEXT_PUBLIC_SITE_NAME ?? 'DrupalX',
-    NEXT_PUBLIC_SHOW_LOGO: process.env.NEXT_PUBLIC_SHOW_LOGO ?? '1',
+  publicRuntimeConfig: {
+    LOGO_URL: '/images/logo.svg',
+    SITE_NAME: 'DrupalX',
+    SHOW_LOGO: '1',
   },
 };
 

@@ -1,6 +1,9 @@
 import { ResultOf } from "gql.tada";
 import { FooterMenuQuery } from "@/graphql/queries";
 import SiteFooter, { SiteFooterProps } from './site-footer/SiteFooter';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 type FooterMenuData = ResultOf<typeof FooterMenuQuery>;
 
@@ -16,12 +19,9 @@ export default function Footer({ footerMenu }: Readonly<{ footerMenu: FooterMenu
   return (
     <SiteFooter
       links={links}
-      siteLogo={process.env.NEXT_PUBLIC_LOGO_URL}
-      siteName={process.env.NEXT_PUBLIC_SITE_NAME}
-      showLogo={process.env.NEXT_PUBLIC_SHOW_LOGO === '1'}
-      modifier=""
-      menuModifier="fs-5"
-      linkItemModifier="fs-5"
+      siteLogo={publicRuntimeConfig.LOGO_URL}
+      siteName={publicRuntimeConfig.SITE_NAME}
+      showLogo={publicRuntimeConfig.SHOW_LOGO === '1'}
     />
   )
 }

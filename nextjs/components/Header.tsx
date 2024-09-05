@@ -2,6 +2,9 @@ import { ResultOf } from "gql.tada";
 import { MainMenuQuery } from "@/graphql/queries";
 import MainMenu from "./main-menu/MainMenu";
 import { MainMenuProps } from "./main-menu/Types";
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 type MainMenuData = ResultOf<typeof MainMenuQuery>;
 
@@ -26,9 +29,9 @@ export default function Header({ mainMenu }: HeaderProps) {
     <header role="banner" className="sticky-top">
       <section className="mb-2 mb-lg-8">
         <MainMenu
-          siteLogo={process.env.NEXT_PUBLIC_LOGO_URL}
-          siteName={process.env.NEXT_PUBLIC_SITE_NAME}
-          showLogo={process.env.NEXT_PUBLIC_SHOW_LOGO === '1'}
+          siteLogo={publicRuntimeConfig.LOGO_URL}
+          siteName={publicRuntimeConfig.SITE_NAME}
+          showLogo={publicRuntimeConfig.SHOW_LOGO === '1'}
           menuItems={links}
           modifier="p-0"
           ctaLinkCount={2}
