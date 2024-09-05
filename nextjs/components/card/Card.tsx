@@ -61,7 +61,7 @@ const Card: React.FC<CardProps> = ({
           url={heading.url}
           modifier={heading.modifier || 'card-title mb-3'}
         />
-        <p className="card-text fs-6">{summaryText}</p>
+        {summaryText && <p className="card-text fs-6">{summaryText}</p>}
         {(link || link2) && (
           <ul className="list-inline mb-0">
             {link && (

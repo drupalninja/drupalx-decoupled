@@ -20,7 +20,7 @@ default:
       target_id: 1
   title:
     -
-      value: 'Kitchen Sink Layout'
+      value: 'DrupalX Components List'
   created:
     -
       value: 1724541785
@@ -38,15 +38,15 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Kitchen Sink Layout | DrupalX'
+        content: 'DrupalX Components List | DrupalX'
     -
       tag: link
       attributes:
         rel: canonical
-        href: '/kitchen-sink'
+        href: '/components'
   path:
     -
-      alias: /kitchen-sink
+      alias: /components
       langcode: en
       pathauto: 0
   field_content:
@@ -699,6 +699,139 @@ default:
               display_id: article_cards
               arguments: ''
               items_to_display: ''
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 1b56e9e0-02cd-41b1-ba98-bf176dc215b2
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1724541785
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_title:
+            -
+              value: 'Card Group'
+          field_card:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: e07e3dc6-f7e9-4c95-a7a5-cb1a30755676
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_title:
+                    -
+                      value: 'Card 1'
+                  field_link:
+                    -
+                      uri: 'internal:/'
+                      title: 'Read more'
+                      options: {  }
+                  field_media:
+                    -
+                      entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+                  field_summary:
+                    -
+                      value: 'This is an example card component.'
+                      format: basic_html
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 5399618b-880a-4c1b-b50a-7c87c21ef0a9
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_title:
+                    -
+                      value: 'Card 2'
+                  field_link:
+                    -
+                      uri: 'internal:/'
+                      title: 'Read more'
+                      options: {  }
+                  field_media:
+                    -
+                      entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+                  field_summary:
+                    -
+                      value: 'This is an example card component.'
+                      format: basic_html
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 186ab2d7-63f5-4981-9bb5-ad2f3dfb99b1
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1724541785
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_title:
+                    -
+                      value: 'Card 3'
+                  field_link:
+                    -
+                      uri: 'internal:/'
+                      title: 'Read more'
+                      options: {  }
+                  field_media:
+                    -
+                      entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+                  field_summary:
+                    -
+                      value: 'This is an example card component.'
+                      format: basic_html
   field_hide_page_title:
     -
       value: true

@@ -16,7 +16,7 @@ default:
       value: main
   link:
     -
-      uri: 'internal:/kitchen-sink'
+      uri: 'internal:/components'
       title: ''
       options: {  }
   external:

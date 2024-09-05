@@ -34,7 +34,7 @@ export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCar
                 heading={{
                   title: item?.title,
                 }}
-                summaryText={item?.summary?.value ?? ''}
+                summaryText={item?.summary ?? ''}
                 link={item?.link}
                 media={item?.media}
                 tags={item?.tags}
