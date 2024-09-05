@@ -198,10 +198,18 @@ default:
           field_text_layout:
             -
               value: centered
+          field_eyebrow:
+            -
+              value: 'Test eyebrow'
           field_link:
             -
               uri: 'internal:/documentation'
-              title: 'Read documentation'
+              title: 'Link 1'
+              options: {  }
+          field_link2:
+            -
+              uri: 'internal:/'
+              title: 'Link 2'
               options: {  }
           field_title:
             -
@@ -235,10 +243,18 @@ default:
           field_text_layout:
             -
               value: left
+          field_eyebrow:
+            -
+              value: 'Test eyebrow'
           field_link:
             -
               uri: 'internal:/documentation'
               title: 'Read documentation'
+              options: {  }
+          field_link2:
+            -
+              uri: 'internal:/'
+              title: 'Link 2'
               options: {  }
           field_title:
             -

@@ -10,4 +10,5 @@ ddev drush cr
 
 # Add consumer keys and next.js environment variables.
 ddev drush scr scripts/consumers-next.php
+ddev drush cr
 ddev drush uli

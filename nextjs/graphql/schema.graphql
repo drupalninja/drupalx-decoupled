@@ -845,9 +845,6 @@ type Image {
 
 """List of image styles available to use."""
 enum ImageStyleAvailable {
-  """Thumbnail (100×100)"""
-  THUMBNAIL
-
   """Hero Large"""
   HEROL
 
@@ -905,8 +902,8 @@ enum ImageStyleAvailable {
   """Medium (220×220)"""
   MEDIUM
 
-  """Wide (1090)"""
-  WIDE
+  """Thumbnail (100×100)"""
+  THUMBNAIL
 }
 
 """ImageStyle derivatives for an Image."""
@@ -1742,14 +1739,23 @@ type ParagraphText implements ParagraphInterface & EdgeNode {
   """The time that the Paragraph was created."""
   created: DateTime!
 
+  """Provide a short label for this content."""
+  eyebrow: String
+
   """The paragraphs entity language code."""
   langcode: Language!
 
   """Optional CTA link."""
   link: Link
 
+  """Optional link."""
+  link2: Link
+
   """Published"""
   status: Boolean!
+
+  """Layout"""
+  textLayout: String!
 
   """Provide the primary heading for the text content."""
   title: String
@@ -2074,9 +2080,6 @@ type SchemaInformation {
 
   """The internal path to the front page."""
   home: String
-
-  """The site name."""
-  name: String
 
   """The schema version."""
   version: String

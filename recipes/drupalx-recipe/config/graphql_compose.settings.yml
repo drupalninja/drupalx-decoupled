@@ -315,6 +315,10 @@ field_config:
         enabled: true
       field_link:
         enabled: true
+      field_link2:
+        enabled: true
+      field_eyebrow:
+        enabled: true
       field_title:
         enabled: true
       field_text_layout:

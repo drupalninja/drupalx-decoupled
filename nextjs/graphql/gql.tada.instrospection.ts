@@ -828,10 +828,6 @@ const introspection = {
         "name": "ImageStyleAvailable",
         "enumValues": [
           {
-            "name": "THUMBNAIL",
-            "isDeprecated": false
-          },
-          {
             "name": "HEROL",
             "isDeprecated": false
           },
@@ -908,7 +904,7 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "WIDE",
+            "name": "THUMBNAIL",
             "isDeprecated": false
           }
         ]
@@ -6368,6 +6364,15 @@ const introspection = {
             "isDeprecated": false
           },
           {
+            "name": "eyebrow",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
             "name": "id",
             "type": {
               "kind": "NON_NULL",
@@ -6401,12 +6406,33 @@ const introspection = {
             "isDeprecated": false
           },
           {
+            "name": "link2",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Link"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
             "name": "status",
             "type": {
               "kind": "NON_NULL",
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Boolean"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "textLayout",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String"
               }
             },
             "args": [],
@@ -8919,15 +8945,6 @@ const introspection = {
           },
           {
             "name": "home",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "name",
             "type": {
               "kind": "SCALAR",
               "name": "String"

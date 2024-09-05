@@ -61,6 +61,7 @@ export const ParagraphTextFragment = graphql(`fragment ParagraphTextFragment on 
     ...TextSummaryFragment
   }
   textLayout
+  eyebrow
   created {
     ...DateTimeFragment
   }
@@ -68,6 +69,9 @@ export const ParagraphTextFragment = graphql(`fragment ParagraphTextFragment on 
     ...LanguageFragment
   }
   link {
+    ...LinkFragment
+  }
+  link2 {
     ...LinkFragment
   }
   status
