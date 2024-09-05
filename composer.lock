@@ -5001,16 +5001,16 @@
         },
         {
             "name": "drupalninja/drupalx-paragraphs",
-            "version": "1.1",
+            "version": "1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalninja/drupalx-paragraphs.git",
-                "reference": "6d0b66fc459ca690a58df2a6a5c11550753c0292"
+                "reference": "9ff12d11f5080aa84f9af5bb524e8fa90ed37a71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/6d0b66fc459ca690a58df2a6a5c11550753c0292",
-                "reference": "6d0b66fc459ca690a58df2a6a5c11550753c0292",
+                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/9ff12d11f5080aa84f9af5bb524e8fa90ed37a71",
+                "reference": "9ff12d11f5080aa84f9af5bb524e8fa90ed37a71",
                 "shasum": ""
             },
             "require": {
@@ -5040,9 +5040,9 @@
             ],
             "support": {
                 "issues": "https://github.com/drupalninja/drupalx-paragraphs/issues",
-                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.1"
+                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.2"
             },
-            "time": "2024-09-04T22:21:39+00:00"
+            "time": "2024-09-05T00:12:19+00:00"
         },
         {
             "name": "drush/drush",
