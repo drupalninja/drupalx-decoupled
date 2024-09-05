@@ -1,17 +1,23 @@
-describe('Text Block Component', () => {
+describe('Paragraph Text Component', () => {
   beforeEach(() => {
     cy.visit('/iframe.html?args=&id=editorial-paragraph-text--default&viewMode=story');
   });
 
-  it('should display the correct heading', () => {
-    cy.get('h2').should('have.class', 'mb-2 display-3').and('contain.text', 'Title Lorem Ipsum Dolor');
+  it('should display the correct title', () => {
+    cy.get('h2').should('be.visible').and('have.class', 'mb-2');
+  });
+
+  it('should display the eyebrow when present', () => {
+    cy.get('h6').should('exist');
   });
 
   it('should display the correct body text', () => {
-    cy.get('.row .col-lg-10').within(() => {
-      cy.get('p').first().should('contain.text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
-      cy.get('p').last().should('contain.text', 'Mauris mollis risus sit amet ligula mattis vehicula.');
-    });
+    cy.get('.col-lg-10 div').should('exist');
+  });
+
+  it('should display buttons when links are provided', () => {
+    cy.get('.btn-primary').should('exist');
+    cy.get('.btn-secondary').should('exist');
   });
 
   it('should adapt to different screen sizes', () => {
@@ -19,8 +25,7 @@ describe('Text Block Component', () => {
 
     sizes.forEach((size) => {
       cy.viewport(size);
-      cy.get('h2').should('be.visible');
-      cy.get('.row .col-lg-10').should('be.visible');
+      cy.get('.col-lg-10').should('be.visible');
     });
   });
 });

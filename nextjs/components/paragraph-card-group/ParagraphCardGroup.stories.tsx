@@ -24,88 +24,28 @@ const mockParagraph = {
   title: 'Featured Cards',
   card: [
     {
-      title: 'Card 1',
-      summary: { value: 'This is a summary for Card 1' },
-      link: { url: '#', title: 'Read More' },
-      media: { 
-        image: {
-          url: './images/card.webp',
-          alt: 'Card 1 Image',
-          width: 500,
-          height: 300,
-        },
-      },
-      tags: ['Tag 1', 'Tag 2'],
+      __typename: 'ParagraphCard',
+      title: 'Interesting Card',
+      summary: 'This is a very interesting card with some fascinating content.',
+      link: { url: 'https://example.com', title: 'Learn More' },
+      media: { url: 'https://example.com/image.jpg' },
+      tags: ['Technology', 'Innovation'],
     },
     {
-      title: 'Card 2',
-      summary: { value: 'This is a summary for Card 2' },
-      link: { url: '#', title: 'Learn More' },
-      media: { 
-        image: {
-          url: './images/card.webp',
-          alt: 'Card 2 Image',
-          width: 500,
-          height: 300,
-        },
-      },
-      tags: ['Tag 1', 'Tag 2'],
+      __typename: 'ParagraphCard',
+      title: 'Another Card',
+      summary: 'Here\'s another card with different content.',
+      link: { url: 'https://example.com/another', title: 'Explore' },
+      media: { url: 'https://example.com/another-image.jpg' },
+      tags: ['Research', 'Development'],
     },
     {
-      title: 'Card 3',
-      summary: { value: 'This is a summary for Card 3' },
-      link: { url: '#', title: 'Explore' },
-      media: {
-        image: {
-          url: './images/card.webp',
-          alt: 'Card 3 Image',
-          width: 500,
-          height: 300,
-        },
-      },
-      tags: ['Tag 1', 'Tag 2'],
-    },
-    {
-      title: 'Card 4',
-      summary: { value: 'This is a summary for Card 4' },
-      link: { url: '#', title: 'Discover' },
-      media: {
-        image: {
-          url: './images/card.webp',
-          alt: 'Card 4 Image',
-          width: 500,
-          height: 300,
-        },
-      },
-      tags: ['Tag 1', 'Tag 2'],
-    },
-    {
-      title: 'Card 5',
-      summary: { value: 'This is a summary for Card 5' },
-      link: { url: '#', title: 'Learn More' },
-      media: {
-        image: {
-          url: './images/card.webp',
-          alt: 'Card 5 Image',
-          width: 500,
-          height: 300,
-        },
-      },
-      tags: ['Tag 1', 'Tag 2'],
-    },
-    {
-      title: 'Card 6',
-      summary: { value: 'This is a summary for Card 6' },
-      link: { url: '#', title: 'Explore' },
-      media: {
-        image: {
-          url: './images/card.webp',
-          alt: 'Card 6 Image',
-          width: 500,
-          height: 300,
-        },
-      },
-      tags: ['Tag 1', 'Tag 2'],
+      __typename: 'ParagraphCard',
+      title: 'Third Card',
+      summary: 'A third card to showcase multiple items.',
+      link: { url: 'https://example.com/third', title: 'Discover' },
+      media: { url: 'https://example.com/third-image.jpg' },
+      tags: ['Design', 'User Experience'],
     },
   ],
 };
@@ -113,6 +53,17 @@ const mockParagraph = {
 export const Default: Story = {
   args: {
     paragraph: mockParagraph as any,
-    modifier: '',
+  },
+};
+
+export const SingleCard: Story = {
+  args: {
+    paragraph: { ...mockParagraph, card: [mockParagraph.card[0]] },
+  },
+};
+
+export const TwoCards: Story = {
+  args: {
+    paragraph: { ...mockParagraph, card: mockParagraph.card.slice(0, 2) },
   },
 };
