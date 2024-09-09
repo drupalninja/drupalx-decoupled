@@ -25,7 +25,6 @@
         "drupal/gin_login": "^2.0",
         "drupal/graphql_compose_fragments": "1.0.x-dev",
         "drupal/graphql_compose_preview": "^1.0",
-        "drupal/guardr_core": "^2.1",
         "drupal/linkit": "^6.1",
         "drupal/metatag": "^2.0",
         "drupal/node_revision_delete": "^2.0@RC",

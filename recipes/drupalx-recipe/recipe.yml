@@ -53,7 +53,6 @@ install:
   - gin
   - gin_login
   - gin_toolbar
-  - guardr_core
   - linkit
   - material_icons
   - metatag
@@ -133,7 +132,6 @@ config:
       - block.block.gin_primary_local_tasks
     gin_toolbar: '*'
     gin_login: '*'
-    guardr_core: '*'
     linkit: '*'
     material_icons: '*'
     metatag: '*'
