@@ -12,11 +12,11 @@ export interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ url, text, icon, modifier }) => {
   return (
     <>{url ? (
-      <Link href={url} className={`btn ${modifier || ''} px-4 py-2`} role="button">
+      <Link href={url} className={`btn ${modifier || ''} px-4 py-2 rounded`} role="button">
         {text} {icon && <span className="material-symbols-outlined ms-1">{icon}</span>}
       </Link>
     ) : (
-      <button className={`btn ${modifier || ''} px-4 py-2`}>{text}</button>
+      <button className={`btn ${modifier || ''} px-4 py-2 rounded`}>{text}</button>
     )}</>
   );
 };
