@@ -1,0 +1,7 @@
+drupalx_ai.settings:
+  path: '/admin/config/services/drupalx-ai'
+  defaults:
+    _form: '\Drupal\drupalx_ai\Form\DrupalXAISettingsForm'
+    _title: 'DrupalX AI Settings'
+  requirements:
+    _permission: 'administer site configuration'

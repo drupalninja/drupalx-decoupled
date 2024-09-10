@@ -1,0 +1,5 @@
+name: DrupalX AI Extensions
+type: module
+description: 'Provides AI-powered DrupalX and Drush extensions using Claude 3 Haiku.'
+core_version_requirement: ^9 || ^10
+package: DrupalX
