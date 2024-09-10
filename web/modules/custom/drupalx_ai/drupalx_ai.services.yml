@@ -1,5 +1,5 @@
 services:
-  drupalx_ai.commands:
+  drupalx_ai.drush_commands:
     class: Drupal\drupalx_ai\Commands\ImportParagraphTypeCommands
     arguments: ['@http_client_factory', '@config.factory']
     tags:

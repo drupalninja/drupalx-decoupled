@@ -1,5 +1,5 @@
 {
-  "name": "drupal/drupalx_ai",
+  "name": "drupalninja/drupalx_ai",
   "type": "drupal-module",
-  "description": "Provides AI-powered DrupalX and Drush extensions using Claude 3 Haiku.",
+  "description": "Provides AI-powered DrupalX and Drush extensions using Claude 3 Haiku."
 }

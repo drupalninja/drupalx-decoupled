@@ -12,6 +12,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * A Drush commandfile.
+ *
+ * @DrushCommands()
  */
 class ImportParagraphTypeCommands extends DrushCommands {
 
@@ -75,8 +77,9 @@ class ImportParagraphTypeCommands extends DrushCommands {
   /**
    * Import a new paragraph type based on a Next.js component using AI.
    *
-   * @command paragraph:import-from-component
-   * @usage drush paragraph:import-from-component
+   * @command drupalx-ai:import-from-component
+   * @aliases dai-ifc
+   * @usage drush drupalx-ai:import-from-component
    */
   public function importParagraphTypeFromComponent(InputInterface $input, OutputInterface $output) {
     // Check if API key is set before proceeding.
