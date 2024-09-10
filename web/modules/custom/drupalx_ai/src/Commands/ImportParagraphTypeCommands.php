@@ -170,7 +170,17 @@ class ImportParagraphTypeCommands extends DrushCommands {
   /**
    * Generate paragraph type details using Claude 3 Haiku.
    */
-  protected function generateParagraphTypeDetails($componentContent) {
+  protected function generateParagraphTypeDetails($componentContent)
+  {
+    // Check if API key is set
+    $api_key = $this->configFactory->get('drupalx_ai.settings')->get('api_key');
+    if (empty($api_key)) {
+      $this->logger()->error('Anthropic API key is not set. Please configure it in the DrupalX AI Settings.');
+      return FALSE;
+    }
+
+    $prompt = "Based on this Next.js component, suggest a Drupal paragraph type structure using the suggest_paragraph_type function:\n\n{$componentContent}";
+
     $url = 'https://api.anthropic.com/v1/messages';
     $data = [
       'model' => 'claude-3-haiku-20240307',
@@ -178,85 +188,95 @@ class ImportParagraphTypeCommands extends DrushCommands {
       'messages' => [
         [
           'role' => 'user',
-          'content' => "Based on this Next.js component, suggest a Drupal paragraph type structure:\n\n{$componentContent}",
+          'content' => $prompt,
         ],
       ],
       'tools' => [
         [
-          'type' => 'function',
-          'function' => [
-            "name" => "suggest_paragraph_type",
-            "description" => "Suggests a Drupal paragraph type structure based on a Next.js component",
-            "parameters" => [
-              "type" => "object",
-              "properties" => [
-                "id" => [
-                  "type" => "string",
-                  "description" => "Machine name of the paragraph type",
-                ],
-                "name" => [
-                  "type" => "string",
-                  "description" => "Human-readable name of the paragraph type",
-                ],
-                "description" => [
-                  "type" => "string",
-                  "description" => "Description of the paragraph type",
-                ],
-                "fields" => [
-                  "type" => "array",
-                  "items" => [
-                    "type" => "object",
-                    "properties" => [
-                      "name" => [
-                        "type" => "string",
-                        "description" => "Machine name of the field",
-                      ],
-                      "label" => [
-                        "type" => "string",
-                        "description" => "Human-readable label of the field",
-                      ],
-                      "type" => [
-                        "type" => "string",
-                        "description" => "Drupal field type",
-                      ],
-                      "required" => [
-                        "type" => "boolean",
-                        "description" => "Whether the field is required",
-                      ],
-                      "cardinality" => [
-                        "type" => "integer",
-                        "description" => "The number of values users can enter for this field. -1 for unlimited.",
-                      ],
+          'name' => 'suggest_paragraph_type',
+          'description' => "Suggests a Drupal paragraph type structure based on a Next.js component",
+          'input_schema' => [
+            'type' => 'object',
+            'properties' => [
+              'id' => [
+                'type' => 'string',
+                'description' => 'Machine name of the paragraph type',
+              ],
+              'name' => [
+                'type' => 'string',
+                'description' => 'Human-readable name of the paragraph type',
+              ],
+              'description' => [
+                'type' => 'string',
+                'description' => 'Description of the paragraph type',
+              ],
+              'fields' => [
+                'type' => 'array',
+                'items' => [
+                  'type' => 'object',
+                  'properties' => [
+                    'name' => [
+                      'type' => 'string',
+                      'description' => 'Machine name of the field',
                     ],
-                    "required" => ["name", "label", "type"],
+                    'label' => [
+                      'type' => 'string',
+                      'description' => 'Human-readable label of the field',
+                    ],
+                    'type' => [
+                      'type' => 'string',
+                      'description' => 'Drupal field type',
+                    ],
+                    'required' => [
+                      'type' => 'boolean',
+                      'description' => 'Whether the field is required',
+                    ],
+                    'cardinality' => [
+                      'type' => 'integer',
+                      'description' => 'The number of values users can enter for this field. -1 for unlimited.',
+                    ],
                   ],
+                  'required' => ['name', 'label', 'type'],
                 ],
               ],
-              "required" => ["id", "name", "description", "fields"],
             ],
+            'required' => ['id', 'name', 'description', 'fields'],
           ],
         ],
       ],
     ];
 
     try {
-      $response = $this->httpClient->post($url, ['json' => $data]);
-      $responseData = json_decode($response->getBody(), TRUE);
+      $this->logger()->notice('Sending request to Claude API');
+      $response = $this->httpClient->request('POST', $url, ['json' => $data]);
+      $this->logger()->notice('Received response from Claude API');
 
-      if (isset($responseData['content'][0]['text'])) {
-        // Parse the response text to extract the JSON part.
-        $jsonStart = strpos($responseData['content'][0]['text'], '{');
-        $jsonEnd = strrpos($responseData['content'][0]['text'], '}');
-        if ($jsonStart !== FALSE && $jsonEnd !== FALSE) {
-          $jsonString = substr($responseData['content'][0]['text'], $jsonStart, $jsonEnd - $jsonStart + 1);
-          return json_decode($jsonString, TRUE);
+      $responseData = json_decode($response->getBody(), TRUE);
+      $this->logger()->notice('Response data: @data', ['@data' => print_r($responseData, TRUE)]);
+
+      if (!isset($responseData['content']) || !is_array($responseData['content'])) {
+        throw new \RuntimeException('Unexpected API response format: content array not found');
+      }
+
+      foreach ($responseData['content'] as $content) {
+        $this->logger()->notice('Processing content: @content', ['@content' => print_r($content, TRUE)]);
+        if (isset($content['type']) && $content['type'] === 'tool_use' && isset($content['input'])) {
+          $arguments = $content['input'];
+          if (is_array($arguments)) {
+            $this->logger()->notice('Successfully parsed function call arguments');
+            return $arguments;
+          } else {
+            throw new \RuntimeException('Failed to parse function call arguments: invalid format');
+          }
         }
       }
 
-      $this->logger()->error('Unexpected API response format: @response', ['@response' => $response->getBody()]);
-    }
-    catch (RequestException $e) {
-      $this->logger()->error('API request failed: @error', ['@error' => $e->getMessage()]);
+      throw new \RuntimeException('Function call response not found in API response');
+    } catch (RequestException $e) {
+      $this->logger()->error('API request failed: ' . $e->getMessage());
+      $this->logger()->error('Request details: ' . print_r($data, TRUE));
+    } catch (\Exception $e) {
+      $this->logger()->error('Error processing API response: ' . $e->getMessage());
     }
 
     return FALSE;
