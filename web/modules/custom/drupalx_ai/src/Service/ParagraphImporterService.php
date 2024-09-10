@@ -9,6 +9,7 @@ use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\Entity\ParagraphsType;
+use GraphQL\Type\Definition\ObjectType;
 
 /**
  * Service for importing paragraph types and creating paragraphs.
