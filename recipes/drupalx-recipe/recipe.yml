@@ -81,6 +81,7 @@ install:
   - graphql_compose_metatags
   - graphql_compose_preview
   - graphql_compose_fragments
+  - drupalx_ai
 
 config:
   import:
