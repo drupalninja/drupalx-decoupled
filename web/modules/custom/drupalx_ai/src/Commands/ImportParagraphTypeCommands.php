@@ -4,9 +4,9 @@ namespace Drupal\drupalx_ai\Commands;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Http\ClientFactory;
+use Drupal\drupalx_ai\Service\ParagraphImporterService;
 use Drush\Commands\DrushCommands;
 use GuzzleHttp\Exception\RequestException;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -16,13 +16,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @package Drupal\drupalx_ai\Commands
  */
 class ImportParagraphTypeCommands extends DrushCommands {
-
-  /**
-   * The Anthropic API key.
-   *
-   * @var string
-   */
-  protected $apiKey;
 
   /**
    * The config factory.
@@ -39,17 +32,38 @@ class ImportParagraphTypeCommands extends DrushCommands {
   protected $httpClient;
 
   /**
+   * The paragraph importer service.
+   *
+   * @var \Drupal\drupalx_ai\Service\ParagraphImporterService
+   */
+  protected $paragraphImporter;
+
+  /**
    * Constructor for ImportParagraphTypeCommands.
    *
    * @param \Drupal\Core\Http\ClientFactory $http_client_factory
    *   The HTTP client factory.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory.
+   * @param \Drupal\drupalx_ai\Service\ParagraphImporterService $paragraph_importer
+   *   The paragraph importer service.
    */
-  public function __construct(ClientFactory $http_client_factory, ConfigFactoryInterface $config_factory) {
+  public function __construct(ClientFactory $http_client_factory, ConfigFactoryInterface $config_factory, ParagraphImporterService $paragraph_importer) {
     parent::__construct();
     $this->configFactory = $config_factory;
+    $this->paragraphImporter = $paragraph_importer;
     $this->initializeHttpClient($http_client_factory);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('http_client_factory'),
+      $container->get('config.factory'),
+      $container->get('drupalx_ai.paragraph_importer')
+    );
   }
 
   /**
@@ -81,7 +95,7 @@ class ImportParagraphTypeCommands extends DrushCommands {
    * @aliases dai-ifc
    * @usage drush drupalx-ai:import-from-component
    */
-  public function importParagraphTypeFromComponent(InputInterface $input, OutputInterface $output) {
+  public function importParagraphTypeFromComponent(OutputInterface $output) {
     // Check if API key is set before proceeding.
     if (empty($this->configFactory->get('drupalx_ai.settings')->get('api_key'))) {
       $output->writeln("<error>Anthropic API key is not set. Please configure it in the DrupalX AI Settings before running this command.</error>");
@@ -89,7 +103,7 @@ class ImportParagraphTypeCommands extends DrushCommands {
     }
 
     // Prompt for component name.
-    $componentName = $this->askComponent($input, $output);
+    $componentName = $this->askComponent();
 
     // Read component file.
     $componentContent = $this->readComponentFile($componentName);
@@ -116,15 +130,15 @@ class ImportParagraphTypeCommands extends DrushCommands {
       return;
     }
 
-    // Here you would call your actual import_paragraph_type function.
-    // For demonstration, we'll just print a success message.
-    $output->writeln("<info>Successfully imported paragraph type: {$paragraphTypeDetails['name']}</info>");
+    // Import the paragraph type using the ParagraphImporterService.
+    $result = $this->paragraphImporter->importParagraphType((object) $paragraphTypeDetails);
+    $output->writeln($result);
   }
 
   /**
    * Prompt the user for the component name.
    */
-  protected function askComponent(InputInterface $input, OutputInterface $output) {
+  protected function askComponent() {
     $componentDir = '../nextjs/components/';
     $components = scandir($componentDir);
     $components = array_filter($components, function ($file) {
@@ -170,9 +184,8 @@ class ImportParagraphTypeCommands extends DrushCommands {
   /**
    * Generate paragraph type details using Claude 3 Haiku.
    */
-  protected function generateParagraphTypeDetails($componentContent)
-  {
-    // Check if API key is set
+  protected function generateParagraphTypeDetails($componentContent) {
+    // Check if API key is set.
     $api_key = $this->configFactory->get('drupalx_ai.settings')->get('api_key');
     if (empty($api_key)) {
       $this->logger()->error('Anthropic API key is not set. Please configure it in the DrupalX AI Settings.');
@@ -272,24 +285,16 @@ class ImportParagraphTypeCommands extends DrushCommands {
       }
 
       throw new \RuntimeException('Function call response not found in API response');
-    } catch (RequestException $e) {
+    }
+    catch (RequestException $e) {
       $this->logger()->error('API request failed: ' . $e->getMessage());
       $this->logger()->error('Request details: ' . print_r($data, TRUE));
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       $this->logger()->error('Error processing API response: ' . $e->getMessage());
     }
 
     return FALSE;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('http_client_factory'),
-      $container->get('config.factory')
-    );
   }
 
 }

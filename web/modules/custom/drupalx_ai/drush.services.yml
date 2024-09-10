@@ -1,6 +1,10 @@
 services:
-  drupalx_ai.drush_commands:
+  drupalx_ai.paragraph_importer:
+    class: \Drupal\drupalx_ai\Service\ParagraphImporterService
+    arguments: ['@config.factory', '@entity_type.manager']
+
+  drupalx_ai.import_paragraph_type_commands:
     class: \Drupal\drupalx_ai\Commands\ImportParagraphTypeCommands
-    arguments: ['@http_client_factory', '@config.factory']
+    arguments: ['@http_client_factory', '@config.factory', '@drupalx_ai.paragraph_importer']
     tags:
       - { name: drush.command }
