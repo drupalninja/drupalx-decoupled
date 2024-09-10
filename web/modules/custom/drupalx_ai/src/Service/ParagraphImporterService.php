@@ -85,7 +85,7 @@ class ParagraphImporterService {
         // Validate required field properties.
         $required_field_properties = ['name', 'label', 'type'];
         foreach ($required_field_properties as $property) {
-          if (!property_exists($field, $property)) {
+          if (!isset($field[$property])) {
             throw new \InvalidArgumentException("Missing required field property: $property");
           }
         }
@@ -117,8 +117,8 @@ class ParagraphImporterService {
    *   The field data.
    */
   protected function createField($paragraph_type_id, $field_data) {
-    $field_name = 'field_' . $field_data->name;
-    $field_type = $field_data->type;
+    $field_name = 'field_' . $field_data['name'];
+    $field_type = $field_data['type'];
 
     // Check if field storage already exists.
     if (!FieldStorageConfig::loadByName('paragraph', $field_name)) {
@@ -126,7 +126,7 @@ class ParagraphImporterService {
         'field_name' => $field_name,
         'entity_type' => 'paragraph',
         'type' => $field_type,
-        'cardinality' => $field_data->cardinality ?? 1,
+        'cardinality' => $field_data['cardinality'] ?? 1,
       ])->save();
     }
 
@@ -136,8 +136,8 @@ class ParagraphImporterService {
         'field_name' => $field_name,
         'entity_type' => 'paragraph',
         'bundle' => $paragraph_type_id,
-        'label' => $field_data->label,
-        'required' => $field_data->required ?? FALSE,
+        'label' => $field_data['label'],
+        'required' => $field_data['required'] ?? FALSE,
       ])->save();
     }
 
@@ -186,9 +186,9 @@ class ParagraphImporterService {
 
     // Assign the fields to the paragraph.
     foreach ($paragraph_data->fields as $field) {
-      $field_name = !empty($field->name) ? (strpos($field->name, 'field_') === 0 ? $field->name : 'field_' . $field->name) : '';
+      $field_name = !empty($field['name']) ? (strpos($field['name'], 'field_') === 0 ? $field['name'] : 'field_' . $field['name']) : '';
       if (!empty($field_name) && $paragraph->hasField($field_name)) {
-        $paragraph->set($field_name, $field->sample_value);
+        $paragraph->set($field_name, $field['sample_value']);
       }
       else {
         \Drupal::logger('drupalx_ai')->warning("Field @field does not exist on the paragraph type @type.", [
@@ -291,15 +291,17 @@ class ParagraphImporterService {
         "ParagraphViewFragment,\n  {$fragment_name},",
         $paragraphs_fragment
       );
+
+      // Save the updated fragment file.
+      file_put_contents($fragment_file, $paragraphs_fragment);
+
+      // Update the resolvers.
+      $result = $this->updateResolvers($paragraph_type_id, $fragment_name);
+
+      return "Fragment {$fragment_name} Content: {$fragment_content} for paragraph type '{$paragraph_type_id}' created in paragraphs.ts.\n{$result}";
     }
 
-    // Save the updated fragment file.
-    file_put_contents($fragment_file, $paragraphs_fragment);
-
-    // Update the resolvers.
-    $result = $this->updateResolvers($paragraph_type_id, $fragment_name);
-
-    return "Fragment {$fragment_name} Content: {$fragment_content} for paragraph type '{$paragraph_type_id}' created in paragraphs.ts.\n{$result}";
+    return "Error: Unable to create fragment for paragraph type '{$paragraph_type_id}'. No fragment content found.";
   }
 
   /**

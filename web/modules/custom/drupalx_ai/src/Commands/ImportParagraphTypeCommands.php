@@ -248,8 +248,12 @@ class ImportParagraphTypeCommands extends DrushCommands {
                       'type' => 'integer',
                       'description' => 'The number of values users can enter for this field. -1 for unlimited.',
                     ],
+                    'sample_value' => [
+                      'type' => 'string',
+                      'description' => 'Sample value for the field',
+                    ],
                   ],
-                  'required' => ['name', 'label', 'type'],
+                  'required' => ['name', 'label', 'type', 'sample_value'],
                 ],
               ],
             ],
