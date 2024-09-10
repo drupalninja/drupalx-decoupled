@@ -1,7 +1,12 @@
 services:
   drupalx_ai.paragraph_importer:
     class: \Drupal\drupalx_ai\Service\ParagraphImporterService
-    arguments: ['@config.factory', '@entity_type.manager']
+    arguments:
+      - '@config.factory'
+      - '@entity_type.manager'
+      - '@logger.factory'
+      - '@file_system'
+      - '@graphql_compose_fragments.manager'
 
   drupalx_ai.import_paragraph_type_commands:
     class: \Drupal\drupalx_ai\Commands\ImportParagraphTypeCommands

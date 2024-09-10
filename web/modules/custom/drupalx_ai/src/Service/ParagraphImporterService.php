@@ -4,8 +4,11 @@ namespace Drupal\drupalx_ai\Service;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\graphql_compose_fragments\FragmentManager;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\Entity\ParagraphsType;
@@ -31,16 +34,52 @@ class ParagraphImporterService {
   protected $entityTypeManager;
 
   /**
+   * The logger factory.
+   *
+   * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
+   */
+  protected $loggerFactory;
+
+  /**
+   * The file system service.
+   *
+   * @var \Drupal\Core\File\FileSystemInterface
+   */
+  protected $fileSystem;
+
+  /**
+   * The fragment manager.
+   *
+   * @var \Drupal\graphql_compose_fragments\FragmentManager
+   */
+  protected $fragmentManager;
+
+  /**
    * Constructs a new ParagraphImporterService object.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
+   *   The logger factory.
+   * @param \Drupal\Core\File\FileSystemInterface $file_system
+   *   The file system service.
+   * @param \Drupal\graphql_compose_fragments\FragmentManager $fragment_manager
+   *   The fragment manager.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(
+    ConfigFactoryInterface $config_factory,
+    EntityTypeManagerInterface $entity_type_manager,
+    LoggerChannelFactoryInterface $logger_factory,
+    FileSystemInterface $file_system,
+    FragmentManager $fragment_manager,
+  ) {
     $this->configFactory = $config_factory;
     $this->entityTypeManager = $entity_type_manager;
+    $this->loggerFactory = $logger_factory;
+    $this->fileSystem = $file_system;
+    $this->fragmentManager = $fragment_manager;
   }
 
   /**
@@ -104,7 +143,7 @@ class ParagraphImporterService {
       return "Paragraph type '{$paragraph_data->name}' successfully created with $field_count fields.\n{$result}";
     }
     catch (\Exception $e) {
-      \Drupal::logger('drupalx_ai')->error('Error importing paragraph type: @message', ['@message' => $e->getMessage()]);
+      $this->loggerFactory->get('drupalx_ai')->error('Error importing paragraph type: @message', ['@message' => $e->getMessage()]);
       return 'Error importing paragraph type: ' . $e->getMessage();
     }
   }
@@ -192,7 +231,7 @@ class ParagraphImporterService {
         $paragraph->set($field_name, $field['sample_value']);
       }
       else {
-        \Drupal::logger('drupalx_ai')->warning("Field @field does not exist on the paragraph type @type.", [
+        $this->loggerFactory->get('drupalx_ai')->warning("Field @field does not exist on the paragraph type @type.", [
           '@field' => $field_name ?? 'undefined',
           '@type' => $paragraph_data->id,
         ]);
@@ -213,7 +252,7 @@ class ParagraphImporterService {
       $node->get('field_content')->appendItem($paragraph);
     }
     else {
-      \Drupal::logger('drupalx_ai')->error('The node does not have the field_content field.');
+      $this->loggerFactory->get('drupalx_ai')->error('The node does not have the field_content field.');
       return NULL;
     }
 
@@ -235,11 +274,9 @@ class ParagraphImporterService {
    *   The output data.
    */
   protected function createParagraphFragment($paragraph_type_id) {
-    $fragmentManager = \Drupal::service('graphql_compose_fragments.manager');
-
     $fragments = array_map(
-      $fragmentManager->getFragment(...),
-      $fragmentManager->getTypes()
+      [$this->fragmentManager, 'getFragment'],
+      $this->fragmentManager->getTypes()
     );
 
     $objects = array_filter(
@@ -294,7 +331,7 @@ class ParagraphImporterService {
       );
 
       // Save the updated fragment file.
-      file_put_contents($fragment_file, $paragraphs_fragment);
+      $this->fileSystem->saveData($paragraphs_fragment, $fragment_file, FileSystemInterface::EXISTS_REPLACE);
 
       // Update the resolvers.
       $result = $this->updateResolvers($paragraph_type_id, $fragment_name);
