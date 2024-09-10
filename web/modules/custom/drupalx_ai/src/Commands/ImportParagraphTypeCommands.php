@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * A Drush commandfile.
  *
- * @DrushCommands()
+ * @package Drupal\drupalx_ai\Commands
  */
 class ImportParagraphTypeCommands extends DrushCommands {
 
@@ -125,21 +125,46 @@ class ImportParagraphTypeCommands extends DrushCommands {
    * Prompt the user for the component name.
    */
   protected function askComponent(InputInterface $input, OutputInterface $output) {
-    $componentDir = './nextjs/components/';
-    $components = array_diff(scandir($componentDir), ['..', '.']);
-    $components = array_map(function ($file) {
-      return pathinfo($file, PATHINFO_FILENAME);
-    }, $components);
+    $componentDir = '../nextjs/components/';
+    $components = scandir($componentDir);
+    $components = array_filter($components, function ($file) {
+      return is_dir("../nextjs/components/$file") && $file != '.' && $file != '..';
+    });
 
-    return $this->io()->choice('Select a component to import', $components);
+    $selectedIndex = $this->io()->choice('Select a component to import', $components);
+    return $components[$selectedIndex];
   }
 
   /**
    * Read the component file.
    */
   protected function readComponentFile($componentName) {
-    $filePath = "./nextjs/components/{$componentName}.js";
-    return file_exists($filePath) ? file_get_contents($filePath) : FALSE;
+    $componentPath = "../nextjs/components/{$componentName}";
+    if (!is_dir($componentPath)) {
+      return FALSE;
+    }
+
+    $componentFiles = array_filter(scandir($componentPath), function ($file) {
+      return pathinfo($file, PATHINFO_EXTENSION) === 'tsx' && !preg_match('/\.stories\.tsx$/', $file);
+    });
+
+    if (empty($componentFiles)) {
+      $this->logger()->warning("No suitable .tsx files found in the {$componentName} component directory.");
+      return FALSE;
+    }
+
+    $selectedFile = $this->io()->choice(
+      "Select a file from the {$componentName} component",
+      array_combine($componentFiles, $componentFiles)
+    );
+
+    $filePath = "{$componentPath}/{$selectedFile}";
+    if (!file_exists($filePath) || !is_readable($filePath)) {
+      $this->logger()->error("Unable to read the selected file: {$filePath}");
+      return FALSE;
+    }
+
+    return file_get_contents($filePath);
   }
 
   /**
