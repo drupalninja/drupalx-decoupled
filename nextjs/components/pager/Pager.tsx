@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import './Pager.scss';
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface PagerProps {
   headingId: string;
@@ -21,32 +22,53 @@ interface PagerProps {
 
 const Pager: React.FC<PagerProps> = ({ headingId, pagerItems }) => {
   return (
-    <nav className="pager" role="navigation" aria-labelledby={headingId}>
-      <h4 id={headingId} className="visually-hidden">Pagination</h4>
-      <ul className="pagination">
-        {pagerItems.previous && (
-          <li className="page-item">
-            <a className="page-link" href={pagerItems.previous.href} title="Go to previous page" rel="prev">
+    <nav className="flex items-center justify-between" role="navigation" aria-labelledby={headingId}>
+      <h4 id={headingId} className="sr-only">Pagination</h4>
+      <div className="flex-1 flex justify-between sm:justify-start">
+        {pagerItems.previous ? (
+          <Button variant="outline" asChild>
+            <Link href={pagerItems.previous.href} rel="prev" className="flex items-center">
+              <ChevronLeft className="mr-2 h-4 w-4" />
               {pagerItems.previous.text}
-            </a>
-          </li>
+            </Link>
+          </Button>
+        ) : (
+          <Button variant="outline" disabled>
+            <ChevronLeft className="mr-2 h-4 w-4" />
+            Previous
+          </Button>
         )}
+      </div>
+      <div className="hidden md:flex">
         {pagerItems.pages.map((page, index) => (
-          <li key={index} className={`page-item${index === 0 ? ' active' : ''}`}>
-            <Link href={page.href} title={`Go to page (${index + 1})`} className="page-link">
-              <span className="visually-hidden">{index === 0 ? 'Current page' : 'Page'}</span>
+          <Button
+            key={index}
+            variant={index === 0 ? "default" : "outline"}
+            asChild
+            className="mx-1"
+          >
+            <Link href={page.href} title={`Go to page ${index + 1}`}>
+              <span className="sr-only">{index === 0 ? 'Current page' : 'Page'}</span>
               {index + 1}
             </Link>
-          </li>
+          </Button>
         ))}
-        {pagerItems.next && (
-          <li className="page-item">
-            <a className="page-link" href={pagerItems.next.href} title="Go to next page" rel="next">
+      </div>
+      <div className="flex-1 flex justify-end">
+        {pagerItems.next ? (
+          <Button variant="outline" asChild>
+            <Link href={pagerItems.next.href} rel="next" className="flex items-center">
               {pagerItems.next.text}
-            </a>
-          </li>
+              <ChevronRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        ) : (
+          <Button variant="outline" disabled>
+            Next
+            <ChevronRight className="ml-2 h-4 w-4" />
+          </Button>
         )}
-      </ul>
+      </div>
     </nav>
   );
 };

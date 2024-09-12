@@ -1,31 +1,23 @@
 import React from 'react';
-import './Spacing.scss';
+import { Card, CardContent } from '@/components/ui/card';
 
 export const Spacing = () => {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-1 align-self-end">
-          <div className="pb-1 m-2 bg-primary shadow opacity-25"></div>
-          <div className="text-center text-dark">1</div>
-        </div>
-        <div className="col-md-1 align-self-end">
-          <div className="pb-2 m-2 bg-primary shadow opacity-25"></div>
-          <div className="text-center text-dark">2</div>
-        </div>
-        <div className="col-md-1 align-self-end">
-          <div className="pb-3 m-2 bg-primary shadow opacity-50"></div>
-          <div className="text-center text-dark">3</div>
-        </div>
-        <div className="col-md-1 align-self-end">
-          <div className="pb-4 m-2 bg-primary shadow opacity-75"></div>
-          <div className="text-center text-dark">4</div>
-        </div>
-        <div className="col-md-1 align-self-end">
-          <div className="pb-5 m-2 bg-primary shadow"></div>
-          <div className="text-center text-dark">5</div>
-        </div>
+    <div className="container mx-auto">
+      <div className="flex flex-wrap">
+        {[1, 2, 3, 4].map((size) => (
+          <div key={size} className="w-1/4 flex flex-col items-center">
+            <Card className="w-full">
+              <CardContent className={`p-${size} m-2 bg-blue-500 shadow-md ${size < 3 ? 'opacity-25' : size < 4 ? 'opacity-50' : size < 5 ? 'opacity-75' : ''}`}>
+                <div className="h-4"></div>
+              </CardContent>
+            </Card>
+            <div className="text-center text-gray-700">{size}</div>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
+
+export default Spacing;

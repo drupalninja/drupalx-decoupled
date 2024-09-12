@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import './Image.scss';
 
 interface ImageProps {
   src: string;

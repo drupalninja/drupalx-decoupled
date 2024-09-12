@@ -1,11 +1,12 @@
 import React from 'react';
-import './Shadow.scss';
+import { cn } from "@/lib/utils";
 
 interface ShadowProps {
   variant?: 'sm' | 'regular' | 'lg';
+  className?: string;
 }
 
-const Shadow: React.FC<ShadowProps> = ({ variant = 'regular' }) => {
+const Shadow: React.FC<ShadowProps> = ({ variant = 'regular', className }) => {
   const shadowClasses = {
     sm: 'shadow-sm',
     regular: 'shadow',
@@ -13,7 +14,11 @@ const Shadow: React.FC<ShadowProps> = ({ variant = 'regular' }) => {
   };
 
   return (
-    <div className={`p-3 mb-5 bg-body rounded ${shadowClasses[variant]}`}>
+    <div className={cn(
+      "p-3 mb-5 bg-background rounded",
+      shadowClasses[variant],
+      className
+    )}>
       {variant.charAt(0).toUpperCase() + variant.slice(1)} shadow
     </div>
   );
