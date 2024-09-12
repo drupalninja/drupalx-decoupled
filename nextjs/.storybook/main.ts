@@ -12,14 +12,6 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
-    {
-      name: '@storybook/addon-styling',
-      options: {
-        postCss: {
-          implementation: require('postcss'),
-        },
-      },
-    },
   ],
   framework: {
     name: "@storybook/nextjs",
@@ -33,6 +25,28 @@ const config: StorybookConfig = {
         "@": path.resolve(__dirname, "../"),
       };
     }
+
+    // Push the postcss-loader for Tailwind CSS
+    if (config.module?.rules) {
+      config.module.rules.push({
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require('tailwindcss'),
+                  require('autoprefixer'),
+                ],
+              },
+            },
+          },
+        ],
+        include: path.resolve(__dirname, '../'),
+      });
+    }
+
     return config;
   },
 };

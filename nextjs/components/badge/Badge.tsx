@@ -1,5 +1,5 @@
-import Badge from 'react-bootstrap/Badge';
-import './Badge.scss';
+import React from 'react';
+import { Badge } from "@/components/ui/badge"
 
 interface BadgeProps {
   tag: string;
@@ -8,7 +8,9 @@ interface BadgeProps {
 
 const BadgeComponent: React.FC<BadgeProps> = ({ tag, modifier }) => {
   return (
-    <Badge bg="secondary" className={`rounded-pill d-block fs-7 px-2 py-1 fw-semibold${modifier ? ` ${modifier}` : ''}`}>{tag}</Badge>
+    <Badge variant="secondary" className={`rounded-full text-xs px-2 py-1 font-semibold${modifier ? ` ${modifier}` : ''}`}>
+      {tag}
+    </Badge>
   );
 };
 
