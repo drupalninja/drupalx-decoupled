@@ -20,21 +20,29 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
       <div className="w-full lg:w-1/2">
         {getImage(media, 'w-full h-auto', ['I43SMALL', 'I43LARGE2X'])}
       </div>
-      <div className="w-full lg:w-1/2 xl:w-5/12 flex flex-col gap-3">
-        {eyebrow && <Badge variant="outline" className="uppercase">{eyebrow}</Badge>}
-        <h2 className="mb-2 text-2xl font-bold">{sidebysideTitle}</h2>
+      <div className="w-full lg:w-1/2 xl:w-5/12 flex flex-col gap-4">
+        {eyebrow && (
+          <div className="flex">
+            <Badge variant="secondary" className="uppercase inline-flex">
+              {eyebrow}
+            </Badge>
+          </div>
+        )}
+        <h2 className="text-2xl font-bold">{sidebysideTitle}</h2>
         {textFragment && (
-          <div dangerouslySetInnerHTML={{ __html: textFragment?.value ?? '' }}></div>
+          <div
+            className="mb-3"
+            dangerouslySetInnerHTML={{ __html: textFragment?.value ?? '' }}
+          />
         )}
         {linkFragment?.url && (
-          <Button
-            variant="default"
-            asChild
-          >
-            <a href={linkFragment.url}>
-              {linkFragment?.title ?? 'Read more'}
-            </a>
-          </Button>
+          <div className="flex">
+            <Button variant="default" asChild>
+              <a href={linkFragment.url}>
+                {linkFragment?.title ?? 'Read more'}
+              </a>
+            </Button>
+          </div>
         )}
       </div>
     </div>

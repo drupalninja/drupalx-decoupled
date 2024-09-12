@@ -26,7 +26,7 @@ export default function Header({ mainMenu }: HeaderProps) {
   })) || [];
 
   return (
-    <header role="banner" className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header role="banner" className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mb-8">
       <div className="container mx-auto py-4">
         <MainMenu
           siteLogo={publicRuntimeConfig.LOGO_URL}
