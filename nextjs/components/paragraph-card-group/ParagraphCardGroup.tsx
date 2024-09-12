@@ -41,7 +41,6 @@ export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCar
                   mediaLink={item?.link?.url}
                   heading={{
                     title: item?.title,
-                    level: 3,
                     url: item?.link?.url,
                   }}
                   tags={item?.tags}
@@ -57,7 +56,12 @@ export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCar
   );
 }
 
-const Stat = ({ media, heading, body, modifier = '' }) => (
+const Stat = ({ media, heading, body, modifier = '' }: {
+  media?: any,
+  heading: string,
+  body?: string,
+  modifier?: string
+}) => (
   <Card className={`text-center ${modifier}`}>
     <CardContent className="pt-6">
       {media && (
@@ -65,13 +69,20 @@ const Stat = ({ media, heading, body, modifier = '' }) => (
           {getImage(media, '"w-16 h-16 object-contain mx-auto')}
         </div>
       )}
-      <CardTitle as="h3" className="mb-2">{heading}</CardTitle>
+      <CardTitle className="mb-2">{heading}</CardTitle>
       {body && <p className="mb-0 text-gray-600">{body}</p>}
     </CardContent>
-  </Card>
+  </Card >
 );
 
-const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', link }) => {
+const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', link }: {
+  media?: any;
+  mediaLink?: string;
+  heading: { title: string; url?: string };
+  tags?: string[];
+  summaryText?: string;
+  link?: { url: string; title: string };
+}) => {
   return (
     <Card className="h-full flex flex-col">
       {mediaLink && media ? (

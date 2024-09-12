@@ -10,7 +10,7 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-			typography: (theme) => ({
+			typography: (theme: any) => ({
 				DEFAULT: {
 					css: {
 						h1: {
@@ -62,7 +62,7 @@ const config: Config = {
 				},
 			}),
 			container: {
-				center: 'true',
+				center: true,
 				padding: '2rem',
 				screens: {
 					'2xl': '1400px'

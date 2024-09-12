@@ -10,6 +10,14 @@ interface ParagraphQuoteProps {
   modifier?: string
 }
 
+const AvatarComponent: React.FC<any> = ({ thumb, author }) => {
+  return (
+    <Avatar className="w-16 h-16 mb-2 mx-auto">
+      {thumb?.image?.url && <AvatarImage src={thumb.image.url} alt={author || 'Quote author'} />}
+    </Avatar>
+  );
+};
+
 export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuoteProps) {
   const { author, jobTitle, logo, quote, thumb } = readFragment(ParagraphQuoteFragment, paragraph);
 
@@ -30,9 +38,7 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
             </blockquote>
             <div className="text-center">
               <div className="inline-block">
-                <Avatar className="w-16 h-16 mb-2 mx-auto">
-                  {thumb?.image?.url && <AvatarImage src={thumb.image.url} alt={author || 'Quote author'} />}
-                </Avatar>
+                {thumb && <AvatarComponent thumb={thumb} author={author} />}
                 {author && <div className="font-bold">{author}</div>}
                 {jobTitle && <p className="text-sm text-muted-foreground">{jobTitle}</p>}
               </div>
@@ -43,3 +49,4 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
     </div>
   );
 }
+

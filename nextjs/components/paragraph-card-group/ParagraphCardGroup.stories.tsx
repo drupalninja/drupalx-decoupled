@@ -58,12 +58,12 @@ export const Default: Story = {
 
 export const SingleCard: Story = {
   args: {
-    paragraph: { ...mockParagraph, card: [mockParagraph.card[0]] },
+    paragraph: { ...mockParagraph, card: [mockParagraph.card[0]] } as any,
   },
 };
 
 export const TwoCards: Story = {
   args: {
-    paragraph: { ...mockParagraph, card: mockParagraph.card.slice(0, 2) },
+    paragraph: { ...mockParagraph, card: mockParagraph.card.slice(0, 2) } as any,
   },
 };

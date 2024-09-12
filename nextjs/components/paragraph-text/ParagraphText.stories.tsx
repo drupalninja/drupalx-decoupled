@@ -9,10 +9,6 @@ const meta: Meta<typeof ParagraphText> = {
       description: 'ParagraphText fragment data',
       control: 'object',
     },
-    modifier: {
-      description: 'Define the Text Block modifier class.',
-      control: 'text',
-    },
   },
 };
 
@@ -21,7 +17,6 @@ type Story = StoryObj<typeof ParagraphText>;
 
 export const Default: Story = {
   args: {
-    modifier: 'col-10 p-4',
     paragraph: {
       title: 'Title Lorem Ipsum Dolor',
       body: {

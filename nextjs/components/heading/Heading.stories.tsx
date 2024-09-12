@@ -12,7 +12,6 @@ type Story = StoryObj<typeof Heading>;
 export const Default: Story = {
   args: {
     title: 'Title Lorem Ipsum Dolor',
-    level: 2,
-    modifier: 'display-3'
+    level: 2
   }
 };
