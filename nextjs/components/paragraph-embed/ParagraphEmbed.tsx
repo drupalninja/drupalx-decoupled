@@ -14,9 +14,9 @@ export default function ParagraphEmbed({ paragraph, className }: ParagraphEmbedP
 
   return (
     <div className="container mx-auto px-4">
-      <Card className={`my-6 lg:my-15 ${className ?? ''}`}>
+      <Card className={`my-6 lg:my-15 border-none shadow-none ${className ?? ''}`}>
         {title && (
-          <CardHeader>
+          <CardHeader className='text-3xl'>
             <CardTitle>{title}</CardTitle>
           </CardHeader>
         )}

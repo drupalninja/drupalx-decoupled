@@ -33,7 +33,7 @@ export const getImage = (media: any, className?: string, imageStyle?: string | s
         alt={media?.image?.alt}
         width={500}
         height={500}
-        className={className ?? 'img-fluid'}
+        className={className ?? ''}
       />
     ) : (
       <picture>
@@ -46,7 +46,7 @@ export const getImage = (media: any, className?: string, imageStyle?: string | s
           alt={media?.image?.alt}
           width={width}
           height={height}
-          className={className ?? 'img-fluid'}
+          className={className ?? ''}
           sizes="(max-width: 767px) 100vw, 50vw"
           quality={75}
         />

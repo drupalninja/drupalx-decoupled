@@ -22,7 +22,7 @@ export default function NodeLayoutComponent({ node, environment }: NodeLayoutCom
 
   return (
     <>
-      {hidePageTitle ? null : <Heading level={1} title={title} modifier="container mb-4" />}
+      {hidePageTitle ? null : <Heading level={1} title={title} className="container mb-4" />}
       {components.map((component, index: number) => {
         return <Fragment key={index}>{component}</Fragment>;
       })}

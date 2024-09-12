@@ -25,7 +25,7 @@ export default function ParagraphText({ paragraph, className }: ParagraphTextPro
           <h6 className="text-sm font-semibold uppercase tracking-wide text-gray-500">{eyebrow}</h6>
         )}
         {title && (
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">{title}</h2>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">{title}</h2>
         )}
         {body && (
           <div className="mt-4 text-xl text-gray-500" dangerouslySetInnerHTML={{ __html: textSummaryFragment?.value ?? '' }}></div>

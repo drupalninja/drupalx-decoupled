@@ -1,7 +1,7 @@
 import React from 'react';
 import { FragmentOf, readFragment } from "gql.tada";
 import { NodeArticleFragment } from "@/graphql/fragments/node";
-import { TextSummaryFragment } from "@/graphql/fragments/misc";
+import { getImage } from '../../helpers/Utilities';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Link from 'next/link';
@@ -21,16 +21,12 @@ export default function RecentCards({ results }: RecentCardsProps) {
               <Link href={articleData.path}>
                 <AspectRatio ratio={16 / 9}>
                   {articleData.media && (
-                    <img
-                      src={articleData.media.url}
-                      alt={articleData.media.alt || ''}
-                      className="object-cover w-full h-full"
-                    />
+                    getImage(articleData.media, '', ['LARGE', 'I169LARGE2X'])
                   )}
                 </AspectRatio>
               </Link>
               <CardHeader>
-                <CardTitle>
+                <CardTitle className='text-2xl'>
                   <Link href={articleData.path} className="hover:underline">
                     {articleData.title}
                   </Link>

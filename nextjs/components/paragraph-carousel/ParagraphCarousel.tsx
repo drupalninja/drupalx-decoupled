@@ -16,7 +16,7 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
   const { id, carouselItem } = readFragment(ParagraphCarouselFragment, paragraph);
 
   return (
-    <div className={`container mx-auto px-4 ${modifier || ''}`}>
+    <div className={`container mx-auto px-4 ${modifier || 'my-15'}`}>
       <Carousel className="w-full">
         <CarouselContent>
           {carouselItem.map((item: any, index: number) => (

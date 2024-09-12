@@ -13,8 +13,6 @@ interface ParagraphQuoteProps {
 export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuoteProps) {
   const { author, jobTitle, logo, quote, thumb } = readFragment(ParagraphQuoteFragment, paragraph);
 
-  console.dir(thumb)
-
   return (
     <div className={`container mx-auto ${modifier ?? 'my-6 lg:my-15'}`}>
       <div className="flex justify-center">

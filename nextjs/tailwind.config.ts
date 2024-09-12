@@ -10,6 +10,57 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			typography: (theme) => ({
+				DEFAULT: {
+					css: {
+						h1: {
+							fontSize: theme('fontSize.4xl'),
+							fontWeight: theme('fontWeight.bold'),
+							lineHeight: theme('lineHeight.tight'),
+							marginTop: theme('spacing.4'),
+							marginBottom: theme('spacing.4'),
+							color: theme('colors.gray.800'),
+						},
+						h2: {
+							fontSize: theme('fontSize.3xl'),
+							fontWeight: theme('fontWeight.semibold'),
+							lineHeight: theme('lineHeight.tight'),
+							marginTop: theme('spacing.3'),
+							marginBottom: theme('spacing.3'),
+							color: theme('colors.gray.800'),
+						},
+						h3: {
+							fontSize: theme('fontSize.2xl'),
+							fontWeight: theme('fontWeight.medium'),
+							lineHeight: theme('lineHeight.tight'),
+							marginTop: theme('spacing.2'),
+							marginBottom: theme('spacing.2'),
+							color: theme('colors.gray.800'),
+						},
+						h4: {
+							fontSize: theme('fontSize.xl'),
+							fontWeight: theme('fontWeight.medium'),
+							marginTop: theme('spacing.2'),
+							marginBottom: theme('spacing.2'),
+							color: theme('colors.gray.800'),
+						},
+						h5: {
+							fontSize: theme('fontSize.lg'),
+							fontWeight: theme('fontWeight.normal'),
+							marginTop: theme('spacing.1'),
+							marginBottom: theme('spacing.1'),
+							color: theme('colors.gray.800'),
+						},
+						h6: {
+							fontSize: theme('fontSize.base'),
+							fontWeight: theme('fontWeight.normal'),
+							marginTop: theme('spacing.1'),
+							marginBottom: theme('spacing.1'),
+							color: theme('colors.gray.800'),
+						},
+					},
+				},
+			}),
 			container: {
 				center: 'true',
 				padding: '2rem',
@@ -105,6 +156,6 @@ const config: Config = {
 			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
 export default config;

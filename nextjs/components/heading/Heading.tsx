@@ -16,7 +16,7 @@ const Heading: React.FC<HeadingProps> = ({ title, level = 2, className, icon, ur
   const headingClasses = cn(
     "scroll-m-20",
     {
-      "text-4xl font-extrabold tracking-tight lg:text-5xl": level === 1,
+      "text-4xl font-semibold tracking-tight lg:text-5xl": level === 1,
       "text-3xl font-semibold tracking-tight": level === 2,
       "text-2xl font-semibold tracking-tight": level === 3,
       "text-xl font-semibold tracking-tight": level === 4,

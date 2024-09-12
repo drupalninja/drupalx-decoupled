@@ -24,23 +24,27 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
 
   return (
     <>
-      <article className="mb-6 mb-lg-12">
-        <div className="container">
+      <article className="mb-6 lg:mb-12">
+        <div className="container mx-auto px-4">
           {mediaFragment && (
             <div className="mb-7">
-              {getImage(mediaFragment, 'img-fluid', ['HEROS', 'HEROLX2'])}
+              {getImage(mediaFragment, 'w-full h-auto', ['HEROS', 'HEROLX2'])}
             </div>
           )}
-          <div className="col-lg-10 col-xl-8 mx-auto mb-2 mb-lg-10">
-            {subhead && (<div className="text-uppercase mb-2 fs-7">
-              {subhead}
-            </div>)}
-            <Heading level={1} title={title} modifier="heading mb-2 display-3" />
-            {leadFragment?.value && (<div className="lead mb-4" dangerouslySetInnerHTML={{ __html: leadFragment.value }} />)}
+          <div className="max-w-screen-lg mx-auto mb-2 lg:mb-10">
+            {subhead && (
+              <div className="uppercase mb-2 text-sm tracking-wide">
+                {subhead}
+              </div>
+            )}
+            <Heading level={1} title={title} className="mb-8" />
+            {leadFragment?.value && (
+              <div className="prose prose-lg lead mb-4 max-w-screen-lg mx-auto" dangerouslySetInnerHTML={{ __html: leadFragment.value }} />
+            )}
           </div>
           {bodyProcessed && (
             <div
-              className="col-lg-10 col-xl-7 mx-auto"
+              className="prose prose-lg max-w-screen-md mx-auto"
               dangerouslySetInnerHTML={{ __html: bodyProcessed }}
             />
           )}
