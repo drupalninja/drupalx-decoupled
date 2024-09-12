@@ -60,7 +60,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
   return (
     <div className={`flex items-center justify-between ${modifier}`}>
       <Link href="/" className={!showLogo ? "text-2xl font-bold" : ""}>
-        {showLogo && <Image src={siteLogo ?? ''} alt="Site Name" width={312} height={96} className="mr-1" />}
+        {showLogo && <Image src={siteLogo ?? ''} alt="Site Name" width={200} height={100} className="mr-1" />}
         {!showLogo && siteName}
       </Link>
 
@@ -74,7 +74,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
             <SheetTitle>Menu</SheetTitle>
           </SheetHeader>
           <nav className="mt-6">
-            <MainMenuItems items={navItems} linkModifier={linkModifier} depth={0} isMobile={true} />
+            <MobileMenuItems items={navItems} linkModifier={linkModifier} />
             <div className="mt-4">
               {ctaItems.map((item, index) => (
                 <Button
@@ -95,7 +95,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
       <div className="hidden lg:flex lg:items-center lg:space-x-4">
         <NavigationMenu>
           <NavigationMenuList className="space-x-2">
-            <MainMenuItems items={navItems} linkModifier={linkModifier} depth={0} isMobile={false} />
+            <DesktopMenuItems items={navItems} linkModifier={linkModifier} />
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center space-x-4">
@@ -115,18 +115,68 @@ const MainMenu: React.FC<MainMenuProps> = ({
   )
 }
 
-const MainMenuItems: React.FC<{
+const MobileMenuItems: React.FC<{
   items: MainMenuItem[]
   linkModifier?: string
-  depth: number
-  isMobile: boolean
-}> = ({ items, linkModifier, depth, isMobile }) => {
+}> = ({ items, linkModifier }) => {
+  return (
+    <ul className="space-y-4">
+      {items.map((item, index) => (
+        <li key={index}>
+          {item.below ? (
+            <div>
+              <span className={cn(
+                "text-lg font-semibold",
+                linkModifier,
+                item.inActiveTrail ? 'font-bold' : ''
+              )}>
+                {item.title}
+              </span>
+              <ul className="ml-4 mt-2 space-y-2">
+                {item.below.map((subItem, subIndex) => (
+                  <li key={subIndex}>
+                    <Link
+                      href={subItem.url}
+                      className={cn(
+                        "block text-base",
+                        linkModifier,
+                        subItem.inActiveTrail ? 'font-bold' : ''
+                      )}
+                    >
+                      {subItem.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <Link
+              href={item.url}
+              className={cn(
+                "block text-lg",
+                linkModifier,
+                item.inActiveTrail ? 'font-bold' : ''
+              )}
+            >
+              {item.title}
+            </Link>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+const DesktopMenuItems: React.FC<{
+  items: MainMenuItem[]
+  linkModifier?: string
+}> = ({ items, linkModifier }) => {
   return (
     <>
       {items.map((item, index) => {
         if (item.below) {
           return (
-            <NavigationMenuItem key={index} className={isMobile ? 'mb-4' : ''}>
+            <NavigationMenuItem key={index}>
               <NavigationMenuTrigger className={cn(
                 "text-lg",
                 linkModifier,
@@ -160,7 +210,7 @@ const MainMenuItems: React.FC<{
         }
 
         return (
-          <NavigationMenuItem key={index} className={isMobile ? 'mb-4' : ''}>
+          <NavigationMenuItem key={index}>
             <Link href={item.url} legacyBehavior passHref>
               <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-lg")}>
                 <span className={cn(
