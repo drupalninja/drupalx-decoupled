@@ -1,14 +1,29 @@
 'use client'
 
-import React from 'react';
-import { Navbar, Nav, Offcanvas, Container, NavDropdown } from 'react-bootstrap';
-import Button from '../button/Button';
-import { MainMenuItem, MainMenuProps } from './Types';
-import { usePathname } from 'next/navigation';
-import { frontpagePath } from '@/utils/routes';
-import Image from 'next/image';
-import Link from 'next/link';
-import './MainMenu.scss';
+import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+import { Button } from "@/components/ui/button"
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import { MainMenuItem, MainMenuProps } from './Types'
+import { frontpagePath } from '@/utils/routes'
+import { cn } from "@/lib/utils"
 
 const MainMenu: React.FC<MainMenuProps> = ({
   modifier,
@@ -19,113 +34,148 @@ const MainMenu: React.FC<MainMenuProps> = ({
   menuItems,
   ctaLinkCount,
 }) => {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   // Add active trail classes to menu items.
   menuItems = menuItems.map((item, index) => {
-    const isCTA = index >= menuItems.length - ctaLinkCount;
+    const isCTA = index >= menuItems.length - ctaLinkCount
     if (item.url === frontpagePath && pathname === '/') {
-      item.inActiveTrail = true;
+      item.inActiveTrail = true
     }
     else if (pathname) {
-      item.inActiveTrail = pathname.startsWith(item.url);
+      item.inActiveTrail = pathname.startsWith(item.url)
     }
     if (item.below && pathname) {
       item.below = item.below.map((subItem) => {
-        subItem.inActiveTrail = pathname.startsWith(subItem.url);
-        return subItem;
-      });
+        subItem.inActiveTrail = pathname.startsWith(subItem.url)
+        return subItem
+      })
     }
-    return { ...item, isCTA };
-  });
+    return { ...item, isCTA }
+  })
+
+  const navItems = menuItems.filter(item => !item.isCTA)
+  const ctaItems = menuItems.filter(item => item.isCTA)
 
   return (
-    <Navbar bg="white" expand="xl" className={`${modifier}`}>
-      <Container>
-        <Navbar.Brand href="/" className={!showLogo ? "py-4 fs-2 fw-bold" : ""}>
-          {showLogo && <Image src={siteLogo ?? ''} alt="Site Name" width={312} height={96} style={{ marginRight: '4px' }} />}
-          {!showLogo && siteName}
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="offcanvasNavbar" />
-        <Navbar.Offcanvas
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-          placement="end"
-          className="d-xl-none"
-        >
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
-              <MainMenuItems items={menuItems} linkModifier={linkModifier} depth={0} ctaLinkCount={ctaLinkCount} isDesktop={false} />
-            </Nav>
-          </Offcanvas.Body>
-        </Navbar.Offcanvas>
-        <Navbar.Collapse id="navbarSupportedContent" className="d-none d-xl-block">
-          <Nav className="ms-auto gap-3 align-items-center">
-            <MainMenuItems items={menuItems} linkModifier={linkModifier} depth={0} ctaLinkCount={ctaLinkCount} isDesktop={true} />
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
-};
+    <div className={`flex items-center justify-between ${modifier}`}>
+      <Link href="/" className={!showLogo ? "text-2xl font-bold" : ""}>
+        {showLogo && <Image src={siteLogo ?? ''} alt="Site Name" width={312} height={96} className="mr-1" />}
+        {!showLogo && siteName}
+      </Link>
+
+      {/* Mobile menu */}
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline" className="lg:hidden">Menu</Button>
+        </SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Menu</SheetTitle>
+          </SheetHeader>
+          <nav className="mt-6">
+            <MainMenuItems items={navItems} linkModifier={linkModifier} depth={0} isMobile={true} />
+            <div className="mt-4">
+              {ctaItems.map((item, index) => (
+                <Button
+                  key={index}
+                  asChild
+                  variant={index === ctaItems.length - 1 ? "default" : "outline"}
+                  className="w-full mt-2 text-lg"
+                >
+                  <Link href={item.url}>{item.title}</Link>
+                </Button>
+              ))}
+            </div>
+          </nav>
+        </SheetContent>
+      </Sheet>
+
+      {/* Desktop menu */}
+      <div className="hidden lg:flex lg:items-center lg:space-x-4">
+        <NavigationMenu>
+          <NavigationMenuList className="space-x-2">
+            <MainMenuItems items={navItems} linkModifier={linkModifier} depth={0} isMobile={false} />
+          </NavigationMenuList>
+        </NavigationMenu>
+        <div className="flex items-center space-x-4">
+          {ctaItems.map((item, index) => (
+            <Button
+              key={index}
+              asChild
+              variant={index === ctaItems.length - 1 ? "default" : "outline"}
+              className="text-lg"
+            >
+              <Link href={item.url}>{item.title}</Link>
+            </Button>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const MainMenuItems: React.FC<{
-  items: (MainMenuItem & { isCTA?: boolean })[];
-  linkModifier?: string;
-  depth: number;
-  isDesktop: boolean;
-  ctaLinkCount: number;
-}> = ({ items, linkModifier, depth, isDesktop, ctaLinkCount }) => {
+  items: MainMenuItem[]
+  linkModifier?: string
+  depth: number
+  isMobile: boolean
+}> = ({ items, linkModifier, depth, isMobile }) => {
   return (
     <>
       {items.map((item, index) => {
-        if (item.isCTA) {
-          return (
-            <Button
-              key={index}
-              url={item.url}
-              text={item.title}
-              modifier={`${index === items.length - ctaLinkCount ? "btn-primary" : "btn-outline-primary"} mt-2 mt-xl-0`}
-            />
-          );
-        }
-
         if (item.below) {
           return (
-            <NavDropdown
-              key={index}
-              title={item.title}
-              id={`nav-dropdown-${index}`}
-              className={`fs-6 ${linkModifier ?? ''} ${item.inActiveTrail ? 'active' : ''}`}
-            >
-              {item.below.map((subItem, subIndex) => (
-                <NavDropdown.Item
-                  key={subIndex}
-                  href={subItem.url}
-                  className={`${linkModifier ?? ''} ${subItem.inActiveTrail ? 'active' : ''}`}
-                >
-                  {subItem.title}
-                </NavDropdown.Item>
-              ))}
-            </NavDropdown>
-          );
+            <NavigationMenuItem key={index} className={isMobile ? 'mb-4' : ''}>
+              <NavigationMenuTrigger className={cn(
+                "text-lg",
+                linkModifier,
+                item.inActiveTrail ? 'font-bold' : ''
+              )}>
+                {item.title}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                  {item.below.map((subItem, subIndex) => (
+                    <li key={subIndex}>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href={subItem.url}
+                          className={cn(
+                            "block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                            "text-base",
+                            linkModifier,
+                            subItem.inActiveTrail ? 'font-bold' : ''
+                          )}
+                        >
+                          {subItem.title}
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          )
         }
 
         return (
-          <Link
-            key={index}
-            href={item.url}
-            className={`nav-link fs-6 ${linkModifier ?? ''} ${item.inActiveTrail ? 'active' : ''}`}
-          >
-            {item.title}
-          </Link>
-        );
+          <NavigationMenuItem key={index} className={isMobile ? 'mb-4' : ''}>
+            <Link href={item.url} legacyBehavior passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-lg")}>
+                <span className={cn(
+                  linkModifier,
+                  item.inActiveTrail ? 'font-bold' : ''
+                )}>
+                  {item.title}
+                </span>
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        )
       })}
     </>
-  );
-};
+  )
+}
 
-export default MainMenu;
+export default MainMenu

@@ -1,11 +1,12 @@
 import 'material-symbols';
 import { Open_Sans } from "next/font/google";
-import "../styles/bootstrap.scss";
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { MainMenuQuery, FooterMenuQuery } from "@/graphql/queries";
 import { getClientWithAuth } from "@/utils/client.server";
+
+import './globals.css'
 
 const font = Open_Sans({ subsets: ["latin"] });
 
