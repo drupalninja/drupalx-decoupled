@@ -42,3 +42,6 @@ graphql/fragments/generated
 graphql/gql.tada.cache.ts
 
 *storybook.log
+
+# Cypress
+cypress/screenshots/

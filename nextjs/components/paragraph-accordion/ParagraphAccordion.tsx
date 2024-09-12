@@ -22,11 +22,11 @@ export default function ParagraphAccordion({ paragraph, modifier, containerModif
         <div className={`mb-4 ${modifier ?? ''}`}>
           <Accordion type="single" collapsible className="w-full">
             {(accordionItem as any).map((item: any, index: number) => (
-              <AccordionItem value={`item-${index}`} key={index} className="bg-white rounded-lg overflow-hidden">
+              <AccordionItem value={`item-${index}`} key={index} className="accordion-item bg-white rounded-lg overflow-hidden">
                 <AccordionTrigger className="text-lg font-semibold py-4 px-6 hover:bg-blue-100">
                   {item?.title}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 py-4">
+                <AccordionContent className="accordion-content px-6 py-4">
                   <div dangerouslySetInnerHTML={{ __html: item?.body.value }} />
                   {item.link && (
                     <Button

@@ -84,7 +84,7 @@ const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', li
   link?: { url: string; title: string };
 }) => {
   return (
-    <Card className="h-full flex flex-col">
+    <Card className="card h-full flex flex-col">
       {mediaLink && media ? (
         <Link href={mediaLink}>
           <AspectRatio ratio={16 / 9}>
@@ -100,12 +100,12 @@ const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', li
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-2">
             {tags.map((tag, index) => (
-              <Badge key={index} variant="secondary" className='mb-2'>{tag}</Badge>
+              <Badge key={index} variant="secondary" className='badge mb-2'>{tag}</Badge>
             ))}
           </div>
         )}
         <CardHeader className="p-0">
-          <CardTitle className="text-xl mb-3">
+          <CardTitle className="card-title text-xl mb-3">
             {heading.url ? (
               <Link href={heading.url} className="hover:underline">
                 {heading.title}
