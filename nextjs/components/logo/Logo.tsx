@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
-import './Logo.scss';
 
 interface LogoProps {
   modifier?: string;
