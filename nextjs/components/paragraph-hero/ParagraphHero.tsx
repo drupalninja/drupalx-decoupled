@@ -1,9 +1,9 @@
+import React from 'react';
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphHeroFragment } from '@/graphql/fragments/paragraph';
 import { getImage } from '../helpers/Utilities';
 import { TextFragment, LinkFragment } from '@/graphql/fragments/misc';
-import Button from '../button/Button';
-import './ParagraphHero.scss';
+import { Button } from "@/components/ui/button";
 
 interface ParagraphHeroProps {
   paragraph: FragmentOf<typeof ParagraphHeroFragment>
@@ -17,45 +17,42 @@ export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProp
   const headingFragment = readFragment(TextFragment, heading);
 
   return (
-    <div className={modifier ?? 'container'}>
-      <div className={`mb-6 mb-lg-12 text-center ${modifier || ''}`}>
+    <div className={`container mx-auto px-4 ${modifier || ''}`}>
+      <div className={`mb-6 lg:mb-12 text-center ${modifier || ''}`}>
         {heroLayout === 'image_top' && requiredMedia && (
-          <div className="image-top row">
-            <div className="mb-4 mb-lg-8 d-flex justify-content-center align-items-center">
-              {getImage(requiredMedia, 'img-fluid', ['HEROS', 'HEROLX2'])}
-            </div>
+          <div className="mb-4 lg:mb-8 flex justify-center items-center">
+            {getImage(requiredMedia, 'max-w-full h-auto', ['HEROS', 'HEROLX2'])}
           </div>
         )}
 
         {headingFragment && (
-          <div className="col-lg-8 mx-auto">
-            <h1 className="heading display-5 fw-semibold mb-4 mb-lg-4" dangerouslySetInnerHTML={{ __html: headingFragment?.value ?? '' }} />
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-4xl lg:text-5xl font-semibold mb-4 lg:mb-4" dangerouslySetInnerHTML={{ __html: headingFragment?.value ?? '' }} />
           </div>
         )}
 
-        <div className="col-lg-8 mx-auto">
+        <div className="max-w-3xl mx-auto">
           {summaryFragment && (
-            <div className="lead mb-2 mb-lg-4" dangerouslySetInnerHTML={{ __html: summaryFragment?.value ?? '' }} />
+            <div className="text-xl mb-2 lg:mb-4" dangerouslySetInnerHTML={{ __html: summaryFragment?.value ?? '' }} />
           )}
 
           {(linkFragment?.url && linkFragment?.title) && (
-            <div className="d-grid gap-2 d-flex justify-content-center">
+            <div className="flex justify-center mt-4">
               {link && (
                 <Button
-                  url={linkFragment?.url}
-                  text={linkFragment?.title}
-                  modifier="btn-primary"
-                />
+                  variant="default"
+                  asChild
+                >
+                  <a href={linkFragment.url}>{linkFragment.title}</a>
+                </Button>
               )}
             </div>
           )}
         </div>
 
         {heroLayout === 'image_bottom' && requiredMedia && (
-          <div className="image-bottom row mt-6">
-            <div className="d-flex justify-content-center align-items-center">
-              {getImage(requiredMedia, 'img-fluid', ['HEROS', 'HEROLX2'])}
-            </div>
+          <div className="mt-6 flex justify-center items-center">
+            {getImage(requiredMedia, 'max-w-full h-auto', ['HEROS', 'HEROLX2'])}
           </div>
         )}
       </div>
