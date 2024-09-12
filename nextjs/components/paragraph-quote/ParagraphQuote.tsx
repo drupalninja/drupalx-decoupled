@@ -26,7 +26,7 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
               </div>
             )}
             <blockquote className="text-center mb-4">
-              <p className="text-2xl font-normal">{quote}</p>
+              <p className="text-3xl font-normal">{quote}</p>
             </blockquote>
             <div className="text-center">
               <div className="inline-block">

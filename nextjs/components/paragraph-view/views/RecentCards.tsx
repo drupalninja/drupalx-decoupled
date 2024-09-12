@@ -26,7 +26,7 @@ export default function RecentCards({ results }: RecentCardsProps) {
                 </AspectRatio>
               </Link>
               <CardHeader>
-                <CardTitle className='text-2xl'>
+                <CardTitle className='text-3xl'>
                   <Link href={articleData.path} className="hover:underline">
                     {articleData.title}
                   </Link>

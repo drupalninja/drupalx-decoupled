@@ -17,7 +17,7 @@ const mockParagraph = {
       active: true,
       media: {
         image: {
-          url: './images/stars.jpg',
+          url: './images/card.webp',
           alt: 'Image 1',
           width: 1920,
           height: 1280,
@@ -30,7 +30,7 @@ const mockParagraph = {
       active: false,
       media: {
         image: {
-          url: './images/stars.jpg',
+          url: './images/card.webp',
           alt: 'Image 2',
           width: 1920,
           height: 1280,
@@ -43,7 +43,7 @@ const mockParagraph = {
       active: false,
       media: {
         image: {
-          url: './images/stars.jpg',
+          url: './images/card.webp',
           alt: 'Image 3',
           width: 1920,
           height: 1280,

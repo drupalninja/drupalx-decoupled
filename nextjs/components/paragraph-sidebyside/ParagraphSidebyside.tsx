@@ -28,7 +28,7 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
             </Badge>
           </div>
         )}
-        <h2 className="text-2xl font-bold">{sidebysideTitle}</h2>
+        <h2 className="text-3xl font-bold">{sidebysideTitle}</h2>
         {textFragment && (
           <div
             className="mb-3"

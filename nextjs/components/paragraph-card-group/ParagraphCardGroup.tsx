@@ -16,13 +16,16 @@ interface ParagraphCardGroupProps {
 export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCardGroupProps) {
   const { title, card } = readFragment(ParagraphCardGroupFragment, paragraph);
 
+  // Determine the grid columns based on the number of cards
+  const gridCols = card.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
+
   return (
     <div className={modifier ?? 'container mx-auto my-15'}>
       <div className="space-y-6 lg:space-y-8">
         {title && (
-          <h2 className="text-2xl lg:text-3xl font-bold text-center mb-6 lg:mb-8">{title}</h2>
+          <h2 className="text-3xl lg:text-3xl font-bold text-center mb-6 lg:mb-8">{title}</h2>
         )}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        <div className={`grid grid-cols-1 ${gridCols} gap-4 lg:gap-6`}>
           {card.map((item: any, index: number) => (
             <div key={index} className={`mb-4`}>
               {item.__typename === 'ParagraphStatsItem' ? (
@@ -86,12 +89,12 @@ const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', li
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-2">
             {tags.map((tag, index) => (
-              <Badge key={index} variant="secondary">{tag}</Badge>
+              <Badge key={index} variant="secondary" className='mb-2'>{tag}</Badge>
             ))}
           </div>
         )}
         <CardHeader className="p-0">
-          <CardTitle className="mb-3">
+          <CardTitle className="text-xl mb-3">
             {heading.url ? (
               <Link href={heading.url} className="hover:underline">
                 {heading.title}

@@ -4,6 +4,7 @@ import { ParagraphHeroFragment } from '@/graphql/fragments/paragraph';
 import { getImage } from '../helpers/Utilities';
 import { TextFragment, LinkFragment } from '@/graphql/fragments/misc';
 import { Button } from "@/components/ui/button";
+import './ParagraphHero.scss';
 
 interface ParagraphHeroProps {
   paragraph: FragmentOf<typeof ParagraphHeroFragment>
@@ -17,7 +18,7 @@ export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProp
   const headingFragment = readFragment(TextFragment, heading);
 
   return (
-    <div className={`container mx-auto px-4 ${modifier || ''}`}>
+    <div className={`hero container mx-auto px-4 ${modifier || ''}`}>
       <div className={`mb-6 lg:mb-12 text-center ${modifier || ''}`}>
         {heroLayout === 'image_top' && requiredMedia && (
           <div className="mb-4 lg:mb-8 flex justify-center items-center">

@@ -30,11 +30,11 @@ export default function ParagraphNewsletter({ paragraph, modifier }: ParagraphNe
                 <Input
                   type="email"
                   placeholder="Email Address"
-                  className="flex-grow bg-white text-1xl"
+                  className="flex-grow bg-white text-xl"
                 />
                 <Button
                   type="submit"
-                  className="bg-gray-900 text-white hover:bg-gray-700 text-1xl"
+                  className="bg-gray-900 text-white hover:bg-gray-700 text-xl"
                 >
                   Submit
                 </Button>

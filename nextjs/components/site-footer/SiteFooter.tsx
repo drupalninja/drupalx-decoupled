@@ -21,14 +21,14 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
   return (
     <footer className="container mx-auto px-4">
       <Separator className="my-4" />
-      <div className="flex flex-wrap items-center pt-3 pb-10">
-        <div className="w-full md:w-1/3 text-left mb-3 md:mb-0">
+      <div className="flex flex-col items-center space-y-4 pt-3 pb-10 md:flex-row md:justify-between md:space-y-0">
+        <div className="text-center md:text-left">
           <p className="text-muted-foreground">
             © {currentYear} {siteName}
           </p>
         </div>
 
-        <div className="w-full md:w-1/3 flex justify-center mb-3 md:mb-0">
+        <div className="flex justify-center">
           <Link href="/" className="flex items-center justify-center">
             {showLogo && siteLogo && (
               <Image src={siteLogo} width={250} height={70} alt={siteName} />
@@ -36,8 +36,8 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
           </Link>
         </div>
 
-        <nav className="w-full md:w-1/3">
-          <ul className="flex justify-center md:justify-end space-x-4">
+        <nav>
+          <ul className="flex flex-wrap justify-center space-x-4 md:justify-end">
             {links.map((link, index) =>
               link?.url && (
                 <li key={index}>

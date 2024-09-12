@@ -30,7 +30,7 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
                       </div>
                     )}
                     <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 md:p-6">
-                      {item.title && <h3 className="text-xl md:text-2xl font-semibold mb-2">{item.title}</h3>}
+                      {item.title && <h3 className="text-xl md:text-3xl font-semibold mb-2">{item.title}</h3>}
                       <p className="text-sm md:text-lg">{item.summary}</p>
                     </div>
                   </div>
