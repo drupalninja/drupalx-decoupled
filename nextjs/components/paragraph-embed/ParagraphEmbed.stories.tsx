@@ -22,6 +22,5 @@ const mockParagraph = {
 export const Default: Story = {
   args: {
     paragraph: mockParagraph as any,
-    modifier: '',
   },
 };

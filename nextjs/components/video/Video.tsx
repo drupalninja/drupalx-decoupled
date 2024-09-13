@@ -1,5 +1,5 @@
 import React from 'react';
-import './Video.scss';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface VideoProps {
   video: string;
@@ -7,7 +7,16 @@ interface VideoProps {
 
 const Video: React.FC<VideoProps> = ({ video }) => {
   return (
-    <div className="ratio ratio-16x9" dangerouslySetInnerHTML={{ __html: video }}></div>
+    <Card className="w-full">
+      <CardContent className="p-0">
+        <div className="relative w-full pt-[56.25%]">
+          <div
+            className="absolute inset-0"
+            dangerouslySetInnerHTML={{ __html: video }}
+          />
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

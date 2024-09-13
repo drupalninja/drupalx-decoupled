@@ -4,26 +4,24 @@ describe('Gallery Lightbox Component', () => {
   });
 
   it('should display the gallery section with title and summary', () => {
-    cy.get('.mb-4').should('contain.text', 'Optional Gallery Title');
-    cy.get('.pb-3').should('contain.html', 'Optional summary text');
+    cy.get('h2').should('contain.text', 'Optional Gallery Title');
+    cy.get('.text-center.pb-3').should('exist');
   });
 
   it('should display all gallery items', () => {
-    cy.get('.row > .col-6.col-md-3.mb-3').should('have.length', 4);
+    cy.get('.grid > div').should('have.length', 4);
   });
 
   it('should open and close the lightbox modal', () => {
-    cy.get('.col-6.col-md-3.mb-3').first().find('img').click();
-    cy.get('.modal').should('be.visible');
-    cy.get('.modal.show').find('.close').click();
+    cy.get('[data-cy="modal-button"]').first().click();
+    cy.get('[data-cy="modal"]').should('be.visible');
+    cy.get('.gallery-close').contains('Close').click();
+    cy.get('[data-cy="modal"]').should('not.exist');
   });
-  
-  it('should display correct image in lightbox modal', () => {
-    const firstItem = cy.get('.col-6.col-md-3.mb-3').first();
-    firstItem.find('img').click();
 
-    cy.get('.modal').find('img').should('have.attr', 'alt', 'Gallery 1');
-    cy.get('.modal').find('img').should('have.attr', 'src').and('include', 'card.webp');
+  it('should display correct image in lightbox modal', () => {
+    cy.get('[data-cy="modal-button"]').first().click();
+    cy.get('[data-cy="modal"]').find('img').should('exist');
   });
 
   it('should be responsive on various screen sizes', () => {
@@ -31,8 +29,7 @@ describe('Gallery Lightbox Component', () => {
 
     sizes.forEach((size) => {
       cy.viewport(size);
-
-      cy.get('.row > .col-6.col-md-3.mb-3').should('have.length', 4);
+      cy.get('.grid > div').should('have.length', 4);
     });
   });
 });

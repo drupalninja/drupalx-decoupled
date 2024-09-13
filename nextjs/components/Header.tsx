@@ -26,8 +26,8 @@ export default function Header({ mainMenu }: HeaderProps) {
   })) || [];
 
   return (
-    <header role="banner" className="sticky-top">
-      <section className="mb-2 mb-lg-8">
+    <header role="banner" className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mb-8">
+      <div className="container mx-auto py-4">
         <MainMenu
           siteLogo={publicRuntimeConfig.LOGO_URL}
           siteName={publicRuntimeConfig.SITE_NAME}
@@ -36,7 +36,7 @@ export default function Header({ mainMenu }: HeaderProps) {
           modifier="p-0"
           ctaLinkCount={2}
         />
-      </section>
+      </div>
     </header>
   );
 }

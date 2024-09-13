@@ -4,6 +4,7 @@ export interface MainMenuItem {
   inActiveTrail?: boolean;
   isExpanded?: boolean;
   below?: MainMenuItem[];
+  isCTA?: boolean;
 }
 
 export interface MainMenuProps {

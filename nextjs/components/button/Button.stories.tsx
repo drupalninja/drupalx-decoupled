@@ -1,5 +1,7 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from './Button';
+import { ArrowRight } from 'lucide-react';
 
 const meta: Meta<typeof Button> = {
   title: 'General/Button',
@@ -14,12 +16,16 @@ const meta: Meta<typeof Button> = {
       control: 'text',
     },
     icon: {
-      description: 'The icon name to be displayed inside the button',
-      control: 'text',
+      description: 'The icon component to be displayed inside the button',
+      control: { type: 'select', options: ['ArrowRight', 'none'] },
     },
-    modifier: {
-      description: 'The modifier classes for the button',
-      control: 'text',
+    variant: {
+      description: 'The button variant',
+      control: { type: 'select', options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'] },
+    },
+    size: {
+      description: 'The button size',
+      control: { type: 'select', options: ['default', 'sm', 'lg', 'icon'] },
     },
   },
 };
@@ -29,54 +35,67 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    url: '#',
-    text: 'Primary Button',
-    icon: 'arrow_right_alt',
-    modifier: 'btn-primary',
+    text: 'Default Button',
+    icon: ArrowRight,
+    variant: 'default',
+    size: 'default',
   }
-}
+};
+
+export const Destructive: Story = {
+  args: {
+    text: 'Destructive Button',
+    variant: 'destructive',
+  }
+};
+
+export const Outline: Story = {
+  args: {
+    text: 'Outline Button',
+    variant: 'outline',
+  }
+};
 
 export const Secondary: Story = {
   args: {
-    url: '#',
     text: 'Secondary Button',
-    icon: 'arrow_right_alt',
-    modifier: 'btn-secondary',
+    variant: 'secondary',
   }
 };
 
-export const PrimaryOutlined: Story = {
+export const Ghost: Story = {
   args: {
-    url: '#',
-    text: 'Primary Button',
-    icon: '',
-    modifier: 'btn-outline-primary',
+    text: 'Ghost Button',
+    variant: 'ghost',
   }
 };
 
-export const SecondaryOutlined: Story = {
+export const Link: Story = {
   args: {
+    text: 'Link Button',
+    variant: 'link',
     url: '#',
-    text: 'Secondary Button',
-    icon: '',
-    modifier: 'btn-outline-secondary',
   }
 };
 
-export const PrimarySmall: Story = {
+export const Small: Story = {
   args: {
-    url: '#',
-    text: 'Primary Button Small',
-    icon: '',
-    modifier: 'btn-primary btn-sm',
+    text: 'Small Button',
+    size: 'sm',
   }
 };
 
-export const SecondarySmall: Story = {
+export const Large: Story = {
   args: {
-    url: '#',
-    text: 'Secondary Button Small',
-    icon: '',
-    modifier: 'btn-secondary btn-sm',
+    text: 'Large Button',
+    size: 'lg',
+  }
+};
+
+export const IconButton: Story = {
+  args: {
+    text: '',
+    icon: ArrowRight,
+    size: 'icon',
   }
 };

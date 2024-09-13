@@ -1,23 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
-import './Button.scss';
+import { Button as ShadcnButton, ButtonProps as ShadcnButtonProps } from "@/components/ui/button";
+import { LucideIcon } from 'lucide-react';
 
-export interface ButtonProps {
+export interface ButtonProps extends Omit<ShadcnButtonProps, 'asChild'> {
   url?: string;
   text: string;
-  icon?: string;
-  modifier?: string;
+  icon?: LucideIcon;
 }
 
-const Button: React.FC<ButtonProps> = ({ url, text, icon, modifier }) => {
-  return (
-    <>{url ? (
-      <Link href={url} className={`btn ${modifier || ''} px-4 py-2 rounded`} role="button">
-        {text} {icon && <span className="material-symbols-outlined ms-1">{icon}</span>}
+const Button: React.FC<ButtonProps> = ({ url, text, icon: Icon, ...props }) => {
+  const buttonContent = (
+    <>
+      {text}
+      {Icon && <Icon className="ml-2 h-4 w-4" />}
+    </>
+  );
+
+  if (url) {
+    return (
+      <Link href={url} passHref legacyBehavior>
+        <ShadcnButton asChild {...props}>
+          <a>{buttonContent}</a>
+        </ShadcnButton>
       </Link>
-    ) : (
-      <button className={`btn ${modifier || ''} px-4 py-2 rounded`}>{text}</button>
-    )}</>
+    );
+  }
+
+  return (
+    <ShadcnButton {...props}>
+      {buttonContent}
+    </ShadcnButton>
   );
 };
 

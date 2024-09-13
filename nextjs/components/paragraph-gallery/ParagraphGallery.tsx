@@ -3,10 +3,16 @@
 import { useState } from 'react';
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphGalleryFragment } from '@/graphql/fragments/paragraph';
-import { Button, Modal } from 'react-bootstrap';
 import { TextSummaryFragment } from '@/graphql/fragments/misc';
 import { getImage } from '../helpers/Utilities';
-import './ParagraphGallery.scss';
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog"
 
 interface ParagraphGalleryProps {
   paragraph: FragmentOf<typeof ParagraphGalleryFragment>
@@ -17,62 +23,55 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
   const { title, gallerySummary, mediaItem } = readFragment(ParagraphGalleryFragment, paragraph);
   const gallerySummaryFragment = readFragment(TextSummaryFragment, gallerySummary);
 
-  const [modalStates, setModalStates] = useState<Record<string, boolean>>({})
-
-  const handleClose = (id: string) => setModalStates(prev => ({ ...prev, [id]: false }))
-  const handleShow = (id: string) => setModalStates(prev => ({ ...prev, [id]: true }))
+  const [openModal, setOpenModal] = useState<string | null>(null);
 
   return (
-    <div className={modifier ?? 'container my-6 my-lg-15' }>
+    <div className={modifier ?? 'container my-6 my-lg-15'}>
       {title && (
-        <div className="mb-4 text-md-center">
-          <h2>{title}</h2>
+        <div className="mb-4 text-center">
+          <h2 className="text-3xl font-bold">{title}</h2>
         </div>
       )}
       {gallerySummaryFragment && (
-        <div className="d-flex justify-content-center">
-          <div className="text-md-center pb-3 col-md-8">
+        <div className="flex justify-center mb-4">
+          <div className="text-center pb-3 md:w-2/3">
             <div dangerouslySetInnerHTML={{ __html: gallerySummaryFragment?.value ?? '' }} />
           </div>
         </div>
       )}
-      <div className="row">
-        {mediaItem.map((item: any) => (
-          <div key={item.id} className="col-6 col-md-3 mb-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {mediaItem.map((item: any, index: number) => (
+          <div key={`${item.id}-${index}`} className="aspect-w-16 aspect-h-9">
             <Button
-              className='p-0'
-              variant='link'
-              onClick={() => handleShow(item.id)}
-              data-bs-toggle="modal"
-              data-bs-target={`#${item.id}Modal`}
+              variant="ghost"
+              className="p-0 w-full h-full"
+              onClick={() => setOpenModal(item.id)}
               data-cy="modal-button"
             >
-              {getImage(item, 'img-fluid', 'I43SMALL')}
+              {getImage(item, 'w-full h-full object-cover', 'I43LARGE')}
             </Button>
-            <Modal
-              show={modalStates[item.id] || false}
-              onHide={() => handleClose(item.id)}
-              size="lg"
-              className="fade"
-              id={`${item.id}Modal`}
-              aria-labelledby={`${item.id}ModalLabel`}
-              aria-hidden="true"
-              data-cy="modal"
-            >
-              <div data-cy="modal-content" className="modal-content">
-                <Modal.Header closeButton>
-                  <Modal.Title>{item?.image?.alt}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body className="gallery-body">
-                  {getImage(item, 'img-fluid', ['I43SMALL', 'I43LARGE2X'])}
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" className="close" onClick={() => handleClose(item.id)}>
+            <Dialog open={openModal === item.id} onOpenChange={() => setOpenModal(null)}>
+              <DialogContent
+                className="sm:max-w-[50vw] sm:max-h-[90vh]"
+                data-cy="modal"
+                aria-describedby={`description-${item.id}`}
+              >
+                <DialogHeader>
+                  <DialogTitle>{item?.image?.alt}</DialogTitle>
+                </DialogHeader>
+                <div
+                  id={`description-${item.id}`}
+                  className="gallery-body max-h-[70vh] overflow-auto"
+                >
+                  {getImage(item, 'w-full h-auto', ['I43LARGE', 'I43LARGE2X'])}
+                </div>
+                <DialogFooter>
+                  <Button variant="secondary" onClick={() => setOpenModal(null)} className='gallery-close'>
                     Close
                   </Button>
-                </Modal.Footer>
-              </div>
-            </Modal>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           </div>
         ))}
       </div>

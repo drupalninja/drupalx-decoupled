@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Separator } from "@/components/ui/separator"
 
 export type SiteFooterProps = {
   links: { title: string; url: string | null }[];
@@ -18,35 +19,37 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
   currentYear = new Date().getFullYear(),
 }) => {
   return (
-    <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top container">
-      <p className="col-md-4 mb-0 text-body-secondary">
-        © {currentYear} {siteName}
-      </p>
+    <footer className="container mx-auto px-4">
+      <Separator className="my-4" />
+      <div className="flex flex-col items-center space-y-4 pt-3 pb-10 md:flex-row md:justify-between md:space-y-0">
+        <div className="text-center md:text-left">
+          <p className="text-muted-foreground">
+            © {currentYear} {siteName}
+          </p>
+        </div>
 
-      <Link
-        href="/"
-        className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-      >
-        {showLogo && siteLogo ? (
-          <Image src={siteLogo} width={250} height={70} alt={siteName} />
-        ) : (
-          <svg className="bi me-2" width="40" height="32">
-            <use xlinkHref="#bootstrap"></use>
-          </svg>
-        )}
-      </Link>
+        <div className="flex justify-center">
+          <Link href="/" className="flex items-center justify-center">
+            {showLogo && siteLogo && (
+              <Image src={siteLogo} width={250} height={70} alt={siteName} />
+            )}
+          </Link>
+        </div>
 
-      <ul className="nav col-md-4 justify-content-end">
-        {links.map((link, index) =>
-          link?.url && (
-            <li key={index} className="nav-item">
-              <Link href={link.url} className="nav-link px-2 text-body-secondary">
-                {link.title}
-              </Link>
-            </li>
-          )
-        )}
-      </ul>
+        <nav>
+          <ul className="flex flex-wrap justify-center space-x-4 md:justify-end">
+            {links.map((link, index) =>
+              link?.url && (
+                <li key={index}>
+                  <Link href={link.url} className="text-muted-foreground hover:text-foreground">
+                    {link.title}
+                  </Link>
+                </li>
+              )
+            )}
+          </ul>
+        </nav>
+      </div>
     </footer>
   );
 };

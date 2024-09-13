@@ -2,10 +2,9 @@
 
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphAccordionFragment } from '@/graphql/fragments/paragraph';
-import { Accordion } from 'react-bootstrap';
-import Button from '@/components/button/Button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Button } from "@/components/ui/button"
 import Heading from '../heading/Heading';
-import './ParagraphAccordion.scss';
 
 interface ParagraphAccordionProps {
   paragraph: FragmentOf<typeof ParagraphAccordionFragment>
@@ -17,32 +16,32 @@ export default function ParagraphAccordion({ paragraph, modifier, containerModif
   const { title, accordionItem } = readFragment(ParagraphAccordionFragment, paragraph);
 
   return (
-    <div className={containerModifier ?? 'bg-light py-6 py-lg-15'}>
-      {title && <Heading title={title} modifier='text-dark mb-4 container'/>}
-      <div className={`mb-4 ${modifier ?? 'container' }`}>
-        <Accordion>
-          {(accordionItem as any).map((item: any, index: number) => (
-            <Accordion.Item eventKey={`accordion-${index}`} key={index}>
-              <h2 className="accordion-header">
-                <Accordion.Button className="bg-white text-dark p-3 pt-4 pb-4 fs-5 fw-semibold">
+    <div className={`bg-gray-100 py-6 lg:py-15 ${containerModifier ?? ''}`}>
+      <div className="container">
+        {title && <Heading title={title} level={2} className='text-gray-900 mb-8' />}
+        <div className={`mb-4 ${modifier ?? ''}`}>
+          <Accordion type="single" collapsible className="w-full">
+            {(accordionItem as any).map((item: any, index: number) => (
+              <AccordionItem value={`item-${index}`} key={index} className="accordion-item bg-white rounded-lg overflow-hidden">
+                <AccordionTrigger className="text-lg font-semibold py-4 px-6 hover:bg-blue-100">
                   {item?.title}
-                </Accordion.Button>
-              </h2>
-              <Accordion.Collapse eventKey={`accordion-${index}`}>
-                <div className="accordion-body">
+                </AccordionTrigger>
+                <AccordionContent className="accordion-content px-6 py-4">
                   <div dangerouslySetInnerHTML={{ __html: item?.body.value }} />
                   {item.link && (
                     <Button
-                      url={item.link?.url}
-                      text={item.link?.title}
-                      modifier="btn-primary"
-                    />
+                      asChild
+                      variant="default"
+                      className="mt-4"
+                    >
+                      <a href={item.link?.url}>{item.link?.title}</a>
+                    </Button>
                   )}
-                </div>
-              </Accordion.Collapse>
-            </Accordion.Item>
-          ))}
-        </Accordion>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </div>
   );

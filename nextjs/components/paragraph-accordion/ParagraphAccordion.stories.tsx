@@ -28,6 +28,7 @@ export const Default: Story = {
     modifier: '',
     containerModifier: '',
     paragraph: {
+      title: 'Accordion Title',
       accordionItem: [
         {
           title: 'Curabitur aliquet quam id dui posuere blandit.',

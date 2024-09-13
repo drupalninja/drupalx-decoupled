@@ -1,66 +1,64 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Alert from './Alerts';
+import Alerts from './Alerts';
 
-const meta: Meta<typeof Alert> = {
-  title: 'Messages/Alerts',
-  component: Alert,
+const meta: Meta<typeof Alerts> = {
+  title: 'General/Alerts',
+  component: Alerts,
+  argTypes: {
+    type: {
+      control: 'select',
+      options: ['default', 'destructive'],
+    },
+    title: { control: 'text' },
+    onDismiss: { action: 'dismissed' },
+  },
 };
 
 export default meta;
-type Story = StoryObj<typeof Alert>;
+type Story = StoryObj<typeof Alerts>;
 
 export const Default: Story = {
   args: {
-    type: 'primary',
-    children: 'A simple primary alert—check it out!',
+    type: 'default',
+    children: 'This is a default alert.',
   },
 };
 
-export const Secondary: Story = {
+export const Destructive: Story = {
   args: {
-    type: 'secondary',
-    children: 'A simple secondary alert—check it out!',
+    type: 'destructive',
+    children: 'This is a destructive alert.',
   },
 };
 
-export const Success: Story = {
+export const WithTitle: Story = {
   args: {
-    type: 'success',
-    children: 'A simple success alert—check it out!',
+    type: 'default',
+    title: 'Alert Title',
+    children: 'This is an alert with a title.',
   },
 };
 
-export const Danger: Story = {
+export const Dismissible: Story = {
   args: {
-    type: 'danger',
-    children: 'A simple danger alert—check it out!',
+    type: 'default',
+    children: 'This is a dismissible alert.',
+    onDismiss: () => console.log('Alert dismissed'),
   },
 };
 
-export const Warning: Story = {
+export const LongContent: Story = {
   args: {
-    type: 'warning',
-    children: 'A simple warning alert—check it out!',
+    type: 'default',
+    title: 'Long Content Alert',
+    children: 'This alert has a longer content to demonstrate how the component handles multiple lines of text. It should wrap properly and maintain good readability.',
   },
 };
 
-export const Info: Story = {
+export const DestructiveWithTitle: Story = {
   args: {
-    type: 'info',
-    children: 'A simple info alert—check it out!',
-  },
-};
-
-export const Light: Story = {
-  args: {
-    type: 'light',
-    children: 'A simple light alert—check it out!',
-  },
-};
-
-export const Dark: Story = {
-  args: {
-    type: 'dark',
-    children: 'A simple dark alert—check it out!',
+    type: 'destructive',
+    title: 'Warning',
+    children: 'This is a destructive alert with a title.',
   },
 };

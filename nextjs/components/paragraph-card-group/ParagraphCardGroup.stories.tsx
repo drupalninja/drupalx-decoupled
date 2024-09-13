@@ -28,7 +28,7 @@ const mockParagraph = {
       title: 'Interesting Card',
       summary: 'This is a very interesting card with some fascinating content.',
       link: { url: 'https://example.com', title: 'Learn More' },
-      media: { url: 'https://example.com/image.jpg' },
+      media: { image: { url: './images/card.webp', width: 300, height: 200, alt: 'test image' } },
       tags: ['Technology', 'Innovation'],
     },
     {
@@ -36,7 +36,7 @@ const mockParagraph = {
       title: 'Another Card',
       summary: 'Here\'s another card with different content.',
       link: { url: 'https://example.com/another', title: 'Explore' },
-      media: { url: 'https://example.com/another-image.jpg' },
+      media: { image: { url: './images/card.webp', width: 300, height: 200, alt: 'test image' } },
       tags: ['Research', 'Development'],
     },
     {
@@ -44,7 +44,7 @@ const mockParagraph = {
       title: 'Third Card',
       summary: 'A third card to showcase multiple items.',
       link: { url: 'https://example.com/third', title: 'Discover' },
-      media: { url: 'https://example.com/third-image.jpg' },
+      media: { image: { url: './images/card.webp', width: 300, height: 200, alt: 'test image' } },
       tags: ['Design', 'User Experience'],
     },
   ],
@@ -58,12 +58,12 @@ export const Default: Story = {
 
 export const SingleCard: Story = {
   args: {
-    paragraph: { ...mockParagraph, card: [mockParagraph.card[0]] },
+    paragraph: { ...mockParagraph, card: [mockParagraph.card[0]] } as any,
   },
 };
 
 export const TwoCards: Story = {
   args: {
-    paragraph: { ...mockParagraph, card: mockParagraph.card.slice(0, 2) },
+    paragraph: { ...mockParagraph, card: mockParagraph.card.slice(0, 2) } as any,
   },
 };

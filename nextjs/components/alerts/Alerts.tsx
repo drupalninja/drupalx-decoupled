@@ -1,18 +1,29 @@
 import React from 'react';
-import './Alerts.scss';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { X } from "lucide-react"
 
 interface AlertProps {
-  type: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
+  type: 'default' | 'destructive';
+  title?: string;
   children: React.ReactNode;
+  onDismiss?: () => void;
 }
 
-const Alert: React.FC<AlertProps> = ({ type, children }) => {
+const Alerts: React.FC<AlertProps> = ({ type, title, children, onDismiss }) => {
   return (
-    <div className={`alert alert-${type} alert-dismissible fade show`} role="alert">
-      {children}
-      <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    <Alert variant={type}>
+      {title && <AlertTitle>{title}</AlertTitle>}
+      <AlertDescription>{children}</AlertDescription>
+      {onDismiss && (
+        <button
+          onClick={onDismiss}
+          className="absolute top-2 right-2 rounded-full p-1 hover:bg-gray-100 dark:hover:bg-gray-800"
+        >
+          <X className="h-4 w-4" />
+        </button>
+      )}
+    </Alert>
   );
 };
 
-export default Alert;
+export default Alerts;

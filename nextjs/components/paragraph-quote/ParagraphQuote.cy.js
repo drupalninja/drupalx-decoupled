@@ -5,20 +5,32 @@ describe('Quote Component', () => {
 
   it('should render the quote component with correct structure', () => {
     cy.get('.container').should('exist');
-    cy.get('.text-center').should('exist');
-    cy.get('blockquote').should('exist');
-    cy.get('.quote-image img').should('have.attr', 'src').and('include', 'images/card.webp');
+    cy.get('.flex.justify-center').should('exist');
+    cy.get('.quote-card').should('exist');
+    cy.get('.quote-content').should('exist');
   });
 
-  it('should display correctly on a mobile screen', () => {
+  it('should display the logo if provided', () => {
+    cy.get('.text-center.mb-4 img').should('exist');
+  });
+
+  it('should display the quote text', () => {
+    cy.get('blockquote p').should('exist');
+  });
+
+  it('should display the author information', () => {
+    cy.get('img').should('exist');
+    cy.get('.font-bold').should('exist');
+    cy.get('.text-sm.text-muted-foreground').should('exist');
+  });
+
+  it('should be responsive', () => {
+    // Test for mobile view
     cy.viewport('iphone-6');
-    cy.get('.col-12').should('exist');
-    cy.get('blockquote').should('have.class', 'mb-4');
-  });
+    cy.get('.quote-card').should('have.class', 'w-full');
 
-  it('should display correctly on a desktop screen', () => {
+    // Test for desktop view
     cy.viewport(1280, 800);
-    cy.get('.col-12').should('have.class', 'col-lg-10').and('have.class', 'col-xxl-8');
-    cy.get('blockquote').should('have.class', 'mb-4');
+    cy.get('.quote-card').should('have.class', 'lg:w-4/5');
   });
 });

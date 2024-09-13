@@ -13,14 +13,6 @@ const meta: Meta<typeof SiteFooter> = {
       description: 'Define the site logo',
       control: 'text',
     },
-    modifier: {
-      description: 'Define the modifier',
-      control: 'text',
-    },
-    menuModifier: {
-      description: 'Define the menu modifier',
-      control: 'text',
-    },
   },
 };
 
@@ -30,8 +22,6 @@ type Story = StoryObj<typeof SiteFooter>;
 export const Default: Story = {
   args: {
     siteLogo: '/images/logo.svg',
-    modifier: '',
-    linkItemModifier: 'fs-5 text-white',
     links: [
       {
         title: 'Privacy Policy',
@@ -40,7 +30,7 @@ export const Default: Story = {
           title: 'Sub-link',
           url: '#',
         },
-      },
+      } as any,
       {
         title: 'Terms of Use',
         url: '#',
