@@ -23,7 +23,7 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
       <div className="w-full lg:w-1/2 xl:w-5/12 flex flex-col gap-4">
         {eyebrow && (
           <div className="flex">
-            <Badge variant="secondary" className="uppercase inline-flex">
+            <Badge variant="secondary" className="sidebyside-badge uppercase inline-flex">
               {eyebrow}
             </Badge>
           </div>

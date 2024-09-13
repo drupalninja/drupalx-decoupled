@@ -66,7 +66,7 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
                   {getImage(item, 'w-full h-auto', ['I43LARGE', 'I43LARGE2X'])}
                 </div>
                 <DialogFooter>
-                  <Button variant="secondary" onClick={() => setOpenModal(null)}>
+                  <Button variant="secondary" onClick={() => setOpenModal(null)} className='gallery-close'>
                     Close
                   </Button>
                 </DialogFooter>

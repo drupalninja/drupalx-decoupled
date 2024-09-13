@@ -42,6 +42,7 @@ export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProp
               {link && (
                 <Button
                   variant="default"
+                  className='hero-button'
                   asChild
                 >
                   <a href={linkFragment.url}>{linkFragment.title}</a>

@@ -24,8 +24,8 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
   return (
     <div className={`container mx-auto ${modifier ?? 'my-6 lg:my-15'}`}>
       <div className="flex justify-center">
-        <Card className="w-full lg:w-4/5 xl:w-2/3 border-0 shadow-none">
-          <CardContent className="pt-6">
+        <Card className="quote-card w-full lg:w-4/5 xl:w-2/3 border-0 shadow-none">
+          <CardContent className="quote-content pt-6">
             {logo && (
               <div className="text-center mb-4">
                 <div className="w-1/3 mx-auto">

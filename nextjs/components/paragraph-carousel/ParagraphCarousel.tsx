@@ -17,13 +17,13 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
 
   return (
     <div className={`container mx-auto px-4 ${modifier || 'my-15'}`}>
-      <Carousel className="w-full">
+      <Carousel className="carousel w-full">
         <CarouselContent>
           {carouselItem.map((item: any, index: number) => (
-            <CarouselItem key={index}>
+            <CarouselItem key={index} className='carousel-item'>
               <Card className="w-full border-none">
                 <CardContent className="p-0">
-                  <div className="relative aspect-[16/9] w-full">
+                  <div className="carousel-content relative aspect-[16/9] w-full">
                     {item.media && (
                       <div className="absolute inset-0">
                         {getImage(item.media, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X'])}
@@ -39,8 +39,8 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-2 md:left-4" />
-        <CarouselNext className="right-2 md:right-4" />
+        <CarouselPrevious className="carousel-prev left-2 md:left-4" />
+        <CarouselNext className="carousel-next right-2 md:right-4" />
       </Carousel>
     </div>
   );
