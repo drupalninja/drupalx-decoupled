@@ -31,6 +31,7 @@ export default function ParagraphNewsletter({ paragraph, modifier }: ParagraphNe
                   type="email"
                   placeholder="Email Address"
                   className="flex-grow bg-white text-xl"
+                  aria-label='Email Address'
                 />
                 <Button
                   type="submit"
