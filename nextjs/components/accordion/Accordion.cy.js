@@ -1,6 +1,6 @@
-describe('ParagraphAccordion Component', () => {
+describe('Accordion Component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?args=&id=editorial-paragraph-accordion--default&viewMode=story');
+    cy.visit('/iframe.html?args=&id=editorial-accordion--default&viewMode=story');
   });
 
   it('should display the accordion container', () => {
