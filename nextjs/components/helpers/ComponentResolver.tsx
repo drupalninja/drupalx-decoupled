@@ -6,7 +6,7 @@ const ParagraphUnionFragment = import('@/graphql/fragments/paragraph').then(modu
 
 // Type for component props
 type ParagraphProps<T> = {
-  paragraph: FragmentOf<T>;
+  paragraph: FragmentOf<any>;
 };
 
 // Type for dynamic component import

@@ -67,7 +67,7 @@ function resolveAccordionData(paragraph: FragmentOf<typeof ParagraphAccordionFra
   const { title, accordionItem } = readFragment(ParagraphAccordionFragment, paragraph);
 
   return {
-    title,
+    title: title ?? '',
     items: accordionItem as ResolvedAccordionData['items'],
   };
 }

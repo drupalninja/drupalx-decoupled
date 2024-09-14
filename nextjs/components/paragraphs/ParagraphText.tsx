@@ -48,8 +48,8 @@ export default function ParagraphText({ paragraph, className }: ParagraphTextPro
     <Text
       title={title}
       body={textSummaryFragment?.value ?? ''}
-      linkFragment={linkFragment}
-      linkFragment2={linkFragment2}
+      linkFragment={linkFragment as any}
+      linkFragment2={linkFragment2 as any}
       eyebrow={eyebrow}
       textLayout={textLayout}
       className={className}

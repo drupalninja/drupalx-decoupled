@@ -1,12 +1,17 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { LinkFragment } from "@/graphql/fragments/misc";
 
 interface TextProps {
   title?: string;
   body?: string;
-  linkFragment?: LinkFragment;
-  linkFragment2?: LinkFragment;
+  linkFragment?: {
+    url: string;
+    title: string;
+  };
+  linkFragment2?: {
+    url: string;
+    title: string;
+  };
   eyebrow?: string;
   textLayout?: string;
   className?: string;

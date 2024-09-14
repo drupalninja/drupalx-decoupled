@@ -53,21 +53,21 @@ const mockCards = [
 export const Default: Story = {
   args: {
     title: 'Featured Cards',
-    cards: mockCards,
+    cards: mockCards as any,
   },
 };
 
 export const SingleCard: Story = {
   args: {
     title: 'Single Card Example',
-    cards: [mockCards[0]],
+    cards: [mockCards[0] as any],
   },
 };
 
 export const TwoCards: Story = {
   args: {
     title: 'Two Cards Example',
-    cards: mockCards.slice(0, 2),
+    cards: mockCards.slice(0, 2) as any,
   },
 };
 

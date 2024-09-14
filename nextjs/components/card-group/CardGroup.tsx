@@ -16,6 +16,7 @@ export interface StatCardProps {
   media?: React.ReactNode;
   heading: string;
   body?: string;
+  modifier?: string;
 }
 
 export interface CustomCardProps {
