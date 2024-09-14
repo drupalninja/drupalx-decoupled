@@ -1,6 +1,6 @@
 describe('Card Group Component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?args=&id=editorial-paragraph-card-group--default&viewMode=story');
+    cy.visit('/iframe.html?args=&id=editorial-card-group--default&viewMode=story');
   });
 
   it('should display the card group section title if provided', () => {
