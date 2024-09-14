@@ -1,6 +1,6 @@
 describe('Quote Component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?args=&id=editorial-paragraph-quote--default&viewMode=story');
+    cy.visit('/iframe.html?args=&id=editorial-quote--default&viewMode=story');
   });
 
   it('should render the quote component with correct structure', () => {
