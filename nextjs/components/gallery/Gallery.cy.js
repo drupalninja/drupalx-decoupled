@@ -1,6 +1,6 @@
 describe('Gallery Lightbox Component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?args=&id=editorial-paragraph-gallery--default&viewMode=story');
+    cy.visit('/iframe.html?args=&id=editorial-gallery--default&viewMode=story');
   });
 
   it('should display the gallery section with title and summary', () => {
