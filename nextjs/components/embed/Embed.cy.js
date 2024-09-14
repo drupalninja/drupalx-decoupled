@@ -1,6 +1,6 @@
 describe('Embed Component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?args=&id=editorial-paragraph-embed--default&viewMode=story');
+    cy.visit('/iframe.html?args=&id=editorial-embed--default&viewMode=story');
   });
 
   it('should render the embed iframe', () => {
