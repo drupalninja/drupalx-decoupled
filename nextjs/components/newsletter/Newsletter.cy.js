@@ -1,6 +1,6 @@
 describe('Newsletter Form Component', () => {
   beforeEach(() => {
-    cy.visit('iframe.html?args=&id=editorial-paragraph-newsletter--default&viewMode=story');
+    cy.visit('iframe.html?args=&id=editorial-newsletter--default&viewMode=story');
   });
 
   it('should render the newsletter form component', () => {
