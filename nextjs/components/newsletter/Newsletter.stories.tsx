@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Newsletter from './Newsletter';
 
 const meta: Meta<typeof Newsletter> = {
-  title: 'Components/Newsletter',
+  title: 'Editorial/Newsletter',
   component: Newsletter,
   argTypes: {
     title: {

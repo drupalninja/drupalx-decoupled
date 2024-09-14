@@ -2,11 +2,12 @@ import React from 'react';
 
 interface MediaProps {
   media: React.ReactNode;
+  modifier?: string;
 }
 
-export default function Media({ media }: MediaProps) {
+export default function Media({ media, modifier }: MediaProps) {
   return (
-    <div className="w-full">
+    <div className={modifier ?? 'w-full'}>
       {media}
     </div>
   );

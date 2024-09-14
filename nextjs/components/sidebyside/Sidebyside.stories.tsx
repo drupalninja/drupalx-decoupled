@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Sidebyside from './Sidebyside';
+import Image from 'next/image';
 
 const meta: Meta<typeof Sidebyside> = {
   title: 'Editorial/Sidebyside',
@@ -12,6 +13,15 @@ export default meta;
 
 type Story = StoryObj<typeof Sidebyside>;
 
+const mockMedia = (
+  <Image
+    src="./images/card.webp"
+    alt="Example image"
+    width={1280}
+    height={720}
+  />
+);
+
 const mockSidebyside = {
   eyebrow: 'Featured',
   layout: 'left',
@@ -21,7 +31,7 @@ const mockSidebyside = {
     url: 'https://example.com',
     title: 'Learn More',
   },
-  media: <img src="./images/card.webp" alt="Card Image" width={500} height={300} />,
+  media: mockMedia,
 } as const;
 
 export const Default: Story = {

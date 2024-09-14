@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Hero from './Hero';
+import Image from 'next/image';
 
 const meta: Meta<typeof Hero> = {
   title: 'Editorial/Hero',
@@ -19,7 +20,7 @@ export default meta;
 type Story = StoryObj<typeof Hero>;
 
 const mockMedia = (
-  <img
+  <Image
     src="./images/card.webp"
     alt="Example image"
     width={1280}
@@ -37,7 +38,7 @@ export const Default: Story = {
       url: 'https://example.com',
       title: 'Learn More',
     },
-    modifier: '',
+    modifier: 'max-w-4xl',
   }
 };
 

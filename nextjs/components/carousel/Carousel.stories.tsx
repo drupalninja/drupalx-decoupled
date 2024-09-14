@@ -32,7 +32,7 @@ const mockItems: CarouselItemData[] = [
 export const Default: Story = {
   args: {
     items: mockItems,
-    className: 'max-w-3xl mx-auto',
-    itemClassName: 'px-1',
+    className: 'max-w-4xl',
+    itemClassName: '',
   },
 };

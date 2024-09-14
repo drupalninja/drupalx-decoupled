@@ -19,6 +19,8 @@ type Story = StoryObj<typeof Gallery>;
 
 export const Default: Story = {
   args: {
+    title: 'Gallery Title',
+    summary: 'This is a sample summary for the gallery.',
     mediaItems: [
       {
         id: 'exampleGallery1',

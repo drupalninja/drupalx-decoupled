@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Quote from './Quote';
+import Image from 'next/image';
 
 const meta: Meta<typeof Quote> = {
   title: 'Editorial/Quote',
@@ -31,15 +32,26 @@ const meta: Meta<typeof Quote> = {
 export default meta;
 type Story = StoryObj<typeof Quote>;
 
+const mockMedia = (
+  <div className='w-1/3 mx-auto'>
+    <Image
+      src="./images/card.webp"
+      alt="Example image"
+      width={320}
+      height={200}
+    />
+  </div>
+);
+
 export const Default: Story = {
   args: {
     author: 'Author Name',
     jobTitle: 'Job Title',
-    logo: <img src="./images/logo.webp" alt="Company Logo" width={100} height={50} />,
+    logo: mockMedia,
     quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris mi, aliquam',
     thumb: {
       image: {
-        url: './images/avatar.webp',
+        url: "./images/card.webp",
       },
     },
   }

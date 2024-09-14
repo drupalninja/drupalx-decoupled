@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Media from '../media/Media';
+import Image from 'next/image';
 
 const meta: Meta<typeof Media> = {
-  title: 'Components/Media',
+  title: 'Editorial/Media',
   component: Media,
   argTypes: {
     media: {
@@ -15,28 +16,27 @@ const meta: Meta<typeof Media> = {
 export default meta;
 type Story = StoryObj<typeof Media>;
 
+const mockMedia = (
+  <Image
+    src="./images/card.webp"
+    alt="Example image"
+    width={1280}
+    height={720}
+  />
+);
+
 export const Default: Story = {
   args: {
-    media: (
-      <img
-        src="./images/card.webp"
-        alt="Card"
-        width={800}
-        height={600}
-        className="w-full h-auto"
-      />
-    ),
+    media: mockMedia,
+    modifier: 'w-1/2',
   },
 };
 
 export const Video: Story = {
   args: {
     media: (
-      <video
-        src="./videos/sample.mp4"
-        controls
-        className="w-full h-auto"
-      />
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/I95hSyocMlg?si=Ytzqa9QSnFHvFNan" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     ),
+    modifier: '',
   },
 };

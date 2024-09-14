@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import RecentCards from './RecentCards';
 
 const meta: Meta<typeof RecentCards> = {
-  title: 'Components/RecentCards',
+  title: 'General/Recent Cards',
   component: RecentCards,
   tags: ['autodocs'],
 };
