@@ -34,9 +34,7 @@ export const Default: Story = {
 
 export const Video: Story = {
   args: {
-    media: (
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/I95hSyocMlg?si=Ytzqa9QSnFHvFNan" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    ),
+    media: <iframe width="560" height="315" src="https://www.youtube.com/embed/I95hSyocMlg?si=Ytzqa9QSnFHvFNan" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>,
     modifier: '',
   },
 };

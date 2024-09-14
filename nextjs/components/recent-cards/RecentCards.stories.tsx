@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import RecentCards from './RecentCards';
+import Image from 'next/image';
 
 const meta: Meta<typeof RecentCards> = {
   title: 'General/Recent Cards',
@@ -11,27 +12,36 @@ const meta: Meta<typeof RecentCards> = {
 export default meta;
 type Story = StoryObj<typeof RecentCards>;
 
+const mockMedia = (
+  <Image
+    src="./images/card.webp"
+    alt="Example image"
+    width={1280}
+    height={720}
+  />
+);
+
 const sampleResults = [
   {
     id: '1',
     path: '/article/1',
     title: 'First Article',
     summary: 'This is a summary of the first article.',
-    media: <img src="/api/placeholder/400/225" alt="First Article" />,
+    media: mockMedia,
   },
   {
     id: '2',
     path: '/article/2',
     title: 'Second Article',
     summary: 'This is a summary of the second article.',
-    media: <img src="/api/placeholder/400/225" alt="Second Article" />,
+    media: mockMedia,
   },
   {
     id: '3',
     path: '/article/3',
     title: 'Third Article',
     summary: 'This is a summary of the third article.',
-    media: <img src="/api/placeholder/400/225" alt="Third Article" />,
+    media: mockMedia,
   },
 ];
 
