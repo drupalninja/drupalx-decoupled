@@ -1,6 +1,6 @@
 describe('Carousel Component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?args=&id=editorial-paragraph-carousel--default&viewMode=story');
+    cy.visit('/iframe.html?args=&id=editorial-carousel--default&viewMode=story');
   });
 
   it('should display the carousel', () => {
