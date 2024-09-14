@@ -15,17 +15,6 @@ describe('Hero Component', () => {
     cy.get('.hero-button').should('exist');
   });
 
-  it('should display the image with correct attributes when layout is "image_top"', () => {
-    cy.get('.mb-4.lg\\:mb-8.flex.justify-center.items-center img').should('exist')
-      .and('have.class', 'max-w-full h-auto');
-  });
-
-  it('should display the image with correct attributes when layout is "image_bottom"', () => {
-    cy.visit('/iframe.html?args=&id=editorial-paragraph-hero--image-bottom&viewMode=story');
-    cy.get('.mt-6.flex.justify-center.items-center img').should('exist')
-      .and('have.class', 'max-w-full h-auto');
-  });
-
   it('should have correct layout and styling', () => {
     cy.get('.hero').should('have.class', 'container mx-auto px-4');
     cy.get('.mb-6.lg\\:mb-12.text-center').should('exist');

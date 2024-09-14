@@ -55,7 +55,7 @@ export default function CardGroup({ title, cards, modifier }: CardGroupProps) {
 }
 
 const StatCard = ({ media, heading, body, modifier = '' }: StatCardProps) => (
-  <Card className={`text-center ${modifier}`}>
+  <Card className={`stat text-center ${modifier}`}>
     <CardContent className="pt-6">
       {media && (
         <div className="stat-icon mx-auto mb-4">

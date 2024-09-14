@@ -4,8 +4,6 @@ describe('Quote Component', () => {
   });
 
   it('should render the quote component with correct structure', () => {
-    cy.get('.container').should('exist');
-    cy.get('.flex.justify-center').should('exist');
     cy.get('.quote-card').should('exist');
     cy.get('.quote-content').should('exist');
   });

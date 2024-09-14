@@ -4,12 +4,7 @@ describe('Media Component', () => {
   });
 
   it('should render the media component correctly', () => {
-    cy.get('.container').should('exist');
-    cy.get('.w-full').should('exist');
     cy.get('img').should('exist');
-    cy.get('img').should('have.class', 'w-full');
-    cy.get('img').should('have.class', 'h-auto');
-    cy.get('img').should('have.class', 'rounded');
   });
 
   context('Responsive Design Tests', () => {

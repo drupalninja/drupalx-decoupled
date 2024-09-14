@@ -4,7 +4,7 @@ describe('Gallery Lightbox Component', () => {
   });
 
   it('should display the gallery section with title and summary', () => {
-    cy.get('h2').should('contain.text', 'Optional Gallery Title');
+    cy.get('h2').should('contain.text', 'Gallery Title');
     cy.get('.text-center.pb-3').should('exist');
   });
 
