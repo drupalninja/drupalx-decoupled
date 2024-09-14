@@ -16,19 +16,11 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
 
   return (
     <div className={modifier ?? 'container my-6 my-lg-15'}>
-      {title && (
-        <div className="mb-4 text-center">
-          <h2 className="text-3xl font-bold">{title}</h2>
-        </div>
-      )}
-      {gallerySummaryFragment && (
-        <div className="flex justify-center mb-4">
-          <div className="text-center pb-3 md:w-2/3">
-            <div dangerouslySetInnerHTML={{ __html: gallerySummaryFragment?.value ?? '' }} />
-          </div>
-        </div>
-      )}
-      <Gallery mediaItems={mediaItem} />
+      <Gallery
+        mediaItems={mediaItem}
+        title={title}
+        summary={gallerySummaryFragment?.value}
+      />
     </div>
   );
 }

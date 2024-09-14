@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import './ParagraphHero.scss';
+import './Hero.scss';
 
 interface HeroProps {
   heroLayout: string;
