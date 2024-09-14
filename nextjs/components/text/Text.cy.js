@@ -1,6 +1,6 @@
-describe('Paragraph Text Component', () => {
+describe('Text Component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?args=&id=editorial-paragraph-text--default&viewMode=story');
+    cy.visit('/iframe.html?args=&id=editorial-text--default&viewMode=story');
   });
 
   it('should have the correct container classes', () => {
