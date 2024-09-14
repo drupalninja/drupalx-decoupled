@@ -1,7 +1,7 @@
 import { FragmentOf, readFragment } from "gql.tada";
 import { NodeArticleFragment } from "@/graphql/fragments/node";
-import { getImage } from "../helpers/Utilities";
-import Heading from "../heading/Heading";
+import { getImage } from "@/components/helpers/Utilities";
+import Heading from "@/components/heading/Heading";
 import { TextSummaryFragment, TextFragment } from "@/graphql/fragments/misc";
 import { MediaUnionFragment } from "@/graphql/fragments/media";
 

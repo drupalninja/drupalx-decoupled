@@ -1,8 +1,8 @@
 import { FragmentOf, readFragment } from "gql.tada";
 import { NodePageFragment } from "@/graphql/fragments/node";
-import { getImage } from "../helpers/Utilities";
+import { getImage } from "@/components/helpers/Utilities";
 import { MediaUnionFragment } from "@/graphql/fragments/media";
-import Heading from "../heading/Heading";
+import Heading from "@/components/heading/Heading";
 import { TextSummaryFragment } from "@/graphql/fragments/misc";
 
 type NodePageComponentProps = {

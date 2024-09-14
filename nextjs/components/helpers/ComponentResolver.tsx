@@ -1,105 +1,67 @@
 import { FragmentOf, readFragment } from "gql.tada";
+import dynamic from 'next/dynamic';
 
-import ParagraphText from "@/components/paragraph-text/ParagraphText";
-import ParagraphMedia from "@/components/paragraph-media/ParagraphMedia";
-import ParagraphQuote from "@/components/paragraph-quote/ParagraphQuote";
-import ParagraphHero from "@/components/paragraph-hero/ParagraphHero";
-import ParagraphAccordion from "@/components/paragraph-accordion/ParagraphAccordion";
-import ParagraphCardGroup from "@/components/paragraph-card-group/ParagraphCardGroup";
-import ParagraphGallery from "@/components/paragraph-gallery/ParagraphGallery";
-import ParagraphSidebyside from "@/components/paragraph-sidebyside/ParagraphSidebyside";
-import ParagraphCarousel from "@/components/paragraph-carousel/ParagraphCarousel";
-import ParagraphEmbed from "@/components/paragraph-embed/ParagraphEmbed";
-import ParagraphNewsletter from "@/components/paragraph-newsletter/ParagraphNewsletter";
-import ParagraphView from "@/components/paragraph-view/ParagraphView";
+// Dynamic import for ParagraphUnionFragment
+const ParagraphUnionFragment = import('@/graphql/fragments/paragraph').then(module => module.ParagraphUnionFragment);
 
-import {
-  ParagraphTextFragment,
-  ParagraphMediaFragment,
-  ParagraphQuoteFragment,
-  ParagraphHeroFragment,
-  ParagraphAccordionFragment,
-  ParagraphCardGroupFragment,
-  ParagraphGalleryFragment,
-  ParagraphSidebysideFragment,
-  ParagraphCarouselFragment,
-  ParagraphEmbedFragment,
-  ParagraphNewsletterFragment,
-  ParagraphViewFragment,
-  ParagraphUnionFragment,
-} from "@/graphql/fragments/paragraph";
+// Type for component props
+type ParagraphProps<T> = {
+  paragraph: FragmentOf<any>;
+};
 
-type ComponentType = Array<JSX.Element>;
-type ParagraphFragmentType =
-  FragmentOf<typeof ParagraphTextFragment> |
-  FragmentOf<typeof ParagraphMediaFragment> |
-  FragmentOf<typeof ParagraphQuoteFragment> |
-  FragmentOf<typeof ParagraphHeroFragment> |
-  FragmentOf<typeof ParagraphAccordionFragment> |
-  FragmentOf<typeof ParagraphCardGroupFragment> |
-  FragmentOf<typeof ParagraphGalleryFragment> |
-  FragmentOf<typeof ParagraphSidebysideFragment> |
-  FragmentOf<typeof ParagraphCarouselFragment> |
-  FragmentOf<typeof ParagraphEmbedFragment> |
-  FragmentOf<typeof ParagraphNewsletterFragment> |
-  FragmentOf<typeof ParagraphViewFragment> |
-  { __typename: string; id: string; };
+// Type for dynamic component import
+type DynamicComponentType = React.ComponentType<ParagraphProps<any>>;
+
+// Function to dynamically import components
+const importComponent = (type: string): Promise<DynamicComponentType> => {
+  const formattedType = type.replace(/^Paragraph/, '');
+  return dynamic(() => import(`@/components/paragraphs/Paragraph${formattedType}`)) as unknown as Promise<DynamicComponentType>;
+};
+
+// Function to dynamically import fragments
+const importFragment = (type: string): Promise<any> => {
+  return import('@/graphql/fragments/paragraph').then((module: { [key: string]: any }) => module[`${type}Fragment`]); // Add type for module
+};
 
 interface ResolveProps {
-  data: FragmentOf<typeof ParagraphUnionFragment>[] | null;
+  data: any[] | null;
   environment: string;
 }
 
-const calculateComponent = function (type: string, paragraph: ParagraphFragmentType): JSX.Element {
-  switch (type) {
-    case 'ParagraphText':
-      return <ParagraphText paragraph={paragraph as FragmentOf<typeof ParagraphTextFragment>} />;
-    case 'ParagraphMedia':
-      return <ParagraphMedia paragraph={paragraph as FragmentOf<typeof ParagraphMediaFragment>} />;
-    case 'ParagraphQuote':
-      return <ParagraphQuote paragraph={paragraph as FragmentOf<typeof ParagraphQuoteFragment>} />;
-    case 'ParagraphHero':
-      return <ParagraphHero paragraph={paragraph as FragmentOf<typeof ParagraphHeroFragment>} />;
-    case 'ParagraphAccordion':
-      return <ParagraphAccordion paragraph={paragraph as FragmentOf<typeof ParagraphAccordionFragment>} />;
-    case 'ParagraphCardGroup':
-      return <ParagraphCardGroup paragraph={paragraph as FragmentOf<typeof ParagraphCardGroupFragment>} />;
-    case 'ParagraphGallery':
-      return <ParagraphGallery paragraph={paragraph as FragmentOf<typeof ParagraphGalleryFragment>} />;
-    case 'ParagraphSidebyside':
-      return <ParagraphSidebyside paragraph={paragraph as FragmentOf<typeof ParagraphSidebysideFragment>} />;
-    case 'ParagraphCarousel':
-      return <ParagraphCarousel paragraph={paragraph as FragmentOf<typeof ParagraphCarouselFragment>} />;
-    case 'ParagraphEmbed':
-      return <ParagraphEmbed paragraph={paragraph as FragmentOf<typeof ParagraphEmbedFragment>} />;
-    case 'ParagraphNewsletter':
-      return <ParagraphNewsletter paragraph={paragraph as FragmentOf<typeof ParagraphNewsletterFragment>} />;
-    case 'ParagraphView':
-      return <ParagraphView paragraph={paragraph as FragmentOf<typeof ParagraphViewFragment>} />;
-    default:
-      return <pre>{JSON.stringify(paragraph, null, 2)}</pre>;
-  }
-}
-
-export const resolve = ({ data = [], environment = 'preview' }: ResolveProps): ComponentType => {
-  if (!data) {
+export const resolve = async ({ data = [], environment = 'preview' }: ResolveProps): Promise<React.ReactNode[]> => {
+  if (!data || !Array.isArray(data)) {
+    console.error('Invalid or empty data provided to resolve function');
     return [];
   }
 
-  const paragraphUnionFragment = readFragment(ParagraphUnionFragment, data);
-  const components: Array<JSX.Element> = [];
+  const unionFragment = await ParagraphUnionFragment;
+  const paragraphUnionFragment = readFragment(unionFragment, data);
+  const components: React.ReactNode[] = [];
 
-  paragraphUnionFragment.forEach((paragraph) => {
+  for (const paragraph of paragraphUnionFragment) {
     const type = paragraph.__typename;
 
     if (!type) {
-      return <></>;
+      console.warn('Paragraph without __typename encountered:', paragraph);
+      continue;
     }
 
-    const ParagraphComponent = calculateComponent(type, paragraph);
+    try {
+      const [Component, FragmentType] = await Promise.all([
+        importComponent(type),
+        importFragment(type),
+      ]);
 
-    components.push(ParagraphComponent);
-  });
+      const typedParagraph = readFragment(FragmentType, paragraph);
+
+      components.push(<Component key={paragraph.id} paragraph={typedParagraph} />);
+    } catch (error) {
+      console.error(`Failed to load component or fragment for type ${type}:`, error);
+      components.push(<pre key={paragraph.id}>{JSON.stringify(paragraph, null, 2)}</pre>);
+    }
+  }
 
   return components;
 };
+
+export default resolve;
