@@ -1,6 +1,6 @@
 describe('Hero Component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?args=&id=editorial-paragraph-hero--default&viewMode=story');
+    cy.visit('/iframe.html?args=&id=editorial-hero--default&viewMode=story');
   });
 
   it('should display the hero title with formatted text', () => {
