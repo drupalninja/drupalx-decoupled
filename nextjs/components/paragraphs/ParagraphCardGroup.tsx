@@ -1,8 +1,81 @@
 import React from 'react';
-import { FragmentOf, readFragment } from 'gql.tada';
-import { ParagraphCardGroupFragment } from '@/graphql/fragments/paragraph';
+import { FragmentOf, readFragment, graphql } from 'gql.tada';
+import { DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/fragments/misc"
+import { MediaUnionFragment, SvgMediaFragment } from "@/graphql/fragments/media"
 import CardGroup from '@/components/card-group/CardGroup';
 import { getImage } from '@/components/helpers/Utilities';
+
+const ParagraphCardFragment = graphql(`fragment ParagraphCardFragment on ParagraphCard {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  media {
+    ...MediaUnionFragment
+  }
+  status
+  summary
+  title
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    LinkFragment,
+    MediaUnionFragment,
+  ]
+)
+
+const ParagraphStatsItemFragment = graphql(`fragment ParagraphStatsItemFragment on ParagraphStatsItem {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  customIcon {
+    ...SvgMediaFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  status
+  statSummary: summary
+  title
+}`,
+  [
+    DateTimeFragment,
+    SvgMediaFragment,
+    LanguageFragment,
+  ]
+)
+
+export const ParagraphCardGroupFragment = graphql(`fragment ParagraphCardGroupFragment on ParagraphCardGroup {
+  id
+  card {
+    __typename
+    ...ParagraphCardFragment
+    ...ParagraphStatsItemFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  status
+  title
+}`,
+  [
+    ParagraphCardFragment,
+    ParagraphStatsItemFragment,
+    DateTimeFragment,
+    LanguageFragment,
+  ]
+)
 
 interface ParagraphCardGroupProps {
   paragraph: FragmentOf<typeof ParagraphCardGroupFragment>,

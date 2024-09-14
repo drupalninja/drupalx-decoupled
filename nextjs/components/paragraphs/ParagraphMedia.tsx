@@ -1,8 +1,30 @@
 import React from 'react';
-import { FragmentOf, readFragment } from 'gql.tada';
-import { ParagraphMediaFragment } from '@/graphql/fragments/paragraph';
+import { FragmentOf, readFragment, graphql } from 'gql.tada';
 import Media from '@/components/media/Media';
 import { getImage } from '@/components/helpers/Utilities';
+import { DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
+import { MediaUnionFragment } from '@/graphql/fragments/media';
+
+export const ParagraphMediaFragment = graphql(`fragment ParagraphMediaFragment on ParagraphMedia {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  media {
+    ...MediaUnionFragment
+  }
+  status
+  title
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    MediaUnionFragment,
+  ]
+)
 
 interface ParagraphMediaProps {
   paragraph: FragmentOf<typeof ParagraphMediaFragment>;

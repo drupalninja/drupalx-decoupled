@@ -1,9 +1,41 @@
 import React from 'react';
-import { FragmentOf, readFragment } from 'gql.tada';
-import { ParagraphHeroFragment } from '@/graphql/fragments/paragraph';
-import { TextFragment, LinkFragment } from '@/graphql/fragments/misc';
+import { FragmentOf, readFragment, graphql } from 'gql.tada';
+import { TextFragment, DateTimeFragment, LanguageFragment, LinkFragment } from '@/graphql/fragments/misc';
+import { MediaUnionFragment } from '@/graphql/fragments/media';
 import { getImage } from '@/components/helpers/Utilities';
 import Hero from '@/components/hero/Hero';
+
+export const ParagraphHeroFragment = graphql(`fragment ParagraphHeroFragment on ParagraphHero {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  heading {
+    ...TextFragment
+  }
+  heroLayout
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  requiredMedia: media {
+    ...MediaUnionFragment
+  }
+  status
+  summary {
+    ...TextFragment
+  }
+}`,
+  [
+    DateTimeFragment,
+    TextFragment,
+    LanguageFragment,
+    LinkFragment,
+    MediaUnionFragment,
+  ]
+)
 
 interface ParagraphHeroProps {
   paragraph: FragmentOf<typeof ParagraphHeroFragment>

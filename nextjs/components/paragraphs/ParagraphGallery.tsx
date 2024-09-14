@@ -1,10 +1,32 @@
-'use client'
-
-import { FragmentOf, readFragment } from 'gql.tada';
-import { ParagraphGalleryFragment } from '@/graphql/fragments/paragraph';
-import { TextSummaryFragment } from '@/graphql/fragments/misc';
+import { FragmentOf, readFragment, graphql } from 'gql.tada';
+import { TextSummaryFragment, DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
+import { MediaUnionFragment } from '@/graphql/fragments/media';
 import Gallery from '@/components/gallery/Gallery';
 
+export const ParagraphGalleryFragment = graphql(`fragment ParagraphGalleryFragment on ParagraphGallery {
+  id
+  gallerySummary: body {
+    ...TextSummaryFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  mediaItem {
+    ...MediaUnionFragment
+  }
+  status
+  title
+}`,
+  [
+    TextSummaryFragment,
+    DateTimeFragment,
+    LanguageFragment,
+    MediaUnionFragment,
+  ]
+)
 interface ParagraphGalleryProps {
   paragraph: FragmentOf<typeof ParagraphGalleryFragment>
   modifier?: string

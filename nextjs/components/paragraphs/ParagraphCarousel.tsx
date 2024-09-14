@@ -1,10 +1,52 @@
-'use client';
-
 import React from 'react';
-import { FragmentOf, readFragment } from 'gql.tada';
-import { ParagraphCarouselFragment } from '@/graphql/fragments/paragraph';
+import { FragmentOf, readFragment, graphql } from 'gql.tada';
+import { DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
+import { MediaUnionFragment } from '@/graphql/fragments/media';
 import Carousel, { CarouselItemData } from '@/components/carousel/Carousel';
 import { getImage } from '@/components/helpers/Utilities';
+
+export const ParagraphCarouselItemFragment = graphql(`fragment ParagraphCarouselItemFragment on ParagraphCarouselItem {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  media {
+    ...MediaUnionFragment
+  }
+  status
+  summary
+  title
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    MediaUnionFragment,
+  ]
+)
+
+export const ParagraphCarouselFragment = graphql(`fragment ParagraphCarouselFragment on ParagraphCarousel {
+  id
+  carouselItem {
+    ...ParagraphCarouselItemFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  status
+}`,
+  [
+    ParagraphCarouselItemFragment,
+    DateTimeFragment,
+    LanguageFragment,
+  ]
+)
+
 
 interface ParagraphCarouselProps {
   paragraph: FragmentOf<typeof ParagraphCarouselFragment>;

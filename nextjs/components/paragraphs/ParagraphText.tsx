@@ -1,8 +1,37 @@
 import React from 'react';
-import { FragmentOf, readFragment } from "gql.tada";
-import { TextSummaryFragment, LinkFragment } from "@/graphql/fragments/misc";
-import { ParagraphTextFragment } from "@/graphql/fragments/paragraph";
+import { FragmentOf, readFragment, graphql } from "gql.tada";
+import { TextSummaryFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/fragments/misc";
 import Text from '@/components/text/Text';
+
+export const ParagraphTextFragment = graphql(`fragment ParagraphTextFragment on ParagraphText {
+  id
+  body {
+    ...TextSummaryFragment
+  }
+  textLayout
+  eyebrow
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  link2 {
+    ...LinkFragment
+  }
+  status
+  title
+}`,
+  [
+    TextSummaryFragment,
+    DateTimeFragment,
+    LanguageFragment,
+    LinkFragment,
+  ]
+)
 
 interface ParagraphTextProps {
   paragraph: FragmentOf<typeof ParagraphTextFragment>

@@ -1,7 +1,27 @@
-import { FragmentOf, readFragment } from 'gql.tada';
-import { ParagraphNewsletterFragment } from '@/graphql/fragments/paragraph';
-import { TextFragment } from '@/graphql/fragments/misc';
+import { FragmentOf, readFragment, graphql } from 'gql.tada';
+import { TextFragment, DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
 import Newsletter from '@/components/newsletter/Newsletter';
+
+export const ParagraphNewsletterFragment = graphql(`fragment ParagraphNewsletterFragment on ParagraphNewsletter {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  status
+  newsletterTitle: title
+  summary {
+    ...TextFragment
+  }
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    TextFragment,
+  ]
+)
 
 interface ParagraphNewsletterProps {
   paragraph: FragmentOf<typeof ParagraphNewsletterFragment>,

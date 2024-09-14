@@ -1,8 +1,52 @@
-'use client'
-
-import { FragmentOf, readFragment } from 'gql.tada';
-import { ParagraphAccordionFragment } from '@/graphql/fragments/paragraph';
+import { FragmentOf, readFragment, graphql } from 'gql.tada';
+import { TextSummaryFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/fragments/misc";
 import Accordion from '@/components/accordion/Accordion';
+
+const ParagraphAccordionItemFragment = graphql(`fragment ParagraphAccordionItemFragment on ParagraphAccordionItem {
+  id
+  body {
+    ...TextSummaryFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  status
+  title
+}`,
+  [
+    TextSummaryFragment,
+    DateTimeFragment,
+    LanguageFragment,
+    LinkFragment,
+  ]
+)
+
+export const ParagraphAccordionFragment = graphql(`fragment ParagraphAccordionFragment on ParagraphAccordion {
+  id
+  accordionItem {
+    ...ParagraphAccordionItemFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  status
+  title
+}`,
+  [
+    ParagraphAccordionItemFragment,
+    DateTimeFragment,
+    LanguageFragment,
+  ]
+)
 
 interface ParagraphAccordionProps {
   paragraph: FragmentOf<typeof ParagraphAccordionFragment>

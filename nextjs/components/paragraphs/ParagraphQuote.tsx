@@ -1,8 +1,36 @@
 import React from 'react';
-import { FragmentOf, readFragment } from "gql.tada";
-import { ParagraphQuoteFragment } from "@/graphql/fragments/paragraph";
+import { FragmentOf, readFragment, graphql } from "gql.tada";
+import { DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
+import { MediaUnionFragment, SvgMediaFragment } from "@/graphql/fragments/media";
 import Quote from '@/components/quote/Quote';
 import { getImage } from "../helpers/Utilities";
+
+export const ParagraphQuoteFragment = graphql(`fragment ParagraphQuoteFragment on ParagraphQuote {
+  id
+  author
+  created {
+    ...DateTimeFragment
+  }
+  jobTitle
+  langcode {
+    ...LanguageFragment
+  }
+  logo {
+    ...SvgMediaFragment
+  }
+  quote
+  status
+  thumb {
+    ...MediaUnionFragment
+  }
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    SvgMediaFragment,
+    MediaUnionFragment,
+  ]
+)
 
 interface ParagraphQuoteProps {
   paragraph: FragmentOf<typeof ParagraphQuoteFragment>
