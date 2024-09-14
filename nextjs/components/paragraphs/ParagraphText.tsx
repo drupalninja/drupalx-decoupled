@@ -47,7 +47,7 @@ export default function ParagraphText({ paragraph, className }: ParagraphTextPro
   return (
     <Text
       title={title}
-      body={textSummaryFragment?.value}
+      body={textSummaryFragment?.value ?? ''}
       linkFragment={linkFragment}
       linkFragment2={linkFragment2}
       eyebrow={eyebrow}

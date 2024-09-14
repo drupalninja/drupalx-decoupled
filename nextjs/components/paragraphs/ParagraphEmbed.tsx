@@ -34,7 +34,7 @@ export default function ParagraphEmbed({ paragraph, className }: ParagraphEmbedP
 
   return (
     <Embed
-      title={title}
+      title={title ?? ''}
       content={scriptFragment?.value ?? ''}
       className={className}
     />

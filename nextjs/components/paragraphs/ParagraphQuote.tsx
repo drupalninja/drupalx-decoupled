@@ -51,10 +51,10 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
       <div className="flex justify-center">
         <Quote
           author={author}
-          jobTitle={jobTitle}
+          jobTitle={jobTitle ?? ''}
           logo={logoComponent}
           quote={quote}
-          thumb={thumb}
+          thumb={thumb as any}
         />
       </div>
     </div>

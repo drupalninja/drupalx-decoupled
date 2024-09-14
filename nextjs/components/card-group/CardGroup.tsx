@@ -5,20 +5,20 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
-interface CardGroupProps {
+export interface CardGroupProps {
   title?: string;
   cards: (StatCardProps | CustomCardProps)[];
   modifier?: string;
 }
 
-interface StatCardProps {
+export interface StatCardProps {
   type: 'stat';
   media?: React.ReactNode;
   heading: string;
   body?: string;
 }
 
-interface CustomCardProps {
+export interface CustomCardProps {
   type: 'custom';
   media?: React.ReactNode;
   mediaLink?: string;

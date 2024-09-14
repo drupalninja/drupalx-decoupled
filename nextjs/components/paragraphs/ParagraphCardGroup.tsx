@@ -4,6 +4,7 @@ import { DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/frag
 import { MediaUnionFragment, SvgMediaFragment } from "@/graphql/fragments/media"
 import CardGroup from '@/components/card-group/CardGroup';
 import { getImage } from '@/components/helpers/Utilities';
+import { StatCardProps, CustomCardProps } from '@/components/card-group/CardGroup';
 
 const ParagraphCardFragment = graphql(`fragment ParagraphCardFragment on ParagraphCard {
   id
@@ -111,8 +112,8 @@ export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCar
 
   return (
     <CardGroup
-      title={title}
-      cards={cardItems}
+      title={title ?? ''}
+      cards={cardItems as (StatCardProps | CustomCardProps)[]}
       modifier={modifier}
     />
   );

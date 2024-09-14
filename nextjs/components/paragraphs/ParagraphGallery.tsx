@@ -40,8 +40,8 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
     <div className={modifier ?? 'container my-6 my-lg-15'}>
       <Gallery
         mediaItems={mediaItem}
-        title={title}
-        summary={gallerySummaryFragment?.value}
+        title={title ?? ''}
+        summary={gallerySummaryFragment?.value ?? ''}
       />
     </div>
   );

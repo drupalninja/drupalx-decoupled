@@ -50,11 +50,11 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
 
   return (
     <Sidebyside
-      eyebrow={eyebrow}
+      eyebrow={eyebrow ?? ''}
       layout={layout}
       title={sidebysideTitle}
-      summary={textFragment?.value}
-      link={linkFragment}
+      summary={textFragment?.value ?? ''}
+      link={linkFragment as any}
       media={imageContent}
       modifier={modifier}
     />
