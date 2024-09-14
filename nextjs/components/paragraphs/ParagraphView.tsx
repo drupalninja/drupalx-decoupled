@@ -1,6 +1,6 @@
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphViewFragment } from '@/graphql/fragments/paragraph';
-import RecentCards from './views/ViewRecentCards';
+import RecentCards from '@/components/views/ViewRecentCards';
 import { Card, CardContent } from "@/components/ui/card";
 
 interface ParagraphViewProps {

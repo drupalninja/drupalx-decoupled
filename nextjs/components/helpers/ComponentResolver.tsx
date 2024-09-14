@@ -15,7 +15,7 @@ type DynamicComponentType = React.ComponentType<ParagraphProps<any>>;
 // Function to dynamically import components
 const importComponent = (type: string): Promise<DynamicComponentType> => {
   const formattedType = type.replace(/^Paragraph/, '');
-  return dynamic(() => import(`@/components/paragraph-${formattedType.toLowerCase()}/Paragraph${formattedType}`)) as unknown as Promise<DynamicComponentType>;
+  return dynamic(() => import(`@/components/paragraphs/Paragraph${formattedType}`)) as unknown as Promise<DynamicComponentType>;
 };
 
 // Function to dynamically import fragments
