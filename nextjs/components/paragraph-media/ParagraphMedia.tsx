@@ -1,23 +1,30 @@
+import React from 'react';
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphMediaFragment } from '@/graphql/fragments/paragraph';
-import { getImage } from '../helpers/Utilities';
+import Media from '@/components/media/Media';
+import { getImage } from '@/components/helpers/Utilities';
 
 interface ParagraphMediaProps {
-  paragraph: FragmentOf<typeof ParagraphMediaFragment>,
-  modifier?: string,
+  paragraph: FragmentOf<typeof ParagraphMediaFragment>;
+  modifier?: string;
+  imageClassName?: string;
+  imageSizes?: string[];
 }
 
-export default function ParagraphMedia({ paragraph, modifier }: ParagraphMediaProps) {
+export default function ParagraphMedia({
+  paragraph,
+  modifier,
+  imageClassName = 'w-full h-auto rounded',
+  imageSizes = ['LARGE', 'I169LARGE2X']
+}: ParagraphMediaProps) {
   const { media } = readFragment(ParagraphMediaFragment, paragraph);
+
+  const imageElement = media ? getImage(media, imageClassName, imageSizes) : null;
 
   return (
     <div className={`container mx-auto px-4 ${modifier ?? 'my-6 lg:my-15'}`}>
       <div className="w-full">
-        {media && (
-          <div className="w-full">
-            {getImage(media, 'w-full h-auto rounded', ['LARGE', 'I169LARGE2X'])}
-          </div>
-        )}
+        {imageElement && <Media media={imageElement} />}
       </div>
     </div>
   );

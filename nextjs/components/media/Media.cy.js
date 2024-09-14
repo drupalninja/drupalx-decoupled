@@ -1,6 +1,6 @@
-describe('ParagraphMedia Component', () => {
+describe('Media Component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?args=&id=editorial-paragraph-media--default&viewMode=story');
+    cy.visit('/iframe.html?args=&id=editorial-media--default&viewMode=story');
   });
 
   it('should render the media component correctly', () => {
