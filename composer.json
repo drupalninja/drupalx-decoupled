@@ -35,6 +35,7 @@
         "drupal/taxonomy_access_fix": "^4.0",
         "drupal/webp": "^1.0@RC",
         "drupalninja/drupalx-paragraphs": "^1.0",
+        "drupalninja/drupalx_ai": "1.x-dev",
         "drush/drush": "^11 || ^12 || ^13",
         "oomphinc/composer-installers-extender": "^2.0",
         "vlucas/phpdotenv": "^5.1",
