@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a7d8009675e65c061ac51efc43aa6ec",
+    "content-hash": "ef5698dd26552f0044d675de1caa8fb2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3949,6 +3949,30 @@
                 "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.3"
             },
             "time": "2024-09-05T21:24:10+00:00"
+        },
+        {
+            "name": "drupalninja/drupalx_ai",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupalninja/drupalx_ai.git",
+                "reference": "f4cb202223f200c2ebbc73c20e0f2b586293df40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drupalninja/drupalx_ai/zipball/f4cb202223f200c2ebbc73c20e0f2b586293df40",
+                "reference": "f4cb202223f200c2ebbc73c20e0f2b586293df40",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Provides AI-powered DrupalX and Drush extensions using Claude 3 AI model.",
+            "support": {
+                "issues": "https://github.com/drupalninja/drupalx_ai/issues",
+                "source": "https://github.com/drupalninja/drupalx_ai/tree/1.x"
+            },
+            "time": "2024-09-16T00:23:50+00:00"
         },
         {
             "name": "drush/drush",
