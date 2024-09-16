@@ -3956,12 +3956,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalninja/drupalx_ai.git",
-                "reference": "f4cb202223f200c2ebbc73c20e0f2b586293df40"
+                "reference": "f48b86f676ed44fd2d8db947256a6d378b16019c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalninja/drupalx_ai/zipball/f4cb202223f200c2ebbc73c20e0f2b586293df40",
-                "reference": "f4cb202223f200c2ebbc73c20e0f2b586293df40",
+                "url": "https://api.github.com/repos/drupalninja/drupalx_ai/zipball/f48b86f676ed44fd2d8db947256a6d378b16019c",
+                "reference": "f48b86f676ed44fd2d8db947256a6d378b16019c",
                 "shasum": ""
             },
             "default-branch": true,
@@ -3972,7 +3972,7 @@
                 "issues": "https://github.com/drupalninja/drupalx_ai/issues",
                 "source": "https://github.com/drupalninja/drupalx_ai/tree/1.x"
             },
-            "time": "2024-09-16T00:23:50+00:00"
+            "time": "2024-09-16T11:54:51+00:00"
         },
         {
             "name": "drush/drush",
@@ -15578,7 +15578,8 @@
         "drupal/gin": 5,
         "drupal/graphql_compose_fragments": 20,
         "drupal/node_revision_delete": 5,
-        "drupal/webp": 5
+        "drupal/webp": 5,
+        "drupalninja/drupalx_ai": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
