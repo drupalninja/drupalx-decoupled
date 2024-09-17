@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.layout
+    - node.type.landing
 _core:
   default_config_hash: bdrvrczrNFKOTHzceEcwZxWkn9aIFIoAHo746Ma3by4
-id: node.layout.promote
+id: node.landing.promote
 field_name: promote
 entity_type: node
-bundle: layout
+bundle: landing
 label: 'Promoted to front layout'
 description: ''
 required: false

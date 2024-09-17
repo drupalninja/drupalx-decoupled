@@ -4,7 +4,7 @@ import { MediaUnionFragment } from "@/graphql/fragments/media";
 import { UserFragment } from "@/graphql/fragments/user";
 import { TextFragment, TextSummaryFragment, DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
 import { MetaTagUnionFragment } from "./metatag";
-import { ParagraphUnionFragment} from "./paragraph";
+import { ParagraphUnionFragment } from "./paragraph";
 import { TermUnionFragment } from "./term";
 
 export const NodePageFragment = graphql(`fragment NodePageFragment on NodePage {
@@ -105,7 +105,7 @@ export const NodeArticleFragment = graphql(`fragment NodeArticleFragment on Node
   ]
 )
 
-export const NodeLayoutFragment = graphql(`fragment NodeLayoutFragment on NodeLayout {
+export const NodeLandingFragment = graphql(`fragment NodeLandingFragment on NodeLanding {
   id
   author {
     ...UserFragment

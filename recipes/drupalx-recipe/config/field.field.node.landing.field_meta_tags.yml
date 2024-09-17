@@ -4,15 +4,15 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_meta_tags
-    - node.type.layout
+    - node.type.landing
   module:
     - metatag
 _core:
   default_config_hash: gf5qEuf9AgaizIDt1E-aDshJGaFwCTlJPVRs58J01wQ
-id: node.layout.field_meta_tags
+id: node.landing.field_meta_tags
 field_name: field_meta_tags
 entity_type: node
-bundle: layout
+bundle: landing
 label: 'Meta tags'
 description: ''
 required: false

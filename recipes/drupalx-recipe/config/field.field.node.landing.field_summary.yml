@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_summary
-    - node.type.layout
+    - node.type.landing
 _core:
   default_config_hash: 1WLG6YzT5Z2jjPaDgMT2GZzYXerVfB9An2ie9qMn0Sw
-id: node.layout.field_summary
+id: node.landing.field_summary
 field_name: field_summary
 entity_type: node
-bundle: layout
+bundle: landing
 label: Summary
 description: ''
 required: false

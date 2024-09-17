@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.layout.field_content
-    - field.field.node.layout.field_hide_page_title
-    - field.field.node.layout.field_meta_tags
-    - field.field.node.layout.field_summary
-    - field.field.node.layout.field_thumbnail
-    - node.type.layout
+    - field.field.node.landing.field_content
+    - field.field.node.landing.field_hide_page_title
+    - field.field.node.landing.field_meta_tags
+    - field.field.node.landing.field_summary
+    - field.field.node.landing.field_thumbnail
+    - node.type.landing
   module:
     - field_group
     - media_library
@@ -67,9 +67,9 @@ third_party_settings:
         required_fields: true
 _core:
   default_config_hash: Vbhpuk9kFKozR_Ym7wHdt5oRK3Knr6inw71tKtZau6U
-id: node.layout.default
+id: node.landing.default
 targetEntityType: node
-bundle: layout
+bundle: landing
 mode: default
 content:
   created:

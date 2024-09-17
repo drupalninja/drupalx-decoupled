@@ -74,7 +74,7 @@ entity_config:
       query_load_enabled: true
       edges_enabled: true
       routes_enabled: true
-    layout:
+    landing:
       enabled: true
       query_load_enabled: true
       edges_enabled: true
@@ -191,7 +191,7 @@ field_config:
         enabled: true
       field_thumbnail:
         enabled: true
-    layout:
+    landing:
       field_content:
         enabled: true
       field_hide_page_title:
