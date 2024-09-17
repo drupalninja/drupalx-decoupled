@@ -1,9 +1,9 @@
 import NodeArticleComponent from "@/components/node/NodeArticle";
 import NodePageComponent from "@/components/node/NodePage";
-import NodeLayoutComponent from "@/components/node/NodeLayout";
+import NodeLandingComponent from "@/components/node/NodeLanding";
 import {
   NodeArticleFragment,
-  NodeLayoutFragment,
+  NodeLandingFragment,
   NodePageFragment,
 } from "@/graphql/fragments/node";
 import { graphql } from "@/graphql/gql.tada";
@@ -22,7 +22,7 @@ type Props = {
 }
 
 // Configure the page type to be a static page.
-const staticTypes = ['nodePages', 'nodeArticles', 'nodeLayouts'];
+const staticTypes = ['nodePages', 'nodeArticles', 'nodeLandings'];
 
 async function getAllPaths(): Promise<string[]> {
   const client = await getClientWithAuth();
@@ -102,13 +102,13 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
               }
               ...NodePageFragment
               ...NodeArticleFragment
-              ...NodeLayoutFragment
+              ...NodeLandingFragment
             }
           }
         }
       }
     `,
-    [NodePageFragment, NodeArticleFragment, NodeLayoutFragment]
+    [NodePageFragment, NodeArticleFragment, NodeLandingFragment]
   );
 
   const { data, error } = await client.query(nodeRouteQuery, {
@@ -155,9 +155,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           environment={environment}
         />
       )}
-      {type === "NodeLayout" && (
-        <NodeLayoutComponent
-          node={entity as FragmentOf<typeof NodeLayoutFragment>}
+      {type === "NodeLanding" && (
+        <NodeLandingComponent
+          node={entity as FragmentOf<typeof NodeLandingFragment>}
           environment={environment}
         />
       )}

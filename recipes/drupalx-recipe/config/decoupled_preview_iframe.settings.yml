@@ -6,7 +6,7 @@ preview_url: 'http://localhost:8080'
 preview_types:
   node:
     article: article
-    layout: layout
+    landing: landing
     page: page
 route_sync: DECOUPLED_PREVIEW_IFRAME_ROUTE_SYNC
 draft_provider: graphql_compose_preview

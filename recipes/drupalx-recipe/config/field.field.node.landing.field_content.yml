@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_content
-    - node.type.layout
+    - node.type.landing
     - paragraphs.paragraphs_type.accordion_item
     - paragraphs.paragraphs_type.card
     - paragraphs.paragraphs_type.carousel_item
@@ -14,10 +14,10 @@ dependencies:
     - entity_reference_revisions
 _core:
   default_config_hash: n-LElWICEF8gQN_UmFSy4ZkV9JF03cQF5N4zb-rMOtc
-id: node.layout.field_content
+id: node.landing.field_content
 field_name: field_content
 entity_type: node
-bundle: layout
+bundle: landing
 label: Components
 description: ''
 required: true

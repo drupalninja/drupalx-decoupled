@@ -2,7 +2,7 @@ _meta:
   version: '1.0'
   entity_type: node
   uuid: c3575d66-3e81-4bd0-8fbe-7ac67b938687
-  bundle: layout
+  bundle: landing
   default_langcode: en
   depends:
     9a33874e-ce03-4f0f-9c6e-164a416d574c: media

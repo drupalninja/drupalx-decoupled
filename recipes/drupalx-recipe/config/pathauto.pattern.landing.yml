@@ -6,10 +6,10 @@ dependencies:
     - node
 _core:
   default_config_hash: 3-yKOcdJBsNu_IWXAG5ucnR-ESB4ueih8rt8igHgV1s
-id: layout
-label: Layout
+id: landing
+label: Landing
 type: 'canonical_entities:node'
-pattern: 'layout/[node:title]'
+pattern: '[node:title]'
 selection_criteria:
   56e5189b-0540-4f95-855f-72fa6f3c0e7b:
     id: 'entity_bundle:node'
@@ -18,7 +18,7 @@ selection_criteria:
     context_mapping:
       node: node
     bundles:
-      layout: layout
+      landing: landing
 selection_logic: and
 weight: -5
 relationships: {  }
