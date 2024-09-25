@@ -4,7 +4,7 @@ import Sidebyside from './Sidebyside';
 import Image from 'next/image';
 
 const meta: Meta<typeof Sidebyside> = {
-  title: 'Editorial/Sidebyside',
+  title: 'Editorial/Side-by-side',
   component: Sidebyside,
   tags: ['autodocs'],
 };

@@ -38,6 +38,10 @@ export const Default: Story = {
       url: 'https://example.com',
       title: 'Learn More',
     },
+    link2: {
+      url: 'https://example.com',
+      title: 'Learn More',
+    },
     modifier: 'max-w-4xl',
   }
 };

@@ -1,6 +1,6 @@
 describe('Side-by-Side Component', () => {
   beforeEach(() => {
-    cy.visit('iframe.html?args=&id=editorial-sidebyside--default&viewMode=story');
+    cy.visit('iframe.html?args=&id=editorial-side-by-side--default&viewMode=story');
   });
 
   it('should render the Left variant correctly', () => {

@@ -4,18 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import StatCard, { StatCardProps } from '../stat-card/StatCard';
 
 export interface CardGroupProps {
   title?: string;
   cards: (StatCardProps | CustomCardProps)[];
-  modifier?: string;
-}
-
-export interface StatCardProps {
-  type: 'stat';
-  media?: React.ReactNode;
-  heading: string;
-  body?: string;
   modifier?: string;
 }
 
@@ -53,20 +46,6 @@ export default function CardGroup({ title, cards, modifier }: CardGroupProps) {
     </div>
   );
 }
-
-const StatCard = ({ media, heading, body, modifier = '' }: StatCardProps) => (
-  <Card className={`stat text-center ${modifier}`}>
-    <CardContent className="pt-6">
-      {media && (
-        <div className="stat-icon mx-auto mb-4">
-          {media}
-        </div>
-      )}
-      <CardTitle className="mb-2">{heading}</CardTitle>
-      {body && <p className="mb-0 text-gray-600">{body}</p>}
-    </CardContent>
-  </Card>
-);
 
 const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', link }: CustomCardProps) => {
   return (
