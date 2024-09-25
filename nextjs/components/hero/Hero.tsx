@@ -16,7 +16,7 @@ interface HeroProps {
 
 export default function Hero({ heroLayout, media, heading, summary, link, modifier }: HeroProps) {
   return (
-    <div className={`hero container mx-auto px-4 ${modifier || ''}`}>
+    <div className={`hero mx-auto ${modifier || ''}`}>
       <div className={`mb-6 lg:mb-12 text-center ${modifier || ''}`}>
         {heroLayout === 'image_top' && media && (
           <div className="mb-4 lg:mb-8 flex justify-center items-center">

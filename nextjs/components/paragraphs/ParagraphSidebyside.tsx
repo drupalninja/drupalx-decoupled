@@ -46,7 +46,7 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
   const linkFragment = readFragment(LinkFragment, link);
   const textFragment = readFragment(TextFragment, sidebysideSummary);
 
-  const imageContent = getImage(media, 'w-full h-auto', ['I43SMALL', 'I43LARGE2X']);
+  const imageContent = getImage(media, 'w-full h-auto rounded-lg', ['I43SMALL', 'I43LARGE2X']);
 
   return (
     <Sidebyside

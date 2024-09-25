@@ -17,7 +17,7 @@ interface SidebysideProps {
 
 export default function Sidebyside({ eyebrow, layout, title, summary, link, media, modifier }: SidebysideProps) {
   return (
-    <div className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${modifier ?? 'container my-6 lg:my-15'} ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}>
+    <div className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${modifier ?? 'container my-6 lg:my-20'} ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}>
       <div className="w-full lg:w-1/2">
         {media}
       </div>
