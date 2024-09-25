@@ -265,6 +265,8 @@ field_config:
         enabled: true
       field_link:
         enabled: true
+      field_link2:
+        enabled: true
       field_media:
         enabled: true
       field_summary:

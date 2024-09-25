@@ -6,19 +6,19 @@ _meta:
 default:
   uid:
     -
-      target_id: 0
+      target_id: 1
   filename:
     -
       value: card.png
   uri:
     -
-      value: 'public://card.png'
+      value: 'public://card_111.png'
   filemime:
     -
       value: image/png
   filesize:
     -
-      value: 20776
+      value: 9242
   status:
     -
       value: true

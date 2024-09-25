@@ -20,6 +20,9 @@ export const ParagraphHeroFragment = graphql(`fragment ParagraphHeroFragment on 
   link {
     ...LinkFragment
   }
+  link2 {
+    ...LinkFragment
+  }
   requiredMedia: media {
     ...MediaUnionFragment
   }
@@ -43,9 +46,10 @@ interface ParagraphHeroProps {
 }
 
 export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProps) {
-  const { requiredMedia, heroLayout, heading, summary, link } = readFragment(ParagraphHeroFragment, paragraph);
+  const { requiredMedia, heroLayout, heading, summary, link, link2 } = readFragment(ParagraphHeroFragment, paragraph);
   const summaryFragment = readFragment(TextFragment, summary);
   const linkFragment = readFragment(LinkFragment, link);
+  const link2Fragment = readFragment(LinkFragment, link2);
   const headingFragment = readFragment(TextFragment, heading);
 
   const media = requiredMedia ? getImage(requiredMedia, 'max-w-full h-auto', ['HEROS', 'HEROLX2']) : null;
@@ -59,6 +63,10 @@ export default function ParagraphHero({ paragraph, modifier }: ParagraphHeroProp
       link={{
         url: linkFragment?.url ?? '',
         title: linkFragment?.title ?? ''
+      }}
+      link2={{
+        url: link2Fragment?.url ?? '',
+        title: link2Fragment?.title ?? ''
       }}
       modifier={modifier}
     />

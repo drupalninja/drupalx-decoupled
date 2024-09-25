@@ -12,7 +12,7 @@ default:
       value: true
   uid:
     -
-      target_id: 0
+      target_id: 1
   name:
     -
       value: quote-thumb
@@ -27,12 +27,12 @@ default:
       tag: meta
       attributes:
         name: title
-        content: '| DrupalX'
+        content: '| Drush Site-Install'
     -
       tag: link
       attributes:
         rel: canonical
-        href: '/user'
+        href: 'https://drupalx-graphql.ddev.site/user'
   path:
     -
       alias: ''

@@ -20,7 +20,7 @@ default:
       target_id: 1
   title:
     -
-      value: 'DrupalX - The Enterprise CMS Starter'
+      value: 'DrupalX - AI-Powered Lightning Fast Development'
   created:
     -
       value: 1724541785
@@ -38,12 +38,12 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'DrupalX - The Enterprise CMS Starter | DrupalX'
+        content: 'DrupalX - AI-Powered Lightning Fast Development | Drush Site-Install'
     -
       tag: link
       attributes:
         rel: canonical
-        href: '/welcome'
+        href: 'https://drupalx-graphql.ddev.site/welcome'
   path:
     -
       alias: /welcome
@@ -73,23 +73,28 @@ default:
               value: true
           field_heading:
             -
-              value: 'The <strong>Ultimate</strong> CMS Starter Kit for <strong>Enterprise</strong> Developers'
+              value: '<strong>Empower</strong> Your Web Development with <strong>DrupalX</strong>'
               format: restricted_html
-          field_summary:
-            -
-              value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt pharetra elit, ut dignissim nunc tincidunt ac. Duis cursus a justo id dapibus. Mauris a massa nec elit commodo sodales vel et orci. Sed risus justo, varius eu arcu at, interdum accumsan libero. Sed consectetur efficitur ultricies.'
-              format: 'basic_html'
           field_hero_layout:
             -
               value: image_top
           field_link:
             -
               uri: 'https://drupalx-react.netlify.app/'
-              title: 'See our demo'
+              title: Start
+              options: {  }
+          field_link2:
+            -
+              uri: 'https://drupalx-react.netlify.app/'
+              title: Explore
               options: {  }
           field_media:
             -
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_summary:
+            -
+              value: "<p>Experience the next-gen platform that seamlessly integrates Drupal's powerful CMS with innovative front-end technologies. Elevate your projects with unmatched flexibility and performance.</p>"
+              format: basic_html
     -
       entity:
         _meta:
@@ -108,9 +113,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_eyebrow:
             -
               value: 'DrupalX Features'
@@ -150,9 +152,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_eyebrow:
             -
               value: 'DrupalX Content'
@@ -192,9 +191,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_author:
             -
               value: 'Dries Buytaert'
@@ -228,9 +224,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_accordion_item:
             -
               entity:
@@ -250,9 +243,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.</p>'
@@ -279,9 +269,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.</p>'
@@ -308,9 +295,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.</p>'
@@ -337,9 +321,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>Of course. Explore how DrupalX can be used across various types of sites.</p>'

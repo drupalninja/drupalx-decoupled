@@ -11,10 +11,14 @@ interface HeroProps {
     url: string;
     title: string;
   };
+  link2?: {
+    url: string;
+    title: string;
+  };
   modifier?: string;
 }
 
-export default function Hero({ heroLayout, media, heading, summary, link, modifier }: HeroProps) {
+export default function Hero({ heroLayout, media, heading, summary, link, link2, modifier }: HeroProps) {
   return (
     <div className={`hero mx-auto ${modifier || ''}`}>
       <div className={`mb-6 lg:mb-12 text-center ${modifier || ''}`}>
@@ -35,8 +39,8 @@ export default function Hero({ heroLayout, media, heading, summary, link, modifi
             <div className="text-xl mb-2 lg:mb-4" dangerouslySetInnerHTML={{ __html: summary }} />
           )}
 
-          {(link?.url && link?.title) && (
-            <div className="flex justify-center mt-4">
+          <div className="flex justify-center items-center space-x-4 mt-6">
+            {(link?.url && link?.title) && (
               <Button
                 variant="default"
                 className='hero-button'
@@ -44,8 +48,18 @@ export default function Hero({ heroLayout, media, heading, summary, link, modifi
               >
                 <a href={link.url}>{link.title}</a>
               </Button>
-            </div>
-          )}
+            )}
+
+            {(link2?.url && link2?.title) && (
+              <Button
+                variant="outline"
+                className='hero-button'
+                asChild
+              >
+                <a href={link2.url}>{link2.title}</a>
+              </Button>
+            )}
+          </div>
         </div>
 
         {heroLayout === 'image_bottom' && media && (
