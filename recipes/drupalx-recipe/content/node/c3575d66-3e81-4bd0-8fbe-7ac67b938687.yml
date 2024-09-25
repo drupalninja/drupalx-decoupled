@@ -68,9 +68,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_heading:
             -
               value: '<strong>Empower</strong> Your Web Development with <strong>DrupalX</strong>'
@@ -113,27 +110,22 @@ default:
           behavior_settings:
             -
               value: {  }
-          field_eyebrow:
+          revision_translation_affected:
             -
-              value: 'DrupalX Features'
-          field_link:
-            -
-              uri: 'internal:/features'
-              title: 'Explore features'
-              options: {  }
+              value: true
           field_media:
             -
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_sidebyside_layout:
             -
-              value: right
+              value: left
           field_summary:
             -
-              value: 'The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.'
-              format: ''
+              value: '<p>Discover the Unmatched Advantages of Choosing DrupalX for Your Development Needs</p>'
+              format: basic_html
           field_title:
             -
-              value: 'DrupalX Rapid Development'
+              value: 'Discover the Unmatched Advantages of Choosing DrupalX for Your Development Needs'
     -
       entity:
         _meta:
@@ -152,27 +144,19 @@ default:
           behavior_settings:
             -
               value: {  }
-          field_eyebrow:
-            -
-              value: 'DrupalX Content'
-          field_link:
-            -
-              uri: 'internal:/articles'
-              title: 'Read DrupalX articles'
-              options: {  }
           field_media:
             -
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_sidebyside_layout:
             -
-              value: left
+              value: right
           field_summary:
             -
-              value: 'DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.'
-              format: ''
+              value: '<p>Become Part of the Innovative DrupalX Community Today!</p>'
+              format: basic_html
           field_title:
             -
-              value: 'DrupalX Content Management'
+              value: 'Become Part of the Innovative DrupalX Community Today!'
     -
       entity:
         _meta:
