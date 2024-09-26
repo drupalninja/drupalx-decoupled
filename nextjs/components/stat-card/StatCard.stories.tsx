@@ -22,6 +22,7 @@ const mockStatCard = {
 export const Default: Story = {
   args: {
     ...mockStatCard,
+    icon: 'home',
     modifier: 'md:w-1/4',
   },
 };

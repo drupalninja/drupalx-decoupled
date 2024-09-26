@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import StatCard, { StatCardProps } from '../stat-card/StatCard';
 
 interface SidebysideProps {
   eyebrow?: string;
@@ -13,9 +14,21 @@ interface SidebysideProps {
   };
   media: ReactNode;
   modifier?: string;
+  stat1?: StatCardProps;
+  stat2?: StatCardProps;
 }
 
-export default function Sidebyside({ eyebrow, layout, title, summary, link, media, modifier }: SidebysideProps) {
+export default function Sidebyside({
+  eyebrow,
+  layout,
+  title,
+  summary,
+  link,
+  media,
+  modifier,
+  stat1,
+  stat2
+}: SidebysideProps) {
   return (
     <div className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${modifier ?? 'container my-6 lg:my-20'} ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}>
       <div className="w-full lg:w-1/2">
@@ -43,6 +56,12 @@ export default function Sidebyside({ eyebrow, layout, title, summary, link, medi
                 {link.title ?? 'Read more'}
               </a>
             </Button>
+          </div>
+        )}
+        {(stat1 || stat2) && (
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            {stat1 && <StatCard {...stat1} modifier='w-full sm:w-1/2 border-0 shadow-none' />}
+            {stat2 && <StatCard {...stat2} modifier='w-full sm:w-1/2 border-0 shadow-none' />}
           </div>
         )}
       </div>
