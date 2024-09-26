@@ -3950,7 +3950,7 @@
         },
         {
             "name": "drupalninja/drupalx-paragraphs",
-            "version": "1.4",
+            "version": "1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalninja/drupalx-paragraphs.git",
@@ -3989,7 +3989,7 @@
             ],
             "support": {
                 "issues": "https://github.com/drupalninja/drupalx-paragraphs/issues",
-                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.4"
+                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.5"
             },
             "time": "2024-09-25T10:51:17+00:00"
         },

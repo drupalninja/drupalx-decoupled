@@ -41,6 +41,7 @@ const ParagraphStatsItemFragment = graphql(`fragment ParagraphStatsItemFragment 
   customIcon {
     ...SvgMediaFragment
   }
+  icon
   langcode {
     ...LanguageFragment
   }
@@ -91,6 +92,7 @@ export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCar
     if (item.__typename === 'ParagraphStatsItem') {
       return {
         type: 'stat',
+        icon: item?.icon,
         media: getImage(item?.customIcon, 'w-16 h-16 object-contain mx-auto'),
         heading: item?.title,
         body: item?.statSummary,

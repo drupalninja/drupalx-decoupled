@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import StatCard from './StatCard';
 
 const meta: Meta<typeof StatCard> = {
-  title: 'General/StatCard',
+  title: 'General/Stat Card',
   component: StatCard,
   tags: ['autodocs'],
 };
@@ -39,6 +39,15 @@ export const CustomModifier: Story = {
   args: {
     ...mockStatCard,
     modifier: 'md:w-1/4 bg-secondary text-secondary-foreground',
+  },
+};
+
+export const NoBorderLeftLayout: Story = {
+  args: {
+    ...mockStatCard,
+    border: false,
+    layout: 'left',
+    modifier: 'md:w-1/4',
   },
 };
 

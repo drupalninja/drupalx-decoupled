@@ -68,6 +68,9 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_heading:
             -
               value: '<strong>Empower</strong> Your Web Development with <strong>DrupalX</strong>'
@@ -144,6 +147,9 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_media:
             -
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
@@ -175,6 +181,9 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_author:
             -
               value: 'Dries Buytaert'
@@ -208,6 +217,9 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_accordion_item:
             -
               entity:
@@ -227,6 +239,9 @@ default:
                   behavior_settings:
                     -
                       value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
                   field_body:
                     -
                       value: '<p>DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.</p>'
@@ -253,6 +268,9 @@ default:
                   behavior_settings:
                     -
                       value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
                   field_body:
                     -
                       value: '<p>Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.</p>'
@@ -279,6 +297,9 @@ default:
                   behavior_settings:
                     -
                       value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
                   field_body:
                     -
                       value: '<p>Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.</p>'
@@ -305,6 +326,9 @@ default:
                   behavior_settings:
                     -
                       value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
                   field_body:
                     -
                       value: '<p>Of course. Explore how DrupalX can be used across various types of sites.</p>'

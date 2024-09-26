@@ -60,8 +60,8 @@ export default function Sidebyside({
         )}
         {(stat1 || stat2) && (
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            {stat1 && <StatCard {...stat1} modifier='w-full sm:w-1/2 border-0 shadow-none' />}
-            {stat2 && <StatCard {...stat2} modifier='w-full sm:w-1/2 border-0 shadow-none' />}
+            {stat1 && <StatCard {...stat1} layout='left' border={false} modifier='w-full sm:w-1/2' />}
+            {stat2 && <StatCard {...stat2} layout='left' border={false} modifier='w-full sm:w-1/2' />}
           </div>
         )}
       </div>
