@@ -4,7 +4,8 @@ import { DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/frag
 import { MediaUnionFragment, SvgMediaFragment } from "@/graphql/fragments/media"
 import CardGroup from '@/components/card-group/CardGroup';
 import { getImage } from '@/components/helpers/Utilities';
-import { StatCardProps, CustomCardProps } from '@/components/card-group/CardGroup';
+import { CustomCardProps } from '@/components/card-group/CardGroup';
+import { StatCardProps } from '@/components/stat-card/StatCard';
 
 const ParagraphCardFragment = graphql(`fragment ParagraphCardFragment on ParagraphCard {
   id
@@ -86,7 +87,7 @@ interface ParagraphCardGroupProps {
 export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCardGroupProps) {
   const { title, card } = readFragment(ParagraphCardGroupFragment, paragraph);
 
-  const cardItems = card.map((item: any) => {
+  const cardItems = (card as Array<any>).map((item) => {
     if (item.__typename === 'ParagraphStatsItem') {
       return {
         type: 'stat',

@@ -107,7 +107,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayoutConnection"
+            "name": "NodeLandingConnection"
           },
           {
             "kind": "OBJECT",
@@ -399,7 +399,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayoutEdge"
+            "name": "NodeLandingEdge"
           },
           {
             "kind": "OBJECT",
@@ -516,7 +516,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayout"
+            "name": "NodeLanding"
           },
           {
             "kind": "OBJECT",
@@ -2049,7 +2049,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayout"
+            "name": "NodeLanding"
           },
           {
             "kind": "OBJECT",
@@ -2897,7 +2897,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayout"
+            "name": "NodeLanding"
           },
           {
             "kind": "OBJECT",
@@ -2907,7 +2907,7 @@ const introspection = {
       },
       {
         "kind": "OBJECT",
-        "name": "NodeLayout",
+        "name": "NodeLanding",
         "fields": [
           {
             "name": "author",
@@ -3107,7 +3107,7 @@ const introspection = {
       },
       {
         "kind": "OBJECT",
-        "name": "NodeLayoutConnection",
+        "name": "NodeLandingConnection",
         "fields": [
           {
             "name": "edges",
@@ -3119,7 +3119,7 @@ const introspection = {
                   "kind": "NON_NULL",
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "NodeLayoutEdge"
+                    "name": "NodeLandingEdge"
                   }
                 }
               }
@@ -3137,7 +3137,7 @@ const introspection = {
                   "kind": "NON_NULL",
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "NodeLayout"
+                    "name": "NodeLanding"
                   }
                 }
               }
@@ -3167,7 +3167,7 @@ const introspection = {
       },
       {
         "kind": "OBJECT",
-        "name": "NodeLayoutEdge",
+        "name": "NodeLandingEdge",
         "fields": [
           {
             "name": "cursor",
@@ -3187,7 +3187,7 @@ const introspection = {
               "kind": "NON_NULL",
               "ofType": {
                 "kind": "OBJECT",
-                "name": "NodeLayout"
+                "name": "NodeLanding"
               }
             },
             "args": [],
@@ -3498,7 +3498,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayout"
+            "name": "NodeLanding"
           },
           {
             "kind": "OBJECT",
@@ -5077,6 +5077,15 @@ const introspection = {
           },
           {
             "name": "link",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Link"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "link2",
             "type": {
               "kind": "OBJECT",
               "name": "Link"
@@ -7117,12 +7126,12 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "nodeLayouts",
+            "name": "nodeLandings",
             "type": {
               "kind": "NON_NULL",
               "ofType": {
                 "kind": "OBJECT",
-                "name": "NodeLayoutConnection"
+                "name": "NodeLandingConnection"
               }
             },
             "args": [
@@ -8618,7 +8627,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayout"
+            "name": "NodeLanding"
           },
           {
             "kind": "OBJECT",

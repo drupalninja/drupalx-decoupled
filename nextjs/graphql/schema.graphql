@@ -169,8 +169,8 @@ type Query {
     sortKey: ConnectionSortKeys
   ): NodeArticleConnection!
 
-  """List of all NodeLayout on the platform."""
-  nodeLayouts(
+  """List of all NodeLanding on the platform."""
+  nodeLandings(
     """Returns the elements that come after the specified cursor."""
     after: Cursor
 
@@ -188,7 +188,7 @@ type Query {
 
     """Sort the underlying list by the given key."""
     sortKey: ConnectionSortKeys
-  ): NodeLayoutConnection!
+  ): NodeLandingConnection!
 
   """List of all NodePage on the platform."""
   nodePages(
@@ -1068,7 +1068,7 @@ type TermTag implements TermInterface & MetaTagInterface & EdgeNode {
 }
 
 """Entity type node."""
-union NodeUnion = NodeArticle | NodeLayout | NodePage
+union NodeUnion = NodeArticle | NodeLanding | NodePage
 
 """
 The Article content type represents a written piece published in a newspaper,
@@ -1269,7 +1269,7 @@ layouts using Layout Builder's intuitive drag-and-drop interface. Whether you're
 designing landing pages, product showcases, or blog layouts, this feature-rich
 tool offers unparalleled flexibility and customization options.
 """
-type NodeLayout implements NodeInterface & MetaTagInterface & EdgeNode {
+type NodeLanding implements NodeInterface & MetaTagInterface & EdgeNode {
   """The Universally Unique IDentifier (UUID)."""
   id: ID!
 
@@ -1569,6 +1569,9 @@ type ParagraphHero implements ParagraphInterface & EdgeNode {
 
   """Optional call to action link."""
   link: Link
+
+  """Optional link."""
+  link2: Link
 
   """Featured media item for the hero."""
   media: MediaUnion
@@ -2047,7 +2050,7 @@ interface Route {
 }
 
 """A list of possible entities that can be returned by URL."""
-union RouteEntityUnion = MediaImage | MediaVideo | TermAuthor | TermTag | NodeArticle | NodeLayout | NodePage
+union RouteEntityUnion = MediaImage | MediaVideo | TermAuthor | TermTag | NodeArticle | NodeLanding | NodePage
 
 """Route outside of this website."""
 type RouteExternal implements Route {
@@ -2248,17 +2251,17 @@ type NodeArticleEdge implements Edge {
   node: NodeArticle!
 }
 
-"""A paginated set of results for NodeLayout."""
-type NodeLayoutConnection implements Connection {
-  edges: [NodeLayoutEdge!]!
-  nodes: [NodeLayout!]!
+"""A paginated set of results for NodeLanding."""
+type NodeLandingConnection implements Connection {
+  edges: [NodeLandingEdge!]!
+  nodes: [NodeLanding!]!
   pageInfo: ConnectionPageInfo!
 }
 
-"""Edge for NodeLayout."""
-type NodeLayoutEdge implements Edge {
+"""Edge for NodeLanding."""
+type NodeLandingEdge implements Edge {
   cursor: Cursor!
-  node: NodeLayout!
+  node: NodeLanding!
 }
 
 """A paginated set of results for NodePage."""

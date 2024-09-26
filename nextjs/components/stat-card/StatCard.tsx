@@ -6,7 +6,7 @@ export interface StatCardProps {
   media?: React.ReactNode;
   heading: string;
   body?: string;
-  icon: string;
+  icon?: string;
   modifier?: string;
   layout?: 'left' | 'center';
 }
