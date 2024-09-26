@@ -308,6 +308,8 @@ field_config:
     stats_item:
       field_custom_icon:
         enabled: true
+      field_icon:
+        enabled: true
       field_summary:
         enabled: true
       field_title:
