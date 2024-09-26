@@ -42,8 +42,6 @@ entity_config:
       enabled: true
     thumbnail:
       enabled: true
-    wide:
-      enabled: true
   media:
     image:
       enabled: true
@@ -301,6 +299,8 @@ field_config:
         enabled: true
       field_sidebyside_layout:
         enabled: true
+      field_stats:
+        enabled: true
       field_summary:
         enabled: true
       field_title:
@@ -317,15 +317,15 @@ field_config:
     text:
       field_body:
         enabled: true
+      field_eyebrow:
+        enabled: true
       field_link:
         enabled: true
       field_link2:
         enabled: true
-      field_eyebrow:
+      field_text_layout:
         enabled: true
       field_title:
-        enabled: true
-      field_text_layout:
         enabled: true
     views:
       field_link:

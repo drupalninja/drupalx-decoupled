@@ -69,8 +69,7 @@ export const WithStatCards: Story = {
     summary: '<p>DrupalX combines the power of decoupled architecture with AI-driven optimization to enhance your web projects. Experience lightning-fast performance and intuitive design tools that simplify your workflow.</p>',
     layout: 'right',
     media: mockMedia,
-    stat1: mockStat1 as any,
-    stat2: mockStat2 as any,
+    stats: [mockStat1, mockStat2] as any,
     modifier: '',
   },
 };

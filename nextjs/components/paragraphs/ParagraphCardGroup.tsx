@@ -33,7 +33,7 @@ const ParagraphCardFragment = graphql(`fragment ParagraphCardFragment on Paragra
   ]
 )
 
-const ParagraphStatsItemFragment = graphql(`fragment ParagraphStatsItemFragment on ParagraphStatsItem {
+export const ParagraphStatsItemFragment = graphql(`fragment ParagraphStatsItemFragment on ParagraphStatsItem {
   id
   created {
     ...DateTimeFragment

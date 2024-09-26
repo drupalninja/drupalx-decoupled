@@ -14,8 +14,7 @@ interface SidebysideProps {
   };
   media: ReactNode;
   modifier?: string;
-  stat1?: StatCardProps;
-  stat2?: StatCardProps;
+  stats?: StatCardProps[];
 }
 
 export default function Sidebyside({
@@ -26,8 +25,7 @@ export default function Sidebyside({
   link,
   media,
   modifier,
-  stat1,
-  stat2
+  stats,
 }: SidebysideProps) {
   return (
     <div className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${modifier ?? 'container my-6 lg:my-20'} ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}>
@@ -58,10 +56,11 @@ export default function Sidebyside({
             </Button>
           </div>
         )}
-        {(stat1 || stat2) && (
+        {stats && stats.length > 0 && (
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            {stat1 && <StatCard {...stat1} layout='left' border={false} modifier='w-full sm:w-1/2' />}
-            {stat2 && <StatCard {...stat2} layout='left' border={false} modifier='w-full sm:w-1/2' />}
+            {stats.map((stat, index) => (
+              <StatCard key={index} {...stat} layout='left' border={false} modifier='w-full sm:w-1/2' />
+            ))}
           </div>
         )}
       </div>

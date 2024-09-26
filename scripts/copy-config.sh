@@ -2,7 +2,7 @@
 
 # Define source and destination directories
 SOURCE_DIR="./config/sync/"
-DEST_DIR="./web/profiles/custom/drupalx_graphql/config/install/"
+DEST_DIR="./recipes/drupalx-recipe/config/"
 
 # Check if the source directory exists
 if [ ! -d "$SOURCE_DIR" ]; then
