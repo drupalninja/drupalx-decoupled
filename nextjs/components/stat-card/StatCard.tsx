@@ -24,8 +24,6 @@ const StatCard: React.FC<StatCardProps> = ({
   const alignmentClass = layout === 'left' ? 'text-left' : 'text-center';
   const iconClass = layout === 'left' ? 'mr-auto' : 'mx-auto';
 
-  console.log(border);
-
   return (
     <Card className={`stat ${alignmentClass} ${!border ? 'border-0 shadow-none p-0' : ''} ${modifier}`}>
       <CardContent className={`pt-6 ${!border ? 'p-0' : ''}`}>
