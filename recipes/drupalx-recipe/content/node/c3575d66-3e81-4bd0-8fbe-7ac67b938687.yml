@@ -38,12 +38,12 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'DrupalX - AI-Powered Lightning Fast Development | DrupalX'
+        content: 'DrupalX - AI-Powered Lightning Fast Development | Drush Site-Install'
     -
       tag: link
       attributes:
         rel: canonical
-        href: '/welcome'
+        href: 'https://drupalx-graphql.ddev.site/welcome'
   path:
     -
       alias: /welcome
@@ -68,9 +68,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_heading:
             -
               value: '<strong>Empower</strong> Your Web Development with <strong>DrupalX</strong>'
@@ -121,7 +118,70 @@ default:
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_sidebyside_layout:
             -
-              value: left
+              value: right
+          field_stats:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: d4f67c3f-d1a1-4faa-8ab4-479a5ccfafc0
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727384459
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_icon:
+                    -
+                      value: deployed_code
+                  field_summary:
+                    -
+                      value: 'Build flexible applications that separate the front-end and back-end for optimal performance.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Decoupled Architecture'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 3a5c3475-cddd-4043-87be-f1d1e2227373
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727384469
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_icon:
+                    -
+                      value: deployed_code
+                  field_summary:
+                    -
+                      value: 'Leverage intelligent algorithms to enhance site speed and user experience effortlessly.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'AI Optimization'
           field_summary:
             -
               value: '<p>Discover the Unmatched Advantages of Choosing DrupalX for Your Development Needs</p>'
@@ -155,7 +215,7 @@ default:
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_sidebyside_layout:
             -
-              value: right
+              value: left
           field_summary:
             -
               value: '<p>Become Part of the Innovative DrupalX Community Today!</p>'
@@ -181,9 +241,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_author:
             -
               value: 'Dries Buytaert'
@@ -217,9 +274,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_accordion_item:
             -
               entity:
@@ -239,9 +293,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.</p>'
@@ -268,9 +319,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.</p>'
@@ -297,9 +345,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.</p>'
@@ -326,9 +371,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>Of course. Explore how DrupalX can be used across various types of sites.</p>'
