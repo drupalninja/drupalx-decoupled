@@ -110,9 +110,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_media:
             -
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
@@ -138,9 +135,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_icon:
                     -
                       value: deployed_code
@@ -169,9 +163,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_icon:
                     -
                       value: deployed_code
@@ -194,6 +185,112 @@ default:
         _meta:
           version: '1.0'
           entity_type: paragraph
+          uuid: 1d91a0bb-4542-4fbb-bfc2-dfd49eaa4153
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1727385157
+          behavior_settings:
+            -
+              value: {  }
+          field_card:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: f4580469-ab86-4f43-8c93-1fa2828a3673
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727385163
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: deployed_code
+                  field_summary:
+                    -
+                      value: 'Experience seamless integration and flexibility with our Decoupled Architecture.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Unlock the Power of Modern Web Solutions Tailored for You'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 34118e3d-8819-404d-96f6-df05672a9bc2
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727385199
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: deployed_code
+                  field_summary:
+                    -
+                      value: "Leverage intelligent algorithms to boost your website's efficiency and speed."
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Experience seamless integration and flexibility with our Decoupled Architecture.'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: a7f738c7-2c47-4b45-b080-08efad83bdf6
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727385223
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: deployed_code
+                  field_summary:
+                    -
+                      value: 'Achieve Blazing-Fast Performance That Keeps Your Users Engaged and Satisfied'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Achieve Blazing-Fast Performance That Keeps Your Users Engaged and Satisfied'
+          field_title:
+            -
+              value: "Discover the Future of Web Development with DrupalX's Innovative Features"
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
           uuid: 2ca38ce2-5d7b-4e6c-bea7-2fc5357f9b44
           bundle: sidebyside
           default_langcode: en
@@ -207,9 +304,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_media:
             -
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c

@@ -29,13 +29,13 @@ export default function CardGroup({ title, cards, modifier }: CardGroupProps) {
     <div className={modifier ?? 'container mx-auto my-15'}>
       <div className="space-y-6 lg:space-y-8">
         {title && (
-          <h2 className="text-3xl lg:text-3xl font-bold text-center mb-6 lg:mb-8">{title}</h2>
+          <h2 className="text-3xl lg:text-3xl font-bold text-center mb-6 lg:mb-8 w-3/5 mx-auto">{title}</h2>
         )}
-        <div className={`grid grid-cols-1 ${gridCols} gap-4 lg:gap-6`}>
+        <div className={`grid grid-cols-1 ${gridCols} gap-6 lg:gap-12`}>
           {cards.map((card, index) => (
             <div key={index} className="mb-4">
               {card.type === 'stat' ? (
-                <StatCard {...card} />
+                <StatCard {...card} border={false} />
               ) : (
                 <CustomCard {...card} />
               )}
