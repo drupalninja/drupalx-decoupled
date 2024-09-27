@@ -47,7 +47,7 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
   ) : null;
 
   return (
-    <div className={`container mx-auto ${modifier ?? 'my-6 lg:my-15'}`}>
+    <div className={`container mx-auto ${modifier ?? 'my-6 lg:my-25'}`}>
       <div className="flex justify-center">
         <Quote
           author={author}

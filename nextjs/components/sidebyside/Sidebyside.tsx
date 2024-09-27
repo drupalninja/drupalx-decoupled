@@ -28,7 +28,7 @@ export default function Sidebyside({
   stats,
 }: SidebysideProps) {
   return (
-    <div className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${modifier ?? 'container my-6 lg:my-20'} ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}>
+    <div className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${modifier ?? 'container my-6 lg:my-25'} ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}>
       <div className="w-full lg:w-1/2">
         {media}
       </div>
