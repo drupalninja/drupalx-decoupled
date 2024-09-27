@@ -6,8 +6,8 @@ _meta:
   default_langcode: en
   depends:
     9a33874e-ce03-4f0f-9c6e-164a416d574c: media
-    4be51289-637f-4ea0-9909-09f719d36683: media
     49c0b5e2-429d-4059-a2d9-6fd5be19c948: media
+    4be51289-637f-4ea0-9909-09f719d36683: media
 default:
   revision_uid:
     -
@@ -286,6 +286,36 @@ default:
           field_title:
             -
               value: "Discover the Future of Web Development with DrupalX's Innovative Features"
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 2c7ae251-4296-49b7-8f17-ce3a6cab52e2
+          bundle: logo_collection
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1727442803
+          behavior_settings:
+            -
+              value: {  }
+          field_media_item:
+            -
+              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+            -
+              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+            -
+              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+            -
+              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+          field_title:
+            -
+              value: 'Trusted by top companies worldwide'
     -
       entity:
         _meta:
