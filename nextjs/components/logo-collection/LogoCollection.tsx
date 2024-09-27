@@ -1,8 +1,8 @@
-import Image from "next/image"
+import React from "react";
 
 export interface Logo {
   name: string;
-  logo: string;
+  media: React.ReactNode;
 }
 
 export interface LogoCollectionProps {
@@ -18,19 +18,17 @@ export default function LogoCollection({ title, logos }: LogoCollectionProps) {
           <h2 className="text-xl font-bold text-gray-800 whitespace-nowrap flex-shrink-0">
             {title}
           </h2>
-          {logos.map((company, index) => (
-            <div key={index} className="flex-shrink-0">
-              <Image
-                src={company.logo}
-                alt={`${company.name} logo`}
-                width={120}
-                height={40}
-                className="h-8 w-auto"
-              />
+          {logos.map((logo) => (
+            <div key={logo.name} className="flex-shrink-0 h-8 w-auto">
+              {React.isValidElement(logo.media) && (
+                React.cloneElement(logo.media as React.ReactElement, {
+                  className: "h-full w-auto",
+                })
+              )}
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

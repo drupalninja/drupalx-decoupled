@@ -29,7 +29,7 @@ export const SvgImageFragment = graphql(`
 `)
 
 export const SvgMediaFragment = graphql(`
-  fragment SvgMediaFragment on MediaImage {
+  fragment SvgMediaFragment on MediaSvgImage {
     id
     image {
       ...SvgImageFragment

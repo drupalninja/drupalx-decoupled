@@ -85,6 +85,27 @@ type Query {
     sortKey: ConnectionSortKeys
   ): MediaImageConnection!
 
+  """List of all MediaSvgImage on the platform."""
+  mediaSvgImages(
+    """Returns the elements that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the elements that come before the specified cursor."""
+    before: Cursor
+
+    """Returns up to the first n elements from the list."""
+    first: Int
+
+    """Returns up to the last n elements from the list."""
+    last: Int
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+
+    """Sort the underlying list by the given key."""
+    sortKey: ConnectionSortKeys
+  ): MediaSvgImageConnection!
+
   """List of all MediaVideo on the platform."""
   mediaVideos(
     """Returns the elements that come after the specified cursor."""
@@ -400,6 +421,27 @@ type Query {
     sortKey: ConnectionSortKeys
   ): ParagraphHeroConnection!
 
+  """List of all ParagraphLogoCollection on the platform."""
+  paragraphLogoCollections(
+    """Returns the elements that come after the specified cursor."""
+    after: Cursor
+
+    """Returns the elements that come before the specified cursor."""
+    before: Cursor
+
+    """Returns up to the first n elements from the list."""
+    first: Int
+
+    """Returns up to the last n elements from the list."""
+    last: Int
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+
+    """Sort the underlying list by the given key."""
+    sortKey: ConnectionSortKeys
+  ): ParagraphLogoCollectionConnection!
+
   """List of all ParagraphMedia on the platform."""
   paragraphMediaItems(
     """Returns the elements that come after the specified cursor."""
@@ -597,7 +639,7 @@ type Query {
 }
 
 """Entity type media."""
-union MediaUnion = MediaImage | MediaVideo
+union MediaUnion = MediaImage | MediaSvgImage | MediaVideo
 
 """Basic image media type."""
 type MediaImage implements MediaInterface & MetaTagInterface & EdgeNode {
@@ -912,6 +954,36 @@ type ImageStyleDerivative {
   url: String!
   width: Int!
   height: Int!
+}
+
+"""Image type to use with SVGs."""
+type MediaSvgImage implements MediaInterface & MetaTagInterface & EdgeNode {
+  """The Universally Unique IDentifier (UUID)."""
+  id: ID!
+
+  """The time the media item was last edited."""
+  changed: DateTime!
+
+  """The time the media item was created."""
+  created: DateTime!
+
+  """Image"""
+  image: Image!
+
+  """Language"""
+  langcode: Language!
+
+  """The computed meta tags for the entity."""
+  metatag: [MetaTagUnion!]!
+
+  """Name"""
+  name: String!
+
+  """URL alias"""
+  path: String!
+
+  """Published"""
+  status: Boolean!
 }
 
 """Upload remote video media."""
@@ -1317,7 +1389,7 @@ type NodeLanding implements NodeInterface & MetaTagInterface & EdgeNode {
 }
 
 """Entity type paragraph."""
-union ParagraphUnion = ParagraphAccordion | ParagraphAccordionItem | ParagraphCard | ParagraphCardGroup | ParagraphCarousel | ParagraphCarouselItem | ParagraphEmbed | ParagraphGallery | ParagraphHero | ParagraphMedia | ParagraphNewsletter | ParagraphQuote | ParagraphSidebyside | ParagraphStatsItem | ParagraphText | ParagraphView
+union ParagraphUnion = ParagraphAccordion | ParagraphAccordionItem | ParagraphCard | ParagraphCardGroup | ParagraphCarousel | ParagraphCarouselItem | ParagraphEmbed | ParagraphGallery | ParagraphHero | ParagraphLogoCollection | ParagraphMedia | ParagraphNewsletter | ParagraphQuote | ParagraphSidebyside | ParagraphStatsItem | ParagraphText | ParagraphView
 
 """
 The Accordion component is ideal for rendering FAQs or similar title-description
@@ -1584,6 +1656,30 @@ type ParagraphHero implements ParagraphInterface & EdgeNode {
 }
 
 """
+The Logo Collection paragraph type allows users to display multiple logos,
+typically used to showcase partner organizations, clients, or sponsors on a
+"""
+type ParagraphLogoCollection implements ParagraphInterface & EdgeNode {
+  """The Universally Unique IDentifier (UUID)."""
+  id: ID!
+
+  """The time that the Paragraph was created."""
+  created: DateTime!
+
+  """The paragraphs entity language code."""
+  langcode: Language!
+
+  """Associate a collection of logos."""
+  logos: MediaUnion!
+
+  """Published"""
+  status: Boolean!
+
+  """Provide the primary heading for the collection."""
+  title: String!
+}
+
+"""
 The Media Component allows you to place images, videos, or audio files on your
 web pages, seamlessly integrating media assets to enhance the user experience.
 """
@@ -1693,6 +1789,9 @@ type ParagraphSidebyside implements ParagraphInterface & EdgeNode {
   """Select the display layout for this component."""
   sidebysideLayout: String!
 
+  """Optional stat cards to display within the content area."""
+  stats: [ParagraphUnion!]
+
   """Published"""
   status: Boolean!
 
@@ -1713,6 +1812,9 @@ type ParagraphStatsItem implements ParagraphInterface & EdgeNode {
 
   """Custom Icon"""
   customIcon: MediaUnion
+
+  """Material icon name."""
+  icon: String
 
   """The paragraphs entity language code."""
   langcode: Language!
@@ -2050,7 +2152,7 @@ interface Route {
 }
 
 """A list of possible entities that can be returned by URL."""
-union RouteEntityUnion = MediaImage | MediaVideo | TermAuthor | TermTag | NodeArticle | NodeLanding | NodePage
+union RouteEntityUnion = MediaImage | MediaSvgImage | MediaVideo | TermAuthor | TermTag | NodeArticle | NodeLanding | NodePage
 
 """Route outside of this website."""
 type RouteExternal implements Route {
@@ -2197,6 +2299,19 @@ type ConnectionPageInfo {
 type MediaImageEdge implements Edge {
   cursor: Cursor!
   node: MediaImage!
+}
+
+"""A paginated set of results for MediaSvgImage."""
+type MediaSvgImageConnection implements Connection {
+  edges: [MediaSvgImageEdge!]!
+  nodes: [MediaSvgImage!]!
+  pageInfo: ConnectionPageInfo!
+}
+
+"""Edge for MediaSvgImage."""
+type MediaSvgImageEdge implements Edge {
+  cursor: Cursor!
+  node: MediaSvgImage!
 }
 
 """A paginated set of results for MediaVideo."""
@@ -2392,6 +2507,19 @@ type ParagraphHeroConnection implements Connection {
 type ParagraphHeroEdge implements Edge {
   cursor: Cursor!
   node: ParagraphHero!
+}
+
+"""A paginated set of results for ParagraphLogoCollection."""
+type ParagraphLogoCollectionConnection implements Connection {
+  edges: [ParagraphLogoCollectionEdge!]!
+  nodes: [ParagraphLogoCollection!]!
+  pageInfo: ConnectionPageInfo!
+}
+
+"""Edge for ParagraphLogoCollection."""
+type ParagraphLogoCollectionEdge implements Edge {
+  cursor: Cursor!
+  node: ParagraphLogoCollection!
 }
 
 """A paginated set of results for ParagraphMedia."""

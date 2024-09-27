@@ -1,4 +1,5 @@
 import { graphql } from "@/graphql/gql.tada";
+import { ParagraphLogoCollectionFragment } from "@/components/paragraphs/ParagraphLogoCollection";
 import { ParagraphAccordionFragment } from "@/components/paragraphs/ParagraphAccordion";
 import { ParagraphCardGroupFragment } from "@/components/paragraphs/ParagraphCardGroup";
 import { ParagraphHeroFragment } from "@/components/paragraphs/ParagraphHero";
@@ -30,6 +31,7 @@ export const ParagraphUnionFragment = graphql(`
     ...ParagraphEmbedFragment
     ...ParagraphNewsletterFragment
     ...ParagraphViewFragment
+    ...ParagraphLogoCollectionFragment
   }
 `, [
   ParagraphTextFragment,
@@ -44,4 +46,5 @@ export const ParagraphUnionFragment = graphql(`
   ParagraphEmbedFragment,
   ParagraphNewsletterFragment,
   ParagraphViewFragment,
+  ParagraphLogoCollectionFragment,
 ])

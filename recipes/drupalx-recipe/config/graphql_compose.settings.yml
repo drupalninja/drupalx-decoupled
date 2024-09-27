@@ -48,6 +48,11 @@ entity_config:
       query_load_enabled: true
       edges_enabled: true
       routes_enabled: true
+    svg_image:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+      routes_enabled: true
     video:
       enabled: true
       query_load_enabled: true
@@ -119,6 +124,10 @@ entity_config:
       enabled: true
       query_load_enabled: true
       edges_enabled: true
+    logo_collection:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
     media:
       enabled: true
       query_load_enabled: true
@@ -166,6 +175,9 @@ entity_config:
 field_config:
   media:
     image:
+      field_image:
+        enabled: true
+    svg_image:
       field_image:
         enabled: true
     video:
@@ -268,6 +280,11 @@ field_config:
       field_media:
         enabled: true
       field_summary:
+        enabled: true
+    logo_collection:
+      field_media_item:
+        enabled: true
+      field_title:
         enabled: true
     media:
       field_media:
