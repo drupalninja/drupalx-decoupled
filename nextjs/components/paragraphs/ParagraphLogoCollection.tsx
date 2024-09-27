@@ -1,6 +1,9 @@
+import React from 'react';
 import { FragmentOf, readFragment, graphql } from 'gql.tada';
 import { DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
-import { MediaUnionFragment } from '@/graphql/fragments/media'
+import { MediaUnionFragment } from '@/graphql/fragments/media';
+import { getImage } from '@/components/helpers/Utilities';
+import LogoCollection, { Logo } from '../logo-collection/LogoCollection';
 
 export const ParagraphLogoCollectionFragment = graphql(`
   fragment ParagraphLogoCollectionFragment on ParagraphLogoCollection {
@@ -17,24 +20,25 @@ export const ParagraphLogoCollectionFragment = graphql(`
     status
     logo_collectionTitle: title
   }
-  `, [DateTimeFragment, LanguageFragment, MediaUnionFragment]);
+`, [DateTimeFragment, LanguageFragment, MediaUnionFragment]);
 
 interface ParagraphLogoCollectionProps {
-  paragraph: FragmentOf<typeof ParagraphLogoCollectionFragment>,
+  paragraph: FragmentOf<typeof ParagraphLogoCollectionFragment>;
 }
 
 export default function ParagraphLogoCollection({ paragraph }: ParagraphLogoCollectionProps) {
-  const paragraphData = readFragment(ParagraphLogoCollectionFragment, paragraph);
+  const { mediaItem, logo_collectionTitle } = readFragment(ParagraphLogoCollectionFragment, paragraph);
 
-  const DebugView = ({ data }: { data: any }) => (
-    <pre style={{ backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '5px', overflow: 'auto' }}>
-      {JSON.stringify(data, null, 2)}
-    </pre>
-  );
+  // Extract logos from mediaItem
+  const logos: Logo[] = (mediaItem as any[]).map((media, index) => ({
+    name: `Logo ${index + 1}`,
+    media: getImage(media, 'w-full h-auto', 'I11SMALL')
+  }));
 
   return (
-    <div className={'container mx-auto '}>
-      {<DebugView data={paragraphData} />}
-    </div>
+    <LogoCollection
+      title={logo_collectionTitle}
+      logos={logos}
+    />
   );
 }

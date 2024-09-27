@@ -39,6 +39,7 @@ const mockMedia = (
       alt="Example image"
       width={320}
       height={200}
+      className="mx-auto"
     />
   </div>
 );
