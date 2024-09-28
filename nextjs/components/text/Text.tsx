@@ -26,7 +26,7 @@ export default function Text({
   textLayout,
   className
 }: TextProps) {
-  const containerClasses = `container mx-auto my-6 lg:my-15 ${className || ''}`;
+  const containerClasses = `container mx-auto my-6 lg:my-25 ${className || ''}`;
   const contentClasses = `max-w-4xl ${textLayout === 'centered' ? 'mx-auto text-center' : ''}`;
 
   return (

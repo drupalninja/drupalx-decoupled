@@ -45,3 +45,4 @@ graphql/gql.tada.cache.ts
 
 # Cypress
 cypress/screenshots/
+cypress/downloads/

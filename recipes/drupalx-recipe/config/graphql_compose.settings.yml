@@ -42,10 +42,13 @@ entity_config:
       enabled: true
     thumbnail:
       enabled: true
-    wide:
-      enabled: true
   media:
     image:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+      routes_enabled: true
+    svg_image:
       enabled: true
       query_load_enabled: true
       edges_enabled: true
@@ -121,6 +124,10 @@ entity_config:
       enabled: true
       query_load_enabled: true
       edges_enabled: true
+    logo_collection:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
     media:
       enabled: true
       query_load_enabled: true
@@ -168,6 +175,9 @@ entity_config:
 field_config:
   media:
     image:
+      field_image:
+        enabled: true
+    svg_image:
       field_image:
         enabled: true
     video:
@@ -271,6 +281,11 @@ field_config:
         enabled: true
       field_summary:
         enabled: true
+    logo_collection:
+      field_media_item:
+        enabled: true
+      field_title:
+        enabled: true
     media:
       field_media:
         enabled: true
@@ -301,12 +316,16 @@ field_config:
         enabled: true
       field_sidebyside_layout:
         enabled: true
+      field_stats:
+        enabled: true
       field_summary:
         enabled: true
       field_title:
         enabled: true
     stats_item:
       field_custom_icon:
+        enabled: true
+      field_icon:
         enabled: true
       field_summary:
         enabled: true
@@ -315,15 +334,15 @@ field_config:
     text:
       field_body:
         enabled: true
+      field_eyebrow:
+        enabled: true
       field_link:
         enabled: true
       field_link2:
         enabled: true
-      field_eyebrow:
+      field_text_layout:
         enabled: true
       field_title:
-        enabled: true
-      field_text_layout:
         enabled: true
     views:
       field_link:

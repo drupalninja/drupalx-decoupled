@@ -99,6 +99,10 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "MediaSvgImageConnection"
+          },
+          {
+            "kind": "OBJECT",
             "name": "MediaVideoConnection"
           },
           {
@@ -107,7 +111,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayoutConnection"
+            "name": "NodeLandingConnection"
           },
           {
             "kind": "OBJECT",
@@ -148,6 +152,10 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphHeroConnection"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ParagraphLogoCollectionConnection"
           },
           {
             "kind": "OBJECT",
@@ -391,6 +399,10 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "MediaSvgImageEdge"
+          },
+          {
+            "kind": "OBJECT",
             "name": "MediaVideoEdge"
           },
           {
@@ -399,7 +411,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayoutEdge"
+            "name": "NodeLandingEdge"
           },
           {
             "kind": "OBJECT",
@@ -440,6 +452,10 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphHeroEdge"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ParagraphLogoCollectionEdge"
           },
           {
             "kind": "OBJECT",
@@ -508,6 +524,10 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "MediaSvgImage"
+          },
+          {
+            "kind": "OBJECT",
             "name": "MediaVideo"
           },
           {
@@ -516,7 +536,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayout"
+            "name": "NodeLanding"
           },
           {
             "kind": "OBJECT",
@@ -557,6 +577,10 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphHero"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ParagraphLogoCollection"
           },
           {
             "kind": "OBJECT",
@@ -1452,7 +1476,241 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "MediaSvgImage"
+          },
+          {
+            "kind": "OBJECT",
             "name": "MediaVideo"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "MediaSvgImage",
+        "fields": [
+          {
+            "name": "changed",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "DateTime"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "created",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "DateTime"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "image",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Image"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "langcode",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Language"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "metatag",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "UNION",
+                    "name": "MetaTagUnion"
+                  }
+                }
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "name",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "path",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "status",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          }
+        ],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "EdgeNode"
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "MediaInterface"
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "MetaTagInterface"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "MediaSvgImageConnection",
+        "fields": [
+          {
+            "name": "edges",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "MediaSvgImageEdge"
+                  }
+                }
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "nodes",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "MediaSvgImage"
+                  }
+                }
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "pageInfo",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ConnectionPageInfo"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          }
+        ],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Connection"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "MediaSvgImageEdge",
+        "fields": [
+          {
+            "name": "cursor",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Cursor"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "node",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "MediaSvgImage"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          }
+        ],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Edge"
           }
         ]
       },
@@ -1463,6 +1721,10 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "MediaImage"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "MediaSvgImage"
           },
           {
             "kind": "OBJECT",
@@ -2041,6 +2303,10 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "MediaSvgImage"
+          },
+          {
+            "kind": "OBJECT",
             "name": "MediaVideo"
           },
           {
@@ -2049,7 +2315,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayout"
+            "name": "NodeLanding"
           },
           {
             "kind": "OBJECT",
@@ -2897,7 +3163,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayout"
+            "name": "NodeLanding"
           },
           {
             "kind": "OBJECT",
@@ -2907,7 +3173,7 @@ const introspection = {
       },
       {
         "kind": "OBJECT",
-        "name": "NodeLayout",
+        "name": "NodeLanding",
         "fields": [
           {
             "name": "author",
@@ -3107,7 +3373,7 @@ const introspection = {
       },
       {
         "kind": "OBJECT",
-        "name": "NodeLayoutConnection",
+        "name": "NodeLandingConnection",
         "fields": [
           {
             "name": "edges",
@@ -3119,7 +3385,7 @@ const introspection = {
                   "kind": "NON_NULL",
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "NodeLayoutEdge"
+                    "name": "NodeLandingEdge"
                   }
                 }
               }
@@ -3137,7 +3403,7 @@ const introspection = {
                   "kind": "NON_NULL",
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "NodeLayout"
+                    "name": "NodeLanding"
                   }
                 }
               }
@@ -3167,7 +3433,7 @@ const introspection = {
       },
       {
         "kind": "OBJECT",
-        "name": "NodeLayoutEdge",
+        "name": "NodeLandingEdge",
         "fields": [
           {
             "name": "cursor",
@@ -3187,7 +3453,7 @@ const introspection = {
               "kind": "NON_NULL",
               "ofType": {
                 "kind": "OBJECT",
-                "name": "NodeLayout"
+                "name": "NodeLanding"
               }
             },
             "args": [],
@@ -3498,7 +3764,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayout"
+            "name": "NodeLanding"
           },
           {
             "kind": "OBJECT",
@@ -5085,6 +5351,15 @@ const introspection = {
             "isDeprecated": false
           },
           {
+            "name": "link2",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Link"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
             "name": "media",
             "type": {
               "kind": "UNION",
@@ -5315,6 +5590,10 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "ParagraphLogoCollection"
+          },
+          {
+            "kind": "OBJECT",
             "name": "ParagraphMedia"
           },
           {
@@ -5340,6 +5619,190 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphView"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ParagraphLogoCollection",
+        "fields": [
+          {
+            "name": "created",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "DateTime"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "langcode",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Language"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "logos",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "UNION",
+                "name": "MediaUnion"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "status",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "title",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          }
+        ],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "EdgeNode"
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "ParagraphInterface"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ParagraphLogoCollectionConnection",
+        "fields": [
+          {
+            "name": "edges",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ParagraphLogoCollectionEdge"
+                  }
+                }
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "nodes",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ParagraphLogoCollection"
+                  }
+                }
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "pageInfo",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ConnectionPageInfo"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          }
+        ],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Connection"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ParagraphLogoCollectionEdge",
+        "fields": [
+          {
+            "name": "cursor",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Cursor"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "node",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ParagraphLogoCollection"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          }
+        ],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Edge"
           }
         ]
       },
@@ -5999,6 +6462,21 @@ const introspection = {
             "isDeprecated": false
           },
           {
+            "name": "stats",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "UNION",
+                  "name": "ParagraphUnion"
+                }
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
             "name": "status",
             "type": {
               "kind": "NON_NULL",
@@ -6163,6 +6641,15 @@ const introspection = {
             "type": {
               "kind": "UNION",
               "name": "MediaUnion"
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "icon",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String"
             },
             "args": [],
             "isDeprecated": false
@@ -6597,6 +7084,10 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "ParagraphLogoCollection"
+          },
+          {
+            "kind": "OBJECT",
             "name": "ParagraphMedia"
           },
           {
@@ -6958,6 +7449,62 @@ const introspection = {
             "isDeprecated": false
           },
           {
+            "name": "mediaSvgImages",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "MediaSvgImageConnection"
+              }
+            },
+            "args": [
+              {
+                "name": "after",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Cursor"
+                }
+              },
+              {
+                "name": "before",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Cursor"
+                }
+              },
+              {
+                "name": "first",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              },
+              {
+                "name": "last",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              },
+              {
+                "name": "reverse",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean"
+                },
+                "defaultValue": "false"
+              },
+              {
+                "name": "sortKey",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "ConnectionSortKeys"
+                }
+              }
+            ],
+            "isDeprecated": false
+          },
+          {
             "name": "mediaVideos",
             "type": {
               "kind": "NON_NULL",
@@ -7117,12 +7664,12 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "nodeLayouts",
+            "name": "nodeLandings",
             "type": {
               "kind": "NON_NULL",
               "ofType": {
                 "kind": "OBJECT",
-                "name": "NodeLayoutConnection"
+                "name": "NodeLandingConnection"
               }
             },
             "args": [
@@ -7710,6 +8257,62 @@ const introspection = {
               "ofType": {
                 "kind": "OBJECT",
                 "name": "ParagraphHeroConnection"
+              }
+            },
+            "args": [
+              {
+                "name": "after",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Cursor"
+                }
+              },
+              {
+                "name": "before",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Cursor"
+                }
+              },
+              {
+                "name": "first",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              },
+              {
+                "name": "last",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              },
+              {
+                "name": "reverse",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean"
+                },
+                "defaultValue": "false"
+              },
+              {
+                "name": "sortKey",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "ConnectionSortKeys"
+                }
+              }
+            ],
+            "isDeprecated": false
+          },
+          {
+            "name": "paragraphLogoCollections",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ParagraphLogoCollectionConnection"
               }
             },
             "args": [
@@ -8610,6 +9213,10 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "MediaSvgImage"
+          },
+          {
+            "kind": "OBJECT",
             "name": "MediaVideo"
           },
           {
@@ -8618,7 +9225,7 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "NodeLayout"
+            "name": "NodeLanding"
           },
           {
             "kind": "OBJECT",

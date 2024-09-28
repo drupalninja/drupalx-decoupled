@@ -44,7 +44,7 @@ export default function ParagraphMedia({
   const imageElement = media ? getImage(media, imageClassName, imageSizes) : null;
 
   return (
-    <div className={`container mx-auto px-4 ${modifier ?? 'my-6 lg:my-15'}`}>
+    <div className={`container mx-auto px-4 ${modifier ?? 'my-6 lg:my-25'}`}>
       <div className="w-full">
         {imageElement && <Media media={imageElement} />}
       </div>

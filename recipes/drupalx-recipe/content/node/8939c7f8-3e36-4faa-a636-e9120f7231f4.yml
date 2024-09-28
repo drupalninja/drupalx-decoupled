@@ -38,12 +38,12 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'DrupalX Components List | DrupalX'
+        content: 'DrupalX Components List | Drush Site-Install'
     -
       tag: link
       attributes:
         rel: canonical
-        href: '/components'
+        href: 'https://drupalx-graphql.ddev.site/components'
   path:
     -
       alias: /components
@@ -68,9 +68,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_heading:
             -
               value: 'Example Layout'
@@ -120,10 +117,70 @@ default:
           field_sidebyside_layout:
             -
               value: right
+          field_stats:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: bcb7a1f7-c196-42f9-884f-f5fe5cf334bf
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727380668
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: deployed_code
+                  field_summary:
+                    -
+                      value: 'Build flexible applications that separate the front-end and back-end for optimal performance.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Decoupled Architecture'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: c7f81aea-7f20-4f00-b987-2cab1599fe89
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727380748
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_icon:
+                    -
+                      value: deployed_code
+                  field_summary:
+                    -
+                      value: 'Leverage intelligent algorithms to enhance site speed and user experience effortlessly.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'AI Optimization'
           field_summary:
             -
-              value: 'The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.'
-              format: ''
+              value: '<p>The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.</p>'
+              format: basic_html
           field_title:
             -
               value: 'DrupalX Rapid Development'
@@ -145,9 +202,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_eyebrow:
             -
               value: 'DrupalX Content'
@@ -164,8 +218,8 @@ default:
               value: left
           field_summary:
             -
-              value: 'DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.'
-              format: ''
+              value: '<p>DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.</p>'
+              format: basic_html
           field_title:
             -
               value: 'DrupalX Content Management'
@@ -187,17 +241,11 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_body:
             -
               value: 'The DrupalX documentation provides detailed information on how to use the DrupalX template and its components.'
               format: full_html
               summary: ''
-          field_text_layout:
-            -
-              value: centered
           field_eyebrow:
             -
               value: 'Test eyebrow'
@@ -211,6 +259,9 @@ default:
               uri: 'internal:/'
               title: 'Link 2'
               options: {  }
+          field_text_layout:
+            -
+              value: centered
           field_title:
             -
               value: 'Centered Text'
@@ -232,17 +283,11 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_body:
             -
               value: 'The DrupalX documentation provides detailed information on how to use the DrupalX template and its components.'
               format: full_html
               summary: ''
-          field_text_layout:
-            -
-              value: left
           field_eyebrow:
             -
               value: 'Test eyebrow'
@@ -256,6 +301,9 @@ default:
               uri: 'internal:/'
               title: 'Link 2'
               options: {  }
+          field_text_layout:
+            -
+              value: left
           field_title:
             -
               value: 'Left-aligned Text'
@@ -277,9 +325,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_media:
             -
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
@@ -304,9 +349,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_body:
             -
               value: 'View images of the DrupalX template and its components.'
@@ -350,9 +392,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_carousel_item:
             -
               entity:
@@ -372,9 +411,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_media:
                     -
                       entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
@@ -403,9 +439,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_media:
                     -
                       entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
@@ -434,9 +467,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_media:
                     -
                       entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
@@ -465,9 +495,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_accordion_item:
             -
               entity:
@@ -487,9 +514,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.</p>'
@@ -516,9 +540,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.</p>'
@@ -545,9 +566,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.</p>'
@@ -574,9 +592,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_body:
                     -
                       value: '<p>Of course. Explore how DrupalX can be used across various types of sites.</p>'
@@ -611,9 +626,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_author:
             -
               value: 'John Doe'
@@ -647,9 +659,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_script:
             -
               value: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50704.05332036616!2d-122.12246645666515!3d37.413396126075966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7495bec0189%3A0x7c17d44a466baf9b!2sMountain%20View%2C%20CA!5e0!3m2!1sen!2sus!4v1716313314254!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps view of Mountain View, CA"></iframe>'
@@ -675,9 +684,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_summary:
             -
               value: 'Sign up for the DrupalX newsletter to receive updates on new features and components.'
@@ -703,9 +709,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_title:
             -
               value: 'DrupalX Articles'
@@ -733,12 +736,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
-          field_title:
-            -
-              value: 'Card Group'
           field_card:
             -
               entity:
@@ -758,12 +755,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
-                  field_title:
-                    -
-                      value: 'Card 1'
                   field_link:
                     -
                       uri: 'internal:/'
@@ -775,7 +766,10 @@ default:
                   field_summary:
                     -
                       value: 'This is an example card component.'
-                      format: basic_html
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Card 1'
             -
               entity:
                 _meta:
@@ -794,12 +788,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
-                  field_title:
-                    -
-                      value: 'Card 2'
                   field_link:
                     -
                       uri: 'internal:/'
@@ -812,6 +800,9 @@ default:
                     -
                       value: 'This is an example card component.'
                       format: basic_html
+                  field_title:
+                    -
+                      value: 'Card 2'
             -
               entity:
                 _meta:
@@ -830,12 +821,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
-                  field_title:
-                    -
-                      value: 'Card 3'
                   field_link:
                     -
                       uri: 'internal:/'
@@ -848,6 +833,118 @@ default:
                     -
                       value: 'This is an example card component.'
                       format: basic_html
+                  field_title:
+                    -
+                      value: 'Card 3'
+          field_title:
+            -
+              value: 'Card Group'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 809c8174-66f0-4265-a93c-ec93fa547df9
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1727379819
+          behavior_settings:
+            -
+              value: {  }
+          field_card:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 59951ca5-abec-4ef8-8c89-323385b7175e
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727379841
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: home
+                  field_summary:
+                    -
+                      value: 'This is an example stats component.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Stat 1'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: e035018c-dec4-4b00-9860-9466fe2d03c8
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727379874
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: home
+                  field_summary:
+                    -
+                      value: 'This is an example stats component.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Stat 2'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 4f715fc5-5ac3-40a1-a1bd-e01d3969881f
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727379884
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: home
+                  field_summary:
+                    -
+                      value: 'This is an example stats component.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Stat 3'
+          field_title:
+            -
+              value: 'Stats Group'
   field_hide_page_title:
     -
       value: true

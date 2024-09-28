@@ -6,8 +6,15 @@ _meta:
   default_langcode: en
   depends:
     9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    84e378f2-dd00-459d-9018-4c89353b9eee: media
+    14bbf672-441a-408e-bf08-7706894962d3: media
+    7b34a142-7b7f-4ac4-952f-e31d8b83d82f: media
+    2033cf4f-ec32-4689-878f-9410fa8e22d0: media
+    346f015d-a9d3-49bd-bb34-267ee5259720: media
+    26b36c99-0a3c-457a-98e3-ab4ccfa88ee7: media
+    7028d67c-8d2e-4db6-bd43-6e7726384291: media
     4be51289-637f-4ea0-9909-09f719d36683: media
-    49c0b5e2-429d-4059-a2d9-6fd5be19c948: media
+    45175b69-4fc2-47ab-9f32-44e6443898e3: media
 default:
   revision_uid:
     -
@@ -110,15 +117,69 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_media:
             -
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_sidebyside_layout:
             -
-              value: left
+              value: right
+          field_stats:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: d4f67c3f-d1a1-4faa-8ab4-479a5ccfafc0
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727384459
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: hub
+                  field_summary:
+                    -
+                      value: 'Build flexible applications that separate the front-end and back-end for optimal performance.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Decoupled Architecture'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 3a5c3475-cddd-4043-87be-f1d1e2227373
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727384469
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: smart_toy
+                  field_summary:
+                    -
+                      value: 'Leverage intelligent algorithms to enhance site speed and user experience effortlessly.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'AI Optimization'
           field_summary:
             -
               value: '<p>Discover the Unmatched Advantages of Choosing DrupalX for Your Development Needs</p>'
@@ -126,6 +187,148 @@ default:
           field_title:
             -
               value: 'Discover the Unmatched Advantages of Choosing DrupalX for Your Development Needs'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 1d91a0bb-4542-4fbb-bfc2-dfd49eaa4153
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1727385157
+          behavior_settings:
+            -
+              value: {  }
+          field_card:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: f4580469-ab86-4f43-8c93-1fa2828a3673
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727385163
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: integration_instructions
+                  field_summary:
+                    -
+                      value: 'Experience seamless integration and flexibility with our Decoupled Architecture.'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Unlock the Power of Modern Web Solutions Tailored for You'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 34118e3d-8819-404d-96f6-df05672a9bc2
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727385199
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: schema
+                  field_summary:
+                    -
+                      value: "Leverage intelligent algorithms to boost your website's efficiency and speed."
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Experience seamless integration and flexibility with our Decoupled Architecture.'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: a7f738c7-2c47-4b45-b080-08efad83bdf6
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1727385223
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: speed
+                  field_summary:
+                    -
+                      value: 'Achieve Blazing-Fast Performance That Keeps Your Users Engaged and Satisfied'
+                      format: ''
+                  field_title:
+                    -
+                      value: 'Achieve Blazing-Fast Performance That Keeps Your Users Engaged and Satisfied'
+          field_title:
+            -
+              value: "Discover the Future of Web Development with DrupalX's Innovative Features"
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 2c7ae251-4296-49b7-8f17-ce3a6cab52e2
+          bundle: logo_collection
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1727442803
+          behavior_settings:
+            -
+              value: {  }
+          field_media_item:
+            -
+              entity: 84e378f2-dd00-459d-9018-4c89353b9eee
+            -
+              entity: 14bbf672-441a-408e-bf08-7706894962d3
+            -
+              entity: 7b34a142-7b7f-4ac4-952f-e31d8b83d82f
+            -
+              entity: 2033cf4f-ec32-4689-878f-9410fa8e22d0
+            -
+              entity: 346f015d-a9d3-49bd-bb34-267ee5259720
+            -
+              entity: 26b36c99-0a3c-457a-98e3-ab4ccfa88ee7
+            -
+              entity: 7028d67c-8d2e-4db6-bd43-6e7726384291
+          field_title:
+            -
+              value: 'Trusted Open Source Technology'
     -
       entity:
         _meta:
@@ -144,15 +347,18 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_media:
             -
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_sidebyside_layout:
             -
-              value: right
+              value: left
           field_summary:
             -
-              value: '<p>Become Part of the Innovative DrupalX Community Today!</p>'
+              value: '<p>Joining the DrupalX community opens doors to collaboration, support, and shared knowledge. Connect with fellow developers, access exclusive resources, and participate in engaging webinars to enhance your skills.</p>'
               format: basic_html
           field_title:
             -
@@ -189,7 +395,7 @@ default:
               value: 'Bringing people together under a shared passion is at the heart of what Drupal does'
           field_thumb:
             -
-              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+              entity: 45175b69-4fc2-47ab-9f32-44e6443898e3
     -
       entity:
         _meta:

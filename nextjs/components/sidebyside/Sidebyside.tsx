@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import StatCard, { StatCardProps } from '../stat-card/StatCard';
 
 interface SidebysideProps {
   eyebrow?: string;
@@ -13,11 +14,21 @@ interface SidebysideProps {
   };
   media: ReactNode;
   modifier?: string;
+  stats?: StatCardProps[];
 }
 
-export default function Sidebyside({ eyebrow, layout, title, summary, link, media, modifier }: SidebysideProps) {
+export default function Sidebyside({
+  eyebrow,
+  layout,
+  title,
+  summary,
+  link,
+  media,
+  modifier,
+  stats,
+}: SidebysideProps) {
   return (
-    <div className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${modifier ?? 'container my-6 lg:my-20'} ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}>
+    <div className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${modifier ?? 'container my-6 lg:my-25'} ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}>
       <div className="w-full lg:w-1/2">
         {media}
       </div>
@@ -43,6 +54,13 @@ export default function Sidebyside({ eyebrow, layout, title, summary, link, medi
                 {link.title ?? 'Read more'}
               </a>
             </Button>
+          </div>
+        )}
+        {stats && stats.length > 0 && (
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            {stats.map((stat, index) => (
+              <StatCard key={index} {...stat} layout='left' border={false} modifier='w-full sm:w-1/2' />
+            ))}
           </div>
         )}
       </div>

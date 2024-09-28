@@ -1,6 +1,6 @@
 describe('Side-by-Side Component', () => {
   beforeEach(() => {
-    cy.visit('iframe.html?args=&id=editorial-sidebyside--default&viewMode=story');
+    cy.visit('iframe.html?args=&id=editorial-side-by-side--default&viewMode=story');
   });
 
   it('should render the Left variant correctly', () => {
@@ -24,7 +24,7 @@ describe('Side-by-Side Component', () => {
   });
 
   it('should render the Right variant correctly', () => {
-    cy.visit('/iframe.html?args=&id=editorial-sidebyside--right&viewMode=story');
+    cy.visit('/iframe.html?args=&id=editorial-side-by-side--right&viewMode=story');
 
     // Check for container classes including right layout
     cy.get('.flex.flex-col.lg\\:flex-row.lg\\:flex-row-reverse').should('exist');

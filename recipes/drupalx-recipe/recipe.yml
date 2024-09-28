@@ -54,7 +54,6 @@ install:
   - gin_login
   - gin_toolbar
   - linkit
-  - material_icons
   - metatag
   - node_revision_delete
   - pathauto
@@ -135,7 +134,6 @@ config:
     gin_toolbar: '*'
     gin_login: '*'
     linkit: '*'
-    material_icons: '*'
     metatag: '*'
     node_revision_delete: '*'
     pathauto: '*'

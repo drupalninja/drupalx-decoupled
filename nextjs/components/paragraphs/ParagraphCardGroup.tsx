@@ -4,7 +4,8 @@ import { DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/frag
 import { MediaUnionFragment, SvgMediaFragment } from "@/graphql/fragments/media"
 import CardGroup from '@/components/card-group/CardGroup';
 import { getImage } from '@/components/helpers/Utilities';
-import { StatCardProps, CustomCardProps } from '@/components/card-group/CardGroup';
+import { CustomCardProps } from '@/components/card-group/CardGroup';
+import { StatCardProps } from '@/components/stat-card/StatCard';
 
 const ParagraphCardFragment = graphql(`fragment ParagraphCardFragment on ParagraphCard {
   id
@@ -32,7 +33,7 @@ const ParagraphCardFragment = graphql(`fragment ParagraphCardFragment on Paragra
   ]
 )
 
-const ParagraphStatsItemFragment = graphql(`fragment ParagraphStatsItemFragment on ParagraphStatsItem {
+export const ParagraphStatsItemFragment = graphql(`fragment ParagraphStatsItemFragment on ParagraphStatsItem {
   id
   created {
     ...DateTimeFragment
@@ -40,6 +41,7 @@ const ParagraphStatsItemFragment = graphql(`fragment ParagraphStatsItemFragment 
   customIcon {
     ...SvgMediaFragment
   }
+  icon
   langcode {
     ...LanguageFragment
   }
@@ -86,10 +88,11 @@ interface ParagraphCardGroupProps {
 export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCardGroupProps) {
   const { title, card } = readFragment(ParagraphCardGroupFragment, paragraph);
 
-  const cardItems = card.map((item: any) => {
+  const cardItems = (card as Array<any>).map((item) => {
     if (item.__typename === 'ParagraphStatsItem') {
       return {
         type: 'stat',
+        icon: item?.icon,
         media: getImage(item?.customIcon, 'w-16 h-16 object-contain mx-auto'),
         heading: item?.title,
         body: item?.statSummary,

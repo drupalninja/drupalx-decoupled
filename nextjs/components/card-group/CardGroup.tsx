@@ -4,18 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import StatCard, { StatCardProps } from '../stat-card/StatCard';
 
 export interface CardGroupProps {
   title?: string;
   cards: (StatCardProps | CustomCardProps)[];
-  modifier?: string;
-}
-
-export interface StatCardProps {
-  type: 'stat';
-  media?: React.ReactNode;
-  heading: string;
-  body?: string;
   modifier?: string;
 }
 
@@ -33,16 +26,16 @@ export default function CardGroup({ title, cards, modifier }: CardGroupProps) {
   const gridCols = cards.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
 
   return (
-    <div className={modifier ?? 'container mx-auto my-15'}>
+    <div className={modifier ?? 'container mx-auto my-25'}>
       <div className="space-y-6 lg:space-y-8">
         {title && (
-          <h2 className="text-3xl lg:text-3xl font-bold text-center mb-6 lg:mb-8">{title}</h2>
+          <h2 className="text-3xl lg:text-3xl font-bold text-center mb-6 lg:mb-8 w-3/5 mx-auto">{title}</h2>
         )}
-        <div className={`grid grid-cols-1 ${gridCols} gap-4 lg:gap-6`}>
+        <div className={`grid grid-cols-1 ${gridCols} gap-6 lg:gap-12`}>
           {cards.map((card, index) => (
             <div key={index} className="mb-4">
               {card.type === 'stat' ? (
-                <StatCard {...card} />
+                <StatCard {...card} border={false} />
               ) : (
                 <CustomCard {...card} />
               )}
@@ -53,20 +46,6 @@ export default function CardGroup({ title, cards, modifier }: CardGroupProps) {
     </div>
   );
 }
-
-const StatCard = ({ media, heading, body, modifier = '' }: StatCardProps) => (
-  <Card className={`stat text-center ${modifier}`}>
-    <CardContent className="pt-6">
-      {media && (
-        <div className="stat-icon mx-auto mb-4">
-          {media}
-        </div>
-      )}
-      <CardTitle className="mb-2">{heading}</CardTitle>
-      {body && <p className="mb-0 text-gray-600">{body}</p>}
-    </CardContent>
-  </Card>
-);
 
 const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', link }: CustomCardProps) => {
   return (
