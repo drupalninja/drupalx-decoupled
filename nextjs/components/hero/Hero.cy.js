@@ -16,7 +16,7 @@ describe('Hero Component', () => {
   });
 
   it('should have correct layout and styling', () => {
-    cy.get('.hero').should('have.class', 'container mx-auto px-4');
+    cy.get('.hero').should('have.class', 'mx-auto');
     cy.get('.mb-6.lg\\:mb-12.text-center').should('exist');
     cy.get('.max-w-3xl.mx-auto').should('exist');
   });

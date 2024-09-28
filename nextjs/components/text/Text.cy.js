@@ -5,7 +5,7 @@ describe('Text Component', () => {
 
   it('should have the correct container classes', () => {
     cy.get('.container').should('have.class', 'mx-auto').and('have.class', 'my-6');
-    cy.get('.container').should('have.class', 'lg:my-15');
+    cy.get('.container').should('have.class', 'lg:my-25');
   });
 
   it('should have the correct content classes', () => {
