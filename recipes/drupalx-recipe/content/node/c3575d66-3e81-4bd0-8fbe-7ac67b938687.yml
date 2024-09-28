@@ -304,7 +304,14 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_media_item:
+            -
+              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+            -
+              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
             -
               entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
             -
