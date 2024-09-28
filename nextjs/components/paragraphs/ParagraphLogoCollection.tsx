@@ -32,7 +32,7 @@ export default function ParagraphLogoCollection({ paragraph }: ParagraphLogoColl
   // Extract logos from mediaItem
   const logos: Logo[] = (mediaItem as any[]).map((media, index) => ({
     name: `Logo ${index + 1}`,
-    media: getImage(media, 'w-full h-auto', 'I11SMALL')
+    media: getImage(media, '', 'I11SMALL')
   }));
 
   return (
