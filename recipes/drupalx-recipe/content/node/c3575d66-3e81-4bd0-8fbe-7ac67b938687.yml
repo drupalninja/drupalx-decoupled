@@ -137,7 +137,7 @@ default:
                       value: {  }
                   field_icon:
                     -
-                      value: deployed_code
+                      value: hub
                   field_summary:
                     -
                       value: 'Build flexible applications that separate the front-end and back-end for optimal performance.'
@@ -165,7 +165,7 @@ default:
                       value: {  }
                   field_icon:
                     -
-                      value: deployed_code
+                      value: smart_toy
                   field_summary:
                     -
                       value: 'Leverage intelligent algorithms to enhance site speed and user experience effortlessly.'
@@ -198,6 +198,9 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_card:
             -
               entity:
@@ -217,9 +220,12 @@ default:
                   behavior_settings:
                     -
                       value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
                   field_icon:
                     -
-                      value: deployed_code
+                      value: integration_instructions
                   field_summary:
                     -
                       value: 'Experience seamless integration and flexibility with our Decoupled Architecture.'
@@ -245,9 +251,12 @@ default:
                   behavior_settings:
                     -
                       value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
                   field_icon:
                     -
-                      value: deployed_code
+                      value: schema
                   field_summary:
                     -
                       value: "Leverage intelligent algorithms to boost your website's efficiency and speed."
@@ -273,9 +282,12 @@ default:
                   behavior_settings:
                     -
                       value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
                   field_icon:
                     -
-                      value: deployed_code
+                      value: speed
                   field_summary:
                     -
                       value: 'Achieve Blazing-Fast Performance That Keeps Your Users Engaged and Satisfied'
@@ -304,9 +316,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_media_item:
             -
               entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
