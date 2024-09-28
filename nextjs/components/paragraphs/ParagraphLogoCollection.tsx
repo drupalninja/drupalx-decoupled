@@ -30,10 +30,10 @@ export default function ParagraphLogoCollection({ paragraph }: ParagraphLogoColl
   const { mediaItem, logo_collectionTitle } = readFragment(ParagraphLogoCollectionFragment, paragraph);
 
   // Extract logos from mediaItem
-  const logos: Logo[] = (mediaItem as any[]).map((media, index) => ({
+  const logos: Logo[] = mediaItem ? (mediaItem as any[]).map((media, index) => ({
     name: `Logo ${index + 1}`,
     media: getImage(media, '', 'MEDIUM')
-  }));
+  })) : [];
 
   return (
     <LogoCollection
