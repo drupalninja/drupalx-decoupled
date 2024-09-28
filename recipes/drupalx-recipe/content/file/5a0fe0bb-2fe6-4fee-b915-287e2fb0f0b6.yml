@@ -1,7 +1,7 @@
 _meta:
   version: '1.0'
   entity_type: file
-  uuid: b8cb9697-e8a3-4bb2-a4c6-7daccdab8407
+  uuid: 5a0fe0bb-2fe6-4fee-b915-287e2fb0f0b6
   default_langcode: en
 default:
   uid:
@@ -9,19 +9,19 @@ default:
       target_id: 1
   filename:
     -
-      value: card.png
+      value: nextjs.png
   uri:
     -
-      value: 'public://card.png'
+      value: 'public://2024/09/28/nextjs.png'
   filemime:
     -
-      value: image/jpeg
+      value: image/png
   filesize:
     -
-      value: 519034
+      value: 77822
   status:
     -
       value: true
   created:
     -
-      value: 1724541785
+      value: 1727532138

@@ -9,7 +9,7 @@ export const ImageFragment = graphql(`
     height
     alt
     title
-    variations(styles: [I11SMALL, I11MEDIUM, I11LARGE, HEROLX2, HEROS, I43SMALL, I43LARGE2X, I169LARGE2X, LARGE]) {
+    variations(styles: [I11SMALL, I11MEDIUM, I11LARGE, HEROLX2, HEROS, I43SMALL, I43LARGE2X, I169LARGE2X, MEDIUM, LARGE]) {
       name
       url
       width

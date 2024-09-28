@@ -6,8 +6,15 @@ _meta:
   default_langcode: en
   depends:
     9a33874e-ce03-4f0f-9c6e-164a416d574c: media
-    49c0b5e2-429d-4059-a2d9-6fd5be19c948: media
+    84e378f2-dd00-459d-9018-4c89353b9eee: media
+    14bbf672-441a-408e-bf08-7706894962d3: media
+    7b34a142-7b7f-4ac4-952f-e31d8b83d82f: media
+    2033cf4f-ec32-4689-878f-9410fa8e22d0: media
+    346f015d-a9d3-49bd-bb34-267ee5259720: media
+    26b36c99-0a3c-457a-98e3-ab4ccfa88ee7: media
+    7028d67c-8d2e-4db6-bd43-6e7726384291: media
     4be51289-637f-4ea0-9909-09f719d36683: media
+    49c0b5e2-429d-4059-a2d9-6fd5be19c948: media
 default:
   revision_uid:
     -
@@ -198,9 +205,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_card:
             -
               entity:
@@ -220,9 +224,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_icon:
                     -
                       value: integration_instructions
@@ -251,9 +252,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_icon:
                     -
                       value: schema
@@ -282,9 +280,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_icon:
                     -
                       value: speed
@@ -316,22 +311,27 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_media_item:
             -
-              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+              entity: 84e378f2-dd00-459d-9018-4c89353b9eee
             -
-              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+              entity: 14bbf672-441a-408e-bf08-7706894962d3
             -
-              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+              entity: 7b34a142-7b7f-4ac4-952f-e31d8b83d82f
             -
-              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+              entity: 2033cf4f-ec32-4689-878f-9410fa8e22d0
             -
-              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+              entity: 346f015d-a9d3-49bd-bb34-267ee5259720
             -
-              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
+              entity: 26b36c99-0a3c-457a-98e3-ab4ccfa88ee7
+            -
+              entity: 7028d67c-8d2e-4db6-bd43-6e7726384291
           field_title:
             -
-              value: 'Trusted by top companies worldwide'
+              value: 'Trusted Open Source Technology'
     -
       entity:
         _meta:
