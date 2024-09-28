@@ -347,6 +347,9 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_media:
             -
               entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
@@ -355,7 +358,7 @@ default:
               value: left
           field_summary:
             -
-              value: '<p>Become Part of the Innovative DrupalX Community Today!</p>'
+              value: '<p>Joining the DrupalX community opens doors to collaboration, support, and shared knowledge. Connect with fellow developers, access exclusive resources, and participate in engaging webinars to enhance your skills.</p>'
               format: basic_html
           field_title:
             -
@@ -378,9 +381,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_author:
             -
               value: 'Dries Buytaert'
