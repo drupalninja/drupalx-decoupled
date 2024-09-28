@@ -37,7 +37,7 @@ const StatCard: React.FC<StatCardProps> = ({
             {media}
           </div>
         )}
-        <CardTitle className="mb-2 text-2xl">{heading}</CardTitle>
+        <CardTitle className="mb-2 text-xl">{heading}</CardTitle>
         {body && <p className="mb-0 text-gray-600">{body}</p>}
       </CardContent>
     </Card>
