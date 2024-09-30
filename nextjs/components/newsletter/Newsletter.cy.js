@@ -8,7 +8,7 @@ describe('Newsletter Form Component', () => {
   });
 
   it('should display the correct content in the newsletter form', () => {
-    cy.get('h3').should('be.visible').and('have.class', 'text-3xl');
+    cy.get('h2').should('be.visible').and('have.class', 'text-3xl');
     cy.get('.newsletter-summary').should('be.visible');
   });
 
