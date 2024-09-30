@@ -27,7 +27,7 @@ const meta: Meta<typeof Text> = {
     },
     textLayout: {
       control: 'select',
-      options: ['default', 'centered'],
+      options: ['default', 'centered', 'buttons-right'],
       description: 'The layout of the text component',
     },
     className: {
@@ -51,7 +51,7 @@ export const Default: Story = {
     },
     linkFragment2: {
       url: '#',
-      title: 'Read more',
+      title: 'Learn more',
     },
     textLayout: 'default',
   },
@@ -61,6 +61,13 @@ export const Centered: Story = {
   args: {
     ...Default.args,
     textLayout: 'centered',
+  },
+};
+
+export const ButtonsRight: Story = {
+  args: {
+    ...Default.args,
+    textLayout: 'buttons-right',
   },
 };
 
