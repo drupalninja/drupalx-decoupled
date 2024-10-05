@@ -5663,12 +5663,18 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "logos",
+            "name": "mediaItem",
             "type": {
               "kind": "NON_NULL",
               "ofType": {
-                "kind": "UNION",
-                "name": "MediaUnion"
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "UNION",
+                    "name": "MediaUnion"
+                  }
+                }
               }
             },
             "args": [],
@@ -6405,6 +6411,21 @@ const introspection = {
             "isDeprecated": false
           },
           {
+            "name": "features",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "UNION",
+                  "name": "ParagraphUnion"
+                }
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
             "name": "id",
             "type": {
               "kind": "NON_NULL",
@@ -6456,21 +6477,6 @@ const introspection = {
               "ofType": {
                 "kind": "SCALAR",
                 "name": "String"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "stats",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "NON_NULL",
-                "ofType": {
-                  "kind": "UNION",
-                  "name": "ParagraphUnion"
-                }
               }
             },
             "args": [],

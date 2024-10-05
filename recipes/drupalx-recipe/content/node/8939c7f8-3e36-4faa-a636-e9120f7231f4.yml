@@ -7,7 +7,6 @@ _meta:
   depends:
     9a33874e-ce03-4f0f-9c6e-164a416d574c: media
     4be51289-637f-4ea0-9909-09f719d36683: media
-    49c0b5e2-429d-4059-a2d9-6fd5be19c948: media
 default:
   revision_uid:
     -
@@ -100,24 +99,10 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_eyebrow:
             -
               value: 'DrupalX Features'
-          field_link:
-            -
-              uri: 'internal:/features'
-              title: 'Explore features'
-              options: {  }
-          field_media:
-            -
-              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
-          field_sidebyside_layout:
-            -
-              value: right
-          field_stats:
+          field_features:
             -
               entity:
                 _meta:
@@ -164,9 +149,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_icon:
                     -
                       value: deployed_code
@@ -177,6 +159,17 @@ default:
                   field_title:
                     -
                       value: 'AI Optimization'
+          field_link:
+            -
+              uri: 'internal:/features'
+              title: 'Explore features'
+              options: {  }
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: right
           field_summary:
             -
               value: '<p>The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.</p>'
@@ -638,9 +631,6 @@ default:
           field_quote:
             -
               value: 'This is a quote from a satisfied DrupalX user.'
-          field_thumb:
-            -
-              entity: 49c0b5e2-429d-4059-a2d9-6fd5be19c948
     -
       entity:
         _meta:
@@ -945,6 +935,116 @@ default:
           field_title:
             -
               value: 'Stats Group'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 534eb817-456b-4ebc-8e78-58006e833c7a
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1728134106
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_features:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 14667da4-4f35-4526-aa4e-2ca699197571
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1728134900
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: deployed_code
+                  field_summary:
+                    -
+                      value: '<p>Streamlined workflows for faster project delivery.</p>'
+                      format: basic_html
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 5bd36a8c-bfd3-4cf0-a042-269b60ec2e91
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1728134911
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: deployed_code
+                  field_summary:
+                    -
+                      value: '<p>Robust features that adapt to your needs.</p>'
+                      format: basic_html
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 599658f9-9a95-46ec-8772-a5f5089d64ab
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1728134922
+                  behavior_settings:
+                    -
+                      value: {  }
+                  field_icon:
+                    -
+                      value: deployed_code
+                  field_summary:
+                    -
+                      value: '<p>User-friendly interface for all skill levels.</p>'
+                      format: basic_html
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: right
+          field_summary:
+            -
+              value: '<p>At DrupalX, we empower developers with cutting-edge tools designed for efficiency and creativity. Experience seamless integration and unparalleled performance that elevate your web projects.</p>'
+              format: basic_html
+          field_title:
+            -
+              value: "Discover the Future of Web Development with DrupalX's Innovative Tools"
   field_hide_page_title:
     -
       value: true

@@ -11,7 +11,7 @@ interface ViewRecentCardsProps {
 export default function ViewRecentCards({ results }: ViewRecentCardsProps) {
   const processedResults = results.map((result) => {
     const articleData = readFragment(NodeArticleFragment, result);
-    const media = articleData.media ? getImage(articleData.media, '', ['LARGE', 'I169LARGE2X']) : null;
+    const media = articleData.media ? getImage(articleData.media, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']) : null;
 
     return {
       id: articleData.id,

@@ -3954,16 +3954,16 @@
         },
         {
             "name": "drupalninja/drupalx-paragraphs",
-            "version": "1.7",
+            "version": "1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalninja/drupalx-paragraphs.git",
-                "reference": "96b3026ab109e827c86806d34859d53b84385827"
+                "reference": "3ac40f6904fb4ab0ef100cc2114cb0df72335ce2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/96b3026ab109e827c86806d34859d53b84385827",
-                "reference": "96b3026ab109e827c86806d34859d53b84385827",
+                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/3ac40f6904fb4ab0ef100cc2114cb0df72335ce2",
+                "reference": "3ac40f6904fb4ab0ef100cc2114cb0df72335ce2",
                 "shasum": ""
             },
             "require": {
@@ -3993,9 +3993,9 @@
             ],
             "support": {
                 "issues": "https://github.com/drupalninja/drupalx-paragraphs/issues",
-                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.7"
+                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.8"
             },
-            "time": "2024-09-30T21:07:23+00:00"
+            "time": "2024-10-05T14:03:02+00:00"
         },
         {
             "name": "drupalninja/drupalx_ai",

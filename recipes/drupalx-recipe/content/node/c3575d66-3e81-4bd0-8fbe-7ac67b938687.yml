@@ -121,7 +121,7 @@ default:
           field_sidebyside_layout:
             -
               value: right
-          field_stats:
+          field_features:
             -
               entity:
                 _meta:
@@ -449,7 +449,7 @@ default:
           field_sidebyside_layout:
             -
               value: right
-          field_stats:
+          field_features:
             -
               entity:
                 _meta:
