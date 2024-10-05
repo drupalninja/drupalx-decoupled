@@ -96,6 +96,10 @@ entity_config:
       enabled: true
       query_load_enabled: true
       edges_enabled: true
+    bullet:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
     card:
       enabled: true
       query_load_enabled: true
@@ -232,6 +236,11 @@ field_config:
         enabled: true
       field_title:
         enabled: true
+    bullet:
+      field_icon:
+        enabled: true
+      field_summary:
+        enabled: true
     card:
       field_link:
         enabled: true
@@ -310,13 +319,13 @@ field_config:
     sidebyside:
       field_eyebrow:
         enabled: true
+      field_features:
+        enabled: true
       field_link:
         enabled: true
       field_media:
         enabled: true
       field_sidebyside_layout:
-        enabled: true
-      field_stats:
         enabled: true
       field_summary:
         enabled: true

@@ -7,6 +7,26 @@ import Sidebyside from '@/components/sidebyside/Sidebyside';
 import { StatCardProps } from '@/components/stat-card/StatCard';
 import { ParagraphStatsItemFragment } from './ParagraphCardGroup';
 
+export const ParagraphBulletFragment = graphql(`fragment ParagraphBulletFragment on ParagraphBullet {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  bulletIcon: icon
+  langcode {
+    ...LanguageFragment
+  }
+  status
+  bulletSummary: summary {
+    ...TextFragment
+  }
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+  ]
+)
+
 export const ParagraphSidebysideFragment = graphql(`fragment ParagraphSidebysideFragment on ParagraphSidebyside {
   id
   created {
@@ -22,8 +42,10 @@ export const ParagraphSidebysideFragment = graphql(`fragment ParagraphSidebyside
   media {
     ...MediaUnionFragment
   }
-  stats {
+  features {
+    __typename
     ...ParagraphStatsItemFragment
+    ...ParagraphBulletFragment
   }
   sidebysideLayout
   status
@@ -38,6 +60,7 @@ export const ParagraphSidebysideFragment = graphql(`fragment ParagraphSidebyside
     LinkFragment,
     MediaUnionFragment,
     ParagraphStatsItemFragment,
+    ParagraphBulletFragment,
     TextFragment,
   ]
 )
@@ -48,21 +71,33 @@ interface ParagraphSidebysideProps {
 }
 
 export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSidebysideProps) {
-  const { eyebrow, sidebysideLayout: layout, sidebysideSummary, sidebysideTitle, link, media, stats } = readFragment(ParagraphSidebysideFragment, paragraph);
+  const { eyebrow, sidebysideLayout: layout, sidebysideSummary, sidebysideTitle, link, media, features } = readFragment(ParagraphSidebysideFragment, paragraph);
   const linkFragment = readFragment(LinkFragment, link);
   const textFragment = readFragment(TextFragment, sidebysideSummary);
-  const statsFragment = readFragment(ParagraphStatsItemFragment, stats);
   const imageContent = getImage(media, 'w-full h-auto rounded-lg', ['I43SMALL', 'I43LARGE2X']);
 
-  const statItems: StatCardProps[] = statsFragment ? (statsFragment as any[]).map((stat) => ({
-    type: 'stat',
-    media: getImage(stat?.customIcon, 'w-16 h-16 object-contain mx-auto'),
-    heading: stat.title ?? '',
-    body: stat.statSummary ?? '',
-    icon: stat.icon,
-    border: false,
-    layout: 'left',
-  })) : [];
+  const featureItems = features ? (features as Array<any>).map((feature) => {
+    if (feature.__typename === 'ParagraphStatsItem') {
+      const stat: any = readFragment(ParagraphStatsItemFragment, feature);
+      return {
+        type: 'stat',
+        media: getImage(stat?.customIcon, 'w-16 h-16 object-contain mx-auto'),
+        heading: stat.title ?? '',
+        body: stat.statSummary ?? '',
+        icon: stat.icon,
+        border: false,
+        layout: 'left',
+      } as StatCardProps;
+    } else if (feature.__typename === 'ParagraphBullet') {
+      const bullet: any = readFragment(ParagraphBulletFragment, feature);
+      return {
+        type: 'bullet',
+        icon: bullet?.bulletIcon,
+        summary: bullet?.bulletSummary?.value,
+      };
+    }
+    return null;
+  }).filter(Boolean) : [];
 
   return (
     <Sidebyside
@@ -73,7 +108,7 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
       link={linkFragment as any}
       media={imageContent}
       modifier={modifier}
-      stats={statItems}
+      features={featureItems as any}
     />
   );
 }

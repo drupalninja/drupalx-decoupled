@@ -3,6 +3,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import StatCard, { StatCardProps } from '../stat-card/StatCard';
 
+interface BulletProps {
+  type: 'bullet';
+  icon: string;
+  summary: string;
+}
+
+type FeatureItem = StatCardProps | BulletProps;
+
 interface SidebysideProps {
   eyebrow?: string;
   layout?: string;
@@ -14,7 +22,7 @@ interface SidebysideProps {
   };
   media: ReactNode;
   modifier?: string;
-  stats?: StatCardProps[];
+  features?: FeatureItem[];
 }
 
 export default function Sidebyside({
@@ -25,8 +33,10 @@ export default function Sidebyside({
   link,
   media,
   modifier,
-  stats,
+  features,
 }: SidebysideProps) {
+  const isStatType = features && features.length > 0 && features[0].type === 'stat';
+
   return (
     <div className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${modifier ?? 'container my-6 lg:my-25'} ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}>
       <div className="w-full lg:w-1/2">
@@ -56,10 +66,17 @@ export default function Sidebyside({
             </Button>
           </div>
         )}
-        {stats && stats.length > 0 && (
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            {stats.map((stat, index) => (
-              <StatCard key={index} {...stat} layout='left' border={false} modifier='w-full sm:w-1/2' />
+        {features && features.length > 0 && (
+          <div className={isStatType ? "flex flex-col sm:flex-row gap-4 mt-6" : "mt-6 space-y-4"}>
+            {features.map((feature, index) => (
+              feature.type === 'stat' ? (
+                <StatCard key={index} {...feature as StatCardProps} layout='left' border={false} modifier='w-full' />
+              ) : (
+                <div key={index} className="flex items-start gap-4">
+                  <span className="material-symbols-outlined !text-3xl mt-[-5px]">{(feature as BulletProps).icon}</span>
+                  <span className="flex-1" dangerouslySetInnerHTML={{ __html: (feature as BulletProps).summary }} />
+                </div>
+              )
             ))}
           </div>
         )}

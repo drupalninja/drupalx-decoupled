@@ -1669,8 +1669,8 @@ type ParagraphLogoCollection implements ParagraphInterface & EdgeNode {
   """The paragraphs entity language code."""
   langcode: Language!
 
-  """Associate a collection of logos."""
-  logos: MediaUnion!
+  """Add collection of media library items."""
+  mediaItem: [MediaUnion!]!
 
   """Published"""
   status: Boolean!
@@ -1777,6 +1777,9 @@ type ParagraphSidebyside implements ParagraphInterface & EdgeNode {
   """Provide a short label for this content."""
   eyebrow: String
 
+  """Optional featured items to display within the content area."""
+  features: [ParagraphUnion!]
+
   """The paragraphs entity language code."""
   langcode: Language!
 
@@ -1788,9 +1791,6 @@ type ParagraphSidebyside implements ParagraphInterface & EdgeNode {
 
   """Select the display layout for this component."""
   sidebysideLayout: String!
-
-  """Optional stat cards to display within the content area."""
-  stats: [ParagraphUnion!]
 
   """Published"""
   status: Boolean!
