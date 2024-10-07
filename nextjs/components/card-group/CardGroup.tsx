@@ -26,10 +26,10 @@ export default function CardGroup({ title, cards, modifier }: CardGroupProps) {
   const gridCols = cards.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
 
   return (
-    <div className={modifier ?? 'container mx-auto my-25'}>
+    <div className={modifier ?? 'container mx-auto my-12 lg:my-25'}>
       <div className="space-y-6 lg:space-y-8">
         {title && (
-          <h2 className="text-3xl lg:text-3xl font-bold text-center mb-6 lg:mb-8 w-3/5 mx-auto">{title}</h2>
+          <h2 className="text-3xl lg:text-3xl font-bold text-center mb-8 lg:mb-8 w-3/5 mx-auto">{title}</h2>
         )}
         <div className={`grid grid-cols-1 ${gridCols} gap-6 lg:gap-12`}>
           {cards.map((card, index) => (
