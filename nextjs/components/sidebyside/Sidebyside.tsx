@@ -11,7 +11,7 @@ interface BulletProps {
 
 type FeatureItem = StatCardProps | BulletProps;
 
-interface SidebysideProps {
+export interface SidebysideProps {
   eyebrow?: string;
   layout?: string;
   title: string;
