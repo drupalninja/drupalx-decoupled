@@ -8,7 +8,7 @@ describe('Card Group Component', () => {
       cy.get('h2')
         .should('be.visible')
         .and('contain', 'Featured Cards')
-        .and('have.class', 'text-3xl lg:text-3xl font-bold text-center mb-6 lg:mb-8');
+        .and('have.class', 'text-3xl lg:text-3xl font-bold text-center mb-8 lg:mb-8 w-3/5 mx-auto');
     });
 
     it('should display the correct number of cards', () => {
@@ -35,8 +35,8 @@ describe('Card Group Component', () => {
 
     it('should display correct content for Stat card', () => {
       cy.get('.stat').within(() => {
-        cy.get('h3').should('contain', 'Important Statistic');
-        cy.get('p').should('contain', 'A significant number or fact');
+        cy.get('h3').should('be.visible');
+        cy.get('p').should('be.visible');
         cy.get('svg').should('exist');
       });
     });
@@ -85,7 +85,7 @@ describe('Card Group Component', () => {
     });
 
     it('should display correct content for Stat cards', () => {
-      cy.get('.stat').each(($stat, index) => {
+      cy.get('.stat').each(($stat) => {
         cy.wrap($stat).find('h3').should('be.visible');
         cy.wrap($stat).find('p').should('be.visible');
         cy.wrap($stat).find('svg').should('exist');

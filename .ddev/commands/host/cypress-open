@@ -1,0 +1,6 @@
+#!/bin/bash
+
+## Shortcut for cypress open.
+
+cd $DDEV_APPROOT/nextjs/
+npx cypress open --browser chrome --e2e

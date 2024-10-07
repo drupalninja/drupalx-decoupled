@@ -63,7 +63,7 @@ export default function Hero({ heroLayout, media, heading, summary, link, link2,
         </div>
 
         {heroLayout === 'image_bottom' && media && (
-          <div className="mt-6 flex justify-center items-center">
+          <div className="mt-6 lg:mt-12 flex justify-center items-center">
             {media}
           </div>
         )}
