@@ -3954,16 +3954,16 @@
         },
         {
             "name": "drupalninja/drupalx-paragraphs",
-            "version": "1.8",
+            "version": "1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalninja/drupalx-paragraphs.git",
-                "reference": "3ac40f6904fb4ab0ef100cc2114cb0df72335ce2"
+                "reference": "d176fb05dbda2615341a279908034337e4e29800"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/3ac40f6904fb4ab0ef100cc2114cb0df72335ce2",
-                "reference": "3ac40f6904fb4ab0ef100cc2114cb0df72335ce2",
+                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/d176fb05dbda2615341a279908034337e4e29800",
+                "reference": "d176fb05dbda2615341a279908034337e4e29800",
                 "shasum": ""
             },
             "require": {
@@ -3993,9 +3993,9 @@
             ],
             "support": {
                 "issues": "https://github.com/drupalninja/drupalx-paragraphs/issues",
-                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.8"
+                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.10"
             },
-            "time": "2024-10-05T14:03:02+00:00"
+            "time": "2024-10-05T14:29:33+00:00"
         },
         {
             "name": "drupalninja/drupalx_ai",
@@ -13198,16 +13198,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.5",
+            "version": "1.12.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "7e6c6cb7cecb0a6254009a1a8a7d54ec99812b17"
+                "reference": "dc4d2f145a88ea7141ae698effd64d9df46527ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7e6c6cb7cecb0a6254009a1a8a7d54ec99812b17",
-                "reference": "7e6c6cb7cecb0a6254009a1a8a7d54ec99812b17",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dc4d2f145a88ea7141ae698effd64d9df46527ae",
+                "reference": "dc4d2f145a88ea7141ae698effd64d9df46527ae",
                 "shasum": ""
             },
             "require": {
@@ -13252,7 +13252,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-26T12:45:22+00:00"
+            "time": "2024-10-06T15:03:59+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
