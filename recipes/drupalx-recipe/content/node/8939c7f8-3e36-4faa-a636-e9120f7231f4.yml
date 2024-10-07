@@ -200,7 +200,7 @@ default:
               value: 'DrupalX Content'
           field_link:
             -
-              uri: 'internal:/articles'
+              uri: 'internal:/resources'
               title: 'Read DrupalX articles'
               options: {  }
           field_media:
@@ -592,7 +592,7 @@ default:
                       summary: ''
                   field_link:
                     -
-                      uri: 'internal:/articles'
+                      uri: 'internal:/resources'
                       title: 'Read DrupalX articles'
                       options: {  }
                   field_title:
@@ -701,7 +701,7 @@ default:
               value: {  }
           field_title:
             -
-              value: 'DrupalX Articles'
+              value: 'DrupalX Resources'
           field_views_ref:
             -
               target_id: recent_cards

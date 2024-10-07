@@ -18,7 +18,7 @@ default:
       target_id: 1
   title:
     -
-      value: Articles
+      value: Resources
   created:
     -
       value: 1724541785
@@ -36,15 +36,15 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Articles | DrupalX'
+        content: 'Resources | DrupalX'
     -
       tag: link
       attributes:
         rel: canonical
-        href: '/articles'
+        href: '/resources'
   path:
     -
-      alias: /articles
+      alias: /resources
       langcode: en
       pathauto: 0
   field_content:
@@ -71,7 +71,7 @@ default:
               value: true
           field_heading:
             -
-              value: 'DrupalX Articles'
+              value: 'DrupalX Resources'
               format: restricted_html
           field_hero_layout:
             -

@@ -10,13 +10,13 @@ default:
       value: true
   title:
     -
-      value: Articles
+      value: Resources
   menu_name:
     -
       value: main
   link:
     -
-      uri: 'internal:/articles'
+      uri: 'internal:/resources'
       title: ''
       options: {  }
   external:
