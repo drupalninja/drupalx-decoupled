@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Shortcut for Next.js dev build.
+
+cd $DDEV_APPROOT/nextjs/
+npm run dev

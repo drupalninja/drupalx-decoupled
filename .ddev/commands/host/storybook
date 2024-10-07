@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Shortcut for Storybook
+
+cd $DDEV_APPROOT/nextjs/
+npm run storybook
