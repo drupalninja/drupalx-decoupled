@@ -131,10 +131,6 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "ParagraphCardCompareConnection"
-          },
-          {
-            "kind": "OBJECT",
             "name": "ParagraphCardConnection"
           },
           {
@@ -148,10 +144,6 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphCarouselItemConnection"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "ParagraphCompareConnection"
           },
           {
             "kind": "OBJECT",
@@ -443,10 +435,6 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "ParagraphCardCompareEdge"
-          },
-          {
-            "kind": "OBJECT",
             "name": "ParagraphCardEdge"
           },
           {
@@ -460,10 +448,6 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphCarouselItemEdge"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "ParagraphCompareEdge"
           },
           {
             "kind": "OBJECT",
@@ -584,10 +568,6 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "ParagraphCardCompare"
-          },
-          {
-            "kind": "OBJECT",
             "name": "ParagraphCardGroup"
           },
           {
@@ -597,10 +577,6 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphCarouselItem"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "ParagraphCompare"
           },
           {
             "kind": "OBJECT",
@@ -4477,226 +4453,6 @@ const introspection = {
       },
       {
         "kind": "OBJECT",
-        "name": "ParagraphCardCompare",
-        "fields": [
-          {
-            "name": "bulletsHeading",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "cards",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "UNION",
-                    "name": "ParagraphUnion"
-                  }
-                }
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "created",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "DateTime"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "eyebrow",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "langcode",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Language"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "status",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "summary",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Text"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "title",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "EdgeNode"
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "ParagraphInterface"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "ParagraphCardCompareConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "ParagraphCardCompareEdge"
-                  }
-                }
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "ParagraphCardCompare"
-                  }
-                }
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ConnectionPageInfo"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Connection"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "ParagraphCardCompareEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Cursor"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ParagraphCardCompare"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Edge"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
         "name": "ParagraphCardConnection",
         "fields": [
           {
@@ -5333,217 +5089,6 @@ const introspection = {
               "ofType": {
                 "kind": "OBJECT",
                 "name": "ParagraphCarouselItem"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Edge"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "ParagraphCompare",
-        "fields": [
-          {
-            "name": "bullets",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "created",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "DateTime"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "eyebrow",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "langcode",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Language"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "link",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Link"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "status",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "suffix",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String"
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "title",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "EdgeNode"
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "ParagraphInterface"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "ParagraphCompareConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "ParagraphCompareEdge"
-                  }
-                }
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "ParagraphCompare"
-                  }
-                }
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ConnectionPageInfo"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Connection"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "ParagraphCompareEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Cursor"
-              }
-            },
-            "args": [],
-            "isDeprecated": false
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ParagraphCompare"
               }
             },
             "args": [],
@@ -6221,10 +5766,6 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "ParagraphCardCompare"
-          },
-          {
-            "kind": "OBJECT",
             "name": "ParagraphCardGroup"
           },
           {
@@ -6234,10 +5775,6 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphCarouselItem"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "ParagraphCompare"
           },
           {
             "kind": "OBJECT",
@@ -7733,10 +7270,6 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
-            "name": "ParagraphCardCompare"
-          },
-          {
-            "kind": "OBJECT",
             "name": "ParagraphCardGroup"
           },
           {
@@ -7746,10 +7279,6 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphCarouselItem"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "ParagraphCompare"
           },
           {
             "kind": "OBJECT",
@@ -8652,62 +8181,6 @@ const introspection = {
             "isDeprecated": false
           },
           {
-            "name": "paragraphCardCompares",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ParagraphCardCompareConnection"
-              }
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Cursor"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Cursor"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int"
-                }
-              },
-              {
-                "name": "reverse",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean"
-                },
-                "defaultValue": "false"
-              },
-              {
-                "name": "sortKey",
-                "type": {
-                  "kind": "ENUM",
-                  "name": "ConnectionSortKeys"
-                }
-              }
-            ],
-            "isDeprecated": false
-          },
-          {
             "name": "paragraphCardGroups",
             "type": {
               "kind": "NON_NULL",
@@ -8882,62 +8355,6 @@ const introspection = {
               "ofType": {
                 "kind": "OBJECT",
                 "name": "ParagraphCarouselConnection"
-              }
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Cursor"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Cursor"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int"
-                }
-              },
-              {
-                "name": "reverse",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean"
-                },
-                "defaultValue": "false"
-              },
-              {
-                "name": "sortKey",
-                "type": {
-                  "kind": "ENUM",
-                  "name": "ConnectionSortKeys"
-                }
-              }
-            ],
-            "isDeprecated": false
-          },
-          {
-            "name": "paragraphCompares",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ParagraphCompareConnection"
               }
             },
             "args": [

@@ -316,27 +316,6 @@ type Query {
     sortKey: ConnectionSortKeys
   ): ParagraphCardConnection!
 
-  """List of all ParagraphCardCompare on the platform."""
-  paragraphCardCompares(
-    """Returns the elements that come after the specified cursor."""
-    after: Cursor
-
-    """Returns the elements that come before the specified cursor."""
-    before: Cursor
-
-    """Returns up to the first n elements from the list."""
-    first: Int
-
-    """Returns up to the last n elements from the list."""
-    last: Int
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-
-    """Sort the underlying list by the given key."""
-    sortKey: ConnectionSortKeys
-  ): ParagraphCardCompareConnection!
-
   """List of all ParagraphCardGroup on the platform."""
   paragraphCardGroups(
     """Returns the elements that come after the specified cursor."""
@@ -399,27 +378,6 @@ type Query {
     """Sort the underlying list by the given key."""
     sortKey: ConnectionSortKeys
   ): ParagraphCarouselItemConnection!
-
-  """List of all ParagraphCompare on the platform."""
-  paragraphCompares(
-    """Returns the elements that come after the specified cursor."""
-    after: Cursor
-
-    """Returns the elements that come before the specified cursor."""
-    before: Cursor
-
-    """Returns up to the first n elements from the list."""
-    first: Int
-
-    """Returns up to the last n elements from the list."""
-    last: Int
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-
-    """Sort the underlying list by the given key."""
-    sortKey: ConnectionSortKeys
-  ): ParagraphCompareConnection!
 
   """List of all ParagraphEmbed on the platform."""
   paragraphEmbeds(
@@ -1452,7 +1410,7 @@ type NodeLanding implements NodeInterface & MetaTagInterface & EdgeNode {
 }
 
 """Entity type paragraph."""
-union ParagraphUnion = ParagraphAccordion | ParagraphAccordionItem | ParagraphBullet | ParagraphCard | ParagraphCardCompare | ParagraphCardGroup | ParagraphCarousel | ParagraphCarouselItem | ParagraphCompare | ParagraphEmbed | ParagraphGallery | ParagraphHero | ParagraphLogoCollection | ParagraphMedia | ParagraphNewsletter | ParagraphQuote | ParagraphSidebyside | ParagraphStatsItem | ParagraphText | ParagraphView
+union ParagraphUnion = ParagraphAccordion | ParagraphAccordionItem | ParagraphBullet | ParagraphCard | ParagraphCardGroup | ParagraphCarousel | ParagraphCarouselItem | ParagraphEmbed | ParagraphGallery | ParagraphHero | ParagraphLogoCollection | ParagraphMedia | ParagraphNewsletter | ParagraphQuote | ParagraphSidebyside | ParagraphStatsItem | ParagraphText | ParagraphView
 
 """
 The Accordion component is ideal for rendering FAQs or similar title-description
@@ -1580,38 +1538,6 @@ type ParagraphCard implements ParagraphInterface & EdgeNode {
 }
 
 """
-A section that displays a comparison of cards with features and a call-to-action.
-"""
-type ParagraphCardCompare implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
-  id: ID!
-
-  """Heading label used for comparison bullets."""
-  bulletsHeading: String
-
-  """Cards"""
-  cards: [ParagraphUnion!]!
-
-  """The time that the Paragraph was created."""
-  created: DateTime!
-
-  """Provide a short label for this content."""
-  eyebrow: String
-
-  """The paragraphs entity language code."""
-  langcode: Language!
-
-  """Published"""
-  status: Boolean!
-
-  """Summary"""
-  summary: Text!
-
-  """Title"""
-  title: String!
-}
-
-"""
 The Card Group Feature allows editors to highlight collections of content items
 using grouped card layouts, ideal for showcasing articles, products, services,
 or other content types.
@@ -1680,38 +1606,6 @@ type ParagraphCarouselItem implements ParagraphInterface & EdgeNode {
 
   """Title"""
   title: String
-}
-
-"""Card used to compare bullets with another card."""
-type ParagraphCompare implements ParagraphInterface & EdgeNode {
-  """The Universally Unique IDentifier (UUID)."""
-  id: ID!
-
-  """List bullet points on each line."""
-  bullets: String!
-
-  """The time that the Paragraph was created."""
-  created: DateTime!
-
-  """Provide a short label for this content."""
-  eyebrow: String
-
-  """The paragraphs entity language code."""
-  langcode: Language!
-
-  """
-  Optional call to action link that is exposed when the item is expanded.
-  """
-  link: Link
-
-  """Published"""
-  status: Boolean!
-
-  """Optional suffix for the title"""
-  suffix: String
-
-  """Provide the primary heading for the accordion."""
-  title: String!
 }
 
 """
@@ -2595,19 +2489,6 @@ type ParagraphCardEdge implements Edge {
   node: ParagraphCard!
 }
 
-"""A paginated set of results for ParagraphCardCompare."""
-type ParagraphCardCompareConnection implements Connection {
-  edges: [ParagraphCardCompareEdge!]!
-  nodes: [ParagraphCardCompare!]!
-  pageInfo: ConnectionPageInfo!
-}
-
-"""Edge for ParagraphCardCompare."""
-type ParagraphCardCompareEdge implements Edge {
-  cursor: Cursor!
-  node: ParagraphCardCompare!
-}
-
 """A paginated set of results for ParagraphCardGroup."""
 type ParagraphCardGroupConnection implements Connection {
   edges: [ParagraphCardGroupEdge!]!
@@ -2645,19 +2526,6 @@ type ParagraphCarouselItemConnection implements Connection {
 type ParagraphCarouselItemEdge implements Edge {
   cursor: Cursor!
   node: ParagraphCarouselItem!
-}
-
-"""A paginated set of results for ParagraphCompare."""
-type ParagraphCompareConnection implements Connection {
-  edges: [ParagraphCompareEdge!]!
-  nodes: [ParagraphCompare!]!
-  pageInfo: ConnectionPageInfo!
-}
-
-"""Edge for ParagraphCompare."""
-type ParagraphCompareEdge implements Edge {
-  cursor: Cursor!
-  node: ParagraphCompare!
 }
 
 """A paginated set of results for ParagraphEmbed."""

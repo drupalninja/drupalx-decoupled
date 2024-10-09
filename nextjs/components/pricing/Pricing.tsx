@@ -1,6 +1,8 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Check } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export interface PricingCardProps {
   eyebrow: string;
@@ -38,12 +40,11 @@ const PricingCard: PricingCard = ({ eyebrow, title, monthlyLabel = '', features,
       </div>
     </div>
     <div>
-      <a
-        className="w-full"
-        href={ctaLink}
-      >
-        {ctaText}
-      </a>
+      <Button asChild variant="default" className='w-full'>
+        <Link href={ctaLink}>
+          {ctaText}
+        </Link>
+      </Button>
     </div>
   </Card>
 );
