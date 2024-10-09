@@ -27,7 +27,7 @@ default:
       value: true
   weight:
     -
-      value: 2
+      value: -46
   expanded:
     -
       value: true
@@ -39,9 +39,9 @@ default:
       tag: meta
       attributes:
         name: title
-        content: '| DrupalX'
+        content: '| Drush Site-Install'
     -
       tag: link
       attributes:
         rel: canonical
-        href: '/user'
+        href: 'https://drupalx-graphql.ddev.site/user'

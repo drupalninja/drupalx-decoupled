@@ -127,6 +127,10 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "ParagraphBulletConnection"
+          },
+          {
+            "kind": "OBJECT",
             "name": "ParagraphCardConnection"
           },
           {
@@ -427,6 +431,10 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "ParagraphBulletEdge"
+          },
+          {
+            "kind": "OBJECT",
             "name": "ParagraphCardEdge"
           },
           {
@@ -549,6 +557,10 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphAccordionItem"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ParagraphBullet"
           },
           {
             "kind": "OBJECT",
@@ -4154,6 +4166,190 @@ const introspection = {
       },
       {
         "kind": "OBJECT",
+        "name": "ParagraphBullet",
+        "fields": [
+          {
+            "name": "created",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "DateTime"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "icon",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "langcode",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Language"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "status",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "summary",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Text"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          }
+        ],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "EdgeNode"
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "ParagraphInterface"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ParagraphBulletConnection",
+        "fields": [
+          {
+            "name": "edges",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ParagraphBulletEdge"
+                  }
+                }
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "nodes",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ParagraphBullet"
+                  }
+                }
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "pageInfo",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ConnectionPageInfo"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          }
+        ],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Connection"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ParagraphBulletEdge",
+        "fields": [
+          {
+            "name": "cursor",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Cursor"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          },
+          {
+            "name": "node",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ParagraphBullet"
+              }
+            },
+            "args": [],
+            "isDeprecated": false
+          }
+        ],
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Edge"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
         "name": "ParagraphCard",
         "fields": [
           {
@@ -5559,6 +5755,10 @@ const introspection = {
           {
             "kind": "OBJECT",
             "name": "ParagraphAccordionItem"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ParagraphBullet"
           },
           {
             "kind": "OBJECT",
@@ -7062,6 +7262,10 @@ const introspection = {
           },
           {
             "kind": "OBJECT",
+            "name": "ParagraphBullet"
+          },
+          {
+            "kind": "OBJECT",
             "name": "ParagraphCard"
           },
           {
@@ -7871,6 +8075,62 @@ const introspection = {
               "ofType": {
                 "kind": "OBJECT",
                 "name": "ParagraphAccordionConnection"
+              }
+            },
+            "args": [
+              {
+                "name": "after",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Cursor"
+                }
+              },
+              {
+                "name": "before",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Cursor"
+                }
+              },
+              {
+                "name": "first",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              },
+              {
+                "name": "last",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int"
+                }
+              },
+              {
+                "name": "reverse",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean"
+                },
+                "defaultValue": "false"
+              },
+              {
+                "name": "sortKey",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "ConnectionSortKeys"
+                }
+              }
+            ],
+            "isDeprecated": false
+          },
+          {
+            "name": "paragraphBullets",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ParagraphBulletConnection"
               }
             },
             "args": [

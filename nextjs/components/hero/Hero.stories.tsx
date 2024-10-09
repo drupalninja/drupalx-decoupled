@@ -7,11 +7,12 @@ const meta: Meta<typeof Hero> = {
   title: 'Editorial/Hero',
   component: Hero,
   argTypes: {
-    heroLayout: { control: 'select', options: ['image_top', 'image_bottom'] },
+    heroLayout: { control: 'select', options: ['image_top', 'image_bottom', 'image_bottom_split'] },
     media: { control: 'object' },
     heading: { control: 'text' },
     summary: { control: 'text' },
     link: { control: 'object' },
+    link2: { control: 'object' },
     modifier: { control: 'text' }
   }
 };
@@ -40,7 +41,7 @@ export const Default: Story = {
     },
     link2: {
       url: 'https://example.com',
-      title: 'Learn More',
+      title: 'Get Started',
     },
     modifier: 'max-w-4xl',
   }
@@ -50,5 +51,14 @@ export const ImageBottom: Story = {
   args: {
     ...Default.args,
     heroLayout: 'image_bottom',
+  }
+};
+
+export const ImageBottomSplit: Story = {
+  args: {
+    ...Default.args,
+    heroLayout: 'image_bottom_split',
+    heading: 'Empower Your Content with DrupalX Today',
+    summary: 'Discover the power of a decoupled CMS that adapts to your needs. With DrupalX, you can create, manage, and scale your content effortlessly.',
   }
 };

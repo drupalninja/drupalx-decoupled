@@ -3752,11 +3752,11 @@
             ],
             "authors": [
                 {
-                    "name": "Berdir",
+                    "name": "berdir",
                     "homepage": "https://www.drupal.org/user/214652"
                 },
                 {
-                    "name": "Dave Reid",
+                    "name": "dave reid",
                     "homepage": "https://www.drupal.org/user/53892"
                 },
                 {
@@ -3784,17 +3784,17 @@
         },
         {
             "name": "drupal/typed_data",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/typed_data.git",
-                "reference": "2.1.0"
+                "reference": "2.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/typed_data-2.1.0.zip",
-                "reference": "2.1.0",
-                "shasum": "24e76b2add189b8d6baaf177f2e636b1c4cc5417"
+                "url": "https://ftp.drupal.org/files/projects/typed_data-2.1.1.zip",
+                "reference": "2.1.1",
+                "shasum": "600cb9527dd93b200355f57ad4da71172ee5f6dc"
             },
             "require": {
                 "drupal/core": "^10.3 | ^11"
@@ -3802,16 +3802,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.0",
-                    "datestamp": "1720651977",
+                    "version": "2.1.1",
+                    "datestamp": "1728332112",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "drush.services.yml": ">=9"
                     }
                 }
             },
@@ -3954,16 +3949,16 @@
         },
         {
             "name": "drupalninja/drupalx-paragraphs",
-            "version": "1.10",
+            "version": "1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalninja/drupalx-paragraphs.git",
-                "reference": "d176fb05dbda2615341a279908034337e4e29800"
+                "reference": "114458fab0fcc61da2ee8b652014b651110ec23f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/d176fb05dbda2615341a279908034337e4e29800",
-                "reference": "d176fb05dbda2615341a279908034337e4e29800",
+                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/114458fab0fcc61da2ee8b652014b651110ec23f",
+                "reference": "114458fab0fcc61da2ee8b652014b651110ec23f",
                 "shasum": ""
             },
             "require": {
@@ -3993,9 +3988,9 @@
             ],
             "support": {
                 "issues": "https://github.com/drupalninja/drupalx-paragraphs/issues",
-                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.10"
+                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.11"
             },
-            "time": "2024-10-05T14:29:33+00:00"
+            "time": "2024-10-09T02:01:46+00:00"
         },
         {
             "name": "drupalninja/drupalx_ai",
@@ -4777,7 +4772,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v11.26.0",
+            "version": "v11.27.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -4832,7 +4827,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.26.0",
+            "version": "v11.27.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -4878,7 +4873,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.26.0",
+            "version": "v11.27.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -4926,7 +4921,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.26.0",
+            "version": "v11.27.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -5682,16 +5677,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "3abf7425cd284141dc5d8d14a9ee444de3345d1a"
+                "reference": "8eea230464783aa9671db8eea6f8c6ac5285794b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/3abf7425cd284141dc5d8d14a9ee444de3345d1a",
-                "reference": "3abf7425cd284141dc5d8d14a9ee444de3345d1a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8eea230464783aa9671db8eea6f8c6ac5285794b",
+                "reference": "8eea230464783aa9671db8eea6f8c6ac5285794b",
                 "shasum": ""
             },
             "require": {
@@ -5734,9 +5729,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.1"
             },
-            "time": "2024-09-29T13:56:26+00:00"
+            "time": "2024-10-08T18:51:32+00:00"
         },
         {
             "name": "oomphinc/composer-installers-extender",

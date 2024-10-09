@@ -140,6 +140,14 @@ entity_config:
       enabled: true
       query_load_enabled: true
       edges_enabled: true
+    pricing:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+    pricing_card:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
     quote:
       enabled: true
       query_load_enabled: true
@@ -302,6 +310,26 @@ field_config:
         enabled: true
     newsletter:
       field_summary:
+        enabled: true
+      field_title:
+        enabled: true
+    pricing:
+      field_eyebrow:
+        enabled: true
+      field_pricing_cards:
+        enabled: true
+      field_summary:
+        enabled: true
+      field_title:
+        enabled: true
+    pricing_card:
+      field_eyebrow:
+        enabled: true
+      field_features_text:
+        enabled: true
+      field_link:
+        enabled: true
+      field_suffix:
         enabled: true
       field_title:
         enabled: true
