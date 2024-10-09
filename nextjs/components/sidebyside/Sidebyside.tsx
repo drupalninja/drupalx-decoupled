@@ -53,21 +53,12 @@ export default function Sidebyside({
         <h2 className="text-3xl font-bold">{title}</h2>
         {summary && (
           <div
-            className="mb-3"
+            className='mb-2 lg:mb-4'
             dangerouslySetInnerHTML={{ __html: summary }}
           />
         )}
-        {link?.url && (
-          <div className="flex">
-            <Button variant="default" asChild>
-              <a href={link.url}>
-                {link.title ?? 'Read more'}
-              </a>
-            </Button>
-          </div>
-        )}
         {features && features.length > 0 && (
-          <div className={isStatType ? "flex flex-col sm:flex-row gap-4 mt-6" : "mt-6 space-y-4"}>
+          <div className={isStatType ? "flex flex-col sm:flex-row gap-4 mb-6" : "mb-6 space-y-4"}>
             {features.map((feature, index) => (
               feature.type === 'stat' ? (
                 <StatCard key={index} {...feature as StatCardProps} layout='left' border={false} modifier='w-full' />
@@ -78,6 +69,15 @@ export default function Sidebyside({
                 </div>
               )
             ))}
+          </div>
+        )}
+        {link?.url && (
+          <div className="flex">
+            <Button variant="default" asChild>
+              <a href={link.url}>
+                {link.title ?? 'Read more'}
+              </a>
+            </Button>
           </div>
         )}
       </div>

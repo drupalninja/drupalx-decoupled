@@ -67,11 +67,11 @@ const Pricing: React.FC<PricingProps> = ({
   const gridColumns = cards.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3';
 
   return (
-    <section className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section className="px-[5%] my-12 lg:my-25">
       <div className="container">
-        <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
+        <div className="mx-auto max-w-lg text-center mb-6 lg:mb-12">
           <p className="mb-3 font-semibold md:mb-4">{eyebrow}</p>
-          <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-6xl lg:text-7xl">{title}</h1>
+          <h1 className="mb-5 text-5xl font-semibold md:mb-6 md:text-6xl lg:text-7xl">{title}</h1>
           <div className="md:text-md" dangerouslySetInnerHTML={{ __html: summary }}></div>
         </div>
         <div className={`grid grid-cols-1 gap-8 ${gridColumns}`}>
