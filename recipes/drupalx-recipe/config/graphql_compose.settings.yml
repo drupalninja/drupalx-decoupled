@@ -104,6 +104,10 @@ entity_config:
       enabled: true
       query_load_enabled: true
       edges_enabled: true
+    card_compare:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
     card_group:
       enabled: true
       query_load_enabled: true
@@ -113,6 +117,10 @@ entity_config:
       query_load_enabled: true
       edges_enabled: true
     carousel_item:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+    compare:
       enabled: true
       query_load_enabled: true
       edges_enabled: true
@@ -250,6 +258,17 @@ field_config:
         enabled: true
       field_title:
         enabled: true
+    card_compare:
+      field_bullets_heading:
+        enabled: true
+      field_cards:
+        enabled: true
+      field_eyebrow:
+        enabled: true
+      field_summary:
+        enabled: true
+      field_title:
+        enabled: true
     card_group:
       field_card:
         enabled: true
@@ -262,6 +281,17 @@ field_config:
       field_media:
         enabled: true
       field_summary:
+        enabled: true
+      field_title:
+        enabled: true
+    compare:
+      field_bullets:
+        enabled: true
+      field_eyebrow:
+        enabled: true
+      field_link:
+        enabled: true
+      field_suffix:
         enabled: true
       field_title:
         enabled: true

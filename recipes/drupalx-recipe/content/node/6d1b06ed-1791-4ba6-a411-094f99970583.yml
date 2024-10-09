@@ -1,0 +1,188 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 6d1b06ed-1791-4ba6-a411-094f99970583
+  bundle: landing
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Pricing
+  created:
+    -
+      value: 1728431411
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Pricing | Drush Site-Install'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'https://drupalx-graphql.ddev.site/pricing'
+  path:
+    -
+      alias: /pricing
+      langcode: en
+      pathauto: 1
+  field_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 08ed30e6-1a28-42ad-aa72-29effb9167b2
+          bundle: pricing
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1728431420
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          field_eyebrow:
+            -
+              value: 'Choose Your Plan'
+          field_pricing_cards:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 75f6742d-5de6-4f7d-b103-eddb203d36df
+                  bundle: pricing_card
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1728431461
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_eyebrow:
+                    -
+                      value: 'DrupalX CMS'
+                  field_features_text:
+                    -
+                      value: "Full access to open source features\r\nCommunity support\r\nDocumentation"
+                  field_link:
+                    -
+                      uri: 'internal:/'
+                      title: 'Get Started'
+                      options: {  }
+                  field_title:
+                    -
+                      value: Free
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: d30f327b-cc14-4ac6-b1e7-2e98eda95ff2
+                  bundle: pricing_card
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1728431498
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_eyebrow:
+                    -
+                      value: 'Technical Discovery'
+                  field_features_text:
+                    -
+                      value: "Comprehensive needs assessment\r\nCustom solution design\r\nImplementation roadmap"
+                  field_link:
+                    -
+                      uri: 'internal:/'
+                      title: 'Book Discovery'
+                      options: {  }
+                  field_title:
+                    -
+                      value: '$5,000'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: a1433a04-9124-4446-b50e-a5587a70f53d
+                  bundle: pricing_card
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1728431528
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  field_eyebrow:
+                    -
+                      value: 'Full Project Build'
+                  field_features_text:
+                    -
+                      value: "End-to-end project management\r\nCustom development\r\nOngoing support"
+                  field_link:
+                    -
+                      uri: 'internal:/'
+                      title: 'Contact Sales'
+                      options: {  }
+                  field_title:
+                    -
+                      value: Contact
+          field_summary:
+            -
+              value: '<p>Select the best option for your needs</p>'
+              format: basic_html
+          field_title:
+            -
+              value: 'Compare Our Options'
+  field_hide_page_title:
+    -
+      value: true

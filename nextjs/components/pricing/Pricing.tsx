@@ -1,28 +1,27 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
 
-interface CompareCardProps {
+export interface PricingCardProps {
+  eyebrow: string;
   title: string;
-  price: string;
   monthlyLabel?: string;
   features: string[];
   ctaText: string;
-  ctaAction: () => void;
-  iconUrl?: string;
+  ctaLink: string;
+  includesLabel?: string;
 }
 
-interface CompareCard extends React.FC<CompareCardProps> {
-  (props: CompareCardProps & { includesLabel: string }): JSX.Element;
+interface PricingCard extends React.FC<PricingCardProps> {
+  (props: PricingCardProps & { includesLabel: string }): JSX.Element;
 }
 
-const CompareCard: CompareCard = ({ title, price, monthlyLabel = '', features, ctaText, ctaAction, iconUrl, includesLabel }) => (
+const PricingCard: PricingCard = ({ eyebrow, title, monthlyLabel = '', features, ctaText, ctaLink, includesLabel = 'Includes' }) => (
   <Card className="flex h-full flex-col justify-between p-6 md:p-8 border border-border-primary">
     <div>
-      <h2 className="mb-2 text-md font-bold leading-[1.4] md:text-xl">{title}</h2>
+      <h2 className="mb-2 text-md font-bold leading-[1.4] md:text-xl">{eyebrow}</h2>
       <h3 className="my-2 text-4xl font-bold md:text-4xl lg:text-5xl">
-        {price}
+        {title}
         {monthlyLabel && <span className="text-xl font-bold md:text-2xl md:leading-[1.3] lg:text-3xl">/{monthlyLabel}</span>}
       </h3>
       <div className="my-8 h-px w-full bg-border"></div>
@@ -39,28 +38,28 @@ const CompareCard: CompareCard = ({ title, price, monthlyLabel = '', features, c
       </div>
     </div>
     <div>
-      <Button
+      <a
         className="w-full"
-        onClick={ctaAction}
+        href={ctaLink}
       >
         {ctaText}
-      </Button>
+      </a>
     </div>
   </Card>
 );
 
-export interface CardCompareProps {
-  tagline?: string;
+export interface PricingProps {
+  eyebrow?: string;
   title?: string;
-  description?: string;
-  cards: CompareCardProps[];
+  summary?: string;
+  cards: PricingCardProps[];
   includesLabel?: string;
 }
 
-const CardCompare: React.FC<CardCompareProps> = ({
-  tagline = "Tagline",
+const Pricing: React.FC<PricingProps> = ({
+  eyebrow = "Tagline",
   title = "Pricing plan",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   cards,
   includesLabel = "Includes"
 }) => {
@@ -70,13 +69,13 @@ const CardCompare: React.FC<CardCompareProps> = ({
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-          <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
+          <p className="mb-3 font-semibold md:mb-4">{eyebrow}</p>
           <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-6xl lg:text-7xl">{title}</h1>
-          <p className="md:text-md">{description}</p>
+          <div className="md:text-md" dangerouslySetInnerHTML={{ __html: summary }}></div>
         </div>
         <div className={`grid grid-cols-1 gap-8 ${gridColumns}`}>
           {cards.map((card, index) => (
-            <CompareCard
+            <PricingCard
               key={index}
               {...card}
               includesLabel={includesLabel}
@@ -88,4 +87,4 @@ const CardCompare: React.FC<CardCompareProps> = ({
   );
 };
 
-export default CardCompare;
+export default Pricing;
