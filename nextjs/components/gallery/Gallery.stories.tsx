@@ -2,6 +2,7 @@
 
 import { Meta, StoryObj } from '@storybook/react';
 import Gallery from './Gallery';
+import Image from 'next/image';
 
 const meta: Meta<typeof Gallery> = {
   title: 'Editorial/Gallery',
@@ -17,47 +18,24 @@ const meta: Meta<typeof Gallery> = {
 export default meta;
 type Story = StoryObj<typeof Gallery>;
 
+const mockMedia = (
+  <Image
+    src="./images/card.webp"
+    alt="Example image"
+    width={1280}
+    height={720}
+  />
+);
+
 export const Default: Story = {
   args: {
     title: 'Gallery Title',
     summary: 'This is a sample summary for the gallery.',
     mediaItems: [
-      {
-        id: 'exampleGallery1',
-        image: {
-          url: './images/card.webp',
-          alt: 'Gallery 1',
-          width: 500,
-          height: 300,
-        },
-      },
-      {
-        id: 'exampleGallery2',
-        image: {
-          url: './images/card.webp',
-          alt: 'Gallery 2',
-          width: 500,
-          height: 300,
-        },
-      },
-      {
-        id: 'exampleGallery3',
-        image: {
-          url: './images/card.webp',
-          alt: 'Gallery 3',
-          width: 500,
-          height: 300,
-        },
-      },
-      {
-        id: 'exampleGallery4',
-        image: {
-          url: './images/card.webp',
-          alt: 'Gallery 4',
-          width: 500,
-          height: 300,
-        },
-      },
+      mockMedia,
+      mockMedia,
+      mockMedia,
+      mockMedia,
     ],
   },
 };

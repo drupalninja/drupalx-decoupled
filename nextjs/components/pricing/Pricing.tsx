@@ -22,9 +22,9 @@ const PricingCard: PricingCard = ({ eyebrow, title, monthlyLabel = '', features,
   <Card className="flex h-full flex-col justify-between p-6 md:p-8 border border-border-primary">
     <div>
       <h2 className="mb-2 text-md font-bold leading-[1.4] md:text-xl">{eyebrow}</h2>
-      <h3 className="my-2 text-4xl font-bold md:text-4xl lg:text-5xl">
+      <h3 className="my-2 text-3xl font-bold lg:text-4xl">
         {title}
-        {monthlyLabel && <span className="text-xl font-bold md:text-2xl md:leading-[1.3] lg:text-3xl">/{monthlyLabel}</span>}
+        {monthlyLabel && <span className="text-xl font-bold md:leading-[1.3] lg:text-2xl">/{monthlyLabel}</span>}
       </h3>
       <div className="my-8 h-px w-full bg-border"></div>
       <p>{includesLabel}:</p>
@@ -70,9 +70,9 @@ const Pricing: React.FC<PricingProps> = ({
     <section className="px-[5%] my-12 lg:my-25">
       <div className="container">
         <div className="mx-auto max-w-lg text-center mb-6 lg:mb-12">
-          <p className="mb-3 font-semibold md:mb-4">{eyebrow}</p>
+          <p className="eyebrow mb-3 font-semibold md:mb-4">{eyebrow}</p>
           <h1 className="mb-5 text-5xl font-semibold md:mb-6 md:text-6xl lg:text-7xl">{title}</h1>
-          <div className="md:text-md" dangerouslySetInnerHTML={{ __html: summary }}></div>
+          <div className="summary md:text-md" dangerouslySetInnerHTML={{ __html: summary }}></div>
         </div>
         <div className={`grid grid-cols-1 gap-8 ${gridColumns}`}>
           {cards.map((card, index) => (
