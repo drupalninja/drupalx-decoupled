@@ -2889,17 +2889,17 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "6.1.4",
+            "version": "6.1.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "6.1.4"
+                "reference": "6.1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-6.1.4.zip",
-                "reference": "6.1.4",
-                "shasum": "f5544a39d691af5efd1532bd5403862a7153f60b"
+                "url": "https://ftp.drupal.org/files/projects/linkit-6.1.5.zip",
+                "reference": "6.1.5",
+                "shasum": "ce2e0f545e5213874e658a44ed3ef606b80b760d"
             },
             "require": {
                 "drupal/core": "^10.1"
@@ -2911,8 +2911,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.1.4",
-                    "datestamp": "1715203830",
+                    "version": "6.1.5",
+                    "datestamp": "1728680387",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3949,16 +3949,16 @@
         },
         {
             "name": "drupalninja/drupalx-paragraphs",
-            "version": "1.11",
+            "version": "1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalninja/drupalx-paragraphs.git",
-                "reference": "114458fab0fcc61da2ee8b652014b651110ec23f"
+                "reference": "10723e113aa88a207e3f224a2f100e1620435035"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/114458fab0fcc61da2ee8b652014b651110ec23f",
-                "reference": "114458fab0fcc61da2ee8b652014b651110ec23f",
+                "url": "https://api.github.com/repos/drupalninja/drupalx-paragraphs/zipball/10723e113aa88a207e3f224a2f100e1620435035",
+                "reference": "10723e113aa88a207e3f224a2f100e1620435035",
                 "shasum": ""
             },
             "require": {
@@ -3988,9 +3988,9 @@
             ],
             "support": {
                 "issues": "https://github.com/drupalninja/drupalx-paragraphs/issues",
-                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.11"
+                "source": "https://github.com/drupalninja/drupalx-paragraphs/tree/1.13"
             },
-            "time": "2024-10-09T02:01:46+00:00"
+            "time": "2024-10-12T15:21:15+00:00"
         },
         {
             "name": "drupalninja/drupalx_ai",
@@ -3998,12 +3998,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalninja/drupalx_ai.git",
-                "reference": "fb0457c057916a714eb7397229075439366089db"
+                "reference": "4a4b85a2e2a553a707f7808f7b69234e36b29346"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalninja/drupalx_ai/zipball/fb0457c057916a714eb7397229075439366089db",
-                "reference": "fb0457c057916a714eb7397229075439366089db",
+                "url": "https://api.github.com/repos/drupalninja/drupalx_ai/zipball/4a4b85a2e2a553a707f7808f7b69234e36b29346",
+                "reference": "4a4b85a2e2a553a707f7808f7b69234e36b29346",
                 "shasum": ""
             },
             "default-branch": true,
@@ -4014,20 +4014,20 @@
                 "issues": "https://github.com/drupalninja/drupalx_ai/issues",
                 "source": "https://github.com/drupalninja/drupalx_ai/tree/1.x"
             },
-            "time": "2024-10-05T01:59:09+00:00"
+            "time": "2024-10-12T17:46:52+00:00"
         },
         {
             "name": "drush/drush",
-            "version": "13.2.0",
+            "version": "13.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "6a3f0cfe0abab49f42e83602469049506d75035d"
+                "reference": "881a2bd6c99aafaba5274d2244037d1738c2473d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/6a3f0cfe0abab49f42e83602469049506d75035d",
-                "reference": "6a3f0cfe0abab49f42e83602469049506d75035d",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/881a2bd6c99aafaba5274d2244037d1738c2473d",
+                "reference": "881a2bd6c99aafaba5274d2244037d1738c2473d",
                 "shasum": ""
             },
             "require": {
@@ -4072,7 +4072,8 @@
                 "squizlabs/php_codesniffer": "^3.7"
             },
             "bin": [
-                "drush"
+                "drush",
+                "drush.php"
             ],
             "type": "library",
             "extra": {
@@ -4153,7 +4154,7 @@
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "security": "https://github.com/drush-ops/drush/security/advisories",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/13.2.0"
+                "source": "https://github.com/drush-ops/drush/tree/13.3.0"
             },
             "funding": [
                 {
@@ -4161,7 +4162,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-10T13:16:15+00:00"
+            "time": "2024-10-08T11:42:23+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -4772,7 +4773,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v11.27.1",
+            "version": "v11.27.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -4827,7 +4828,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.27.1",
+            "version": "v11.27.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -4873,7 +4874,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.27.1",
+            "version": "v11.27.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -4921,7 +4922,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.27.1",
+            "version": "v11.27.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -15983,7 +15984,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
