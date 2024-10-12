@@ -2,6 +2,16 @@
 
 ## Description: Installs DrupalX using a recipe and opens it in a browser.
 
+# Check if web/sites/default/files/private exists and is writable, if not create the directory and make sure it's writable.
+PRIVATE_DIR="web/sites/default/files/private"
+if [ ! -d "$PRIVATE_DIR" ]; then
+  mkdir -p "$PRIVATE_DIR"
+fi
+
+if [ ! -w "$PRIVATE_DIR" ]; then
+  chmod -R 755 "$PRIVATE_DIR"
+fi
+
 ddev start
 ddev composer install
 ddev drush site:install minimal --verbose -y
