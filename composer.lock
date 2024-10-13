@@ -3998,12 +3998,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalninja/drupalx_ai.git",
-                "reference": "4a4b85a2e2a553a707f7808f7b69234e36b29346"
+                "reference": "720c0404380a45f35b21c9509cbda6c52f51a226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalninja/drupalx_ai/zipball/4a4b85a2e2a553a707f7808f7b69234e36b29346",
-                "reference": "4a4b85a2e2a553a707f7808f7b69234e36b29346",
+                "url": "https://api.github.com/repos/drupalninja/drupalx_ai/zipball/720c0404380a45f35b21c9509cbda6c52f51a226",
+                "reference": "720c0404380a45f35b21c9509cbda6c52f51a226",
                 "shasum": ""
             },
             "default-branch": true,
@@ -4014,7 +4014,7 @@
                 "issues": "https://github.com/drupalninja/drupalx_ai/issues",
                 "source": "https://github.com/drupalninja/drupalx_ai/tree/1.x"
             },
-            "time": "2024-10-12T17:46:52+00:00"
+            "time": "2024-10-13T01:47:17+00:00"
         },
         {
             "name": "drush/drush",
