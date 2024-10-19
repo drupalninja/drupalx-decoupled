@@ -5,6 +5,8 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
+    4b432a0a-e5df-409a-8b30-134fed6e2291: node
+    a9f34d11-cbfb-4f78-916d-8fd8c006f728: node
     9a33874e-ce03-4f0f-9c6e-164a416d574c: media
     84e378f2-dd00-459d-9018-4c89353b9eee: media
     14bbf672-441a-408e-bf08-7706894962d3: media
@@ -13,8 +15,6 @@ _meta:
     346f015d-a9d3-49bd-bb34-267ee5259720: media
     26b36c99-0a3c-457a-98e3-ab4ccfa88ee7: media
     7028d67c-8d2e-4db6-bd43-6e7726384291: media
-    4b432a0a-e5df-409a-8b30-134fed6e2291: node
-    a9f34d11-cbfb-4f78-916d-8fd8c006f728: node
 default:
   revision_uid:
     -
@@ -84,12 +84,12 @@ default:
               value: image_top
           field_link:
             -
-              uri: 'https://drupalx-react.netlify.app/'
+              target_uuid: 4b432a0a-e5df-409a-8b30-134fed6e2291
               title: Start
               options: {  }
           field_link2:
             -
-              uri: 'https://drupalx-react.netlify.app/'
+              target_uuid: a9f34d11-cbfb-4f78-916d-8fd8c006f728
               title: Explore
               options: {  }
           field_media:
@@ -417,13 +417,16 @@ default:
           behavior_settings:
             -
               value: {  }
+          revision_translation_affected:
+            -
+              value: true
           field_summary:
             -
-              value: '<p>Experience the future of web development with our powerful platform—get started today!</p>'
+              value: '<p>Get the latest product updates, feature releases, and optimization tips delivered straight to your inbox.</p>'
               format: basic_html
           field_title:
             -
-              value: 'Join the DrupalX Community'
+              value: 'Stay Informed with DrupalX'
     -
       entity:
         _meta:
@@ -442,9 +445,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          revision_translation_affected:
-            -
-              value: true
           field_features:
             -
               entity:
@@ -464,9 +464,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_summary:
                     -
                       value: 'Explore our innovative tools designed to enhance your web development journey, from AI-assisted coding to seamless React integration.'
@@ -492,9 +489,6 @@ default:
                   behavior_settings:
                     -
                       value: {  }
-                  revision_translation_affected:
-                    -
-                      value: true
                   field_summary:
                     -
                       value: "Leverage DrupalX's powerful features to reduce development time and deliver high-performance websites faster than ever."
