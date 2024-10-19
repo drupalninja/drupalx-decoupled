@@ -41,7 +41,7 @@ default:
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/features'
+        href: '/features'
   path:
     -
       alias: /features

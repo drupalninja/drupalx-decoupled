@@ -32,7 +32,7 @@ default:
       tag: link
       attributes:
         rel: canonical
-        href: 'https://drupalx-graphql.ddev.site/user'
+        href: '/user'
   path:
     -
       alias: ''

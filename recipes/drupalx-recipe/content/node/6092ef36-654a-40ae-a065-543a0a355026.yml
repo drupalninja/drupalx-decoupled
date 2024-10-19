@@ -36,12 +36,17 @@ default:
       tag: meta
       attributes:
         name: title
-        content: 'Terms of Use | DrupalX'
+        content: 'Terms of Use | Drush Site-Install'
     -
       tag: meta
       attributes:
         name: description
-        content: "Welcome to our website (the \"Site\"). By accessing or using the Site, you agree to be bound by these Terms of Use (the \"Agreement\"). If you do not agree to these terms, you should not access or use the Site. \_ Use of the Site You may use the Site only for lawful purposes and in accordance with this Agreement. You agree not to use the Site:"
+        content: 'Welcome to our website (the "Site"). By accessing or using the Site, you agree to be bound by these Terms of Use (the "Agreement"). If you do not agree to these terms, you should not access or use the Site. Use of the Site You may use the Site only for lawful purposes and in accordance with this Agreement. You agree not to use the Site:'
+    -
+      tag: meta
+      attributes:
+        name: abstract
+        content: 'Welcome to our website (the "Site"). By accessing or using the Site, you agree to be bound by these Terms of Use (the "Agreement"). If you do not agree to these terms, you should not access or use the Site. Use of the Site You may use the Site only for lawful purposes and in accordance with this Agreement. You agree not to use the Site:'
     -
       tag: link
       attributes:
