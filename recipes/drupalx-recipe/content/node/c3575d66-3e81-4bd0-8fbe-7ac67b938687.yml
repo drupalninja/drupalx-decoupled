@@ -13,6 +13,8 @@ _meta:
     346f015d-a9d3-49bd-bb34-267ee5259720: media
     26b36c99-0a3c-457a-98e3-ab4ccfa88ee7: media
     7028d67c-8d2e-4db6-bd43-6e7726384291: media
+    4b432a0a-e5df-409a-8b30-134fed6e2291: node
+    a9f34d11-cbfb-4f78-916d-8fd8c006f728: node
 default:
   revision_uid:
     -
@@ -115,12 +117,6 @@ default:
           behavior_settings:
             -
               value: {  }
-          field_media:
-            -
-              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
-          field_sidebyside_layout:
-            -
-              value: right
           field_features:
             -
               entity:
@@ -145,7 +141,7 @@ default:
                       value: hub
                   field_summary:
                     -
-                      value: 'Build flexible applications that separate the front-end and back-end for optimal performance.'
+                      value: 'Harness the power of headless CMS to separate the front and back-end for optimal flexibility.'
                       format: ''
                   field_title:
                     -
@@ -173,18 +169,24 @@ default:
                       value: smart_toy
                   field_summary:
                     -
-                      value: 'Leverage intelligent algorithms to enhance site speed and user experience effortlessly.'
+                      value: 'Leverage cutting-edge AI assistants and smart code generators to accelerate your development.'
                       format: ''
                   field_title:
                     -
-                      value: 'AI Optimization'
+                      value: 'AI Development Tools'
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: right
           field_summary:
             -
-              value: '<p>Discover the Unmatched Advantages of Choosing DrupalX for Your Development Needs</p>'
+              value: "<p>Elevate Your Web Development with DrupalX's Cutting-Edge Features</p>"
               format: basic_html
           field_title:
             -
-              value: 'Discover the Unmatched Advantages of Choosing DrupalX for Your Development Needs'
+              value: 'Unmatched Advantages of DrupalX'
     -
       entity:
         _meta:
@@ -255,7 +257,7 @@ default:
                       value: schema
                   field_summary:
                     -
-                      value: "Leverage intelligent algorithms to boost your website's efficiency and speed."
+                      value: "Leverage the power of React and Node.js to dramatically improve your website's efficiency and speed."
                       format: ''
                   field_title:
                     -
@@ -283,11 +285,11 @@ default:
                       value: speed
                   field_summary:
                     -
-                      value: 'Achieve Blazing-Fast Performance That Keeps Your Users Engaged and Satisfied'
+                      value: 'Deliver lightning-quick load times and smooth interactions that keep your audience coming back.'
                       format: ''
                   field_title:
                     -
-                      value: 'Achieve Blazing-Fast Performance That Keeps Your Users Engaged and Satisfied'
+                      value: 'Achieve Blazing Fast Performance That Keeps Your Users Engaged and Satisfied'
           field_title:
             -
               value: "Discover the Future of Web Development with DrupalX's Innovative Features"
@@ -353,11 +355,11 @@ default:
               value: left
           field_summary:
             -
-              value: '<p>Joining the DrupalX community opens doors to collaboration, support, and shared knowledge. Connect with fellow developers, access exclusive resources, and participate in engaging webinars to enhance your skills.</p>'
+              value: "<p>Join the DrupalX ecosystem to unlock new possibilities in web development. Our platform combines the best of Drupal's robust backend with cutting-edge frontend technologies, enabling you to create powerful, scalable, and innovative web solutions.</p>"
               format: basic_html
           field_title:
             -
-              value: 'Become Part of the Innovative DrupalX Community Today!'
+              value: 'Elevate Your Web Development Skills with DrupalX'
     -
       entity:
         _meta:
@@ -378,17 +380,17 @@ default:
               value: {  }
           field_body:
             -
-              value: "<p>Start your free trial and unleash DrupalX's potential.</p>"
+              value: "<p>Start building faster, more efficient websites today. Explore DrupalX's capabilities and see how it can transform your development process.</p>"
               format: basic_html
               summary: ''
           field_link:
             -
-              uri: 'internal:/'
+              target_uuid: 4b432a0a-e5df-409a-8b30-134fed6e2291
               title: 'Get Started'
               options: {  }
           field_link2:
             -
-              uri: 'internal:/'
+              target_uuid: a9f34d11-cbfb-4f78-916d-8fd8c006f728
               title: 'Learn More'
               options: {  }
           field_text_layout:
@@ -396,7 +398,7 @@ default:
               value: buttons-right
           field_title:
             -
-              value: 'Transform Your Web Development Today'
+              value: 'Accelerate Your Web Development Journey'
     -
       entity:
         _meta:
@@ -443,12 +445,6 @@ default:
           revision_translation_affected:
             -
               value: true
-          field_media:
-            -
-              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
-          field_sidebyside_layout:
-            -
-              value: right
           field_features:
             -
               entity:
@@ -473,7 +469,7 @@ default:
                       value: true
                   field_summary:
                     -
-                      value: 'Explore our innovative tools designed to enhance your web development journey.'
+                      value: 'Explore our innovative tools designed to enhance your web development journey, from AI-assisted coding to seamless React integration.'
                       format: ''
                   field_title:
                     -
@@ -501,14 +497,20 @@ default:
                       value: true
                   field_summary:
                     -
-                      value: 'Join our vibrant community for support, insights, and collaboration opportunities.'
+                      value: "Leverage DrupalX's powerful features to reduce development time and deliver high-performance websites faster than ever."
                       format: ''
                   field_title:
                     -
-                      value: 'Get Involved'
+                      value: 'Accelerate Your Projects'
+          field_media:
+            -
+              entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_sidebyside_layout:
+            -
+              value: right
           field_summary:
             -
-              value: '<p>DrupalX offers a powerful blend of flexibility and performance. Experience seamless integration and unparalleled user experience.</p>'
+              value: '<p>DrupalX offers a powerful blend of flexibility and performance, enabling seamless integration and unparalleled user experience.</p>'
               format: basic_html
           field_title:
             -
