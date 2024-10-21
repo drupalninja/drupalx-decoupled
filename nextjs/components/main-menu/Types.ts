@@ -13,6 +13,7 @@ export interface MainMenuProps {
   siteLogo?: string;
   siteName?: string;
   showLogo?: boolean;
+  showSiteName?: boolean;
   menuItems: MainMenuItem[];
   ctaLinkCount: number;
 }

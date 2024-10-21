@@ -1,18 +1,9 @@
-'use client'
+"use client"
 
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -31,6 +22,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
   siteLogo,
   siteName,
   showLogo,
+  showSiteName,
   menuItems,
   ctaLinkCount,
 }) => {
@@ -58,60 +50,76 @@ const MainMenu: React.FC<MainMenuProps> = ({
   const ctaItems = menuItems.filter(item => item.isCTA)
 
   return (
-    <div className={`flex items-center justify-between ${modifier}`}>
-      <Link href="/" className={!showLogo ? "text-2xl font-bold" : ""}>
-        {showLogo && <Image src={siteLogo ?? ''} alt="Site Name" width={200} height={100} className="mr-1" />}
-        {!showLogo && siteName}
-      </Link>
+    <nav className={`${modifier}`}>
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <Link
+            href="/"
+            className={`flex items-center ${!showLogo ? "text-2xl font-bold" : ""}`}
+          >
+            {showLogo && (
+              <Image
+                src={siteLogo ?? ''}
+                alt="Site Logo"
+                width={100}
+                height={100}
+                className="mr-2"
+              />
+            )}
+            {showSiteName && siteName && <span>{siteName.split('\n').map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}</span>}
+          </Link>
 
-      {/* Mobile menu */}
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="outline" className="lg:hidden">Menu</Button>
-        </SheetTrigger>
-        <SheetContent>
-          <SheetHeader>
-            <SheetTitle>Menu</SheetTitle>
-          </SheetHeader>
-          <nav className="mt-6">
-            <MobileMenuItems items={navItems} linkModifier={linkModifier} />
-            <div className="mt-4">
+          {/* Desktop menu */}
+          <div className="hidden lg:flex lg:items-center lg:space-x-6">
+            <DesktopMenuItems items={navItems} linkModifier={linkModifier} />
+            <div className="flex items-center space-x-6">
               {ctaItems.map((item, index) => (
                 <Button
                   key={index}
                   asChild
                   variant={index === ctaItems.length - 1 ? "default" : "outline"}
-                  className="w-full mt-2 text-lg"
+                  className="text-lg"
                 >
                   <Link href={item.url}>{item.title}</Link>
                 </Button>
               ))}
             </div>
-          </nav>
-        </SheetContent>
-      </Sheet>
+          </div>
 
-      {/* Desktop menu */}
-      <div className="hidden lg:flex lg:items-center lg:space-x-4">
-        <NavigationMenu>
-          <NavigationMenuList className="space-x-2">
-            <DesktopMenuItems items={navItems} linkModifier={linkModifier} />
-          </NavigationMenuList>
-        </NavigationMenu>
-        <div className="flex items-center space-x-4">
-          {ctaItems.map((item, index) => (
-            <Button
-              key={index}
-              asChild
-              variant={index === ctaItems.length - 1 ? "default" : "outline"}
-              className="text-lg"
-            >
-              <Link href={item.url}>{item.title}</Link>
-            </Button>
-          ))}
+          {/* Mobile menu */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" className="mobile-menu lg:hidden">Menu</Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
+              <nav className="mt-6">
+                <MobileMenuItems items={navItems} linkModifier={linkModifier} />
+                <div className="mt-4">
+                  {ctaItems.map((item, index) => (
+                    <Button
+                      key={index}
+                      asChild
+                      variant={index === ctaItems.length - 1 ? "default" : "outline"}
+                      className="w-full mt-2 text-lg"
+                    >
+                      <Link href={item.url}>{item.title}</Link>
+                    </Button>
+                  ))}
+                </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-    </div>
+    </nav>
   )
 }
 
@@ -120,7 +128,7 @@ const MobileMenuItems: React.FC<{
   linkModifier?: string
 }> = ({ items, linkModifier }) => {
   return (
-    <ul className="space-y-4">
+    <ul className="space-y-6">
       {items.map((item, index) => (
         <li key={index}>
           {item.below ? (
@@ -132,7 +140,7 @@ const MobileMenuItems: React.FC<{
               )}>
                 {item.title}
               </span>
-              <ul className="ml-4 mt-2 space-y-2">
+              <ul className="ml-4 mt-3 space-y-3">
                 {item.below.map((subItem, subIndex) => (
                   <li key={subIndex}>
                     <Link
@@ -172,59 +180,55 @@ const DesktopMenuItems: React.FC<{
   linkModifier?: string
 }> = ({ items, linkModifier }) => {
   return (
-    <>
-      {items.map((item, index) => {
-        if (item.below) {
-          return (
-            <NavigationMenuItem key={index}>
-              <NavigationMenuTrigger className={cn(
-                "text-lg",
+    <div className="flex space-x-8">
+      {items.map((item, index) => (
+        <div key={index} className="relative group">
+          {item.below ? (
+            <>
+              <button className={cn(
+                "flex items-center text-lg text-foreground hover:text-primary",
                 linkModifier,
                 item.inActiveTrail ? 'font-bold' : ''
               )}>
                 {item.title}
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-background ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out">
+                <div className="py-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                   {item.below.map((subItem, subIndex) => (
-                    <li key={subIndex}>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href={subItem.url}
-                          className={cn(
-                            "block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                            "text-base",
-                            linkModifier,
-                            subItem.inActiveTrail ? 'font-bold' : ''
-                          )}
-                        >
-                          {subItem.title}
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
+                    <Link
+                      key={subIndex}
+                      href={subItem.url}
+                      className={cn(
+                        "block px-4 py-3 text-base text-foreground hover:bg-muted",
+                        linkModifier,
+                        subItem.inActiveTrail ? 'font-bold' : ''
+                      )}
+                      role="menuitem"
+                    >
+                      {subItem.title}
+                    </Link>
                   ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          )
-        }
-
-        return (
-          <NavigationMenuItem key={index}>
-            <Link href={item.url} legacyBehavior passHref>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-lg")}>
-                <span className={cn(
-                  linkModifier,
-                  item.inActiveTrail ? 'font-bold' : ''
-                )}>
-                  {item.title}
-                </span>
-              </NavigationMenuLink>
+                </div>
+              </div>
+            </>
+          ) : (
+            <Link
+              href={item.url}
+              className={cn(
+                "text-lg text-foreground hover:text-primary",
+                linkModifier,
+                item.inActiveTrail ? 'font-bold' : ''
+              )}
+            >
+              {item.title}
             </Link>
-          </NavigationMenuItem>
-        )
-      })}
-    </>
+          )}
+        </div>
+      ))}
+    </div>
   )
 }
 
