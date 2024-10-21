@@ -6,6 +6,8 @@ import { Separator } from "@/components/ui/separator"
 export type SiteFooterProps = {
   links: { title: string; url: string | null }[];
   siteLogo?: string;
+  siteLogoWidth?: number;
+  siteLogoHeight?: number;
   siteName?: string;
   showLogo?: boolean;
   currentYear?: number;
@@ -14,6 +16,8 @@ export type SiteFooterProps = {
 const SiteFooter: React.FC<SiteFooterProps> = ({
   links,
   siteLogo,
+  siteLogoWidth,
+  siteLogoHeight,
   siteName = '',
   showLogo = true,
   currentYear = new Date().getFullYear(),
@@ -31,7 +35,7 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
         <div className="flex justify-center md:w-1/3">
           <Link href="/" className="flex items-center justify-center">
             {showLogo && siteLogo && (
-              <Image src={siteLogo} width={250} height={70} alt={siteName} />
+              <Image src={siteLogo} width={siteLogoWidth} height={siteLogoHeight} alt={siteName} />
             )}
           </Link>
         </div>

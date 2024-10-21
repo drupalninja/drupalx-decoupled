@@ -18,8 +18,12 @@ const nextConfig = {
   },
   publicRuntimeConfig: {
     LOGO_URL: '/images/logo.svg',
+    LOGO_WIDTH: '200',
+    LOGO_HEIGHT: '100',
     SITE_NAME: 'DrupalX',
     SHOW_LOGO: '1',
+    SHOW_SITE_NAME: '0',
+    CTA_LINK_COUNT: '2',
   },
 };
 
