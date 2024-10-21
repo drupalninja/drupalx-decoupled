@@ -30,6 +30,8 @@ export default function Header({ mainMenu }: HeaderProps) {
       <div className="container mx-auto py-6">
         <MainMenu
           siteLogo={publicRuntimeConfig.LOGO_URL}
+          siteLogoWidth={publicRuntimeConfig.LOGO_WIDTH}
+          siteLogoHeight={publicRuntimeConfig.LOGO_HEIGHT}
           siteName={publicRuntimeConfig.SITE_NAME}
           showLogo={publicRuntimeConfig.SHOW_LOGO === '1'}
           showSiteName={publicRuntimeConfig.SHOW_SITE_NAME === '1'}

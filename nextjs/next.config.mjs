@@ -17,9 +17,13 @@ const nextConfig = {
     formats: ['image/webp'],
   },
   publicRuntimeConfig: {
-    LOGO_URL: '/images/logo.svg',
-    SITE_NAME: 'DrupalX',
+    LOGO_URL: '/images/dc-logo.png',
+    LOGO_WIDTH: '100',
+    LOGO_HEIGHT: '100',
+    SITE_NAME: 'United States Court of Appeals\nDistrict of Columbia Circuit',
     SHOW_LOGO: '1',
+    SHOW_SITE_NAME: '1',
+    CTA_LINK_COUNT: '0',
   },
 };
 

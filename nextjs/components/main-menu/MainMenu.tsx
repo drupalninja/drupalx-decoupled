@@ -20,6 +20,8 @@ const MainMenu: React.FC<MainMenuProps> = ({
   modifier,
   linkModifier,
   siteLogo,
+  siteLogoWidth,
+  siteLogoHeight,
   siteName,
   showLogo,
   showSiteName,
@@ -61,8 +63,8 @@ const MainMenu: React.FC<MainMenuProps> = ({
               <Image
                 src={siteLogo ?? ''}
                 alt="Site Logo"
-                width={100}
-                height={100}
+                width={siteLogoWidth ?? 200}
+                height={siteLogoHeight ?? 100}
                 className="mr-2"
               />
             )}
