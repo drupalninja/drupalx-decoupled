@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -130,48 +130,80 @@ const MobileMenuItems: React.FC<{
   return (
     <ul className="space-y-6">
       {items.map((item, index) => (
-        <li key={index}>
-          {item.below ? (
-            <div>
-              <span className={cn(
-                "text-lg font-semibold",
-                linkModifier,
-                item.inActiveTrail ? 'font-bold' : ''
-              )}>
-                {item.title}
-              </span>
-              <ul className="ml-4 mt-3 space-y-3">
-                {item.below.map((subItem, subIndex) => (
-                  <li key={subIndex}>
-                    <Link
-                      href={subItem.url}
-                      className={cn(
-                        "block text-base",
-                        linkModifier,
-                        subItem.inActiveTrail ? 'font-bold' : ''
-                      )}
-                    >
-                      {subItem.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <Link
-              href={item.url}
-              className={cn(
-                "block text-lg",
-                linkModifier,
-                item.inActiveTrail ? 'font-bold' : ''
-              )}
-            >
-              {item.title}
-            </Link>
-          )}
-        </li>
+        <MobileMenuItem key={index} item={item} linkModifier={linkModifier} />
       ))}
     </ul>
+  )
+}
+
+const MobileMenuItem: React.FC<{
+  item: MainMenuItem
+  linkModifier?: string
+}> = ({ item, linkModifier }) => {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  const toggleExpand = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (item.below) {
+      setIsExpanded(!isExpanded)
+    }
+  }
+
+  return (
+    <li>
+      {item.below ? (
+        <div>
+          <button
+            onClick={toggleExpand}
+            className={cn(
+              "text-lg font-semibold w-full text-left flex justify-between items-center",
+              linkModifier,
+              item.inActiveTrail ? 'font-bold' : ''
+            )}
+          >
+            {item.title}
+            <svg
+              className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {isExpanded && (
+            <ul className="ml-4 mt-3 space-y-3">
+              {item.below.map((subItem, subIndex) => (
+                <li key={subIndex}>
+                  <Link
+                    href={subItem.url}
+                    className={cn(
+                      "block text-base",
+                      linkModifier,
+                      subItem.inActiveTrail ? 'font-bold' : ''
+                    )}
+                  >
+                    {subItem.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ) : (
+        <Link
+          href={item.url}
+          className={cn(
+            "block text-lg",
+            linkModifier,
+            item.inActiveTrail ? 'font-bold' : ''
+          )}
+        >
+          {item.title}
+        </Link>
+      )}
+    </li>
   )
 }
 
