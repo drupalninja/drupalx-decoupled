@@ -29,6 +29,8 @@ export const ParagraphGalleryFragment = graphql(`fragment ParagraphGalleryFragme
   ]
 )
 
+type MediaItem = FragmentOf<typeof MediaUnionFragment>;
+
 interface ParagraphGalleryProps {
   paragraph: FragmentOf<typeof ParagraphGalleryFragment>
   modifier?: string
@@ -38,7 +40,7 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
   const { title, gallerySummary, mediaItem } = readFragment(ParagraphGalleryFragment, paragraph);
   const gallerySummaryFragment = readFragment(TextSummaryFragment, gallerySummary);
 
-  const mediaNodes = mediaItem.map((item: any, index: number) => (
+  const mediaNodes = (mediaItem as MediaItem[]).map((item: any, index: number) => (
     getImage(item, 'w-full h-auto rounded-lg', ['I43SMALL', 'I43LARGE2X'])
   ));
 
