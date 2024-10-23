@@ -65,9 +65,9 @@ export default function ParagraphPricing({ paragraph }: ParagraphPricingProps) {
   const cardPricingProps: PricingProps = {
     eyebrow: eyebrow || undefined,
     title: pricingTitle || undefined,
-    summary: pricingSummary?.value || undefined,
+    summary: (pricingSummary as any).value || undefined,
     includesLabel: "Includes",
-    cards: pricingCards.map((card): PricingCardProps => ({
+    cards: (pricingCards as any).map((card: any): PricingCardProps => ({
       eyebrow: card.eyebrow || "",
       title: card.title || "",
       features: splitBullets(card.featuresText),
