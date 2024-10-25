@@ -25,7 +25,7 @@ const StatCard: React.FC<StatCardProps> = ({
   const iconClass = layout === 'left' ? 'mr-auto' : 'mx-auto';
 
   return (
-    <Card className={`stat ${alignmentClass} ${!border ? 'border-0 shadow-none p-0' : ''} ${modifier}`}>
+    <Card className={`stat ${alignmentClass} ${!border ? 'border-0 shadow-none px-4 py-8 h-full' : ''} ${modifier}`}>
       <CardContent className={`pt-6 ${!border ? 'p-0' : ''}`}>
         {icon && (
           <div className={`stat-icon ${iconClass} mb-4 max-w-[200px]`}>

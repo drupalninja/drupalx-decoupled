@@ -68,7 +68,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
                 className="mr-2"
               />
             )}
-            {showSiteName && siteName && <span>{siteName.split('\n').map((line, index) => (
+            {showSiteName && siteName && <span className="text-2xl">{siteName.split('\n').map((line, index) => (
               <React.Fragment key={index}>
                 {line}
                 <br />
