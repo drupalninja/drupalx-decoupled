@@ -38,8 +38,6 @@
         "drupalninja/drupalx_ai": "1.x-dev",
         "drush/drush": "^11 || ^12 || ^13",
         "oomphinc/composer-installers-extender": "^2.0",
-        "pantheon-systems/drupal-integrations": "^9",
-        "pantheon-upstreams/upstream-configuration": "dev-main",
         "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.2"
     },
@@ -58,18 +56,13 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        },
-        {
-            "type": "path",
-            "url": "upstream-configuration"
         }
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "classmap": [
-            "scripts/composer/ScriptHandler.php",
-            "upstream-configuration/scripts/ComposerScripts.php"
+            "scripts/composer/ScriptHandler.php"
         ],
         "files": [
             "load.environment.php"
@@ -95,14 +88,6 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
-            },
-            "allowed-packages": [
-                "pantheon-systems/drupal-integrations"
-            ],
-            "file-mapping": {
-                "[project-root]/.editorconfig": false,
-                "[project-root]/pantheon.upstream.yml": false,
-                "[project-root]/.gitattributes": false
             }
         },
         "installer-paths": {
@@ -125,18 +110,6 @@
             ],
             "drush/Commands/contrib/{$name}": [
                 "type:drupal-drush"
-            ],
-            "web/modules/custom/{$name}": [
-                "type:drupal-custom-module"
-            ],
-            "web/profiles/custom/{$name}": [
-                "type:drupal-custom-profile"
-            ],
-            "web/themes/custom/{$name}": [
-                "type:drupal-custom-theme"
-            ],
-            "web/private/scripts/quicksilver/{$name}/": [
-                "type:quicksilver-script"
             ]
         },
         "installer-types": [

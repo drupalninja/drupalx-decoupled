@@ -35,3 +35,4 @@
 
 # DrupalX paragraphs recipe
 /recipes/drupalx-paragraphs
+/.drush-lock-update
