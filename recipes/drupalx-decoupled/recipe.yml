@@ -62,11 +62,24 @@ install:
   - paragraphs_features
   - redirect
   - responsive_image
+  - simple_oauth
   - svg_image
   - svg_image_responsive
   - taxonomy_access_fix
   - viewfield
   - webp
+  # Decoupled contrib
+  - decoupled_preview_iframe
+  - graphql_compose
+  - graphql_compose_edges
+  - graphql_compose_image_style
+  - graphql_compose_menus
+  - graphql_compose_routes
+  - graphql_compose_users
+  - graphql_compose_views
+  - graphql_compose_metatags
+  - graphql_compose_preview
+  - graphql_compose_fragments
   # DrupalX
   - drupalx_ai
 
@@ -193,3 +206,14 @@ config:
       grantPermissions:
         - 'use text format basic_html'
         - 'use text format full_html'
+    simple_oauth.settings:
+      simple_config_update:
+        access_token_expiration: 2592000
+        authorization_code_expiration: 2592000
+        refresh_token_expiration: 2592000
+        token_cron_batch_size: 0
+        public_key: sites/default/files/private/public.key
+        private_key: sites/default/files/private/private.key
+        remember_clients: true
+        use_implicit: false
+        disable_openid_connect: false
