@@ -1,10 +1,9 @@
-name: 'DrupalX Decoupled'
-description: 'Drupal installation ready to make decoupled sites using GraphQL'
+name: 'DrupalX GraphQL'
+description: 'Drupal GraphQL configuration for decoupled websites.'
 type: 'Site'
-recipes:
-  - ../recipes/drupalx-core
 
 install:
+  - content_moderation
   - simple_oauth
   - decoupled_preview_iframe
   - graphql_compose
@@ -20,18 +19,7 @@ install:
 
 config:
   import:
-    simple_oauth: '*'
-    decoupled_preview_iframe: '*'
     graphql_compose: '*'
-    graphql_compose_edges: '*'
-    graphql_compose_image_style: '*'
-    graphql_compose_menus: '*'
-    graphql_compose_routes: '*'
-    graphql_compose_users: '*'
-    graphql_compose_views: '*'
-    graphql_compose_metatags: '*'
-    graphql_compose_preview: '*'
-    graphql_compose_fragments: '*'
 
   actions:
     simple_oauth.settings:
