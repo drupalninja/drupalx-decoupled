@@ -39,7 +39,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: "20"
 
       # Step 4: Update Composer, validate configuration, and audit dependencies
       - name: Update Composer
@@ -63,8 +63,12 @@ jobs:
       - name: Install site
         run: ./vendor/bin/drush site-install minimal --verbose --yes --db-url=sqlite://tmp/site.sqlite --account-name=admin --account-pass=admin
 
-      - name: Apply DrupalX Recipe
-        run:  php core/scripts/drupal -v recipe ../recipes/drupalx-recipe
+      - name: Apply DrupalX GraphQL Recipe
+        run: php core/scripts/drupal -v recipe ../recipes/drupalx-graphql
+        working-directory: ./web
+
+      - name: Apply DrupalX Core Recipe
+        run: php core/scripts/drupal -v recipe ../recipes/drupalx-core
         working-directory: ./web
 
       - name: Start server
@@ -140,7 +144,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: "20"
 
       # Step 2: Install pa11y-ci
       - name: Install pa11y-ci
