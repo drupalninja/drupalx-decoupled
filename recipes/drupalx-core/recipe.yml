@@ -1,5 +1,5 @@
-name: 'DrupalX Decoupled'
-description: 'Drupal installation ready to make decoupled sites using GraphQL'
+name: 'DrupalX Core'
+description: 'DrupalX base configuration, content types, permissions and sample content.'
 type: 'Site'
 recipes:
   # Core recipes with basic functionality
