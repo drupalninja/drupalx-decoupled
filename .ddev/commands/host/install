@@ -15,7 +15,8 @@ fi
 ddev start
 ddev composer install
 ddev drush site:install minimal --verbose -y
-ddev drush recipe ../recipes/drupalx-recipe
+ddev drush recipe ../recipes/drupalx-graphql
+ddev drush recipe ../recipes/drupalx-core
 ddev drush cr
 
 # Add consumer keys and next.js environment variables.

@@ -1,0 +1,35 @@
+name: 'DrupalX GraphQL'
+description: 'Drupal GraphQL configuration for decoupled websites.'
+type: 'Site'
+
+install:
+  - content_moderation
+  - simple_oauth
+  - decoupled_preview_iframe
+  - graphql_compose
+  - graphql_compose_edges
+  - graphql_compose_image_style
+  - graphql_compose_menus
+  - graphql_compose_routes
+  - graphql_compose_users
+  - graphql_compose_views
+  - graphql_compose_metatags
+  - graphql_compose_preview
+  - graphql_compose_fragments
+
+config:
+  import:
+    graphql_compose: '*'
+
+  actions:
+    simple_oauth.settings:
+      simple_config_update:
+        access_token_expiration: 2592000
+        authorization_code_expiration: 2592000
+        refresh_token_expiration: 2592000
+        token_cron_batch_size: 0
+        public_key: sites/default/files/private/public.key
+        private_key: sites/default/files/private/private.key
+        remember_clients: true
+        use_implicit: false
+        disable_openid_connect: false
