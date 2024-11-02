@@ -134,8 +134,6 @@ config:
     taxonomy_access_fix: '*'
     viewfield: '*'
     webp: '*'
-    # Decoupled contrib
-    graphql_compose: '*'
 
   actions:
     # Set home page
