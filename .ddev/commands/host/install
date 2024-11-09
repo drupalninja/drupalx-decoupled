@@ -14,7 +14,7 @@ fi
 
 ddev start
 ddev composer install
-ddev drush site:install minimal --verbose -y
+ddev drush site:install minimal --verbose -y --account-name=admin --account-pass=admin
 ddev drush recipe ../recipes/drupalx-graphql
 ddev drush recipe ../recipes/drupalx-core
 ddev drush cr
