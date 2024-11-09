@@ -33,5 +33,6 @@
 # Local Netlify folder
 .netlify
 
-# DrupalX paragraphs recipe
+# DrupalX recipes
 /recipes/drupalx-paragraphs
+/recipes/drupalx-core
