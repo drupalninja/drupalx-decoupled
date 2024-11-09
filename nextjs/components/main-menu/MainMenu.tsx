@@ -29,23 +29,22 @@ const MainMenu: React.FC<MainMenuProps> = ({
   ctaLinkCount,
 }) => {
   const pathname = usePathname()
+  ctaLinkCount = Math.min(ctaLinkCount, menuItems.length)
 
   // Add active trail classes to menu items.
   menuItems = menuItems.map((item, index) => {
     const isCTA = index >= menuItems.length - ctaLinkCount
-    if (item.url === frontpagePath && pathname === '/') {
-      item.inActiveTrail = true
-    }
-    else if (pathname) {
-      item.inActiveTrail = pathname.startsWith(item.url)
-    }
-    if (item.below && pathname) {
-      item.below = item.below.map((subItem) => {
-        subItem.inActiveTrail = pathname.startsWith(subItem.url)
-        return subItem
-      })
-    }
-    return { ...item, isCTA }
+
+    const inActiveTrail = item.url === frontpagePath && pathname === '/'
+      ? true
+      : pathname.startsWith(item.url)
+
+    const below = item.below?.map((subItem) => ({
+      ...subItem,
+      inActiveTrail: pathname.startsWith(subItem.url),
+    }))
+
+    return { ...item, isCTA, inActiveTrail, below }
   })
 
   const navItems = menuItems.filter(item => !item.isCTA)
