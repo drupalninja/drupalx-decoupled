@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { getLucideIcon } from '@/utils/dynamic-icon';
 
 export interface StatCardProps {
   type: 'stat';
@@ -23,13 +24,14 @@ const StatCard: React.FC<StatCardProps> = ({
 }) => {
   const alignmentClass = layout === 'left' ? 'text-left' : 'text-center';
   const iconClass = layout === 'left' ? 'mr-auto' : 'mx-auto';
+  const IconComponent = icon ? getLucideIcon(icon) as React.FC<{ size?: number; className?: string }> : null;
 
   return (
     <Card className={`stat ${alignmentClass} ${!border ? 'border-0 shadow-none px-4 py-8 h-full' : ''} ${modifier}`}>
       <CardContent className={`pt-6 ${!border ? 'p-0' : ''}`}>
-        {icon && (
+        {IconComponent && (
           <div className={`stat-icon ${iconClass} mb-4 max-w-[200px]`}>
-            <span className="material-symbols-outlined !text-6xl">{icon}</span>
+            <IconComponent size={68} className="mx-auto" />
           </div>
         )}
         {media && (
