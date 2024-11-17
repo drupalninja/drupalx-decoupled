@@ -30,11 +30,8 @@ const BulletFeature: React.FC<{ feature: BulletProps }> = ({ feature }) => {
   const IconComponent = getLucideIcon(feature.icon) as React.FC<{ size?: number; className?: string }>;
   return (
     <div className="flex items-start gap-4">
-      {IconComponent ? (
-        <IconComponent size={24} className="mt-[2px]" />
-      ) : (
-        <span className="mt-[-5px]">{feature.icon}</span>
-      )}
+      {IconComponent && <IconComponent size={24} className="mt-[2px]" />}
+      <span className="flex-1" dangerouslySetInnerHTML={{ __html: (feature as BulletProps).summary }} />
     </div>
   );
 };
