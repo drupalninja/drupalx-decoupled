@@ -63,6 +63,7 @@ const mockCards = [
 export const Default: Story = {
   args: {
     title: 'Featured Cards',
+    modifier: "",
     cards: mockCards as any,
   },
 };
@@ -70,6 +71,7 @@ export const Default: Story = {
 export const SingleCard: Story = {
   args: {
     title: 'Single Card Example',
+    modifier: "",
     cards: [mockCards[0] as any],
   },
 };
@@ -77,6 +79,7 @@ export const SingleCard: Story = {
 export const TwoCards: Story = {
   args: {
     title: 'Two Cards Example',
+    modifier: "",
     cards: mockCards.slice(0, 2) as any,
   },
 };
@@ -84,6 +87,7 @@ export const TwoCards: Story = {
 export const StatCardsOnly: Story = {
   args: {
     title: 'Stat Cards',
+    modifier: "",
     cards: [
       {
         type: 'stat',
