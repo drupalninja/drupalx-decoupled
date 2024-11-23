@@ -59,8 +59,7 @@ export const Default: Story = {
     siteLogo: '/images/logo.svg',
     siteLogoWidth: 200,
     siteLogoHeight: 100,
-    siteName: 'My Site',
-    showSiteName: true,
+    showSiteName: false,
     ctaLinkCount: 1,
     menuItems: [
       {
