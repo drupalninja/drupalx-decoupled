@@ -28,7 +28,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
   menuItems,
   ctaLinkCount,
 }) => {
-  const pathname = usePathname()
+  const pathname = usePathname() || '';
   ctaLinkCount = Math.min(ctaLinkCount, menuItems.length)
 
   // Add active trail classes to menu items.
