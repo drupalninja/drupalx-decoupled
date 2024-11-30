@@ -3,13 +3,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 interface EmbedProps {
   title?: string,
   content: string,
-  className?: string,
+  modifier?: string,
 }
 
-export default function Embed({ title, content, className }: EmbedProps) {
+export default function Embed({ title, content, modifier }: EmbedProps) {
   return (
     <div className="container mx-auto px-4">
-      <Card className={`my-6 lg:my-25 border-none shadow-none ${className ?? ''}`}>
+      <Card className={`border-none shadow-none ${modifier ?? 'my-6 lg:my-25'}`}>
         {title && (
           <CardHeader className='text-3xl'>
             <CardTitle>{title}</CardTitle>

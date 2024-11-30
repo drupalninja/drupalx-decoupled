@@ -16,6 +16,7 @@ const mockContent = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m1
 export const Default: Story = {
   args: {
     content: mockContent,
+    modifier: '',
   },
 };
 
@@ -23,6 +24,7 @@ export const WithTitle: Story = {
   args: {
     title: "Google Maps Embed",
     content: mockContent,
+    modifier: '',
   },
 };
 
@@ -30,6 +32,6 @@ export const WithCustomClassName: Story = {
   args: {
     title: "Custom Styled Embed",
     content: mockContent,
-    className: "bg-gray-100 p-4",
+    modifier: 'bg-gray-100 p-4',
   },
 };
