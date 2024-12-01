@@ -54,54 +54,66 @@ type Story = StoryObj<typeof MainMenu>;
 export const Default: Story = {
   args: {
     modifier: '',
-    linkModifier: '',
+    linkModifier: 'text-dark',
     showLogo: true,
-    siteLogo: '/images/logo.svg',
+    siteLogo: './images/logo.svg',
     siteLogoWidth: 200,
     siteLogoHeight: 100,
+    siteName: 'Site Name',
     showSiteName: false,
-    ctaLinkCount: 1,
+    ctaLinkCount: 2,
     menuItems: [
       {
         title: 'Home',
-        url: '/',
+        url: '#',
+        inActiveTrail: true
       },
       {
-        title: 'About Us',
-        url: '/about',
+        title: 'Menu Item 1',
+        url: '#',
+        isExpanded: true,
         below: [
           {
-            title: 'Our Team',
-            url: '/about/team',
+            title: 'Vestibulum ac diam',
+            url: '#'
           },
           {
-            title: 'Our History',
-            url: '/about/history',
+            title: 'Mauris blandit aliquet',
+            url: '#'
           },
-        ],
+          {
+            title: 'Pellentesque in',
+            url: '#'
+          }
+        ]
       },
       {
-        title: 'Services',
-        url: '/services',
+        title: 'Menu Item 2',
+        url: '#',
+        isExpanded: true,
         below: [
           {
-            title: 'Consulting',
-            url: '/services/consulting',
+            title: 'Vestibulum ac diam',
+            url: '#'
           },
           {
-            title: 'Development',
-            url: '/services/development',
-          },
-          {
-            title: 'Design',
-            url: '/services/design',
-          },
-        ],
+            title: 'Mauris blandit aliquet',
+            url: '#'
+          }
+        ]
       },
       {
-        title: 'Contact',
-        url: '/contact',
+        title: 'Menu Item 3',
+        url: '#'
       },
+      {
+        title: 'CTA 1',
+        url: '#'
+      },
+      {
+        title: 'CTA 2',
+        url: '#'
+      }
     ],
   },
 };
