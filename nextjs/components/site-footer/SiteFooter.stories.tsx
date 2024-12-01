@@ -22,6 +22,9 @@ type Story = StoryObj<typeof SiteFooter>;
 export const Default: Story = {
   args: {
     siteLogo: '/images/logo.svg',
+    siteLogoWidth: 200,
+    siteLogoHeight: 34,
+    siteName: 'DrupalX',
     links: [
       {
         title: 'Privacy Policy',
