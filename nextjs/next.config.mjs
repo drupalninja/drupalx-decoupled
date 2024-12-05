@@ -1,5 +1,7 @@
 const externalDomain = process.env.DRUPAL_AUTH_URI;
-const externalDomainHost = new URL(externalDomain).host;
+const externalUrl = new URL(externalDomain);
+const externalDomainHost = externalUrl.hostname;
+const externalDomainProtocol = externalUrl.protocol.replace(':', '');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -13,7 +15,14 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: [externalDomainHost],
+    remotePatterns: [
+      {
+        protocol: externalDomainProtocol,
+        hostname: externalDomainHost,
+        port: '', // Specify port if needed
+        pathname: '/**',
+      },
+    ],
     formats: ['image/webp'],
   },
   publicRuntimeConfig: {
