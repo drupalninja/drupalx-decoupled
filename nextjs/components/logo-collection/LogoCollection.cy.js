@@ -8,7 +8,7 @@ describe('LogoCollection', () => {
   });
 
   it('renders all logos', () => {
-    cy.get('div[class*="flex flex-wrap"]').children().should('have.length', 3);
+    cy.get('div[class*="grid"]').children().should('have.length', 3);
   });
 
   it('applies correct classes for responsive layout', () => {
@@ -18,7 +18,23 @@ describe('LogoCollection', () => {
   });
 
   it('applies correct classes to logo images', () => {
-    cy.get('img').should('have.class', 'max-w-[120px]').and('have.class', 'h-auto');
+    cy.get('img').should('have.class', 'max-w-[100px]')
+      .and('have.class', 'md:max-w-[120px]')
+      .and('have.class', 'h-auto');
+  });
+
+  it('has correct grid layout classes', () => {
+    cy.get('div[class*="grid"]')
+      .should('have.class', 'grid-cols-2')
+      .and('have.class', 'sm:grid-cols-3');
+  });
+
+  it('has correct title styling', () => {
+    cy.get('h2')
+      .should('have.class', 'text-xl')
+      .and('have.class', 'font-bold')
+      .and('have.class', 'text-center')
+      .and('have.class', 'md:text-left');
   });
 });
 
@@ -32,7 +48,13 @@ describe('LogoCollection - Few Logos', () => {
   });
 
   it('renders correct number of logos', () => {
-    cy.get('div[class*="flex flex-wrap"]').children().should('have.length', 2);
+    cy.get('div[class*="grid"]').children().should('have.length', 2);
+  });
+
+  it('maintains grid layout with fewer items', () => {
+    cy.get('div[class*="grid"]')
+      .should('have.class', 'grid-cols-2')
+      .and('have.class', 'sm:grid-cols-3');
   });
 });
 
@@ -46,6 +68,12 @@ describe('LogoCollection - Many Logos', () => {
   });
 
   it('renders correct number of logos', () => {
-    cy.get('div[class*="flex flex-wrap"]').children().should('have.length', 6);
+    cy.get('div[class*="grid"]').children().should('have.length', 6);
+  });
+
+  it('maintains grid layout with more items', () => {
+    cy.get('div[class*="grid"]')
+      .should('have.class', 'grid-cols-2')
+      .and('have.class', 'sm:grid-cols-3');
   });
 });
