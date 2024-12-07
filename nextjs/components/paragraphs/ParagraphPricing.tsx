@@ -77,8 +77,6 @@ export default function ParagraphPricing({ paragraph }: ParagraphPricingProps) {
   };
 
   return (
-    <div className="container mx-auto">
-      <Pricing {...cardPricingProps} />
-    </div>
+    <Pricing {...cardPricingProps} />
   );
 }

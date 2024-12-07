@@ -23,15 +23,15 @@ export interface CustomCardProps {
 }
 
 export default function CardGroup({ title, cards, modifier }: CardGroupProps) {
-  const gridCols = cards.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
+  const gridCols = cards.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3';
 
   return (
-    <div className={modifier ?? 'container mx-auto my-12 lg:my-25'}>
-      <div className="space-y-6 lg:space-y-8">
+    <div className={modifier ?? 'container mx-auto my-2 lg:my-25'}>
+      <div className="space-y-6">
         {title && (
-          <h2 className="text-3xl lg:text-3xl font-bold text-center mb-8 lg:mb-8 w-3/5 mx-auto">{title}</h2>
+          <h2 className="text-3xl font-bold text-center mb-6 md:mb-8 w-full md:w-4/5 lg:w-3/5 mx-auto">{title}</h2>
         )}
-        <div className={`grid grid-cols-1 ${gridCols} gap-6 lg:gap-12`}>
+        <div className={`grid grid-cols-1 ${gridCols} lg:gap-6`}>
           {cards.map((card, index) => (
             <div key={index} className="mb-4">
               {card.type === 'stat' ? (
@@ -65,7 +65,7 @@ const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', li
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-2">
             {tags.map((tag, index) => (
-              <Badge key={index} variant="secondary" className='badge mb-2'>{tag}</Badge>
+              <Badge key={index} variant="secondary" className='badge'>{tag}</Badge>
             ))}
           </div>
         )}
@@ -80,11 +80,11 @@ const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', li
             )}
           </CardTitle>
         </CardHeader>
-        {summaryText && <p className="text-sm text-gray-600">{summaryText}</p>}
+        {summaryText && <p className="text-gray-600">{summaryText}</p>}
       </CardContent>
       {link && (
         <CardFooter>
-          <Button asChild variant="default">
+          <Button asChild variant="default" className="w-full md:w-auto">
             <Link href={link.url}>
               {link.title}
               <span className="ml-2">→</span>
@@ -95,3 +95,4 @@ const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', li
     </Card>
   );
 };
+

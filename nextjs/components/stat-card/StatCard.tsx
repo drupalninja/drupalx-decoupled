@@ -27,15 +27,16 @@ const StatCard: React.FC<StatCardProps> = ({
   const IconComponent = icon ? getLucideIcon(icon) as React.FC<{ size?: number; className?: string }> : null;
 
   return (
-    <Card className={`stat ${alignmentClass} ${!border ? 'border-0 shadow-none px-4 py-8 h-full' : ''} ${modifier}`}>
-      <CardContent className={`pt-6 ${!border ? 'p-0' : ''}`}>
+    <Card className={`stat ${alignmentClass} ${!border ? 'border-0 shadow-none px-3 py-2 sm:px-4 sm:py-8 h-full' : ''} ${modifier}`}>
+      <CardContent className={`${!border ? 'p-0' : ''}`}>
         {IconComponent && (
-          <div className={`stat-icon ${iconClass} mb-4 max-w-[200px]`}>
-            <IconComponent size={68} className="mx-auto" />
+          <div className={`stat-icon ${iconClass} mb-4 max-w-[120px] sm:max-w-[200px]`}>
+            <IconComponent size={56} className="mx-auto sm:hidden" />
+            <IconComponent size={68} className="mx-auto hidden sm:block" />
           </div>
         )}
         {media && (
-          <div className={`stat-icon ${iconClass} mb-4 max-w-[200px]`}>
+          <div className={`stat-icon ${iconClass} mb-4 max-w-[120px] sm:max-w-[200px]`}>
             {media}
           </div>
         )}
@@ -47,3 +48,4 @@ const StatCard: React.FC<StatCardProps> = ({
 };
 
 export default StatCard;
+
