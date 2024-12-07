@@ -52,7 +52,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
 
   return (
     <nav className={`${modifier}`}>
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
