@@ -65,7 +65,7 @@ describe('Verify user login and page creation', () => {
     cy.type_ckeditor("#edit-body-0-value", "This is the body of the test page.")
 
     // Save the page
-    cy.get('#edit-gin-sticky-actions [data-drupal-selector="edit-submit"]').click()
+    cy.get('#gin-sticky-edit-submit').click()
 
     // Verify the page was created successfully
     cy.url().should('include', '/test-page-title')
