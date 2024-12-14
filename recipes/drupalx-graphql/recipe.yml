@@ -6,6 +6,7 @@ install:
   - content_moderation
   - simple_oauth
   - decoupled_preview_iframe
+  - drupalx_ai
   - graphql_compose
   - graphql_compose_edges
   - graphql_compose_image_style

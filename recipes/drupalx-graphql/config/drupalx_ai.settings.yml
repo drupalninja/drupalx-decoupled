@@ -1,0 +1,10 @@
+is_nextjs: 1
+ai_provider: anthropic
+api_key:
+claude_model: claude-3-haiku-20240307
+openai_model: gpt-4o-mini
+groq_model: llama-3.1-70b-versatile
+image_generator: placeholder
+pexels_api_key: ''
+unsplash_api_key: ''
+tavily_api_key: ''
