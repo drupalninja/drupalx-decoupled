@@ -4,27 +4,12 @@ import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from "@/components/helpers/Utilities";
 import Heading from "@/components/heading/Heading";
 import { TextSummaryFragment, TextFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment, MediaImageFragment, ImageFragment } from "@/graphql/fragments/media";
+import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
 
 
 type NodeArticleComponentProps = {
   node: FragmentOf<typeof NodeArticleFragment>;
   environment: string;
-}
-
-interface MediaImageType {
-  image: {
-    url: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-    variations?: Array<{
-      name: string;
-      url: string;
-      width?: number;
-      height?: number;
-    }>;
-  };
 }
 
 export default function NodeArticleComponent({ node, environment }: NodeArticleComponentProps) {

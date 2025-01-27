@@ -2,28 +2,13 @@ import React from 'react';
 import { FragmentOf, readFragment } from "gql.tada";
 import { NodePageFragment } from "@/graphql/fragments/node";
 import { getImage } from "@/components/helpers/Utilities";
-import { MediaUnionFragment, MediaImageFragment, ImageFragment } from "@/graphql/fragments/media";
+import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
 import Heading from "@/components/heading/Heading";
 import { TextSummaryFragment } from "@/graphql/fragments/misc";
 
-type NodePageComponentProps = {
+interface NodePageComponentProps {
   node: FragmentOf<typeof NodePageFragment>;
   environment: string;
-};
-
-interface MediaImageType {
-  image: {
-    url: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-    variations?: Array<{
-      name: string;
-      url: string;
-      width?: number;
-      height?: number;
-    }>;
-  };
 }
 
 export default function NodePageComponent({

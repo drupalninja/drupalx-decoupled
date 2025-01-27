@@ -2,6 +2,21 @@ import { graphql } from "@/graphql/gql.tada";
 import { DateTimeFragment, LanguageFragment } from "./misc";
 import { MetaTagUnionFragment } from "./metatag";
 
+export interface MediaImageType {
+  image: {
+    url: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    variations?: Array<{
+      name: string;
+      url: string;
+      width?: number;
+      height?: number;
+    }>;
+  };
+}
+
 export const ImageFragment = graphql(`
   fragment ImageFragment on Image {
     url

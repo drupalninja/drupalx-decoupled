@@ -1,24 +1,9 @@
 import React from 'react';
 import { FragmentOf, readFragment, graphql } from "gql.tada";
 import { DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment, SvgMediaFragment } from "@/graphql/fragments/media";
+import { MediaUnionFragment, SvgMediaFragment, MediaImageType } from "@/graphql/fragments/media";
 import { getImage } from "../helpers/Utilities";
 import Quote from '@/components/quote/Quote';
-
-interface MediaImageType {
-  image: {
-    url: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-    variations?: Array<{
-      name: string;
-      url: string;
-      width?: number;
-      height?: number;
-    }>;
-  };
-}
 
 export const ParagraphQuoteFragment = graphql(`fragment ParagraphQuoteFragment on ParagraphQuote {
   id

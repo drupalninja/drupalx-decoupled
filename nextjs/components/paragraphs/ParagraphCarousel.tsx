@@ -1,24 +1,9 @@
 import React from 'react';
 import { FragmentOf, readFragment, graphql } from 'gql.tada';
 import { DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
-import { MediaUnionFragment } from '@/graphql/fragments/media';
+import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
 import { getImage } from '@/components/helpers/Utilities';
 import Carousel, { CarouselItemData } from '@/components/carousel/Carousel';
-
-interface MediaImageType {
-  image: {
-    url: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-    variations?: Array<{
-      name: string;
-      url: string;
-      width?: number;
-      height?: number;
-    }>;
-  };
-}
 
 export const ParagraphCarouselFragment = graphql(`fragment ParagraphCarouselFragment on ParagraphCarousel {
   id

@@ -1,27 +1,12 @@
 import React from 'react';
-import { FragmentOf, readFragment } from "gql.tada";
+import { FragmentOf, readFragment } from 'gql.tada';
 import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from '@/components/helpers/Utilities';
 import RecentCards from '@/components/recent-cards/RecentCards';
-import { MediaUnionFragment } from '@/graphql/fragments/media';
+import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
 
 interface ViewRecentCardsProps {
-  results: Array<FragmentOf<typeof NodeArticleFragment>>,
-}
-
-interface MediaImageType {
-  image: {
-    url: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-    variations?: Array<{
-      name: string;
-      url: string;
-      width?: number;
-      height?: number;
-    }>;
-  };
+  results: Array<FragmentOf<typeof NodeArticleFragment>>;
 }
 
 export default function ViewRecentCards({ results }: ViewRecentCardsProps) {
