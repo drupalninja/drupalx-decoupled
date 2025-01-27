@@ -1,3 +1,4 @@
+import React from 'react';
 import { FragmentOf, readFragment } from "gql.tada";
 import { NodePageFragment } from "@/graphql/fragments/node";
 import { getImage } from "@/components/helpers/Utilities";
@@ -10,6 +11,21 @@ type NodePageComponentProps = {
   environment: string;
 };
 
+interface MediaImageType {
+  image: {
+    url: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    variations?: Array<{
+      name: string;
+      url: string;
+      width?: number;
+      height?: number;
+    }>;
+  };
+}
+
 export default function NodePageComponent({
   node,
   environment,
@@ -20,25 +36,27 @@ export default function NodePageComponent({
   const bodyFragment = readFragment(TextSummaryFragment, body);
   const bodyProcessed = bodyFragment?.processed as string;
 
-  const mediaImage = mediaFragment && mediaFragment.__typename === 'MediaImage'
-    ? readFragment(MediaImageFragment, mediaFragment)
-    : null;
-  const imageFragment = mediaImage?.image && readFragment(ImageFragment, mediaImage.image);
-  const pageImage = imageFragment && getImage({
-    image: {
-      url: imageFragment.url,
-      alt: imageFragment.alt ?? undefined,
-      width: imageFragment.width,
-      height: imageFragment.height,
-      variations: imageFragment.variations ?? undefined
-    }
-  }, "w-full h-auto", ["HEROS", "HEROLX2"]);
+  let pageImage = null;
+  const mediaImage = mediaFragment ? mediaFragment as MediaImageType : null;
+  if (mediaImage?.image) {
+    pageImage = getImage({
+      image: {
+        url: mediaImage.image.url,
+        alt: mediaImage.image.alt ?? undefined,
+        width: mediaImage.image.width,
+        height: mediaImage.image.height,
+        variations: mediaImage.image.variations?.map(({ name, url, width, height }) => ({
+          name, url, width, height
+        }))
+      }
+    }, "w-full h-full object-cover", ["LARGE", "I169LARGE2X"]);
+  }
 
   return (
     <article className="mb-8">
       <div className="mx-auto max-w-7xl p-4 sm:px-6 lg:px-8">
         {pageImage && (
-          <div className="mb-7">
+          <div className="relative aspect-[16/9] mb-6">
             {pageImage}
           </div>
         )}

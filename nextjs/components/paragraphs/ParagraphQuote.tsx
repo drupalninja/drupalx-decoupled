@@ -1,9 +1,24 @@
 import React from 'react';
 import { FragmentOf, readFragment, graphql } from "gql.tada";
 import { DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment, SvgMediaFragment, MediaImageFragment, ImageFragment } from "@/graphql/fragments/media";
-import Quote from '@/components/quote/Quote';
+import { MediaUnionFragment, SvgMediaFragment } from "@/graphql/fragments/media";
 import { getImage } from "../helpers/Utilities";
+import Quote from '@/components/quote/Quote';
+
+interface MediaImageType {
+  image: {
+    url: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    variations?: Array<{
+      name: string;
+      url: string;
+      width?: number;
+      height?: number;
+    }>;
+  };
+}
 
 export const ParagraphQuoteFragment = graphql(`fragment ParagraphQuoteFragment on ParagraphQuote {
   id
@@ -42,21 +57,12 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
 
   const logoComponent = logo ? (
     <div className="w-1/3 mx-auto">
-      {getImage(logo, 'w-full h-auto', 'I11SMALL')}
+      {getImage(logo, 'w-full h-auto')}
     </div>
   ) : null;
 
   const thumbMedia = thumb && readFragment(MediaUnionFragment, thumb);
-  let thumbData;
-  type ThumbImage = { __typename: 'MediaImage' } & FragmentOf<typeof MediaImageFragment>;
-
-  if (thumbMedia && (thumbMedia as ThumbImage).__typename === 'MediaImage') {
-    const mediaImage = readFragment(MediaImageFragment, thumbMedia as ThumbImage);
-    if (mediaImage.image) {
-      const image = readFragment(ImageFragment, mediaImage.image);
-      thumbData = { image: { url: image.url } };
-    }
-  }
+  const mediaImage = thumbMedia ? thumbMedia as MediaImageType : null;
 
   return (
     <div className={`container mx-auto ${modifier ?? 'my-6 lg:my-25'}`}>
@@ -66,7 +72,7 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
           jobTitle={jobTitle ?? ''}
           logo={logoComponent}
           quote={quote}
-          thumb={thumbData}
+          thumb={mediaImage?.image ? { image: { url: mediaImage.image.url } } : undefined}
         />
       </div>
     </div>
