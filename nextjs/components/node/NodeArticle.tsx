@@ -39,29 +39,31 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
   const mediaFragment = readFragment(MediaUnionFragment, media);
 
   const mediaImage = mediaFragment ? mediaFragment as MediaImageType : null;
-  const imageFragment = mediaImage?.image && readFragment(ImageFragment, mediaImage.image);
-  const articleImage = imageFragment && getImage({
-    image: {
-      url: imageFragment.url,
-      alt: imageFragment.alt ?? undefined,
-      width: imageFragment.width,
-      height: imageFragment.height,
-      variations: imageFragment.variations?.map(({ name, url, width, height }) => ({
-        name, url, width, height
-      }))
-    }
-  }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
+  let articleImage = null;
+  if (mediaImage?.image) {
+    articleImage = getImage({
+      image: {
+        url: mediaImage.image.url,
+        alt: mediaImage.image.alt ?? undefined,
+        width: mediaImage.image.width,
+        height: mediaImage.image.height,
+        variations: mediaImage.image.variations?.map(({ name, url, width, height }) => ({
+          name, url, width, height
+        }))
+      }
+    }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
+  }
 
   return (
     <>
-      <article className="node-article mb-8">
-        {articleImage && (
-          <div className="relative aspect-[16/9] mb-6">
-            {articleImage}
-          </div>
-        )}
-        <div className="container mx-auto px-4">
-          <div className="max-w-screen-lg mx-auto mb-2 lg:mb-10">
+      <article className="mb-8">
+        <div className="mx-auto max-w-7xl p-4 sm:px-6 lg:px-8">
+          {articleImage && (
+            <div className="relative aspect-[16/9] mb-6">
+              {articleImage}
+            </div>
+          )}
+          <div className="mx-auto max-w-2xl">
             {subhead && (
               <div className="uppercase mb-2 text-sm tracking-wide">
                 {subhead}
@@ -69,15 +71,15 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
             )}
             <Heading level={1} title={title} className="mb-8" />
             {leadFragment?.value && (
-              <div className="prose prose-lg lead mb-4 max-w-screen-lg mx-auto" dangerouslySetInnerHTML={{ __html: leadFragment.value }} />
+              <div className="prose prose-lg lead mb-4" dangerouslySetInnerHTML={{ __html: leadFragment.value }} />
+            )}
+            {bodyProcessed && (
+              <div
+                className="prose prose-lg"
+                dangerouslySetInnerHTML={{ __html: bodyProcessed }}
+              />
             )}
           </div>
-          {bodyProcessed && (
-            <div
-              className="prose prose-lg max-w-screen-md mx-auto"
-              dangerouslySetInnerHTML={{ __html: bodyProcessed }}
-            />
-          )}
         </div>
       </article>
     </>
