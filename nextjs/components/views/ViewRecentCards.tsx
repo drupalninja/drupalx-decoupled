@@ -15,10 +15,9 @@ export default function ViewRecentCards({ results }: ViewRecentCardsProps) {
     const mediaUnion = articleData.media ? readFragment(MediaUnionFragment, articleData.media) : null;
 
     let media = null;
-    if (mediaUnion && mediaUnion.__typename === 'MediaImage') {
+    if (mediaUnion) {
       const imageItem = readFragment(MediaImageFragment, mediaUnion);
       const image = imageItem?.image && readFragment(ImageFragment, imageItem.image);
-
       if (image) {
         media = getImage({
           image: {
