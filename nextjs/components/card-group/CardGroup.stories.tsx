@@ -51,6 +51,14 @@ const mockCards: CustomCardProps[] = [
     summaryText: 'Another summary of card content.',
     link: { title: 'Learn More', url: 'https://example.com' },
   },
+  {
+    type: 'custom',
+    heading: { title: 'Another Card', url: 'https://example.com' },
+    media: mockMedia,
+    tags: ['Tag 3', 'Tag 4'],
+    summaryText: 'Another summary of card content.',
+    link: { title: 'Learn More', url: 'https://example.com' },
+  },
 ];
 
 export const Default: Story = {

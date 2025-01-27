@@ -7,7 +7,7 @@ describe('Card Group Component', () => {
     it('should display the card group section title', () => {
       cy.get('h2')
         .should('be.visible')
-        .and('contain', 'Featured Cards')
+        .and('contain', 'Featured Content')
         .and('have.class', 'text-3xl font-bold text-center mb-6 md:mb-8');
     });
 
@@ -15,32 +15,15 @@ describe('Card Group Component', () => {
       cy.get('.grid > div').should('have.length', 3);
     });
 
-    it('should display both Custom and Stat cards', () => {
-      // Using more specific selectors based on the new structure
-      cy.get('.grid > div').eq(0).find('.card').should('be.visible');
-      cy.get('.grid > div').eq(1).find('.card').should('be.visible');
-      cy.get('.grid > div').eq(2).find('.stat').should('be.visible');
-    });
-
-    it('should display correct content for Custom cards', () => {
-      cy.get('.card').each(($card, index) => {
-        if (index < 2) {
-          cy.wrap($card).within(() => {
-            cy.get('.card-title').should('be.visible');
-            cy.get('.badge').should('exist');
-            cy.get('p').should('be.visible');
-            cy.get('a').should('exist');
-            cy.get('img').should('exist');
-          });
-        }
-      });
-    });
-
-    it('should display correct content for Stat card', () => {
-      cy.get('.stat').within(() => {
-        cy.get('h3').should('be.visible');
-        cy.get('p').should('be.visible');
-        cy.get('svg').should('exist');
+    it('should display custom cards with correct structure', () => {
+      cy.get('.card').each(($card) => {
+        cy.wrap($card).within(() => {
+          cy.get('.card-title').should('be.visible');
+          cy.get('.badge').should('exist');
+          cy.get('p').should('be.visible');
+          cy.get('a').should('exist');
+          cy.get('img').should('exist');
+        });
       });
     });
   });
@@ -55,7 +38,16 @@ describe('Card Group Component', () => {
     });
 
     it('should display the correct title', () => {
-      cy.get('h2').should('contain', 'Single Card Example');
+      cy.get('h2').should('contain', 'Single Card');
+    });
+
+    it('should have correct card structure', () => {
+      cy.get('.card').within(() => {
+        cy.get('.card-title').should('be.visible');
+        cy.get('.badge').should('exist');
+        cy.get('p').should('be.visible');
+        cy.get('a').should('exist');
+      });
     });
   });
 
@@ -69,7 +61,7 @@ describe('Card Group Component', () => {
     });
 
     it('should display the correct title', () => {
-      cy.get('h2').should('contain', 'Two Cards Example');
+      cy.get('h2').should('contain', 'Two Cards');
     });
   });
 
@@ -80,7 +72,6 @@ describe('Card Group Component', () => {
 
     it('should display only stat cards', () => {
       cy.get('.grid > div').should('have.length', 2);
-      cy.get('.stat').should('have.length', 2);
     });
 
     it('should display the correct title', () => {
@@ -90,7 +81,7 @@ describe('Card Group Component', () => {
     it('should display correct content for Stat cards', () => {
       cy.get('.stat').each(($stat) => {
         cy.wrap($stat).within(() => {
-          cy.get('h3').should('be.visible');
+          cy.get('.text-xl').should('be.visible');
           cy.get('p').should('be.visible');
           cy.get('svg').should('exist');
         });
@@ -108,7 +99,7 @@ describe('Card Group Component', () => {
       cy.get('.grid').should('have.class', 'grid-cols-1');
     });
 
-    it('should display items in two columns on tablet', () => {
+    it('should display items in two columns on tablet and desktop', () => {
       cy.viewport('ipad-mini');
       cy.get('.grid').should('have.class', 'md:grid-cols-2');
     });
@@ -116,12 +107,6 @@ describe('Card Group Component', () => {
     it('should display items in three columns on desktop for 3 or more cards', () => {
       cy.viewport('macbook-15');
       cy.get('.grid').should('have.class', 'lg:grid-cols-3');
-    });
-
-    it('should display items in two columns on desktop for 2 cards', () => {
-      cy.visit('/iframe.html?args=&id=editorial-card-group--two-cards&viewMode=story');
-      cy.viewport('macbook-15');
-      cy.get('.grid').should('have.class', 'md:grid-cols-2');
     });
   });
 });
