@@ -1,49 +1,48 @@
 import React from 'react';
 import { FragmentOf, readFragment, graphql } from 'gql.tada';
 import { DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
-import { MediaUnionFragment, MediaImageFragment, ImageFragment } from '@/graphql/fragments/media';
-import Carousel, { CarouselItemData } from '@/components/carousel/Carousel';
+import { MediaUnionFragment } from '@/graphql/fragments/media';
 import { getImage } from '@/components/helpers/Utilities';
+import Carousel, { CarouselItemData } from '@/components/carousel/Carousel';
 
-export const ParagraphCarouselItemFragment = graphql(`fragment ParagraphCarouselItemFragment on ParagraphCarouselItem {
+interface MediaImageType {
+  image: {
+    url: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    variations?: Array<{
+      name: string;
+      url: string;
+      width?: number;
+      height?: number;
+    }>;
+  };
+}
+
+export const ParagraphCarouselFragment = graphql(`fragment ParagraphCarouselFragment on ParagraphCarousel {
   id
   created {
     ...DateTimeFragment
   }
+  carouselItem {
+    ... on ParagraphCarouselItem {
+      media {
+        ...MediaUnionFragment
+      }
+      summary
+      title
+    }
+  }
   langcode {
     ...LanguageFragment
   }
-  media {
-    ...MediaUnionFragment
-  }
   status
-  summary
-  title
 }`,
   [
     DateTimeFragment,
     LanguageFragment,
     MediaUnionFragment,
-  ]
-)
-
-export const ParagraphCarouselFragment = graphql(`fragment ParagraphCarouselFragment on ParagraphCarousel {
-  id
-  carouselItem {
-    ...ParagraphCarouselItemFragment
-  }
-  created {
-    ...DateTimeFragment
-  }
-  langcode {
-    ...LanguageFragment
-  }
-  status
-}`,
-  [
-    ParagraphCarouselItemFragment,
-    DateTimeFragment,
-    LanguageFragment,
   ]
 )
 
@@ -57,19 +56,18 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
 
   const carouselItems: CarouselItemData[] = (carouselItem as any[]).map((item) => {
     const mediaFragment = readFragment(MediaUnionFragment, item.media);
-    const mediaImage = mediaFragment && mediaFragment.__typename === 'MediaImage'
-      ? readFragment(MediaImageFragment, mediaFragment)
-      : null;
-    const imageFragment = mediaImage?.image && readFragment(ImageFragment, mediaImage.image);
+    const mediaImage = mediaFragment ? mediaFragment as MediaImageType : null;
 
     return {
-      media: imageFragment && getImage({
+      media: mediaImage?.image && getImage({
         image: {
-          url: imageFragment.url,
-          alt: imageFragment.alt ?? undefined,
-          width: imageFragment.width,
-          height: imageFragment.height,
-          variations: imageFragment.variations ?? undefined
+          url: mediaImage.image.url,
+          alt: mediaImage.image.alt ?? undefined,
+          width: mediaImage.image.width,
+          height: mediaImage.image.height,
+          variations: mediaImage.image.variations?.map(({ name, url, width, height }) => ({
+            name, url, width, height
+          }))
         }
       }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']),
       title: item.title,

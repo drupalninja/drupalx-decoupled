@@ -3,10 +3,25 @@ import { FragmentOf, readFragment } from "gql.tada";
 import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from '@/components/helpers/Utilities';
 import RecentCards from '@/components/recent-cards/RecentCards';
-import { MediaImageFragment, ImageFragment, MediaUnionFragment } from '@/graphql/fragments/media';
+import { MediaUnionFragment } from '@/graphql/fragments/media';
 
 interface ViewRecentCardsProps {
   results: Array<FragmentOf<typeof NodeArticleFragment>>,
+}
+
+interface MediaImageType {
+  image: {
+    url: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    variations?: Array<{
+      name: string;
+      url: string;
+      width?: number;
+      height?: number;
+    }>;
+  };
 }
 
 export default function ViewRecentCards({ results }: ViewRecentCardsProps) {
@@ -16,16 +31,15 @@ export default function ViewRecentCards({ results }: ViewRecentCardsProps) {
 
     let media = null;
     if (mediaUnion) {
-      const imageItem = readFragment(MediaImageFragment, mediaUnion);
-      const image = imageItem?.image && readFragment(ImageFragment, imageItem.image);
-      if (image) {
+      const mediaImage = mediaUnion as MediaImageType;
+      if (mediaImage.image) {
         media = getImage({
           image: {
-            url: image.url,
-            alt: image.alt ?? undefined,
-            width: image.width,
-            height: image.height,
-            variations: image.variations?.map(({ name, url, width, height }) => ({
+            url: mediaImage.image.url,
+            alt: mediaImage.image.alt ?? undefined,
+            width: mediaImage.image.width,
+            height: mediaImage.image.height,
+            variations: mediaImage.image.variations?.map(({ name, url, width, height }) => ({
               name, url, width, height
             }))
           }
