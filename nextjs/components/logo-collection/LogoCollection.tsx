@@ -34,4 +34,3 @@ export default function LogoCollection({ title, logos }: LogoCollectionProps) {
     </section>
   );
 }
-
