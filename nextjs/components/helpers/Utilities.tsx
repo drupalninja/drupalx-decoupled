@@ -1,8 +1,25 @@
 import Image from 'next/image';
 
-export const getImage = (media: any, className?: string, imageStyle?: string | string[]) => {
+interface ImageVariation {
+  name: string;
+  url: string;
+  width?: number;
+  height?: number;
+}
+
+export interface MediaImage {
+  image?: {
+    url?: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    variations?: ImageVariation[];
+  };
+}
+
+export const getImage = (media: MediaImage, className?: string, imageStyle?: string | string[]) => {
   const getVariation = (name: string) =>
-    media?.image?.variations?.find((variation: any) => variation.name === name);
+    media?.image?.variations?.find((variation: ImageVariation) => variation.name === name);
 
   let desktopStyle: string | undefined;
   let mobileStyle: string | undefined;
@@ -30,7 +47,7 @@ export const getImage = (media: any, className?: string, imageStyle?: string | s
     isSvg(desktopUrl) ? (
       <Image
         src={desktopUrl}
-        alt={media?.image?.alt}
+        alt={media?.image?.alt ?? ''}
         width={500}
         height={500}
         className={className ?? ''}
@@ -43,9 +60,9 @@ export const getImage = (media: any, className?: string, imageStyle?: string | s
         />
         <Image
           src={desktopUrl}
-          alt={media?.image?.alt}
-          width={width}
-          height={height}
+          alt={media?.image?.alt ?? ''}
+          width={width ?? 0}
+          height={height ?? 0}
           className={className ?? ''}
           sizes="(max-width: 767px) 100vw, 50vw"
           quality={75}

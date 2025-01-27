@@ -10,7 +10,7 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-			typography: (theme: any) => ({
+			typography: (theme: (path: string) => string | number) => ({
 				DEFAULT: {
 					css: {
 						h1: {

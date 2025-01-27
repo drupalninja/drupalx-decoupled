@@ -52,8 +52,24 @@ interface ParagraphPricingProps {
   paragraph: FragmentOf<typeof ParagraphPricingFragment>;
 }
 
+interface TextType {
+  value?: string;
+  processed?: string;
+  format?: string;
+}
+
+interface PricingCardType {
+  eyebrow?: string;
+  title?: string;
+  featuresText?: string;
+  link?: {
+    title?: string;
+    url?: string;
+  };
+}
+
 export default function ParagraphPricing({ paragraph }: ParagraphPricingProps) {
-  const { eyebrow, pricingTitle, pricingSummary, pricingCards, featuresText } = readFragment(ParagraphPricingFragment, paragraph);
+  const { eyebrow, pricingTitle, pricingSummary, pricingCards } = readFragment(ParagraphPricingFragment, paragraph);
 
   // Helper function to split bullet string into an array
   const splitBullets = (bulletsString: string | null | undefined): string[] => {
@@ -65,15 +81,15 @@ export default function ParagraphPricing({ paragraph }: ParagraphPricingProps) {
   const cardPricingProps: PricingProps = {
     eyebrow: eyebrow || undefined,
     title: pricingTitle || undefined,
-    summary: (pricingSummary as any).value || undefined,
+    summary: (pricingSummary as TextType)?.value || undefined,
     includesLabel: "Includes",
-    cards: (pricingCards as any).map((card: any): PricingCardProps => ({
+    cards: (pricingCards as PricingCardType[])?.map((card): PricingCardProps => ({
       eyebrow: card.eyebrow || "",
       title: card.title || "",
       features: splitBullets(card.featuresText),
       ctaText: card.link?.title || "Learn More",
       ctaLink: card.link?.url || "#",
-    }))
+    })) || []
   };
 
   return (

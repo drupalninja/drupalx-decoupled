@@ -44,12 +44,22 @@ export default function ParagraphText({ paragraph, className }: ParagraphTextPro
   const linkFragment = readFragment(LinkFragment, link);
   const linkFragment2 = readFragment(LinkFragment, link2);
 
+  const formattedLinkFragment = linkFragment ? {
+    url: linkFragment.url ?? '',
+    title: linkFragment.title ?? ''
+  } : undefined;
+
+  const formattedLinkFragment2 = linkFragment2 ? {
+    url: linkFragment2.url ?? '',
+    title: linkFragment2.title ?? ''
+  } : undefined;
+
   return (
     <Text
       title={title}
       body={textSummaryFragment?.value ?? ''}
-      linkFragment={linkFragment as any}
-      linkFragment2={linkFragment2 as any}
+      linkFragment={formattedLinkFragment}
+      linkFragment2={formattedLinkFragment2}
       eyebrow={eyebrow}
       textLayout={textLayout}
       className={className}

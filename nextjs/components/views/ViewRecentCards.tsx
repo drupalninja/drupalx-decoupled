@@ -3,6 +3,7 @@ import { FragmentOf, readFragment } from "gql.tada";
 import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from '@/components/helpers/Utilities';
 import RecentCards from '@/components/recent-cards/RecentCards';
+import { MediaImageFragment, ImageFragment, MediaUnionFragment } from '@/graphql/fragments/media';
 
 interface ViewRecentCardsProps {
   results: Array<FragmentOf<typeof NodeArticleFragment>>,
@@ -11,7 +12,27 @@ interface ViewRecentCardsProps {
 export default function ViewRecentCards({ results }: ViewRecentCardsProps) {
   const processedResults = results.map((result) => {
     const articleData = readFragment(NodeArticleFragment, result);
-    const media = articleData.media ? getImage(articleData.media, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']) : null;
+    const mediaUnion = articleData.media ? readFragment(MediaUnionFragment, articleData.media) : null;
+
+    let media = null;
+    if (mediaUnion && mediaUnion.__typename === 'MediaImage') {
+      const imageItem = readFragment(MediaImageFragment, mediaUnion);
+      const image = imageItem?.image && readFragment(ImageFragment, imageItem.image);
+
+      if (image) {
+        media = getImage({
+          image: {
+            url: image.url,
+            alt: image.alt ?? undefined,
+            width: image.width,
+            height: image.height,
+            variations: image.variations?.map(({ name, url, width, height }) => ({
+              name, url, width, height
+            }))
+          }
+        }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
+      }
+    }
 
     return {
       id: articleData.id,

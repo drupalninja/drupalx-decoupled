@@ -1,31 +1,37 @@
-import { FragmentOf, readFragment } from "gql.tada";
+import { FragmentOf, readFragment, ResultOf } from "gql.tada";
 import dynamic from 'next/dynamic';
-
-// Dynamic import for ParagraphUnionFragment
-const ParagraphUnionFragment = import('@/graphql/fragments/paragraph').then(module => module.ParagraphUnionFragment);
+import { ParagraphUnionFragment } from '@/graphql/fragments/paragraph';
 
 // Type for component props
-type ParagraphProps<T> = {
-  paragraph: FragmentOf<any>;
+export interface ParagraphBase {
+  __typename: string;
+  id: string;
+}
+
+type ParagraphProps<T extends ParagraphBase = ParagraphBase> = {
+  paragraph: T;
 };
 
 // Type for dynamic component import
-type DynamicComponentType = React.ComponentType<ParagraphProps<any>>;
+type DynamicComponentType = React.ComponentType<ParagraphProps>;
 
 // Function to dynamically import components
 const importComponent = (type: string): Promise<DynamicComponentType> => {
   const formattedType = type.replace(/^Paragraph/, '');
-  return dynamic(() => import(`@/components/paragraphs/Paragraph${formattedType}`)) as unknown as Promise<DynamicComponentType>;
+  const DynamicComponent = dynamic(() => import(`@/components/paragraphs/Paragraph${formattedType}`));
+  return Promise.resolve(DynamicComponent as DynamicComponentType);
 };
 
 // Function to dynamically import fragments
-const importFragment = (type: string): Promise<any> => {
-  return import('@/graphql/fragments/paragraph').then((module: { [key: string]: any }) => module[`${type}Fragment`]); // Add type for module
+const importFragment = async (type: string) => {
+  const paragraphModule = await import('@/graphql/fragments/paragraph');
+  const fragmentKey = `${type}Fragment` as keyof typeof paragraphModule;
+  return paragraphModule[fragmentKey];
 };
 
 interface ResolveProps {
-  data: any[] | null;
-  environment: string;
+  data: ResultOf<typeof ParagraphUnionFragment>[] | null;
+  environment?: string;
 }
 
 export const resolve = async ({ data = [], environment = 'preview' }: ResolveProps): Promise<React.ReactNode[]> => {
@@ -34,11 +40,9 @@ export const resolve = async ({ data = [], environment = 'preview' }: ResolvePro
     return [];
   }
 
-  const unionFragment = await ParagraphUnionFragment;
-  const paragraphUnionFragment = readFragment(unionFragment, data);
   const components: React.ReactNode[] = [];
 
-  for (const paragraph of paragraphUnionFragment) {
+  for (const paragraph of data) {
     const type = paragraph.__typename;
 
     if (!type) {
@@ -52,7 +56,8 @@ export const resolve = async ({ data = [], environment = 'preview' }: ResolvePro
         importFragment(type),
       ]);
 
-      const typedParagraph = readFragment(FragmentType, paragraph);
+      // Use proper typing with the fragment
+      const typedParagraph = readFragment(FragmentType as any, paragraph) as ParagraphBase;
 
       components.push(<Component key={paragraph.id} paragraph={typedParagraph} />);
     } catch (error) {
