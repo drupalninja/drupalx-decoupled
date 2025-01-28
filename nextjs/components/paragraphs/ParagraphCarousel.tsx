@@ -1,24 +1,28 @@
 import React from 'react';
 import { FragmentOf, readFragment, graphql } from 'gql.tada';
 import { DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
-import { MediaUnionFragment } from '@/graphql/fragments/media';
-import Carousel, { CarouselItemData } from '@/components/carousel/Carousel';
+import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
 import { getImage } from '@/components/helpers/Utilities';
+import Carousel, { CarouselItemData } from '@/components/carousel/Carousel';
 
-export const ParagraphCarouselItemFragment = graphql(`fragment ParagraphCarouselItemFragment on ParagraphCarouselItem {
+export const ParagraphCarouselFragment = graphql(`fragment ParagraphCarouselFragment on ParagraphCarousel {
   id
   created {
     ...DateTimeFragment
   }
+  carouselItem {
+    ... on ParagraphCarouselItem {
+      media {
+        ...MediaUnionFragment
+      }
+      summary
+      title
+    }
+  }
   langcode {
     ...LanguageFragment
   }
-  media {
-    ...MediaUnionFragment
-  }
   status
-  summary
-  title
 }`,
   [
     DateTimeFragment,
@@ -26,27 +30,6 @@ export const ParagraphCarouselItemFragment = graphql(`fragment ParagraphCarousel
     MediaUnionFragment,
   ]
 )
-
-export const ParagraphCarouselFragment = graphql(`fragment ParagraphCarouselFragment on ParagraphCarousel {
-  id
-  carouselItem {
-    ...ParagraphCarouselItemFragment
-  }
-  created {
-    ...DateTimeFragment
-  }
-  langcode {
-    ...LanguageFragment
-  }
-  status
-}`,
-  [
-    ParagraphCarouselItemFragment,
-    DateTimeFragment,
-    LanguageFragment,
-  ]
-)
-
 
 interface ParagraphCarouselProps {
   paragraph: FragmentOf<typeof ParagraphCarouselFragment>;
@@ -56,11 +39,26 @@ interface ParagraphCarouselProps {
 export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCarouselProps) {
   const { id, carouselItem } = readFragment(ParagraphCarouselFragment, paragraph);
 
-  const carouselItems: CarouselItemData[] = (carouselItem as CarouselItemData[]).map((item) => ({
-    media: item.media ? getImage(item.media, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']) : undefined,
-    title: item.title,
-    summary: item.summary,
-  }));
+  const carouselItems: CarouselItemData[] = (carouselItem as any[]).map((item) => {
+    const mediaFragment = readFragment(MediaUnionFragment, item.media);
+    const mediaImage = mediaFragment ? mediaFragment as MediaImageType : null;
+
+    return {
+      media: mediaImage?.image && getImage({
+        image: {
+          url: mediaImage.image.url,
+          alt: mediaImage.image.alt ?? undefined,
+          width: mediaImage.image.width,
+          height: mediaImage.image.height,
+          variations: mediaImage.image.variations?.map(({ name, url, width, height }) => ({
+            name, url, width, height
+          }))
+        }
+      }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']),
+      title: item.title,
+      summary: item.summary,
+    };
+  });
 
   return (
     <div className={`container mx-auto px-4 ${modifier || 'my-25'}`}>

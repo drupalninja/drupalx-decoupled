@@ -25,10 +25,10 @@ export const ParagraphEmbedFragment = graphql(`fragment ParagraphEmbedFragment o
 
 interface ParagraphEmbedProps {
   paragraph: FragmentOf<typeof ParagraphEmbedFragment>,
-  className?: string,
+  modifier?: string,
 }
 
-export default function ParagraphEmbed({ paragraph, className }: ParagraphEmbedProps) {
+export default function ParagraphEmbed({ paragraph, modifier }: ParagraphEmbedProps) {
   const { title, script } = readFragment(ParagraphEmbedFragment, paragraph);
   const scriptFragment = readFragment(TextFragment, script);
 
@@ -36,7 +36,7 @@ export default function ParagraphEmbed({ paragraph, className }: ParagraphEmbedP
     <Embed
       title={title ?? ''}
       content={scriptFragment?.value ?? ''}
-      className={className}
+      modifier={modifier}
     />
   );
 }

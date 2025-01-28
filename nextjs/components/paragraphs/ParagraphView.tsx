@@ -1,6 +1,7 @@
 import { FragmentOf, readFragment, graphql } from 'gql.tada';
 import { TextFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/fragments/misc";
 import { MediaUnionFragment } from "@/graphql/fragments/media";
+import { NodeArticleFragment } from "@/graphql/fragments/node";
 import RecentCards from '@/components/views/ViewRecentCards';
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -67,7 +68,7 @@ export default async function ParagraphView({ paragraph }: ParagraphViewProps) {
           <h2 className="text-3xl font-semibold mb-4 lg:mb-6 text-center">{title}</h2>
         )}
         {view === 'recent_cards' && display === 'article_cards' && (
-          <RecentCards results={results as any} />
+          <RecentCards results={results as Array<FragmentOf<typeof NodeArticleFragment>>} />
         )}
       </CardContent>
     </Card>

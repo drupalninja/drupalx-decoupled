@@ -17,6 +17,21 @@ import { Fragment } from "react";
 import { Metadata, ResolvingMetadata } from 'next'
 import { frontpagePath } from '@/utils/routes';
 
+interface NodeType {
+  path: string;
+}
+
+interface QueryData {
+  nodePages?: { nodes?: NodeType[] };
+  nodeArticles?: { nodes?: NodeType[] };
+  nodeLandings?: { nodes?: NodeType[] };
+}
+
+interface EntityType {
+  title?: string;
+  __typename?: string;
+}
+
 type Props = {
   params: { slug: string[] }
 }
@@ -46,7 +61,8 @@ async function getAllPaths(): Promise<string[]> {
   }
 
   const allPaths = staticTypes.flatMap(type => {
-    return (data as any)[type]?.nodes?.map((node: any) => node.path) || [];
+    const typeData = (data as QueryData)[type as keyof QueryData];
+    return typeData?.nodes?.map(node => node.path) || [];
   });
 
   return allPaths.filter(path => path && path !== frontpagePath);
@@ -68,12 +84,11 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { entity } = await getPageData({ params })
-
-  let title = (entity as any).title ?? '';
+  const { entity } = await getPageData({ params });
+  const typedEntity = entity as EntityType;
 
   return {
-    title: title,
+    title: typedEntity.title ?? '',
   }
 }
 

@@ -1,9 +1,11 @@
+import React from 'react';
 import { FragmentOf, readFragment } from "gql.tada";
 import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from "@/components/helpers/Utilities";
 import Heading from "@/components/heading/Heading";
 import { TextSummaryFragment, TextFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment } from "@/graphql/fragments/media";
+import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
+
 
 type NodeArticleComponentProps = {
   node: FragmentOf<typeof NodeArticleFragment>;
@@ -21,16 +23,32 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
   const leadFragment = readFragment(TextFragment, lead);
   const mediaFragment = readFragment(MediaUnionFragment, media);
 
+  const mediaImage = mediaFragment ? mediaFragment as MediaImageType : null;
+  let articleImage = null;
+  if (mediaImage?.image) {
+    articleImage = getImage({
+      image: {
+        url: mediaImage.image.url,
+        alt: mediaImage.image.alt ?? undefined,
+        width: mediaImage.image.width,
+        height: mediaImage.image.height,
+        variations: mediaImage.image.variations?.map(({ name, url, width, height }) => ({
+          name, url, width, height
+        }))
+      }
+    }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
+  }
+
   return (
     <>
-      <article className="mb-6 lg:mb-12">
-        <div className="container mx-auto px-4">
-          {mediaFragment && (
-            <div className="mb-7">
-              {getImage(mediaFragment, 'w-full h-auto', ['HEROS', 'HEROLX2'])}
+      <article className="mb-8">
+        <div className="mx-auto max-w-7xl p-4 sm:px-6 lg:px-8">
+          {articleImage && (
+            <div className="relative aspect-[16/9] mb-6">
+              {articleImage}
             </div>
           )}
-          <div className="max-w-screen-lg mx-auto mb-2 lg:mb-10">
+          <div className="mx-auto max-w-2xl">
             {subhead && (
               <div className="uppercase mb-2 text-sm tracking-wide">
                 {subhead}
@@ -38,15 +56,15 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
             )}
             <Heading level={1} title={title} className="mb-8" />
             {leadFragment?.value && (
-              <div className="prose prose-lg lead mb-4 max-w-screen-lg mx-auto" dangerouslySetInnerHTML={{ __html: leadFragment.value }} />
+              <div className="prose prose-lg lead mb-4" dangerouslySetInnerHTML={{ __html: leadFragment.value }} />
+            )}
+            {bodyProcessed && (
+              <div
+                className="prose prose-lg"
+                dangerouslySetInnerHTML={{ __html: bodyProcessed }}
+              />
             )}
           </div>
-          {bodyProcessed && (
-            <div
-              className="prose prose-lg max-w-screen-md mx-auto"
-              dangerouslySetInnerHTML={{ __html: bodyProcessed }}
-            />
-          )}
         </div>
       </article>
     </>
