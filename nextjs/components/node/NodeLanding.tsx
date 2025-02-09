@@ -21,7 +21,7 @@ export default async function NodeLandingComponent({ node, environment }: NodeLa
 
   return (
     <>
-      {hidePageTitle ? null : <Heading level={1} title={title} className="container mb-4" />}
+      {hidePageTitle ? null : <Heading level={1} title={title} className="container mb-10" />}
       {resolvedComponents}
     </>
   );

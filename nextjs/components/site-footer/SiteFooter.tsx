@@ -23,7 +23,7 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
   currentYear = new Date().getFullYear(),
 }) => {
   return (
-    <footer className="container mx-auto px-4">
+    <footer className="container mx-auto px-4 mt-6 lg:mt-25">
       <Separator className="my-4" />
       <div className="flex flex-col items-center space-y-4 pt-3 pb-10 md:flex-row md:justify-between md:space-y-0">
         <div className="text-center md:text-left md:w-1/3">
