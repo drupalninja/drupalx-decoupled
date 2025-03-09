@@ -8,6 +8,7 @@ export interface CarouselItemData {
   media?: ReactNode;
   title?: string;
   summary?: string;
+  id?: string;
 }
 
 interface CarouselProps {
@@ -23,7 +24,7 @@ export default function Carousel({ items, className, itemClassName, containerCla
       <UICarousel className={`carousel w-full ${className || ''}`}>
         <CarouselContent>
           {items.map((item, index) => (
-            <CarouselItem key={index} className={`carousel-item ${itemClassName || ''}`}>
+            <CarouselItem key={item.id || `item-${index}`} className={`carousel-item ${itemClassName || ''}`}>
               <Card className="w-full border-none">
                 <CardContent className="p-0">
                   <div className="carousel-content relative aspect-[16/9] w-full">

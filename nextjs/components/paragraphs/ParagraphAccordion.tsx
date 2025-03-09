@@ -31,10 +31,20 @@ interface ParagraphAccordionProps {
 }
 
 export default function ParagraphAccordion({ paragraph, modifier, containerModifier }: ParagraphAccordionProps) {
+  // Add ids to accordion items if they don't already have them
+  const accordionItems = paragraph.accordionItem?.map((item, index) => {
+    if (!item) return null;
+
+    return {
+      ...item,
+      id: item.id || `accordion-item-${index}`,
+    };
+  }).filter(Boolean) as AccordionItemData[] || [];
+
   return (
     <Accordion
       title={paragraph.title ?? ''}
-      items={paragraph.accordionItem as AccordionItemData[] || []}
+      items={accordionItems}
       modifier={modifier}
       containerModifier={containerModifier}
     />

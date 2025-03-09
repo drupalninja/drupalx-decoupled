@@ -15,6 +15,7 @@ export const ParagraphViewFragment = /* GraphQL */ `
         display
         results {
           ... on NodeArticle {
+            id
             path
             title
             media {
@@ -35,6 +36,7 @@ interface ParagraphViewProps {
       view?: string;
       display?: string;
       results?: Array<{
+        id?: string;
         path?: string;
         title?: string;
         media?: MediaImage;
@@ -48,6 +50,16 @@ export default async function ParagraphView({ paragraph }: ParagraphViewProps) {
   const { viewsRef, title } = paragraph;
   const { view, display, results } = viewsRef || {};
 
+  // Ensure each result has a unique id
+  const processedResults = results?.map((result, index) => {
+    if (!result) return null;
+
+    return {
+      ...result,
+      id: result.id || `recent-card-${index}`,
+    };
+  }).filter(Boolean) || [];
+
   return (
     <Card className="my-6 lg:my-25 border-none shadow-none">
       <CardContent>
@@ -55,7 +67,7 @@ export default async function ParagraphView({ paragraph }: ParagraphViewProps) {
           <h2 className="text-3xl font-semibold mb-4 lg:mb-6 text-center">{title}</h2>
         )}
         {view === 'recent_cards' && display === 'article_cards' && (
-          <RecentCards results={results as any} />
+          <RecentCards results={processedResults as any} />
         )}
       </CardContent>
     </Card>

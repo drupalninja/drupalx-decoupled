@@ -8,6 +8,7 @@ export interface AccordionItemData {
   title: string;
   body: { value: string };
   link?: { url: string; title: string };
+  id?: string;
 }
 
 export interface AccordionProps {
@@ -25,7 +26,11 @@ export default function Accordion({ title, items, modifier, containerModifier }:
         <div className={`mb-4 ${modifier ?? ''}`}>
           <AccordionComponent type="single" collapsible className="w-full">
             {items.map((item, index) => (
-              <AccordionItem value={`item-${index}`} key={index} className="accordion-item bg-white rounded-lg overflow-hidden">
+              <AccordionItem
+                value={`item-${index}`}
+                key={item.id || `accordion-item-${index}`}
+                className="accordion-item bg-white rounded-lg overflow-hidden"
+              >
                 <AccordionTrigger className="text-lg font-semibold py-4 px-6 hover:bg-blue-100">
                   {item.title}
                 </AccordionTrigger>

@@ -34,10 +34,10 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
     const mediaImage = item.media ? item.media : null;
 
     return {
-      key: mediaImage?.id || `carousel-item-${index}`,
       media: mediaImage?.image && getImage(mediaImage, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']),
       title: item.title,
       summary: item.summary,
+      id: mediaImage?.id || `carousel-item-${index}`,
     };
   });
 

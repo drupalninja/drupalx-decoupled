@@ -12,12 +12,13 @@ import {
 
 interface GalleryProps {
   mediaItems: React.ReactNode[]
+  mediaIds?: string[]
   title?: string
   summary?: string
   containerClassName?: string
 }
 
-export default function Gallery({ mediaItems, title, summary, containerClassName }: GalleryProps) {
+export default function Gallery({ mediaItems, mediaIds, title, summary, containerClassName }: GalleryProps) {
   const [openModal, setOpenModal] = useState<number | null>(null);
 
   return (
@@ -36,7 +37,7 @@ export default function Gallery({ mediaItems, title, summary, containerClassName
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {mediaItems.map((item, index) => (
-          <div key={index} className="aspect-w-16 aspect-h-9">
+          <div key={mediaIds?.[index] || `gallery-item-${index}`} className="aspect-w-16 aspect-h-9">
             <Button
               variant="ghost"
               className="p-0 w-full h-full"
