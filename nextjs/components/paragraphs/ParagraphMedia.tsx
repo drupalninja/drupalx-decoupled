@@ -1,29 +1,19 @@
-import React from 'react';
 import Media from '@/components/media/Media';
 import { getImage } from '@/components/helpers/Utilities';
-import { MediaImageType } from '@/lib/types';
+import { MediaImage } from '@/lib/types';
 
 export const ParagraphMediaFragment = /* GraphQL */ `
   fragment ParagraphMediaFragment on ParagraphMedia {
-    id
-    created {
-      ...DateTimeFragment
-    }
-    langcode {
-      ...LanguageFragment
-    }
     media {
       ...MediaUnionFragment
     }
-    status
     title
   }
 `;
 
 interface ParagraphMediaProps {
   paragraph: {
-    id: string;
-    media?: MediaImageType;
+    media?: MediaImage;
     title?: string;
   };
   modifier?: string;

@@ -1,6 +1,6 @@
 import { getImage } from '@/components/helpers/Utilities';
 import Hero, { HeroProps } from '@/components/hero/Hero';
-import { MediaImageType } from '@/lib/types';
+import { MediaImage } from '@/lib/types';
 
 export const ParagraphHeroFragment = /* GraphQL */ `
   fragment ParagraphHeroFragment on ParagraphHero {
@@ -25,7 +25,7 @@ export const ParagraphHeroFragment = /* GraphQL */ `
 
 interface ParagraphHeroData extends HeroProps {
   id: string;
-  requiredMedia?: MediaImageType;
+  requiredMedia?: MediaImage;
 }
 
 interface ParagraphHeroProps {

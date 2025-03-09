@@ -1,28 +1,20 @@
 import React from 'react';
 import { getImage } from '@/components/helpers/Utilities';
 import LogoCollection, { Logo } from '../logo-collection/LogoCollection';
+import { MediaImage } from '@/lib/types';
 
 export const ParagraphLogoCollectionFragment = /* GraphQL */ `
   fragment ParagraphLogoCollectionFragment on ParagraphLogoCollection {
-    id
-    created {
-      ...DateTimeFragment
-    }
-    langcode {
-      ...LanguageFragment
-    }
     mediaItem {
       ...MediaUnionFragment
     }
-    status
     logo_collectionTitle: title
   }
 `;
 
 interface ParagraphLogoCollectionProps {
   paragraph: {
-    id: string;
-    mediaItem?: any[];
+    mediaItem?: MediaImage[];
     logo_collectionTitle?: string;
   };
 }

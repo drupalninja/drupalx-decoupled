@@ -1,21 +1,5 @@
 import Image from 'next/image';
-
-interface ImageVariation {
-  name: string;
-  url: string;
-  width?: number;
-  height?: number;
-}
-
-export interface MediaImage {
-  image?: {
-    url?: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-    variations?: ImageVariation[];
-  };
-}
+import { MediaImage, ImageVariation } from '@/lib/types';
 
 export const getImage = (media: MediaImage, className?: string, imageStyle?: string | string[]) => {
   const getVariation = (name: string) =>

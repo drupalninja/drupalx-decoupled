@@ -1,24 +1,15 @@
-import React from 'react';
 import { getImage } from "@/components/helpers/Utilities";
 import Quote from '@/components/quote/Quote';
-import { MediaImageType } from '@/lib/types';
+import { MediaImage } from '@/lib/types';
 
 export const ParagraphQuoteFragment = /* GraphQL */ `
   fragment ParagraphQuoteFragment on ParagraphQuote {
-    id
     author
-    created {
-      ...DateTimeFragment
-    }
     jobTitle
-    langcode {
-      ...LanguageFragment
-    }
     logo {
       ...SvgMediaFragment
     }
     quote
-    status
     thumb {
       ...MediaUnionFragment
     }
@@ -27,30 +18,11 @@ export const ParagraphQuoteFragment = /* GraphQL */ `
 
 interface ParagraphQuoteProps {
   paragraph: {
-    id: string;
     author?: string;
     jobTitle?: string;
-    logo?: {
-      id: string;
-      __typename: string;
-      image?: {
-        url: string;
-        alt?: string;
-        width?: number;
-        height?: number;
-      };
-    };
+    logo?: MediaImage;
     quote?: string;
-    thumb?: {
-      __typename: string;
-      id: string;
-      image?: {
-        url: string;
-        alt?: string;
-        width?: number;
-        height?: number;
-      };
-    };
+    thumb?: MediaImage;
   };
   modifier?: string;
 }

@@ -2,6 +2,7 @@ import CardGroup from '@/components/card-group/CardGroup';
 import { getImage, MediaImage } from '@/components/helpers/Utilities';
 import { CustomCardProps } from '@/components/card-group/CardGroup';
 import { StatCardProps } from '@/components/stat-card/StatCard';
+import { LinkFormat } from '@/lib/types';
 
 export const ParagraphCardFragment = /* GraphQL */ `
   fragment ParagraphCardFragment on ParagraphCard {
@@ -47,7 +48,7 @@ interface ParagraphCardGroupProps {
       title?: string;
       summary?: string;
       statSummary?: string;
-      link?: { url?: string; title?: string };
+      link?: LinkFormat;
       media?: MediaImage | null;
       tags?: string[];
       icon?: string;

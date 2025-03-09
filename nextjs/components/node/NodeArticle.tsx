@@ -1,6 +1,6 @@
 import { getImage } from "@/components/helpers/Utilities";
 import Heading from "@/components/heading/Heading";
-import { MediaImageType } from "@/lib/types";
+import { MediaImage, TextFormat } from "@/lib/types";
 
 type NodeArticleComponentProps = {
   node: {
@@ -11,13 +11,8 @@ type NodeArticleComponentProps = {
       processed?: string;
       format?: string;
     };
-    media?: MediaImageType;
-    body?: {
-      value?: string;
-      processed?: string;
-      format?: string;
-      summary?: string;
-    };
+    media?: MediaImage;
+    body?: TextFormat;
   };
   environment: string;
 }
@@ -27,7 +22,7 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
 
   const bodyProcessed = body?.processed as string;
   const leadValue = lead?.value as string;
-  const mediaImage = media ? media as MediaImageType : null;
+  const mediaImage = media ? media as MediaImage : null;
 
   let articleImage = null;
   if (mediaImage?.image) {

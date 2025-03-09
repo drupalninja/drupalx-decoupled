@@ -1,4 +1,5 @@
 import Embed from '@/components/embed/Embed';
+import { TextFormat } from '@/lib/types';
 
 export const ParagraphEmbedFragment = /* GraphQL */ `
   fragment ParagraphEmbedFragment on ParagraphEmbed {
@@ -12,9 +13,7 @@ export const ParagraphEmbedFragment = /* GraphQL */ `
 interface ParagraphEmbedProps {
   paragraph: {
     title?: string;
-    script?: {
-      value?: string;
-    };
+    script?: TextFormat;
   };
   modifier?: string;
 }

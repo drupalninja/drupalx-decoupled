@@ -1,6 +1,6 @@
 import { getImage } from '@/components/helpers/Utilities';
 import Carousel, { CarouselItemData } from '@/components/carousel/Carousel';
-import { MediaImageType } from '@/lib/types';
+import { MediaImage } from '@/lib/types';
 
 export const ParagraphCarouselFragment = /* GraphQL */ `
   fragment ParagraphCarouselFragment on ParagraphCarousel {
@@ -19,7 +19,7 @@ export const ParagraphCarouselFragment = /* GraphQL */ `
 interface ParagraphCarouselProps {
   paragraph: {
     carouselItem?: Array<{
-      media?: MediaImageType;
+      media?: MediaImage;
       summary?: string;
       title?: string;
     }>;

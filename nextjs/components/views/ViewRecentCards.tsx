@@ -1,13 +1,13 @@
 import { getImage } from '@/components/helpers/Utilities';
 import RecentCards from '@/components/recent-cards/RecentCards';
-import { MediaImageType } from "@/lib/types";
+import { MediaImage } from "@/lib/types";
 
 interface ViewRecentCardsProps {
   results: Array<{
     id: string;
     path: string;
     title: string;
-    media?: MediaImageType | null;
+    media?: MediaImage | null;
     summary?: string;
   }>;
 }
@@ -18,19 +18,9 @@ export default function ViewRecentCards({ results }: ViewRecentCardsProps) {
 
     let media = null;
     if (mediaUnion) {
-      const mediaImage = mediaUnion as MediaImageType;
+      const mediaImage = mediaUnion as MediaImage;
       if (mediaImage.image) {
-        media = getImage({
-          image: {
-            url: mediaImage.image.url,
-            alt: mediaImage.image.alt ?? undefined,
-            width: mediaImage.image.width,
-            height: mediaImage.image.height,
-            variations: mediaImage.image.variations?.map(({ name, url, width, height }) => ({
-              name, url, width, height
-            }))
-          }
-        }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
+        media = getImage(mediaImage, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
       }
     }
 

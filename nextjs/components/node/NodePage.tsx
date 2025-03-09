@@ -1,17 +1,12 @@
 import { getImage } from "@/components/helpers/Utilities";
-import { MediaImageType } from "@/lib/types";
+import { MediaImage, TextFormat } from "@/lib/types";
 import Heading from "@/components/heading/Heading";
 
 type NodePageComponentProps = {
   node: {
     title: string;
-    mediaPage?: MediaImageType;
-    body?: {
-      value?: string;
-      processed?: string;
-      format?: string;
-      summary?: string;
-    };
+    mediaPage?: MediaImage;
+    body?: TextFormat;
   };
   environment: string;
 };
@@ -19,7 +14,7 @@ type NodePageComponentProps = {
 export default function NodePageComponent({ node, environment }: NodePageComponentProps) {
   const { title, mediaPage: media, body } = node;
 
-  const mediaImage = media ? media as MediaImageType : null;
+  const mediaImage = media ? media as MediaImage : null;
   const bodyProcessed = body?.processed as string;
 
   let pageImage = null;

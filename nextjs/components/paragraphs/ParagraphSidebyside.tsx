@@ -62,7 +62,7 @@ interface ParagraphSidebysideProps {
     sidebysideSummary?: { value?: string };
     sidebysideTitle?: string;
     link?: { url?: string; title?: string };
-    media?: any;
+    media?: MediaImage;
     features?: ParagraphFeature[];
   };
   modifier?: string;
@@ -70,7 +70,7 @@ interface ParagraphSidebysideProps {
 
 export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSidebysideProps) {
   const { eyebrow, sidebysideLayout: layout, sidebysideSummary, sidebysideTitle, link, media, features } = paragraph;
-  const imageContent = getImage(media, 'w-full h-auto rounded-lg', ['I43SMALL', 'I43LARGE2X']);
+  const imageContent = media ? getImage(media, 'w-full h-auto rounded-lg', ['I43SMALL', 'I43LARGE2X']) : null;
 
   const featureItems: Feature[] = features ? features.map((feature) => {
     if (feature.__typename === 'ParagraphStatsItem') {

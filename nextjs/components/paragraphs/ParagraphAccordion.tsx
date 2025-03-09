@@ -1,4 +1,4 @@
-import Accordion, { AccordionItemData, AccordionProps } from '@/components/accordion/Accordion';
+import Accordion, { AccordionItemData } from '@/components/accordion/Accordion';
 
 export const ParagraphAccordionItemFragment = /* GraphQL */ `
   fragment ParagraphAccordionItemFragment on ParagraphAccordionItem {
