@@ -10,11 +10,14 @@ const meta: Meta<typeof Hero> = {
     heroLayout: { control: 'select', options: ['image_top', 'image_bottom', 'image_bottom_split'] },
     media: { control: 'object' },
     heading: { control: 'object' },
-    summary: { control: 'text' },
+    summary: { control: 'object' },
     link: { control: 'object' },
     link2: { control: 'object' },
-    modifier: { control: 'text' }
-  }
+    modifier: { control: 'text' },
+  },
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export default meta;
@@ -26,6 +29,7 @@ const mockMedia = (
     alt="Example image"
     width={1280}
     height={720}
+    className="object-cover w-full h-full max-w-5xl"
   />
 );
 
@@ -38,7 +42,11 @@ export const Default: Story = {
       value: 'Welcome to Our Website',
       format: 'full_html',
     },
-    summary: 'This is a brief summary of our amazing content. It can include <em>formatted text</em> as well.',
+    summary: {
+      processed: 'This is a brief summary of our amazing content. It can include <em>formatted text</em> as well.',
+      value: 'This is a brief summary of our amazing content. It can include formatted text as well.',
+      format: 'full_html',
+    },
     link: {
       url: 'https://example.com',
       title: 'Learn More',
@@ -47,15 +55,15 @@ export const Default: Story = {
       url: 'https://example.com',
       title: 'Get Started',
     },
-    modifier: 'max-w-4xl',
-  }
+    modifier: 'max-w-6xl',
+  },
 };
 
 export const ImageBottom: Story = {
   args: {
     ...Default.args,
     heroLayout: 'image_bottom',
-  }
+  },
 };
 
 export const ImageBottomSplit: Story = {
@@ -67,6 +75,10 @@ export const ImageBottomSplit: Story = {
       value: 'Empower Your Content with DrupalX Today',
       format: 'full_html',
     },
-    summary: 'Discover the power of a decoupled CMS that adapts to your needs. With DrupalX, you can create, manage, and scale your content effortlessly.',
-  }
+    summary: {
+      processed: 'Discover the power of a decoupled CMS that adapts to your needs. With DrupalX, you can create, manage, and scale your content effortlessly.',
+      value: 'Discover the power of a decoupled CMS that adapts to your needs. With DrupalX, you can create, manage, and scale your content effortlessly.',
+      format: 'full_html',
+    },
+  },
 };

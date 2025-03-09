@@ -1,10 +1,10 @@
-import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import StatCard, { StatCardProps } from '../stat-card/StatCard';
+import { LinkFormat } from '@/lib/types';
 
 export interface CardGroupProps {
   title?: string;
@@ -16,10 +16,10 @@ export interface CustomCardProps {
   type: 'custom';
   media?: React.ReactNode;
   mediaLink?: string;
-  heading: { title: string; url?: string };
+  heading: LinkFormat;
   tags?: string[];
   summaryText?: string;
-  link?: { url: string; title: string };
+  link?: LinkFormat;
 }
 
 export default function CardGroup({ title, cards, modifier }: CardGroupProps) {
@@ -82,7 +82,7 @@ const CustomCard = ({ media, mediaLink, heading, tags = [], summaryText = '', li
         </CardHeader>
         {summaryText && <p className="text-gray-600">{summaryText}</p>}
       </CardContent>
-      {link && (
+      {link && link.url && (
         <CardFooter>
           <Button asChild variant="default" className="w-full md:w-auto">
             <Link href={link.url}>
