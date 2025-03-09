@@ -4,9 +4,13 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-interface NewsletterProps {
+export interface NewsletterProps {
   title: string;
-  summary: string;
+  summary?: {
+    value?: string;
+    processed?: string;
+    format?: string;
+  }
   modifier?: string;
 }
 
@@ -18,7 +22,7 @@ export default function Newsletter({ title, summary, modifier }: NewsletterProps
           <div className="flex flex-col justify-center">
             <h2 className="text-3xl font-semibold mb-4 sm:text-4xl">{title}</h2>
             <div
-              dangerouslySetInnerHTML={{ __html: summary }}
+              dangerouslySetInnerHTML={{ __html: summary?.processed ?? '' }}
               className='newsletter-summary'
             />
           </div>

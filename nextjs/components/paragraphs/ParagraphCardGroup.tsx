@@ -1,6 +1,3 @@
-import React from 'react';
-import { DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment, SvgMediaFragment } from "@/graphql/fragments/media";
 import CardGroup from '@/components/card-group/CardGroup';
 import { getImage, MediaImage } from '@/components/helpers/Utilities';
 import { CustomCardProps } from '@/components/card-group/CardGroup';
@@ -8,20 +5,12 @@ import { StatCardProps } from '@/components/stat-card/StatCard';
 
 export const ParagraphCardFragment = /* GraphQL */ `
   fragment ParagraphCardFragment on ParagraphCard {
-    id
-    created {
-      ...DateTimeFragment
-    }
-    langcode {
-      ...LanguageFragment
-    }
     link {
       ...LinkFragment
     }
     media {
       ...MediaUnionFragment
     }
-    status
     summary
     title
   }
@@ -29,18 +18,10 @@ export const ParagraphCardFragment = /* GraphQL */ `
 
 export const ParagraphStatsItemFragment = /* GraphQL */ `
   fragment ParagraphStatsItemFragment on ParagraphStatsItem {
-    id
-    created {
-      ...DateTimeFragment
-    }
     customIcon {
       ...SvgMediaFragment
     }
     icon
-    langcode {
-      ...LanguageFragment
-    }
-    status
     statSummary: summary
     title
   }
@@ -48,19 +29,11 @@ export const ParagraphStatsItemFragment = /* GraphQL */ `
 
 export const ParagraphCardGroupFragment = /* GraphQL */ `
   fragment ParagraphCardGroupFragment on ParagraphCardGroup {
-    id
     card {
       __typename
       ...ParagraphCardFragment
       ...ParagraphStatsItemFragment
     }
-    created {
-      ...DateTimeFragment
-    }
-    langcode {
-      ...LanguageFragment
-    }
-    status
     title
   }
 `;
@@ -83,25 +56,6 @@ interface ParagraphCardGroupProps {
     title?: string;
   },
   modifier?: string,
-}
-
-interface ParagraphStatsItemType {
-  __typename: 'ParagraphStatsItem';
-  id: string;
-  icon?: string;
-  customIcon?: MediaImage | null;
-  title?: string;
-  statSummary?: string;
-}
-
-interface ParagraphCardType {
-  __typename: 'ParagraphCard';
-  id: string;
-  title?: string;
-  summary?: string;
-  link?: { url?: string; title?: string };
-  media?: MediaImage | null;
-  tags?: string[];
 }
 
 export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCardGroupProps) {

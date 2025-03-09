@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { getLucideIcon } from '@/utils/dynamic-icon';
 

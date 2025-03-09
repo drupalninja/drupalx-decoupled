@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { ParagraphUnionFragment } from '@/graphql/fragments/paragraph';
 
 // Type for component props
 export interface ParagraphBase {
@@ -40,7 +39,7 @@ export const resolve = async ({ data = [], environment = 'preview' }: ResolvePro
   }
 
   const components: React.ReactNode[] = [];
-  
+
   for (const paragraph of data) {
     const type = paragraph.__typename;
     if (!type) {
@@ -53,7 +52,7 @@ export const resolve = async ({ data = [], environment = 'preview' }: ResolvePro
         importComponent(type),
         importFragment(type),
       ]);
-      
+
       // Use the paragraph directly
       components.push(<Component key={paragraph.id} paragraph={paragraph} />);
     } catch (error) {

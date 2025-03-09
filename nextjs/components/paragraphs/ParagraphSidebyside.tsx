@@ -1,22 +1,10 @@
-import React from 'react';
-import { DateTimeFragment, LanguageFragment, TextFragment, LinkFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment } from "@/graphql/fragments/media";
 import { getImage, MediaImage } from '@/components/helpers/Utilities';
-import Sidebyside from '@/components/sidebyside/Sidebyside';
+import Sidebyside, { BulletProps } from '@/components/sidebyside/Sidebyside';
 import { StatCardProps } from '@/components/stat-card/StatCard';
-import { ParagraphStatsItemFragment } from './ParagraphCardGroup';
 
 export const ParagraphBulletFragment = /* GraphQL */ `
   fragment ParagraphBulletFragment on ParagraphBullet {
-    id
-    created {
-      ...DateTimeFragment
-    }
     bulletIcon: icon
-    langcode {
-      ...LanguageFragment
-    }
-    status
     bulletSummary: summary {
       ...TextFragment
     }
@@ -25,14 +13,7 @@ export const ParagraphBulletFragment = /* GraphQL */ `
 
 export const ParagraphSidebysideFragment = /* GraphQL */ `
   fragment ParagraphSidebysideFragment on ParagraphSidebyside {
-    id
-    created {
-      ...DateTimeFragment
-    }
     eyebrow
-    langcode {
-      ...LanguageFragment
-    }
     link {
       ...LinkFragment
     }
@@ -45,7 +26,6 @@ export const ParagraphSidebysideFragment = /* GraphQL */ `
       ...ParagraphBulletFragment
     }
     sidebysideLayout
-    status
     sidebysideSummary: summary {
       ...TextFragment
     }
@@ -53,22 +33,11 @@ export const ParagraphSidebysideFragment = /* GraphQL */ `
   }
 `;
 
-interface BulletFeature {
-  type: 'bullet';
-  icon: string;
-  summary: string;
-}
-
 interface StatFeature extends StatCardProps {
   type: 'stat';
 }
 
-type Feature = BulletFeature | StatFeature;
-
-interface LinkType {
-  url?: string;
-  title?: string;
-}
+type Feature = BulletProps | StatFeature;
 
 interface ParagraphStatsItemType {
   __typename: 'ParagraphStatsItem';
@@ -80,7 +49,7 @@ interface ParagraphStatsItemType {
 
 interface ParagraphBulletType {
   __typename: 'ParagraphBullet';
-  bulletIcon?: string;
+  bulletIcon?: BulletProps['icon'];
   bulletSummary?: { value?: string };
 }
 
@@ -101,9 +70,8 @@ interface ParagraphSidebysideProps {
 
 export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSidebysideProps) {
   const { eyebrow, sidebysideLayout: layout, sidebysideSummary, sidebysideTitle, link, media, features } = paragraph;
-  
   const imageContent = getImage(media, 'w-full h-auto rounded-lg', ['I43SMALL', 'I43LARGE2X']);
-  
+
   const featureItems: Feature[] = features ? features.map((feature) => {
     if (feature.__typename === 'ParagraphStatsItem') {
       const stat = feature as ParagraphStatsItemType;
@@ -123,15 +91,10 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
         type: 'bullet',
         icon: bullet.bulletIcon || '',
         summary: bullet.bulletSummary?.value || '',
-      } as BulletFeature;
+      } as BulletProps;
     }
     return null;
   }).filter((item): item is Feature => item !== null) : [];
-
-  const linkData: LinkType = {
-    url: link?.url,
-    title: link?.title
-  };
 
   return (
     <Sidebyside
@@ -139,7 +102,7 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
       layout={layout}
       title={sidebysideTitle ?? ''}
       summary={sidebysideSummary?.value ?? ''}
-      link={linkData}
+      link={link}
       media={imageContent}
       modifier={modifier}
       features={featureItems}
