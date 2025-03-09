@@ -1,22 +1,11 @@
-import { TextFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment } from "@/graphql/fragments/media";
-import { NodeArticleFragment } from "@/graphql/fragments/node";
 import RecentCards from '@/components/views/ViewRecentCards';
 import { Card, CardContent } from "@/components/ui/card";
 
 export const ParagraphViewFragment = /* GraphQL */ `
   fragment ParagraphViewFragment on ParagraphView {
-    id
-    created {
-      ...DateTimeFragment
-    }
-    langcode {
-      ...LanguageFragment
-    }
     link {
       ...LinkFragment
     }
-    status
     title
     viewsRef {
       __typename
@@ -49,7 +38,6 @@ export const ParagraphViewFragment = /* GraphQL */ `
 
 interface ParagraphViewProps {
   paragraph: {
-    id: string;
     title?: string;
     viewsRef?: {
       view?: string;
@@ -71,7 +59,7 @@ interface ParagraphViewProps {
 export default async function ParagraphView({ paragraph }: ParagraphViewProps) {
   const { viewsRef, title } = paragraph;
   const { view, display, results } = viewsRef || {};
-  
+
   return (
     <Card className="my-6 lg:my-25 border-none shadow-none">
       <CardContent>

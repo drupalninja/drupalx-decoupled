@@ -1,5 +1,5 @@
 import { getImage } from "@/components/helpers/Utilities";
-import { MediaImageType } from "@/graphql/fragments/media";
+import { MediaImageType } from "@/lib/types";
 import Heading from "@/components/heading/Heading";
 
 type NodePageComponentProps = {

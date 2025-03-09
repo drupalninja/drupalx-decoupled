@@ -1,5 +1,6 @@
 import { getImage } from '@/components/helpers/Utilities';
 import Carousel, { CarouselItemData } from '@/components/carousel/Carousel';
+import { MediaImageType } from '@/lib/types';
 
 export const ParagraphCarouselFragment = /* GraphQL */ `
   fragment ParagraphCarouselFragment on ParagraphCarousel {
@@ -17,24 +18,8 @@ export const ParagraphCarouselFragment = /* GraphQL */ `
 
 interface ParagraphCarouselProps {
   paragraph: {
-    id: string;
     carouselItem?: Array<{
-      media?: {
-        __typename: string;
-        id: string;
-        image?: {
-          url: string;
-          alt?: string;
-          width?: number;
-          height?: number;
-          variations?: Array<{
-            name: string;
-            url: string;
-            width?: number;
-            height?: number;
-          }>;
-        };
-      };
+      media?: MediaImageType;
       summary?: string;
       title?: string;
     }>;
@@ -46,7 +31,7 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
   const { carouselItem } = paragraph;
 
   const carouselItems: CarouselItemData[] = (carouselItem || []).map((item, index) => {
-    const mediaImage = item.media && item.media.__typename === 'MediaImage' ? item.media : null;
+    const mediaImage = item.media ? item.media : null;
 
     return {
       key: mediaImage?.id || `carousel-item-${index}`,

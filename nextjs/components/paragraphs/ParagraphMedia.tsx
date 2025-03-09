@@ -1,8 +1,7 @@
 import React from 'react';
 import Media from '@/components/media/Media';
 import { getImage } from '@/components/helpers/Utilities';
-import { DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
-import { MediaUnionFragment } from '@/graphql/fragments/media';
+import { MediaImageType } from '@/lib/types';
 
 export const ParagraphMediaFragment = /* GraphQL */ `
   fragment ParagraphMediaFragment on ParagraphMedia {
@@ -24,7 +23,7 @@ export const ParagraphMediaFragment = /* GraphQL */ `
 interface ParagraphMediaProps {
   paragraph: {
     id: string;
-    media?: any;
+    media?: MediaImageType;
     title?: string;
   };
   modifier?: string;
@@ -40,7 +39,7 @@ export default function ParagraphMedia({
 }: ParagraphMediaProps) {
   const { media } = paragraph;
   const imageElement = media ? getImage(media, imageClassName, imageSizes) : null;
-  
+
   return (
     <div className={`container mx-auto px-4 ${modifier ?? 'my-6 lg:my-25'}`}>
       <div className="w-full">

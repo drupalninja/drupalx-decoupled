@@ -1,18 +1,3 @@
-export interface MediaImageType {
-  image: {
-    url: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-    variations?: Array<{
-      name: string;
-      url: string;
-      width?: number;
-      height?: number;
-    }>;
-  };
-}
-
 export const ImageFragment = /* GraphQL */ `
   fragment ImageFragment on Image {
     url

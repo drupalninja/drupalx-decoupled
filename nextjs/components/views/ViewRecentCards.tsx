@@ -1,8 +1,6 @@
-import React from 'react';
-import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from '@/components/helpers/Utilities';
 import RecentCards from '@/components/recent-cards/RecentCards';
-import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
+import { MediaImageType } from "@/lib/types";
 
 interface ViewRecentCardsProps {
   results: Array<{

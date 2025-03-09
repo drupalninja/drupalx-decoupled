@@ -1,6 +1,6 @@
 import { getImage } from "@/components/helpers/Utilities";
 import Heading from "@/components/heading/Heading";
-import { MediaImageType } from "@/graphql/fragments/media";
+import { MediaImageType } from "@/lib/types";
 
 type NodeArticleComponentProps = {
   node: {

@@ -1,8 +1,7 @@
 import React from 'react';
-import { DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment, SvgMediaFragment, MediaImageType } from "@/graphql/fragments/media";
-import { getImage } from "../helpers/Utilities";
+import { getImage } from "@/components/helpers/Utilities";
 import Quote from '@/components/quote/Quote';
+import { MediaImageType } from '@/lib/types';
 
 export const ParagraphQuoteFragment = /* GraphQL */ `
   fragment ParagraphQuoteFragment on ParagraphQuote {
@@ -58,15 +57,15 @@ interface ParagraphQuoteProps {
 
 export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuoteProps) {
   const { author, jobTitle, logo, quote, thumb } = paragraph;
-  
+
   const logoComponent = logo ? (
     <div className="w-1/3 mx-auto">
       {getImage(logo, 'w-full h-auto')}
     </div>
   ) : null;
-  
-  const mediaImage = thumb && thumb.__typename === 'MediaImage' ? thumb : null;
-  
+
+  const mediaImage = thumb ? thumb : null;
+
   return (
     <div className={`container mx-auto ${modifier ?? 'my-6 lg:my-25'}`}>
       <div className="flex justify-center">
