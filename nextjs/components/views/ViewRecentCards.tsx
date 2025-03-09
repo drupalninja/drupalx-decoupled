@@ -1,18 +1,22 @@
 import React from 'react';
-import { FragmentOf, readFragment } from 'gql.tada';
 import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from '@/components/helpers/Utilities';
 import RecentCards from '@/components/recent-cards/RecentCards';
 import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
 
 interface ViewRecentCardsProps {
-  results: Array<FragmentOf<typeof NodeArticleFragment>>;
+  results: Array<{
+    id: string;
+    path: string;
+    title: string;
+    media?: MediaImageType | null;
+    summary?: string;
+  }>;
 }
 
 export default function ViewRecentCards({ results }: ViewRecentCardsProps) {
   const processedResults = results.map((result) => {
-    const articleData = readFragment(NodeArticleFragment, result);
-    const mediaUnion = articleData.media ? readFragment(MediaUnionFragment, articleData.media) : null;
+    const mediaUnion = result.media || null;
 
     let media = null;
     if (mediaUnion) {
@@ -33,10 +37,10 @@ export default function ViewRecentCards({ results }: ViewRecentCardsProps) {
     }
 
     return {
-      id: articleData.id,
-      path: articleData.path,
-      title: articleData.title,
-      summary: articleData.summary as string,
+      id: result.id,
+      path: result.path,
+      title: result.title,
+      summary: result.summary as string,
       media: media,
     };
   });

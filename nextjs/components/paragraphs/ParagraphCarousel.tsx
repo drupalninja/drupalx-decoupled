@@ -1,48 +1,64 @@
 import React from 'react';
-import { FragmentOf, readFragment, graphql } from 'gql.tada';
 import { DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
 import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
 import { getImage } from '@/components/helpers/Utilities';
 import Carousel, { CarouselItemData } from '@/components/carousel/Carousel';
 
-export const ParagraphCarouselFragment = graphql(`fragment ParagraphCarouselFragment on ParagraphCarousel {
-  id
-  created {
-    ...DateTimeFragment
-  }
-  carouselItem {
-    ... on ParagraphCarouselItem {
-      media {
-        ...MediaUnionFragment
-      }
-      summary
-      title
+export const ParagraphCarouselFragment = /* GraphQL */ `
+  fragment ParagraphCarouselFragment on ParagraphCarousel {
+    id
+    created {
+      ...DateTimeFragment
     }
+    carouselItem {
+      ... on ParagraphCarouselItem {
+        media {
+          ...MediaUnionFragment
+        }
+        summary
+        title
+      }
+    }
+    langcode {
+      ...LanguageFragment
+    }
+    status
   }
-  langcode {
-    ...LanguageFragment
-  }
-  status
-}`,
-  [
-    DateTimeFragment,
-    LanguageFragment,
-    MediaUnionFragment,
-  ]
-)
+`;
 
 interface ParagraphCarouselProps {
-  paragraph: FragmentOf<typeof ParagraphCarouselFragment>;
+  paragraph: {
+    id: string;
+    carouselItem?: Array<{
+      media?: {
+        __typename: string;
+        id: string;
+        image?: {
+          url: string;
+          alt?: string;
+          width?: number;
+          height?: number;
+          variations?: Array<{
+            name: string;
+            url: string;
+            width?: number;
+            height?: number;
+          }>;
+        };
+      };
+      summary?: string;
+      title?: string;
+    }>;
+  };
   modifier?: string;
 }
 
 export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCarouselProps) {
-  const { id, carouselItem } = readFragment(ParagraphCarouselFragment, paragraph);
-
-  const carouselItems: CarouselItemData[] = (carouselItem as any[]).map((item) => {
-    const mediaFragment = readFragment(MediaUnionFragment, item.media);
-    const mediaImage = mediaFragment ? mediaFragment as MediaImageType : null;
-
+  const { id, carouselItem } = paragraph;
+  
+  const carouselItems: CarouselItemData[] = (carouselItem || []).map((item) => {
+    const mediaImage = item.media && item.media.__typename === 'MediaImage' ? item.media : null;
+    
     return {
       media: mediaImage?.image && getImage({
         image: {
@@ -59,7 +75,7 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
       summary: item.summary,
     };
   });
-
+  
   return (
     <div className={`container mx-auto px-4 ${modifier || 'my-25'}`}>
       <Carousel items={carouselItems} />

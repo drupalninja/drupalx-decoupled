@@ -1,7 +1,4 @@
-import { FragmentOf } from "gql.tada";
 import { NodePageFragment, NodeArticleFragment, NodeLandingFragment } from "@/graphql/fragments/node";
 
-export type EntityFragmentType =
-    FragmentOf<typeof NodePageFragment> |
-    FragmentOf<typeof NodeArticleFragment> |
-    FragmentOf<typeof NodeLandingFragment>;
+// Replace FragmentOf with direct type definitions 
+export type EntityFragmentType = any; // TODO: Define specific union type if needed

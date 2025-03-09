@@ -1,29 +1,22 @@
 import React from 'react';
-import { FragmentOf, readFragment } from "gql.tada";
 import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from "@/components/helpers/Utilities";
 import Heading from "@/components/heading/Heading";
 import { TextSummaryFragment, TextFragment } from "@/graphql/fragments/misc";
 import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
 
-
 type NodeArticleComponentProps = {
-  node: FragmentOf<typeof NodeArticleFragment>;
+  node: any; // Replace with more specific type if available
   environment: string;
 }
 
 export default function NodeArticleComponent({ node, environment }: NodeArticleComponentProps) {
-  const { title, subhead, lead, media, body } = readFragment(
-    NodeArticleFragment,
-    node
-  );
+  const { title, subhead, lead, media, body } = node;
 
-  const bodyFragment = readFragment(TextSummaryFragment, body);
-  const bodyProcessed = bodyFragment?.processed as string;
-  const leadFragment = readFragment(TextFragment, lead);
-  const mediaFragment = readFragment(MediaUnionFragment, media);
-
-  const mediaImage = mediaFragment ? mediaFragment as MediaImageType : null;
+  const bodyProcessed = body?.processed as string;
+  const leadValue = lead?.value as string;
+  const mediaImage = media ? media as MediaImageType : null;
+  
   let articleImage = null;
   if (mediaImage?.image) {
     articleImage = getImage({
@@ -55,8 +48,8 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
               </div>
             )}
             <Heading level={1} title={title} className="mb-8" />
-            {leadFragment?.value && (
-              <div className="prose prose-lg lead mb-4" dangerouslySetInnerHTML={{ __html: leadFragment.value }} />
+            {leadValue && (
+              <div className="prose prose-lg lead mb-4" dangerouslySetInnerHTML={{ __html: leadValue }} />
             )}
             {bodyProcessed && (
               <div

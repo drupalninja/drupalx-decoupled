@@ -1,80 +1,52 @@
-import { FragmentOf, readFragment, graphql } from 'gql.tada';
-import { TextSummaryFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/fragments/misc";
-import Accordion from '@/components/accordion/Accordion';
+import Accordion, { AccordionItemData, AccordionProps } from '@/components/accordion/Accordion';
 
-const ParagraphAccordionItemFragment = graphql(`fragment ParagraphAccordionItemFragment on ParagraphAccordionItem {
-  id
-  body {
-    ...TextSummaryFragment
+export const ParagraphAccordionItemFragment = /* GraphQL */ `
+  fragment ParagraphAccordionItemFragment on ParagraphAccordionItem {
+    body {
+      ...TextSummaryFragment
+    }
+    link {
+      ...LinkFragment
+    }
+    title
   }
-  created {
-    ...DateTimeFragment
-  }
-  langcode {
-    ...LanguageFragment
-  }
-  link {
-    ...LinkFragment
-  }
-  status
-  title
-}`,
-  [
-    TextSummaryFragment,
-    DateTimeFragment,
-    LanguageFragment,
-    LinkFragment,
-  ]
-)
+`;
 
-export const ParagraphAccordionFragment = graphql(`fragment ParagraphAccordionFragment on ParagraphAccordion {
-  id
-  accordionItem {
-    ...ParagraphAccordionItemFragment
+export const ParagraphAccordionFragment = /* GraphQL */ `
+  fragment ParagraphAccordionFragment on ParagraphAccordion {
+    accordionItem {
+      ...ParagraphAccordionItemFragment
+    }
+    title
   }
-  created {
-    ...DateTimeFragment
-  }
-  langcode {
-    ...LanguageFragment
-  }
-  status
-  title
-}`,
-  [
-    ParagraphAccordionItemFragment,
-    DateTimeFragment,
-    LanguageFragment,
-  ]
-)
+`;
 
 interface ParagraphAccordionProps {
-  paragraph: FragmentOf<typeof ParagraphAccordionFragment>
+  paragraph: {
+    id: string;
+    title?: string;
+    accordionItem?: AccordionItemData[];
+  };
   modifier?: string;
   containerModifier?: string;
 }
 
 export interface ResolvedAccordionData {
   title?: string;
-  items: {
-    title: string;
-    body: { value: string };
-    link?: { url: string; title: string };
-  }[];
+  items: AccordionItemData[];
 }
 
-function resolveAccordionData(paragraph: FragmentOf<typeof ParagraphAccordionFragment>): ResolvedAccordionData {
-  const { title, accordionItem } = readFragment(ParagraphAccordionFragment, paragraph);
-
+function resolveAccordionData(paragraph: ParagraphAccordionProps['paragraph']): ResolvedAccordionData {
+  const { title, accordionItem } = paragraph;
   return {
     title: title ?? '',
-    items: accordionItem as ResolvedAccordionData['items'],
+    items: accordionItem as AccordionItemData[] || [],
   };
 }
 
 export default function ParagraphAccordion({ paragraph, modifier, containerModifier }: ParagraphAccordionProps) {
   const accordionData = resolveAccordionData(paragraph);
-
+  
   return (
     <Accordion
       title={accordionData.title}

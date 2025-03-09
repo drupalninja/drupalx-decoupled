@@ -1,55 +1,70 @@
 import React from 'react';
-import { FragmentOf, readFragment, graphql } from 'gql.tada';
 import { DateTimeFragment, LanguageFragment, TextFragment, LinkFragment } from '@/graphql/fragments/misc';
 import Pricing, { PricingProps, PricingCardProps } from '../pricing/Pricing';
 
-const ParagraphPricingCardFragment = graphql(`fragment ParagraphPricingCardFragment on ParagraphPricingCard {
-  id
-  featuresText
-  created {
-    ... DateTimeFragment
+export const ParagraphPricingCardFragment = /* GraphQL */ `
+  fragment ParagraphPricingCardFragment on ParagraphPricingCard {
+    id
+    featuresText
+    created {
+      ...DateTimeFragment
+    }
+    eyebrow
+    langcode {
+      ...LanguageFragment
+    }
+    link {
+      ...LinkFragment
+    }
+    status
+    suffix
+    title
   }
-  eyebrow
-  langcode {
-    ... LanguageFragment
-  }
-  link {
-    ... LinkFragment
-  }
-  status
-  suffix
-  title
-}`,
-  [
-    DateTimeFragment,
-    LanguageFragment,
-    LinkFragment,
-  ]
-);
+`;
 
-export const ParagraphPricingFragment = graphql(`
+export const ParagraphPricingFragment = /* GraphQL */ `
   fragment ParagraphPricingFragment on ParagraphPricing {
     id
     pricingCards {
-      ... ParagraphPricingCardFragment
+      ...ParagraphPricingCardFragment
     }
     created {
-      ... DateTimeFragment
+      ...DateTimeFragment
     }
     pricingSummary: summary {
-      ... TextFragment
+      ...TextFragment
     }
     langcode {
-      ... LanguageFragment
+      ...LanguageFragment
     }
     status
     eyebrow
     pricingTitle: title
   }
-  `, [ParagraphPricingCardFragment, DateTimeFragment, TextFragment, LanguageFragment]);
+`;
 
 interface ParagraphPricingProps {
-  paragraph: FragmentOf<typeof ParagraphPricingFragment>;
+  paragraph: {
+    id: string;
+    eyebrow?: string;
+    pricingTitle?: string;
+    pricingSummary?: {
+      value?: string;
+      processed?: string;
+      format?: string;
+    };
+    pricingCards?: Array<{
+      id: string;
+      eyebrow?: string;
+      title?: string;
+      featuresText?: string;
+      link?: {
+        title?: string;
+        url?: string;
+        internal?: boolean;
+      };
+    }>;
+  };
 }
 
 interface TextType {
@@ -69,7 +84,7 @@ interface PricingCardType {
 }
 
 export default function ParagraphPricing({ paragraph }: ParagraphPricingProps) {
-  const { eyebrow, pricingTitle, pricingSummary, pricingCards } = readFragment(ParagraphPricingFragment, paragraph);
+  const { eyebrow, pricingTitle, pricingSummary, pricingCards } = paragraph;
 
   // Helper function to split bullet string into an array
   const splitBullets = (bulletsString: string | null | undefined): string[] => {

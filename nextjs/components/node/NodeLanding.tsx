@@ -1,19 +1,18 @@
-import { FragmentOf, readFragment } from "gql.tada";
+import React from 'react';
 import { NodeLandingFragment } from "@/graphql/fragments/node";
 import { resolve } from "@/components/helpers/ComponentResolver";
 import Heading from "@/components/heading/Heading";
 import { ParagraphUnionFragment } from "@/graphql/fragments/paragraph";
 
 type NodeLandingComponentProps = {
-  node: FragmentOf<typeof NodeLandingFragment>;
+  node: any; // Replace with more specific type if available
   environment: string;
 };
 
 export default async function NodeLandingComponent({ node, environment }: NodeLandingComponentProps) {
-  const nodeLanding = readFragment(NodeLandingFragment, node);
-  const { title, hidePageTitle, content } = nodeLanding;
+  const { title, hidePageTitle, content } = node;
 
-  const paragraphs = content?.map(item => readFragment(ParagraphUnionFragment, item)) ?? [];
+  const paragraphs = content ?? [];
   const resolvedComponents = await resolve({
     data: paragraphs,
     environment,

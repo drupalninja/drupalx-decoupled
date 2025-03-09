@@ -1,54 +1,72 @@
 import React from 'react';
-import { FragmentOf, readFragment, graphql } from "gql.tada";
 import { DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
 import { MediaUnionFragment, SvgMediaFragment, MediaImageType } from "@/graphql/fragments/media";
 import { getImage } from "../helpers/Utilities";
 import Quote from '@/components/quote/Quote';
 
-export const ParagraphQuoteFragment = graphql(`fragment ParagraphQuoteFragment on ParagraphQuote {
-  id
-  author
-  created {
-    ...DateTimeFragment
+export const ParagraphQuoteFragment = /* GraphQL */ `
+  fragment ParagraphQuoteFragment on ParagraphQuote {
+    id
+    author
+    created {
+      ...DateTimeFragment
+    }
+    jobTitle
+    langcode {
+      ...LanguageFragment
+    }
+    logo {
+      ...SvgMediaFragment
+    }
+    quote
+    status
+    thumb {
+      ...MediaUnionFragment
+    }
   }
-  jobTitle
-  langcode {
-    ...LanguageFragment
-  }
-  logo {
-    ...SvgMediaFragment
-  }
-  quote
-  status
-  thumb {
-    ...MediaUnionFragment
-  }
-}`,
-  [
-    DateTimeFragment,
-    LanguageFragment,
-    SvgMediaFragment,
-    MediaUnionFragment,
-  ]
-)
+`;
 
 interface ParagraphQuoteProps {
-  paragraph: FragmentOf<typeof ParagraphQuoteFragment>
-  modifier?: string
+  paragraph: {
+    id: string;
+    author?: string;
+    jobTitle?: string;
+    logo?: {
+      id: string;
+      __typename: string;
+      image?: {
+        url: string;
+        alt?: string;
+        width?: number;
+        height?: number;
+      };
+    };
+    quote?: string;
+    thumb?: {
+      __typename: string;
+      id: string;
+      image?: {
+        url: string;
+        alt?: string;
+        width?: number;
+        height?: number;
+      };
+    };
+  };
+  modifier?: string;
 }
 
 export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuoteProps) {
-  const { author, jobTitle, logo, quote, thumb } = readFragment(ParagraphQuoteFragment, paragraph);
-
+  const { author, jobTitle, logo, quote, thumb } = paragraph;
+  
   const logoComponent = logo ? (
     <div className="w-1/3 mx-auto">
       {getImage(logo, 'w-full h-auto')}
     </div>
   ) : null;
-
-  const thumbMedia = thumb && readFragment(MediaUnionFragment, thumb);
-  const mediaImage = thumbMedia ? thumbMedia as MediaImageType : null;
-
+  
+  const mediaImage = thumb && thumb.__typename === 'MediaImage' ? thumb : null;
+  
   return (
     <div className={`container mx-auto ${modifier ?? 'my-6 lg:my-25'}`}>
       <div className="flex justify-center">
@@ -56,7 +74,7 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
           author={author}
           jobTitle={jobTitle ?? ''}
           logo={logoComponent}
-          quote={quote}
+          quote={quote ?? ''}
           thumb={mediaImage?.image ? { image: { url: mediaImage.image.url } } : undefined}
         />
       </div>

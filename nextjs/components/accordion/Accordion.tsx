@@ -4,13 +4,13 @@ import { Accordion as AccordionComponent, AccordionContent, AccordionItem, Accor
 import { Button } from "@/components/ui/button"
 import Heading from '@/components/heading/Heading';
 
-interface AccordionItemData {
+export interface AccordionItemData {
   title: string;
   body: { value: string };
   link?: { url: string; title: string };
 }
 
-interface AccordionProps {
+export interface AccordionProps {
   title?: string;
   items: AccordionItemData[];
   modifier?: string;

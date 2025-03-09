@@ -1,6 +1,4 @@
-import { graphql } from "@/graphql/gql.tada";
-
-export const MainMenuQuery = graphql(`
+export const MainMenuQuery = /* GraphQL */ `
   query MainMenuQuery {
     menu(name: MAIN) {
       name
@@ -14,9 +12,9 @@ export const MainMenuQuery = graphql(`
       }
     }
   }
-`);
+`;
 
-export const FooterMenuQuery = graphql(`
+export const FooterMenuQuery = /* GraphQL */ `
   query FooterMenuQuery {
     menu(name: FOOTER) {
       name
@@ -30,4 +28,4 @@ export const FooterMenuQuery = graphql(`
       }
     }
   }
-`);
+`;

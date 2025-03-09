@@ -1,4 +1,3 @@
-import { ResultOf } from "gql.tada";
 import { MainMenuQuery } from "@/graphql/queries";
 import MainMenu from "./main-menu/MainMenu";
 import { MainMenuProps } from "./main-menu/Types";
@@ -6,16 +5,30 @@ import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 
-type MainMenuData = ResultOf<typeof MainMenuQuery>;
+// Define the type for menu data
+interface MenuItem {
+  title: string;
+  url?: string;
+  children: {
+    title: string;
+    url?: string;
+  }[];
+}
+
+interface MenuData {
+  menu?: {
+    name?: string;
+    items?: MenuItem[];
+  };
+}
 
 // Define the props for the Header component
 type HeaderProps = {
-  mainMenu: MainMenuData['menu'] | null;
+  mainMenu: MenuData['menu'] | null;
 };
 
 export default function Header({ mainMenu }: HeaderProps) {
   const menus = mainMenu?.items;
-
   const links: MainMenuProps['menuItems'] = menus?.map(item => ({
     title: item.title,
     url: item.url ?? '',

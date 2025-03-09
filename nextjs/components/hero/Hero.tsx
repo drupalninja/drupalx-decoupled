@@ -1,8 +1,7 @@
-import React from 'react';
 import { Button } from "@/components/ui/button";
 import './Hero.scss';
 
-interface HeroProps {
+export interface HeroProps {
   heroLayout: 'image_top' | 'image_bottom' | 'image_bottom_split';
   media: React.ReactNode;
   heading: string;

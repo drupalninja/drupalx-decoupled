@@ -1,4 +1,3 @@
-import { graphql } from "@/graphql/gql.tada";
 import { ParagraphPricingFragment } from "@/components/paragraphs/ParagraphPricing";
 import { ParagraphLogoCollectionFragment } from "@/components/paragraphs/ParagraphLogoCollection";
 import { ParagraphAccordionFragment } from "@/components/paragraphs/ParagraphAccordion";
@@ -14,40 +13,34 @@ import { ParagraphEmbedFragment } from "@/components/paragraphs/ParagraphEmbed";
 import { ParagraphNewsletterFragment } from "@/components/paragraphs/ParagraphNewsletter";
 import { ParagraphViewFragment } from "@/components/paragraphs/ParagraphView";
 
-export const ParagraphUnionFragment = graphql(`
+export const ParagraphUnionFragment = /* GraphQL */ `
   fragment ParagraphUnionFragment on ParagraphUnion {
+    __typename
     ... on ParagraphInterface {
-      __typename
       id
+      created {
+        timestamp
+        timezone
+      }
+      langcode {
+        id
+        name
+      }
+      status
     }
-    ...ParagraphTextFragment
-    ...ParagraphMediaFragment
-    ...ParagraphQuoteFragment
-    ...ParagraphHeroFragment
     ...ParagraphAccordionFragment
     ...ParagraphCardGroupFragment
-    ...ParagraphGalleryFragment
-    ...ParagraphSidebysideFragment
     ...ParagraphCarouselFragment
     ...ParagraphEmbedFragment
-    ...ParagraphNewsletterFragment
-    ...ParagraphViewFragment
-    ...ParagraphPricingFragment
+    ...ParagraphGalleryFragment
+    ...ParagraphHeroFragment
     ...ParagraphLogoCollectionFragment
+    ...ParagraphMediaFragment
+    ...ParagraphNewsletterFragment
+    ...ParagraphPricingFragment
+    ...ParagraphQuoteFragment
+    ...ParagraphSidebysideFragment
+    ...ParagraphTextFragment
+    ...ParagraphViewFragment
   }
-`, [
-  ParagraphTextFragment,
-  ParagraphMediaFragment,
-  ParagraphQuoteFragment,
-  ParagraphHeroFragment,
-  ParagraphAccordionFragment,
-  ParagraphCardGroupFragment,
-  ParagraphGalleryFragment,
-  ParagraphSidebysideFragment,
-  ParagraphCarouselFragment,
-  ParagraphEmbedFragment,
-  ParagraphNewsletterFragment,
-  ParagraphViewFragment,
-  ParagraphPricingFragment,
-  ParagraphLogoCollectionFragment,
-])
+`;

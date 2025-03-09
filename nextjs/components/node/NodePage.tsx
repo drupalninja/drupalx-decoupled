@@ -1,28 +1,23 @@
 import React from 'react';
-import { FragmentOf, readFragment } from "gql.tada";
 import { NodePageFragment } from "@/graphql/fragments/node";
 import { getImage } from "@/components/helpers/Utilities";
 import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
 import Heading from "@/components/heading/Heading";
 import { TextSummaryFragment } from "@/graphql/fragments/misc";
 
-interface NodePageComponentProps {
-  node: FragmentOf<typeof NodePageFragment>;
+type NodePageComponentProps = {
+  node: any; // Replace with more specific type if available
   environment: string;
-}
+};
 
-export default function NodePageComponent({
-  node,
-  environment,
-}: NodePageComponentProps) {
-  const { title, mediaPage, body } = readFragment(NodePageFragment, node);
+export default function NodePageComponent({ node, environment }: NodePageComponentProps) {
+  const { title, mediaPage: media, body } = node;
 
-  const mediaFragment = readFragment(MediaUnionFragment, mediaPage);
-  const bodyFragment = readFragment(TextSummaryFragment, body);
-  const bodyProcessed = bodyFragment?.processed as string;
-
+  const mediaImage = media ? media as MediaImageType : null;
+  const bodyProcessed = body?.processed as string;
+  
   let pageImage = null;
-  const mediaImage = mediaFragment ? mediaFragment as MediaImageType : null;
+  
   if (mediaImage?.image) {
     pageImage = getImage({
       image: {
@@ -34,7 +29,7 @@ export default function NodePageComponent({
           name, url, width, height
         }))
       }
-    }, "w-full h-full object-cover", ["LARGE", "I169LARGE2X"]);
+    }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
   }
 
   return (
@@ -46,11 +41,7 @@ export default function NodePageComponent({
           </div>
         )}
         <div className="mx-auto max-w-2xl">
-          <Heading
-            level={1}
-            title={title}
-            className="mb-6 text-center"
-          />
+          <Heading level={1} title={title} className="mb-8" />
           {bodyProcessed && (
             <div
               className="prose prose-lg"

@@ -2,15 +2,55 @@ import NodeArticleComponent from "@/components/node/NodeArticle";
 import NodePageComponent from "@/components/node/NodePage";
 import NodeLandingComponent from "@/components/node/NodeLanding";
 import {
-  NodeArticleFragment,
-  NodeLandingFragment,
   NodePageFragment,
+  NodeArticleFragment,
+  NodeLandingFragment
 } from "@/graphql/fragments/node";
-import { graphql } from "@/graphql/gql.tada";
+import {
+  TextFragment,
+  TextSummaryFragment,
+  DateTimeFragment,
+  LanguageFragment,
+  LinkFragment
+} from '@/graphql/fragments/misc';
+import { 
+  MediaUnionFragment, 
+  MediaImageFragment, 
+  MediaVideoFragment,
+  ImageFragment,
+  SvgMediaFragment,
+  SvgImageFragment 
+} from "@/graphql/fragments/media";
+import { 
+  MetaTagUnionFragment,
+  MetaTagLinkFragment,
+  MetaTagValueFragment,
+  MetaTagPropertyFragment,
+  MetaTagScriptFragment,
+  MetaTagLinkAttributesFragment,
+  MetaTagValueAttributesFragment,
+  MetaTagPropertyAttributesFragment,
+  MetaTagScriptAttributesFragment
+} from "@/graphql/fragments/metatag";
+import { ParagraphUnionFragment } from "@/graphql/fragments/paragraph";
+import { ParagraphHeroFragment } from "@/components/paragraphs/ParagraphHero";
+import { ParagraphTextFragment } from "@/components/paragraphs/ParagraphText";
+import { ParagraphMediaFragment } from "@/components/paragraphs/ParagraphMedia";
+import { ParagraphQuoteFragment } from "@/components/paragraphs/ParagraphQuote";
+import { ParagraphAccordionFragment, ParagraphAccordionItemFragment } from "@/components/paragraphs/ParagraphAccordion";
+import { ParagraphCardGroupFragment, ParagraphCardFragment, ParagraphStatsItemFragment } from "@/components/paragraphs/ParagraphCardGroup";
+import { ParagraphGalleryFragment } from "@/components/paragraphs/ParagraphGallery";
+import { ParagraphSidebysideFragment, ParagraphBulletFragment } from "@/components/paragraphs/ParagraphSidebyside";
+import { ParagraphCarouselFragment } from "@/components/paragraphs/ParagraphCarousel";
+import { ParagraphEmbedFragment } from "@/components/paragraphs/ParagraphEmbed";
+import { ParagraphNewsletterFragment } from "@/components/paragraphs/ParagraphNewsletter";
+import { ParagraphPricingFragment, ParagraphPricingCardFragment } from "@/components/paragraphs/ParagraphPricing";
+import { ParagraphLogoCollectionFragment } from "@/components/paragraphs/ParagraphLogoCollection";
+import { ParagraphViewFragment } from "@/components/paragraphs/ParagraphView";
+import { TermUnionFragment, TermAuthorFragment, TermTagFragment } from "@/graphql/fragments/term";
+import { UserFragment } from "@/graphql/fragments/user";
 import { getClientWithAuth } from "@/utils/client.server";
 import { calculatePath } from "@/utils/routes";
-import { EntityFragmentType } from "@/utils/types.server";
-import { FragmentOf } from "gql.tada";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Fragment } from "react";
@@ -41,7 +81,8 @@ const staticTypes = ['nodePages', 'nodeArticles', 'nodeLandings'];
 
 async function getAllPaths(): Promise<string[]> {
   const client = await getClientWithAuth();
-  const allPathsQuery = graphql(`
+  
+  const allPathsQuery = /* GraphQL */ `
     query allPaths {
       ${staticTypes.map(type => `
         ${type}(first: 100) {
@@ -51,26 +92,24 @@ async function getAllPaths(): Promise<string[]> {
         }
       `).join('\n')}
     }
-  `);
-
+  `;
+  
   const { data } = await client.query(allPathsQuery, {});
-
   if (!data) {
     console.error('Failed to fetch paths from Drupal');
     return [];
   }
-
+  
   const allPaths = staticTypes.flatMap(type => {
     const typeData = (data as QueryData)[type as keyof QueryData];
     return typeData?.nodes?.map(node => node.path) || [];
   });
-
+  
   return allPaths.filter(path => path && path !== frontpagePath);
 }
 
 export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   const paths = await getAllPaths();
-
   return paths.map((path: string) => ({
     slug: path.split('/').filter(segment => segment !== ''),
   }));
@@ -86,7 +125,6 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { entity } = await getPageData({ params });
   const typedEntity = entity as EntityType;
-
   return {
     title: typedEntity.title ?? '',
   }
@@ -95,36 +133,74 @@ export async function generateMetadata(
 async function getDrupalData({ params }: { params: { slug: string[] } }) {
   const pathFromParams = params.slug?.join("/") || frontpagePath;
   const requestUrl = headers().get("x-url");
-
   const path = calculatePath({
     path: pathFromParams,
     url: requestUrl!,
   });
 
   const client = await getClientWithAuth();
-
-  const nodeRouteQuery = graphql(
-    `
-      query route($path: String!) {
-        route(path: $path) {
-          __typename
-          ... on RouteInternal {
-            entity {
-              __typename
-              ... on NodePage {
-                id
-                title
-              }
-              ...NodePageFragment
-              ...NodeArticleFragment
-              ...NodeLandingFragment
-            }
+  const nodeRouteQuery = /* GraphQL */ `
+    query route($path: String!) {
+      route(path: $path) {
+        __typename
+        ... on RouteInternal {
+          entity {
+            __typename
+            ...NodePageFragment
+            ...NodeArticleFragment
+            ...NodeLandingFragment
           }
         }
       }
-    `,
-    [NodePageFragment, NodeArticleFragment, NodeLandingFragment]
-  );
+    }
+    ${NodePageFragment}
+    ${NodeArticleFragment}
+    ${NodeLandingFragment}
+    ${UserFragment}
+    ${TextFragment}
+    ${TextSummaryFragment}
+    ${DateTimeFragment}
+    ${LanguageFragment}
+    ${LinkFragment}
+    ${MediaUnionFragment}
+    ${MediaImageFragment}
+    ${MediaVideoFragment}
+    ${ImageFragment}
+    ${SvgMediaFragment}
+    ${SvgImageFragment}
+    ${MetaTagUnionFragment}
+    ${MetaTagLinkFragment}
+    ${MetaTagValueFragment}
+    ${MetaTagPropertyFragment}
+    ${MetaTagScriptFragment}
+    ${MetaTagLinkAttributesFragment}
+    ${MetaTagValueAttributesFragment}
+    ${MetaTagPropertyAttributesFragment}
+    ${MetaTagScriptAttributesFragment}
+    ${ParagraphUnionFragment}
+    ${ParagraphHeroFragment}
+    ${ParagraphTextFragment}
+    ${ParagraphMediaFragment}
+    ${ParagraphQuoteFragment}
+    ${ParagraphAccordionFragment}
+    ${ParagraphAccordionItemFragment}
+    ${ParagraphCardGroupFragment}
+    ${ParagraphCardFragment}
+    ${ParagraphStatsItemFragment}
+    ${ParagraphGalleryFragment}
+    ${ParagraphSidebysideFragment}
+    ${ParagraphBulletFragment}
+    ${ParagraphCarouselFragment}
+    ${ParagraphEmbedFragment}
+    ${ParagraphNewsletterFragment}
+    ${ParagraphPricingFragment}
+    ${ParagraphPricingCardFragment}
+    ${ParagraphLogoCollectionFragment}
+    ${ParagraphViewFragment}
+    ${TermUnionFragment}
+    ${TermAuthorFragment}
+    ${TermTagFragment}
+  `;
 
   const { data, error } = await client.query(nodeRouteQuery, {
     path,
@@ -145,13 +221,14 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
 
   return {
     type: data.route.entity.__typename,
-    entity: data.route.entity as EntityFragmentType,
+    entity: data.route.entity,
     environment: process.env.ENVIRONMENT!,
   };
 }
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const { type, entity, environment } = await getPageData({ params });
+
   if (!type || !entity) {
     return null;
   }
@@ -160,19 +237,19 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     <Fragment>
       {type === "NodePage" && (
         <NodePageComponent
-          node={entity as FragmentOf<typeof NodePageFragment>}
+          node={entity}
           environment={environment}
         />
       )}
       {type === "NodeArticle" && (
         <NodeArticleComponent
-          node={entity as FragmentOf<typeof NodeArticleFragment>}
+          node={entity}
           environment={environment}
         />
       )}
       {type === "NodeLanding" && (
         <NodeLandingComponent
-          node={entity as FragmentOf<typeof NodeLandingFragment>}
+          node={entity}
           environment={environment}
         />
       )}
