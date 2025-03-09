@@ -1,17 +1,11 @@
-import React from 'react';
 import { Button } from "@/components/ui/button";
+import { LinkFormat } from '@/lib/types';
 
-interface TextProps {
+export interface TextProps {
   title?: string;
-  body?: string;
-  linkFragment?: {
-    url: string;
-    title: string;
-  };
-  linkFragment2?: {
-    url: string;
-    title: string;
-  };
+  body?: TextFormat;
+  link?: LinkFormat;
+  link2?: LinkFormat;
   eyebrow?: string;
   textLayout?: 'default' | 'centered' | 'buttons-right';
   className?: string;
@@ -20,8 +14,8 @@ interface TextProps {
 export default function Text({
   title,
   body,
-  linkFragment,
-  linkFragment2,
+  link,
+  link2,
   eyebrow,
   textLayout = 'default',
   className
@@ -41,21 +35,21 @@ export default function Text({
 
     return (
       <div className={buttonContainerClasses}>
-        {linkFragment?.url && (
+        {link?.url && (
           <Button
             variant="default"
             className="mr-4"
             asChild
           >
-            <a href={linkFragment.url}>{linkFragment.title || 'Read more'}</a>
+            <a href={link.url}>{link.title || 'Read more'}</a>
           </Button>
         )}
-        {linkFragment2?.url && (
+        {link2?.url && (
           <Button
             variant="secondary"
             asChild
           >
-            <a href={linkFragment2.url}>{linkFragment2.title || 'Read more'}</a>
+            <a href={link2.url}>{link2.title || 'Read more'}</a>
           </Button>
         )}
       </div>
@@ -71,7 +65,7 @@ export default function Text({
         <h2 className="mt-2 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">{title}</h2>
       )}
       {body && (
-        <div className="mt-4 text-xl text-gray-500" dangerouslySetInnerHTML={{ __html: body }}></div>
+        <div className="mt-4 text-xl text-gray-500" dangerouslySetInnerHTML={{ __html: body.value }}></div>
       )}
     </>
   );

@@ -3,14 +3,11 @@
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { TextFormat } from "@/lib/types";
 
 export interface NewsletterProps {
   title: string;
-  summary?: {
-    value?: string;
-    processed?: string;
-    format?: string;
-  }
+  summary?: TextFormat;
   modifier?: string;
 }
 

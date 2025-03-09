@@ -1,4 +1,5 @@
-import Newsletter, { NewsletterProps } from '@/components/newsletter/Newsletter';
+import Newsletter from '@/components/newsletter/Newsletter';
+import { TextFormat } from '@/lib/types';
 
 export const ParagraphNewsletterFragment = /* GraphQL */ `
   fragment ParagraphNewsletterFragment on ParagraphNewsletter {
@@ -11,9 +12,10 @@ export const ParagraphNewsletterFragment = /* GraphQL */ `
 
 interface ParagraphNewsletterProps {
   paragraph: {
-    newsletterTitle?: NewsletterProps['title'];
-    summary?: NewsletterProps['summary'];
+    newsletterTitle?: string;
+    summary?: TextFormat;
   },
+  modifier?: string;
 }
 
 export default function ParagraphNewsletter({ paragraph, modifier }: ParagraphNewsletterProps) {

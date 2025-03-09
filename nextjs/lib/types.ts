@@ -27,4 +27,5 @@ export interface TextFormat {
 export interface LinkFormat {
   url?: string;
   title?: string;
+  internal?: boolean;
 }

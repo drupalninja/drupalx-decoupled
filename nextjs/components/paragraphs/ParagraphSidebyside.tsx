@@ -1,6 +1,7 @@
-import { getImage, MediaImage } from '@/components/helpers/Utilities';
+import { getImage } from '@/components/helpers/Utilities';
 import Sidebyside, { BulletProps } from '@/components/sidebyside/Sidebyside';
 import { StatCardProps } from '@/components/stat-card/StatCard';
+import { LinkFormat, MediaImage, TextFormat } from '@/lib/types';
 
 export const ParagraphBulletFragment = /* GraphQL */ `
   fragment ParagraphBulletFragment on ParagraphBullet {
@@ -50,7 +51,7 @@ interface ParagraphStatsItemType {
 interface ParagraphBulletType {
   __typename: 'ParagraphBullet';
   bulletIcon?: BulletProps['icon'];
-  bulletSummary?: { value?: string };
+  bulletSummary?: TextFormat;
 }
 
 type ParagraphFeature = ParagraphStatsItemType | ParagraphBulletType;
@@ -59,9 +60,9 @@ interface ParagraphSidebysideProps {
   paragraph: {
     eyebrow?: string;
     sidebysideLayout?: string;
-    sidebysideSummary?: { value?: string };
+    sidebysideSummary?: TextFormat;
     sidebysideTitle?: string;
-    link?: { url?: string; title?: string };
+    link?: LinkFormat;
     media?: MediaImage;
     features?: ParagraphFeature[];
   };

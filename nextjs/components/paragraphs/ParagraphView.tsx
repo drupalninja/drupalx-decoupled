@@ -1,5 +1,6 @@
 import RecentCards from '@/components/views/ViewRecentCards';
 import { Card, CardContent } from "@/components/ui/card";
+import { MediaImage } from '@/lib/types';
 
 export const ParagraphViewFragment = /* GraphQL */ `
   fragment ParagraphViewFragment on ParagraphView {
@@ -10,24 +11,15 @@ export const ParagraphViewFragment = /* GraphQL */ `
     viewsRef {
       __typename
       ... on RecentCardsArticleCardsResult {
-        id
         view
         display
         results {
           ... on NodeArticle {
-            id
             path
             title
             media {
               ...MediaImageFragment
             }
-            created {
-              ...DateTimeFragment
-            }
-            langcode {
-              ...LanguageFragment
-            }
-            status
             summary
           }
         }
@@ -43,13 +35,9 @@ interface ParagraphViewProps {
       view?: string;
       display?: string;
       results?: Array<{
-        id: string;
         path?: string;
         title?: string;
-        media?: any;
-        created?: any;
-        langcode?: any;
-        status?: boolean;
+        media?: MediaImage;
         summary?: string;
       }>;
     };

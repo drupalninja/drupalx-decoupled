@@ -1,20 +1,13 @@
+import { LinkFormat, TextFormat } from '@/lib/types';
 import Pricing, { PricingProps, PricingCardProps } from '../pricing/Pricing';
 
 export const ParagraphPricingCardFragment = /* GraphQL */ `
   fragment ParagraphPricingCardFragment on ParagraphPricingCard {
-    id
     featuresText
-    created {
-      ...DateTimeFragment
-    }
     eyebrow
-    langcode {
-      ...LanguageFragment
-    }
     link {
       ...LinkFragment
     }
-    status
     suffix
     title
   }
@@ -22,20 +15,12 @@ export const ParagraphPricingCardFragment = /* GraphQL */ `
 
 export const ParagraphPricingFragment = /* GraphQL */ `
   fragment ParagraphPricingFragment on ParagraphPricing {
-    id
     pricingCards {
       ...ParagraphPricingCardFragment
-    }
-    created {
-      ...DateTimeFragment
     }
     pricingSummary: summary {
       ...TextFragment
     }
-    langcode {
-      ...LanguageFragment
-    }
-    status
     eyebrow
     pricingTitle: title
   }
@@ -43,42 +28,23 @@ export const ParagraphPricingFragment = /* GraphQL */ `
 
 interface ParagraphPricingProps {
   paragraph: {
-    id: string;
     eyebrow?: string;
     pricingTitle?: string;
-    pricingSummary?: {
-      value?: string;
-      processed?: string;
-      format?: string;
-    };
+    pricingSummary?: TextFormat;
     pricingCards?: Array<{
-      id: string;
       eyebrow?: string;
       title?: string;
       featuresText?: string;
-      link?: {
-        title?: string;
-        url?: string;
-        internal?: boolean;
-      };
+      link?: LinkFormat;
     }>;
   };
-}
-
-interface TextType {
-  value?: string;
-  processed?: string;
-  format?: string;
 }
 
 interface PricingCardType {
   eyebrow?: string;
   title?: string;
   featuresText?: string;
-  link?: {
-    title?: string;
-    url?: string;
-  };
+  link?: LinkFormat;
 }
 
 export default function ParagraphPricing({ paragraph }: ParagraphPricingProps) {
@@ -94,7 +60,7 @@ export default function ParagraphPricing({ paragraph }: ParagraphPricingProps) {
   const cardPricingProps: PricingProps = {
     eyebrow: eyebrow || undefined,
     title: pricingTitle || undefined,
-    summary: (pricingSummary as TextType)?.value || undefined,
+    summary: (pricingSummary as TextFormat)?.value || undefined,
     includesLabel: "Includes",
     cards: (pricingCards as PricingCardType[])?.map((card): PricingCardProps => ({
       eyebrow: card.eyebrow || "",
