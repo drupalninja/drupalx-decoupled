@@ -37,12 +37,11 @@ export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalle
     .filter(Boolean);
 
   return (
-    <div className={modifier ?? 'container my-6 my-lg-15'}>
-      <Gallery
-        mediaItems={mediaNodes}
-        title={title ?? ''}
-        summary={gallerySummary?.value ?? ''}
-      />
-    </div>
+    <Gallery
+      mediaItems={mediaNodes}
+      title={title ?? ''}
+      summary={gallerySummary?.value ?? ''}
+      containerClassName={modifier}
+    />
   );
 }

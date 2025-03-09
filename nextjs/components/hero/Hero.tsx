@@ -1,29 +1,14 @@
 import { Button } from "@/components/ui/button";
 import './Hero.scss';
+import { TextFormat, LinkFormat } from "@/lib/types";
 
 export interface HeroProps {
   heroLayout?: 'image_top' | 'image_bottom' | 'image_bottom_split';
   media?: React.ReactNode;
-  heading?: {
-    value?: string;
-    processed?: string;
-    format?: string;
-  };
-  summary?: {
-    value?: string;
-    processed?: string;
-    format?: string;
-  };
-  link?: {
-    url?: string;
-    title?: string;
-    internal?: boolean;
-  };
-  link2?: {
-    url?: string;
-    title?: string;
-    internal?: boolean;
-  };
+  heading?: TextFormat;
+  summary?: TextFormat;
+  link?: LinkFormat;
+  link2?: LinkFormat;
   modifier?: string;
 }
 

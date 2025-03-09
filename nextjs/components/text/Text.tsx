@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { LinkFormat } from '@/lib/types';
+import { LinkFormat, TextFormat } from '@/lib/types';
 
 export interface TextProps {
   title?: string;

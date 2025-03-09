@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactNode } from 'react';
 
 export interface Logo {
   name: string;
-  media: React.ReactNode;
+  media: ReactNode;
 }
 
 export interface LogoCollectionProps {

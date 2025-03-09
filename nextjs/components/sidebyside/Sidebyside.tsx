@@ -1,8 +1,9 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import StatCard, { StatCardProps } from '../stat-card/StatCard';
 import { getLucideIcon } from '@/utils/dynamic-icon';
+import { LinkFormat } from '@/lib/types';
 
 export interface BulletProps {
   type: 'bullet';
@@ -17,10 +18,7 @@ export interface SidebysideProps {
   layout?: string;
   title: string;
   summary?: string;
-  link?: {
-    url?: string;
-    title?: string;
-  };
+  link?: LinkFormat;
   media: ReactNode;
   modifier?: string;
   features?: FeatureItem[];

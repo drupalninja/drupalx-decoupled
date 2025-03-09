@@ -39,16 +39,13 @@ export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuotePr
   const mediaImage = thumb ? thumb : null;
 
   return (
-    <div className={`container mx-auto ${modifier ?? 'my-6 lg:my-25'}`}>
-      <div className="flex justify-center">
-        <Quote
-          author={author}
-          jobTitle={jobTitle ?? ''}
-          logo={logoComponent}
-          quote={quote ?? ''}
-          thumb={mediaImage?.image ? { image: { url: mediaImage.image.url } } : undefined}
-        />
-      </div>
-    </div>
+    <Quote
+      author={author}
+      jobTitle={jobTitle ?? ''}
+      logo={logoComponent}
+      quote={quote ?? ''}
+      thumb={mediaImage?.image ? { image: { url: mediaImage.image.url } } : undefined}
+      containerClassName={modifier}
+    />
   );
 }

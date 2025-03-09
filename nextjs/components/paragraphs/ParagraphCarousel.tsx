@@ -42,8 +42,9 @@ export default function ParagraphCarousel({ paragraph, modifier }: ParagraphCaro
   });
 
   return (
-    <div className={`container mx-auto px-4 ${modifier || 'my-25'}`}>
-      <Carousel items={carouselItems} />
-    </div>
+    <Carousel
+      items={carouselItems}
+      containerClassName={modifier}
+    />
   );
 }
