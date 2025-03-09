@@ -2,22 +2,33 @@ import { Button } from "@/components/ui/button";
 import './Hero.scss';
 
 export interface HeroProps {
-  heroLayout: 'image_top' | 'image_bottom' | 'image_bottom_split';
-  media: React.ReactNode;
-  heading: string;
-  summary: string;
-  link: {
-    url: string;
-    title: string;
+  heroLayout?: 'image_top' | 'image_bottom' | 'image_bottom_split';
+  media?: React.ReactNode;
+  heading?: {
+    value?: string;
+    processed?: string;
+    format?: string;
+  };
+  summary?: {
+    value?: string;
+    processed?: string;
+    format?: string;
+  } | string;
+  link?: {
+    url?: string;
+    title?: string;
+    internal?: boolean;
   };
   link2?: {
-    url: string;
-    title: string;
+    url?: string;
+    title?: string;
+    internal?: boolean;
   };
   modifier?: string;
 }
 
 export default function Hero({ heroLayout, media, heading, summary, link, link2, modifier }: HeroProps) {
+
   if (heroLayout === 'image_bottom_split') {
     return (
       <div className={`hero mt-6 lg:mt-12 mx-auto ${modifier || ''}`}>

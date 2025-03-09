@@ -9,7 +9,7 @@ const meta: Meta<typeof Hero> = {
   argTypes: {
     heroLayout: { control: 'select', options: ['image_top', 'image_bottom', 'image_bottom_split'] },
     media: { control: 'object' },
-    heading: { control: 'text' },
+    heading: { control: 'object' },
     summary: { control: 'text' },
     link: { control: 'object' },
     link2: { control: 'object' },
@@ -33,7 +33,11 @@ export const Default: Story = {
   args: {
     heroLayout: 'image_top',
     media: mockMedia,
-    heading: 'Welcome to <strong>Our Website</strong>',
+    heading: {
+      processed: 'Welcome to <strong>Our Website</strong>',
+      value: 'Welcome to Our Website',
+      format: 'full_html',
+    },
     summary: 'This is a brief summary of our amazing content. It can include <em>formatted text</em> as well.',
     link: {
       url: 'https://example.com',
@@ -58,7 +62,11 @@ export const ImageBottomSplit: Story = {
   args: {
     ...Default.args,
     heroLayout: 'image_bottom_split',
-    heading: 'Empower Your Content with DrupalX Today',
+    heading: {
+      processed: 'Empower Your Content with DrupalX Today',
+      value: 'Empower Your Content with DrupalX Today',
+      format: 'full_html',
+    },
     summary: 'Discover the power of a decoupled CMS that adapts to your needs. With DrupalX, you can create, manage, and scale your content effortlessly.',
   }
 };

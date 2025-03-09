@@ -1,12 +1,24 @@
-import React from 'react';
-import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from "@/components/helpers/Utilities";
 import Heading from "@/components/heading/Heading";
-import { TextSummaryFragment, TextFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
+import { MediaImageType } from "@/graphql/fragments/media";
 
 type NodeArticleComponentProps = {
-  node: any; // Replace with more specific type if available
+  node: {
+    title: string;
+    subhead?: string;
+    lead?: {
+      value: string;
+      processed?: string;
+      format?: string;
+    };
+    media?: MediaImageType;
+    body?: {
+      value?: string;
+      processed?: string;
+      format?: string;
+      summary?: string;
+    };
+  };
   environment: string;
 }
 
@@ -16,7 +28,7 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
   const bodyProcessed = body?.processed as string;
   const leadValue = lead?.value as string;
   const mediaImage = media ? media as MediaImageType : null;
-  
+
   let articleImage = null;
   if (mediaImage?.image) {
     articleImage = getImage({

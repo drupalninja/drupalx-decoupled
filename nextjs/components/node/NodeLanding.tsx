@@ -1,11 +1,13 @@
-import React from 'react';
-import { NodeLandingFragment } from "@/graphql/fragments/node";
 import { resolve } from "@/components/helpers/ComponentResolver";
 import Heading from "@/components/heading/Heading";
-import { ParagraphUnionFragment } from "@/graphql/fragments/paragraph";
+import { ParagraphBase } from "@/components/helpers/ComponentResolver";
 
 type NodeLandingComponentProps = {
-  node: any; // Replace with more specific type if available
+  node: {
+    title: string;
+    hidePageTitle?: boolean;
+    content?: Array<ParagraphBase>;
+  };
   environment: string;
 };
 

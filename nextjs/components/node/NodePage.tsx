@@ -1,12 +1,18 @@
-import React from 'react';
-import { NodePageFragment } from "@/graphql/fragments/node";
 import { getImage } from "@/components/helpers/Utilities";
-import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
+import { MediaImageType } from "@/graphql/fragments/media";
 import Heading from "@/components/heading/Heading";
-import { TextSummaryFragment } from "@/graphql/fragments/misc";
 
 type NodePageComponentProps = {
-  node: any; // Replace with more specific type if available
+  node: {
+    title: string;
+    mediaPage?: MediaImageType;
+    body?: {
+      value?: string;
+      processed?: string;
+      format?: string;
+      summary?: string;
+    };
+  };
   environment: string;
 };
 
@@ -15,9 +21,9 @@ export default function NodePageComponent({ node, environment }: NodePageCompone
 
   const mediaImage = media ? media as MediaImageType : null;
   const bodyProcessed = body?.processed as string;
-  
+
   let pageImage = null;
-  
+
   if (mediaImage?.image) {
     pageImage = getImage({
       image: {
