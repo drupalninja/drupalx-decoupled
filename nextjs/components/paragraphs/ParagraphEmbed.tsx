@@ -1,26 +1,16 @@
-import { TextFragment, DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
 import Embed from '@/components/embed/Embed';
 
 export const ParagraphEmbedFragment = /* GraphQL */ `
   fragment ParagraphEmbedFragment on ParagraphEmbed {
-    id
-    created {
-      ...DateTimeFragment
-    }
-    langcode {
-      ...LanguageFragment
-    }
     script {
       ...TextFragment
     }
-    status
     title
   }
 `;
 
 interface ParagraphEmbedProps {
   paragraph: {
-    id: string;
     title?: string;
     script?: {
       value?: string;
@@ -31,7 +21,7 @@ interface ParagraphEmbedProps {
 
 export default function ParagraphEmbed({ paragraph, modifier }: ParagraphEmbedProps) {
   const { title, script } = paragraph;
-  
+
   return (
     <Embed
       title={title ?? ''}

@@ -1,42 +1,17 @@
-import { TextSummaryFragment, DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
-import { MediaUnionFragment, MediaImageFragment, ImageFragment } from '@/graphql/fragments/media';
 import Gallery from '@/components/gallery/Gallery';
 import { getImage } from '@/components/helpers/Utilities';
 
 export const ParagraphGalleryFragment = /* GraphQL */ `
   fragment ParagraphGalleryFragment on ParagraphGallery {
-    id
     gallerySummary: body {
       ...TextSummaryFragment
-    }
-    created {
-      ...DateTimeFragment
-    }
-    langcode {
-      ...LanguageFragment
     }
     mediaItem {
       ...MediaUnionFragment
     }
-    status
     title
   }
 `;
-
-interface MediaImage {
-  image?: {
-    url: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-    variations?: Array<{
-      name: string;
-      url: string;
-      width?: number;
-      height?: number;
-    }>;
-  }
-}
 
 interface MediaItem {
   __typename?: 'MediaImage';
@@ -72,13 +47,13 @@ interface ParagraphGalleryProps {
 
 export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalleryProps) {
   const { title, gallerySummary, mediaItem } = paragraph;
-  
+
   const mediaNodes = (Array.isArray(mediaItem) ? mediaItem : [])
     .map(item => {
       if (item?.__typename !== 'MediaImage' || !item.image) {
         return null;
       }
-      
+
       return getImage({
         image: {
           url: item.image.url,

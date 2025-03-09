@@ -23,7 +23,6 @@ export const ParagraphAccordionFragment = /* GraphQL */ `
 
 interface ParagraphAccordionProps {
   paragraph: {
-    id: string;
     title?: string;
     accordionItem?: AccordionItemData[];
   };
@@ -31,26 +30,11 @@ interface ParagraphAccordionProps {
   containerModifier?: string;
 }
 
-export interface ResolvedAccordionData {
-  title?: string;
-  items: AccordionItemData[];
-}
-
-function resolveAccordionData(paragraph: ParagraphAccordionProps['paragraph']): ResolvedAccordionData {
-  const { title, accordionItem } = paragraph;
-  return {
-    title: title ?? '',
-    items: accordionItem as AccordionItemData[] || [],
-  };
-}
-
 export default function ParagraphAccordion({ paragraph, modifier, containerModifier }: ParagraphAccordionProps) {
-  const accordionData = resolveAccordionData(paragraph);
-
   return (
     <Accordion
-      title={accordionData.title}
-      items={accordionData.items}
+      title={paragraph.title ?? ''}
+      items={paragraph.accordionItem as AccordionItemData[] || []}
       modifier={modifier}
       containerModifier={containerModifier}
     />
