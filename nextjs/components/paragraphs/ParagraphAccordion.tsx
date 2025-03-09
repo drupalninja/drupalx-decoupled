@@ -46,7 +46,7 @@ function resolveAccordionData(paragraph: ParagraphAccordionProps['paragraph']): 
 
 export default function ParagraphAccordion({ paragraph, modifier, containerModifier }: ParagraphAccordionProps) {
   const accordionData = resolveAccordionData(paragraph);
-  
+
   return (
     <Accordion
       title={accordionData.title}
