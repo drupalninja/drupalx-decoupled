@@ -13,15 +13,15 @@ import {
   LanguageFragment,
   LinkFragment
 } from '@/graphql/fragments/misc';
-import { 
-  MediaUnionFragment, 
-  MediaImageFragment, 
+import {
+  MediaUnionFragment,
+  MediaImageFragment,
   MediaVideoFragment,
   ImageFragment,
   SvgMediaFragment,
-  SvgImageFragment 
+  SvgImageFragment
 } from "@/graphql/fragments/media";
-import { 
+import {
   MetaTagUnionFragment,
   MetaTagLinkFragment,
   MetaTagValueFragment,
@@ -81,7 +81,7 @@ const staticTypes = ['nodePages', 'nodeArticles', 'nodeLandings'];
 
 async function getAllPaths(): Promise<string[]> {
   const client = await getClientWithAuth();
-  
+
   const allPathsQuery = /* GraphQL */ `
     query allPaths {
       ${staticTypes.map(type => `
@@ -93,18 +93,18 @@ async function getAllPaths(): Promise<string[]> {
       `).join('\n')}
     }
   `;
-  
+
   const { data } = await client.query(allPathsQuery, {});
   if (!data) {
     console.error('Failed to fetch paths from Drupal');
     return [];
   }
-  
+
   const allPaths = staticTypes.flatMap(type => {
     const typeData = (data as QueryData)[type as keyof QueryData];
     return typeData?.nodes?.map(node => node.path) || [];
   });
-  
+
   return allPaths.filter(path => path && path !== frontpagePath);
 }
 

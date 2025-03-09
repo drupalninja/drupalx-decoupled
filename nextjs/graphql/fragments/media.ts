@@ -1,6 +1,3 @@
-import { DateTimeFragment, LanguageFragment } from "./misc";
-import { MetaTagUnionFragment } from "./metatag";
-
 export interface MediaImageType {
   image: {
     url: string;

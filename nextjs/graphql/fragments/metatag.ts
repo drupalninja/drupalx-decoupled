@@ -1,5 +1,3 @@
-import { DateTimeFragment, LanguageFragment } from "./misc";
-
 export const MetatagFragment = /* GraphQL */ `
   fragment MetatagFragment on MetaTag @_unmask {
     __typename

@@ -1,6 +1,3 @@
-import { DateTimeFragment, TextFragment, LanguageFragment } from "./misc";
-import { MetaTagUnionFragment } from "./metatag";
-
 export const TermAuthorFragment = /* GraphQL */ `
   fragment TermAuthorFragment on TermAuthor {
     id

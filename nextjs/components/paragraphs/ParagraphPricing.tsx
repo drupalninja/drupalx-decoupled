@@ -1,5 +1,3 @@
-import React from 'react';
-import { DateTimeFragment, LanguageFragment, TextFragment, LinkFragment } from '@/graphql/fragments/misc';
 import Pricing, { PricingProps, PricingCardProps } from '../pricing/Pricing';
 
 export const ParagraphPricingCardFragment = /* GraphQL */ `

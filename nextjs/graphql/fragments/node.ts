@@ -1,10 +1,3 @@
-import { MediaUnionFragment } from "@/graphql/fragments/media";
-import { UserFragment } from "@/graphql/fragments/user";
-import { TextFragment, TextSummaryFragment, DateTimeFragment, LanguageFragment } from "@/graphql/fragments/misc";
-import { MetaTagUnionFragment } from "./metatag";
-import { ParagraphUnionFragment } from "./paragraph";
-import { TermUnionFragment } from "./term";
-
 export const NodePageFragment = /* GraphQL */ `
   fragment NodePageFragment on NodePage {
     id
