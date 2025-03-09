@@ -1,4 +1,3 @@
-import React from 'react';
 import { getImage } from '@/components/helpers/Utilities';
 import LogoCollection, { Logo } from '../logo-collection/LogoCollection';
 import { MediaImage } from '@/lib/types';

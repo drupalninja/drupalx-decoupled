@@ -1,6 +1,6 @@
 import Gallery from '@/components/gallery/Gallery';
-import { getImage, MediaImage } from '@/components/helpers/Utilities';
-import { TextFormat } from '@/lib/types';
+import { getImage } from '@/components/helpers/Utilities';
+import { MediaImage, TextFormat } from '@/lib/types';
 
 export const ParagraphGalleryFragment = /* GraphQL */ `
   fragment ParagraphGalleryFragment on ParagraphGallery {

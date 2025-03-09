@@ -1,8 +1,8 @@
 import CardGroup from '@/components/card-group/CardGroup';
-import { getImage, MediaImage } from '@/components/helpers/Utilities';
+import { getImage } from '@/components/helpers/Utilities';
 import { CustomCardProps } from '@/components/card-group/CardGroup';
 import { StatCardProps } from '@/components/stat-card/StatCard';
-import { LinkFormat } from '@/lib/types';
+import { LinkFormat, MediaImage } from '@/lib/types';
 
 export const ParagraphCardFragment = /* GraphQL */ `
   fragment ParagraphCardFragment on ParagraphCard {
@@ -41,10 +41,8 @@ export const ParagraphCardGroupFragment = /* GraphQL */ `
 
 interface ParagraphCardGroupProps {
   paragraph: {
-    id: string;
     card?: Array<{
       __typename: 'ParagraphCard' | 'ParagraphStatsItem';
-      id: string;
       title?: string;
       summary?: string;
       statSummary?: string;
