@@ -1,6 +1,7 @@
 import { resolve } from "@/components/helpers/ComponentResolver";
 import Heading from "@/components/heading/Heading";
 import { ParagraphBase } from "@/components/helpers/ComponentResolver";
+import React from "react";
 
 type NodeLandingComponentProps = {
   node: {
@@ -21,9 +22,13 @@ export default async function NodeLandingComponent({ node, environment }: NodeLa
   });
 
   return (
-    <>
+    <div className="node-landing">
       {hidePageTitle ? null : <Heading level={1} title={title} className="container mb-10" />}
-      {resolvedComponents}
-    </>
+      {resolvedComponents.map((component, index) => (
+        <React.Fragment key={`component-${index}`}>
+          {component}
+        </React.Fragment>
+      ))}
+    </div>
   );
 }
