@@ -1,3 +1,7 @@
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { Metadata, ResolvingMetadata } from 'next';
+import { Fragment } from "react";
 import NodeArticleComponent from "@/components/node/NodeArticle";
 import NodePageComponent from "@/components/node/NodePage";
 import NodeLandingComponent from "@/components/node/NodeLanding";
@@ -50,12 +54,7 @@ import { ParagraphViewFragment } from "@/components/paragraphs/ParagraphView";
 import { TermUnionFragment, TermAuthorFragment, TermTagFragment } from "@/graphql/fragments/term";
 import { UserFragment } from "@/graphql/fragments/user";
 import { getClientWithAuth } from "@/utils/client.server";
-import { calculatePath } from "@/utils/routes";
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
-import { Fragment } from "react";
-import { Metadata, ResolvingMetadata } from 'next'
-import { frontpagePath } from '@/utils/routes';
+import { calculatePath, frontpagePath } from "@/utils/routes";
 
 interface NodeType {
   path: string;
@@ -76,9 +75,12 @@ type Props = {
   params: { slug: string[] }
 }
 
-// Configure the page type to be a static page.
 const staticTypes = ['nodePages', 'nodeArticles', 'nodeLandings'];
 
+/**
+ * Fetches all available paths for static generation.
+ * @returns Promise<string[]> Array of paths.
+ */
 async function getAllPaths(): Promise<string[]> {
   const client = await getClientWithAuth();
 
@@ -96,7 +98,7 @@ async function getAllPaths(): Promise<string[]> {
 
   const { data } = await client.query(allPathsQuery, {});
   if (!data) {
-    console.error('Failed to fetch paths from Drupal');
+    console.error('Failed to fetch paths from Drupal.');
     return [];
   }
 
@@ -108,6 +110,10 @@ async function getAllPaths(): Promise<string[]> {
   return allPaths.filter(path => path && path !== frontpagePath);
 }
 
+/**
+ * Generates static parameters for all paths.
+ * @returns Promise<{ slug: string[] }[]> Array of slug parameters for static generation.
+ */
 export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   const paths = await getAllPaths();
   return paths.map((path: string) => ({
@@ -115,10 +121,21 @@ export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   }));
 }
 
+/**
+ * Fetches page data for the current route.
+ * @param params Route parameters.
+ * @returns Promise containing the page data.
+ */
 async function getPageData({ params }: Props) {
   return await getDrupalData({ params });
 }
 
+/**
+ * Generates metadata for the current page.
+ * @param params Route parameters.
+ * @param parent Parent metadata.
+ * @returns Promise<Metadata> Page metadata.
+ */
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
@@ -130,6 +147,11 @@ export async function generateMetadata(
   }
 }
 
+/**
+ * Fetches Drupal data for the current route.
+ * @param params Route parameters containing the slug.
+ * @returns Object containing entity data and environment.
+ */
 async function getDrupalData({ params }: { params: { slug: string[] } }) {
   const pathFromParams = params.slug?.join("/") || frontpagePath;
   const requestUrl = headers().get("x-url");
@@ -139,6 +161,8 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
   });
 
   const client = await getClientWithAuth();
+
+  // Define the main route query with all necessary fragments.
   const nodeRouteQuery = /* GraphQL */ `
     query route($path: String!) {
       route(path: $path) {
@@ -153,21 +177,30 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
         }
       }
     }
+    # Node fragments
     ${NodePageFragment}
     ${NodeArticleFragment}
     ${NodeLandingFragment}
+
+    # User fragments
     ${UserFragment}
+
+    # Basic field fragments
     ${TextFragment}
     ${TextSummaryFragment}
     ${DateTimeFragment}
     ${LanguageFragment}
     ${LinkFragment}
+
+    # Media fragments
     ${MediaUnionFragment}
     ${MediaImageFragment}
     ${MediaVideoFragment}
     ${ImageFragment}
     ${SvgMediaFragment}
     ${SvgImageFragment}
+
+    # Metatag fragments
     ${MetaTagUnionFragment}
     ${MetaTagLinkFragment}
     ${MetaTagValueFragment}
@@ -177,6 +210,8 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
     ${MetaTagValueAttributesFragment}
     ${MetaTagPropertyAttributesFragment}
     ${MetaTagScriptAttributesFragment}
+
+    # Paragraph fragments
     ${ParagraphUnionFragment}
     ${ParagraphHeroFragment}
     ${ParagraphTextFragment}
@@ -197,6 +232,8 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
     ${ParagraphPricingCardFragment}
     ${ParagraphLogoCollectionFragment}
     ${ParagraphViewFragment}
+
+    # Taxonomy term fragments
     ${TermUnionFragment}
     ${TermAuthorFragment}
     ${TermTagFragment}
@@ -226,6 +263,11 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
   };
 }
 
+/**
+ * Main page component that renders different node types based on the route.
+ * @param params Route parameters containing the slug.
+ * @returns React component based on the node type.
+ */
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const { type, entity, environment } = await getPageData({ params });
 
