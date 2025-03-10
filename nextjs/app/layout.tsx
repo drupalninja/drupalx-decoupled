@@ -4,10 +4,12 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { MainMenuQuery, FooterMenuQuery } from "@/graphql/queries";
 import { getClientWithAuth } from "@/utils/client.server";
+import getConfig from 'next/config';
 
 import './globals.css'
 
 const font = Open_Sans({ subsets: ["latin"] });
+const { publicRuntimeConfig } = getConfig();
 
 export default async function RootLayout({
   children,
@@ -32,7 +34,10 @@ export default async function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <Container>
-          <Header mainMenu={menuData?.menu || null} />
+          <Header
+            mainMenu={menuData?.menu || null}
+            config={publicRuntimeConfig}
+          />
           {children}
           <Footer footerMenu={footerData?.menu || null} />
         </Container>

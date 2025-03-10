@@ -27,8 +27,8 @@ const nextConfig = {
   },
   publicRuntimeConfig: {
     LOGO_URL: '/images/logo.svg',
-    LOGO_WIDTH: '200',
-    LOGO_HEIGHT: '100',
+    LOGO_WIDTH: '160',
+    LOGO_HEIGHT: '44',
     SITE_NAME: 'DrupalX',
     SHOW_LOGO: '1',
     SHOW_SITE_NAME: '0',
