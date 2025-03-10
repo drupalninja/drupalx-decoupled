@@ -2,15 +2,8 @@ import { getImage } from '@/components/helpers/Utilities';
 import Sidebyside, { BulletProps } from '@/components/sidebyside/Sidebyside';
 import { StatCardProps } from '@/components/stat-card/StatCard';
 import { LinkFormat, MediaImage, TextFormat } from '@/lib/types';
-
-export const ParagraphBulletFragment = /* GraphQL */ `
-  fragment ParagraphBulletFragment on ParagraphBullet {
-    bulletIcon: icon
-    bulletSummary: summary {
-      ...TextFragment
-    }
-  }
-`;
+import { ParagraphStatsItemType, transformStatsItem } from './ParagraphStatsItem';
+import { ParagraphBulletType, transformBullet } from './ParagraphBullet';
 
 export const ParagraphSidebysideFragment = /* GraphQL */ `
   fragment ParagraphSidebysideFragment on ParagraphSidebyside {
@@ -39,21 +32,6 @@ interface StatFeature extends StatCardProps {
 }
 
 type Feature = BulletProps | StatFeature;
-
-interface ParagraphStatsItemType {
-  __typename: 'ParagraphStatsItem';
-  customIcon?: MediaImage;
-  title?: string;
-  statSummary?: string;
-  icon?: string;
-}
-
-interface ParagraphBulletType {
-  __typename: 'ParagraphBullet';
-  bulletIcon?: BulletProps['icon'];
-  bulletSummary?: TextFormat;
-}
-
 type ParagraphFeature = ParagraphStatsItemType | ParagraphBulletType;
 
 interface ParagraphSidebysideProps {
@@ -75,24 +53,15 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
 
   const featureItems: Feature[] = features ? features.map((feature) => {
     if (feature.__typename === 'ParagraphStatsItem') {
-      const stat = feature as ParagraphStatsItemType;
-      const mediaImage = stat.customIcon || {} as MediaImage;
+      const statCard = transformStatsItem(feature as ParagraphStatsItemType);
       return {
-        type: 'stat',
-        media: getImage(mediaImage, 'w-16 h-16 object-contain mx-auto'),
-        heading: stat.title ?? '',
-        body: stat.statSummary ?? '',
-        icon: stat.icon ?? '',
+        ...statCard,
         border: false,
         layout: 'left',
       } as StatFeature;
-    } else if (feature.__typename === 'ParagraphBullet') {
-      const bullet = feature as ParagraphBulletType;
-      return {
-        type: 'bullet',
-        icon: bullet.bulletIcon || '',
-        summary: bullet.bulletSummary?.value || '',
-      } as BulletProps;
+    }
+    else if (feature.__typename === 'ParagraphBullet') {
+      return transformBullet(feature as ParagraphBulletType);
     }
     return null;
   }).filter((item): item is Feature => item !== null) : [];

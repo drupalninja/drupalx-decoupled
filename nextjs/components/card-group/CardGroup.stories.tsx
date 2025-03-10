@@ -78,7 +78,7 @@ export const SingleCard: Story = {
   args: {
     title: 'Single Card',
     cards: [mockCards[0]],
-    modifier: '',
+    modifier: 'container mx-auto my-2 lg:my-10',
   },
 };
 

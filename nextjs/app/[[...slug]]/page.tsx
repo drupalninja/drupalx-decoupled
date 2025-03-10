@@ -5,11 +5,18 @@ import { Fragment } from "react";
 import NodeArticleComponent from "@/components/node/NodeArticle";
 import NodePageComponent from "@/components/node/NodePage";
 import NodeLandingComponent from "@/components/node/NodeLanding";
+
+// Enable dynamic rendering for specific paths that need headers
+export const dynamic = 'auto';
+// Enable static rendering with revalidation for other paths
+export const revalidate = 3600;
+
 import {
   NodePageFragment,
   NodeArticleFragment,
   NodeLandingFragment
 } from "@/graphql/fragments/node";
+
 import {
   TextFragment,
   TextSummaryFragment,
@@ -17,6 +24,7 @@ import {
   LanguageFragment,
   LinkFragment
 } from '@/graphql/fragments/misc';
+
 import {
   MediaUnionFragment,
   MediaImageFragment,
@@ -25,6 +33,7 @@ import {
   SvgMediaFragment,
   SvgImageFragment
 } from "@/graphql/fragments/media";
+
 import {
   MetaTagUnionFragment,
   MetaTagLinkFragment,
@@ -36,20 +45,24 @@ import {
   MetaTagPropertyAttributesFragment,
   MetaTagScriptAttributesFragment
 } from "@/graphql/fragments/metatag";
-import { ParagraphUnionFragment } from "@/graphql/fragments/paragraph";
-import { ParagraphHeroFragment } from "@/components/paragraphs/ParagraphHero";
-import { ParagraphTextFragment } from "@/components/paragraphs/ParagraphText";
-import { ParagraphMediaFragment } from "@/components/paragraphs/ParagraphMedia";
-import { ParagraphQuoteFragment } from "@/components/paragraphs/ParagraphQuote";
+
 import { ParagraphAccordionFragment, ParagraphAccordionItemFragment } from "@/components/paragraphs/ParagraphAccordion";
-import { ParagraphCardGroupFragment, ParagraphCardFragment, ParagraphStatsItemFragment } from "@/components/paragraphs/ParagraphCardGroup";
-import { ParagraphGalleryFragment } from "@/components/paragraphs/ParagraphGallery";
-import { ParagraphSidebysideFragment, ParagraphBulletFragment } from "@/components/paragraphs/ParagraphSidebyside";
+import { ParagraphBulletFragment } from "@/components/paragraphs/ParagraphBullet";
 import { ParagraphCarouselFragment } from "@/components/paragraphs/ParagraphCarousel";
+import { ParagraphCardFragment } from "@/components/paragraphs/ParagraphCard";
+import { ParagraphCardGroupFragment } from "@/components/paragraphs/ParagraphCardGroup";
 import { ParagraphEmbedFragment } from "@/components/paragraphs/ParagraphEmbed";
+import { ParagraphGalleryFragment } from "@/components/paragraphs/ParagraphGallery";
+import { ParagraphHeroFragment } from "@/components/paragraphs/ParagraphHero";
+import { ParagraphLogoCollectionFragment } from "@/components/paragraphs/ParagraphLogoCollection";
+import { ParagraphMediaFragment } from "@/components/paragraphs/ParagraphMedia";
 import { ParagraphNewsletterFragment } from "@/components/paragraphs/ParagraphNewsletter";
 import { ParagraphPricingFragment, ParagraphPricingCardFragment } from "@/components/paragraphs/ParagraphPricing";
-import { ParagraphLogoCollectionFragment } from "@/components/paragraphs/ParagraphLogoCollection";
+import { ParagraphQuoteFragment } from "@/components/paragraphs/ParagraphQuote";
+import { ParagraphSidebysideFragment } from "@/components/paragraphs/ParagraphSidebyside";
+import { ParagraphStatsItemFragment } from "@/components/paragraphs/ParagraphStatsItem";
+import { ParagraphTextFragment } from "@/components/paragraphs/ParagraphText";
+import { ParagraphUnionFragment } from "@/graphql/fragments/paragraph";
 import { ParagraphViewFragment } from "@/components/paragraphs/ParagraphView";
 import { TermUnionFragment, TermAuthorFragment, TermTagFragment } from "@/graphql/fragments/term";
 import { UserFragment } from "@/graphql/fragments/user";
@@ -154,11 +167,21 @@ export async function generateMetadata(
  */
 async function getDrupalData({ params }: { params: { slug: string[] } }) {
   const pathFromParams = params.slug?.join("/") || frontpagePath;
-  const requestUrl = headers().get("x-url");
-  const path = calculatePath({
-    path: pathFromParams,
-    url: requestUrl!,
-  });
+
+  // Get the request URL if available, otherwise construct a default URL
+  let path = pathFromParams;
+  try {
+    const requestUrl = headers().get("x-url");
+    if (requestUrl) {
+      path = calculatePath({
+        path: pathFromParams,
+        url: requestUrl,
+      });
+    }
+  } catch (e) {
+    // If headers() fails (during static generation), use the pathFromParams
+    console.log('Using default path for static generation:', pathFromParams);
+  }
 
   const client = await getClientWithAuth();
 

@@ -1,32 +1,9 @@
 import CardGroup from '@/components/card-group/CardGroup';
-import { getImage } from '@/components/helpers/Utilities';
 import { CustomCardProps } from '@/components/card-group/CardGroup';
 import { StatCardProps } from '@/components/stat-card/StatCard';
 import { LinkFormat, MediaImage } from '@/lib/types';
-
-export const ParagraphCardFragment = /* GraphQL */ `
-  fragment ParagraphCardFragment on ParagraphCard {
-    link {
-      ...LinkFragment
-    }
-    media {
-      ...MediaUnionFragment
-    }
-    summary
-    title
-  }
-`;
-
-export const ParagraphStatsItemFragment = /* GraphQL */ `
-  fragment ParagraphStatsItemFragment on ParagraphStatsItem {
-    customIcon {
-      ...SvgMediaFragment
-    }
-    icon
-    statSummary: summary
-    title
-  }
-`;
+import { ParagraphStatsItemType, transformStatsItem } from './ParagraphStatsItem';
+import { ParagraphCardType, transformCard } from './ParagraphCard';
 
 export const ParagraphCardGroupFragment = /* GraphQL */ `
   fragment ParagraphCardGroupFragment on ParagraphCardGroup {
@@ -62,27 +39,10 @@ export default function ParagraphCardGroup({ paragraph, modifier }: ParagraphCar
 
   const cardItems = paragraph.card.map((item) => {
     if (item.__typename === 'ParagraphStatsItem') {
-      return {
-        type: 'stat',
-        icon: item.icon,
-        media: item.customIcon ? getImage(item.customIcon, 'w-16 h-16 object-contain mx-auto') : null,
-        heading: item.title,
-        body: item.statSummary,
-      } as StatCardProps;
+      return transformStatsItem(item as ParagraphStatsItemType);
     }
 
-    return {
-      type: 'custom',
-      media: item.media ? getImage(item.media, 'object-cover w-full h-full') : null,
-      mediaLink: item.link?.url,
-      heading: {
-        title: item.title,
-        url: item.link?.url,
-      },
-      tags: item.tags,
-      summaryText: item.summary,
-      link: item.link,
-    } as CustomCardProps;
+    return transformCard(item as ParagraphCardType);
   }).filter((item): item is StatCardProps | CustomCardProps => item !== null);
 
   return (
