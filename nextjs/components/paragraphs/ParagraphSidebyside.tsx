@@ -1,86 +1,44 @@
-import React from 'react';
-import { FragmentOf, readFragment, graphql } from 'gql.tada';
-import { DateTimeFragment, LanguageFragment, TextFragment, LinkFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment } from "@/graphql/fragments/media";
-import { getImage, MediaImage } from '@/components/helpers/Utilities';
-import Sidebyside from '@/components/sidebyside/Sidebyside';
+import { getImage } from '@/components/helpers/Utilities';
+import Sidebyside, { BulletProps } from '@/components/sidebyside/Sidebyside';
 import { StatCardProps } from '@/components/stat-card/StatCard';
-import { ParagraphStatsItemFragment } from './ParagraphCardGroup';
+import { LinkFormat, MediaImage, TextFormat } from '@/lib/types';
 
-export const ParagraphBulletFragment = graphql(`fragment ParagraphBulletFragment on ParagraphBullet {
-  id
-  created {
-    ...DateTimeFragment
+export const ParagraphBulletFragment = /* GraphQL */ `
+  fragment ParagraphBulletFragment on ParagraphBullet {
+    bulletIcon: icon
+    bulletSummary: summary {
+      ...TextFragment
+    }
   }
-  bulletIcon: icon
-  langcode {
-    ...LanguageFragment
-  }
-  status
-  bulletSummary: summary {
-    ...TextFragment
-  }
-}`,
-  [
-    DateTimeFragment,
-    LanguageFragment,
-  ]
-)
+`;
 
-export const ParagraphSidebysideFragment = graphql(`fragment ParagraphSidebysideFragment on ParagraphSidebyside {
-  id
-  created {
-    ...DateTimeFragment
+export const ParagraphSidebysideFragment = /* GraphQL */ `
+  fragment ParagraphSidebysideFragment on ParagraphSidebyside {
+    eyebrow
+    link {
+      ...LinkFragment
+    }
+    media {
+      ...MediaUnionFragment
+    }
+    features {
+      __typename
+      ...ParagraphStatsItemFragment
+      ...ParagraphBulletFragment
+    }
+    sidebysideLayout
+    sidebysideSummary: summary {
+      ...TextFragment
+    }
+    sidebysideTitle: title
   }
-  eyebrow
-  langcode {
-    ...LanguageFragment
-  }
-  link {
-    ...LinkFragment
-  }
-  media {
-    ...MediaUnionFragment
-  }
-  features {
-    __typename
-    ...ParagraphStatsItemFragment
-    ...ParagraphBulletFragment
-  }
-  sidebysideLayout
-  status
-  sidebysideSummary: summary {
-    ...TextFragment
-  }
-  sidebysideTitle: title
-}`,
-  [
-    DateTimeFragment,
-    LanguageFragment,
-    LinkFragment,
-    MediaUnionFragment,
-    ParagraphStatsItemFragment,
-    ParagraphBulletFragment,
-    TextFragment,
-  ]
-)
-
-interface BulletFeature {
-  type: 'bullet';
-  icon: string;
-  summary: string;
-}
+`;
 
 interface StatFeature extends StatCardProps {
   type: 'stat';
 }
 
-type Feature = BulletFeature | StatFeature;
-
-interface LinkType {
-  url?: string;
-  title?: string;
-}
+type Feature = BulletProps | StatFeature;
 
 interface ParagraphStatsItemType {
   __typename: 'ParagraphStatsItem';
@@ -92,26 +50,32 @@ interface ParagraphStatsItemType {
 
 interface ParagraphBulletType {
   __typename: 'ParagraphBullet';
-  bulletIcon?: string;
-  bulletSummary?: { value?: string };
+  bulletIcon?: BulletProps['icon'];
+  bulletSummary?: TextFormat;
 }
 
 type ParagraphFeature = ParagraphStatsItemType | ParagraphBulletType;
 
 interface ParagraphSidebysideProps {
-  paragraph: FragmentOf<typeof ParagraphSidebysideFragment>;
+  paragraph: {
+    eyebrow?: string;
+    sidebysideLayout?: string;
+    sidebysideSummary?: TextFormat;
+    sidebysideTitle?: string;
+    link?: LinkFormat;
+    media?: MediaImage;
+    features?: ParagraphFeature[];
+  };
   modifier?: string;
 }
 
 export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSidebysideProps) {
-  const { eyebrow, sidebysideLayout: layout, sidebysideSummary, sidebysideTitle, link, media, features } = readFragment(ParagraphSidebysideFragment, paragraph);
-  const linkFragment = readFragment(LinkFragment, link);
-  const textFragment = readFragment(TextFragment, sidebysideSummary);
-  const imageContent = getImage(media, 'w-full h-auto rounded-lg', ['I43SMALL', 'I43LARGE2X']);
+  const { eyebrow, sidebysideLayout: layout, sidebysideSummary, sidebysideTitle, link, media, features } = paragraph;
+  const imageContent = media ? getImage(media, 'w-full h-auto rounded-lg', ['I43SMALL', 'I43LARGE2X']) : null;
 
-  const featureItems: Feature[] = features ? (features as ParagraphFeature[]).map((feature) => {
+  const featureItems: Feature[] = features ? features.map((feature) => {
     if (feature.__typename === 'ParagraphStatsItem') {
-      const stat = readFragment(ParagraphStatsItemFragment, feature as FragmentOf<typeof ParagraphStatsItemFragment>) as ParagraphStatsItemType;
+      const stat = feature as ParagraphStatsItemType;
       const mediaImage = stat.customIcon || {} as MediaImage;
       return {
         type: 'stat',
@@ -123,28 +87,23 @@ export default function ParagraphSidebyside({ paragraph, modifier }: ParagraphSi
         layout: 'left',
       } as StatFeature;
     } else if (feature.__typename === 'ParagraphBullet') {
-      const bullet = readFragment(ParagraphBulletFragment, feature as FragmentOf<typeof ParagraphBulletFragment>) as ParagraphBulletType;
+      const bullet = feature as ParagraphBulletType;
       return {
         type: 'bullet',
         icon: bullet.bulletIcon || '',
         summary: bullet.bulletSummary?.value || '',
-      } as BulletFeature;
+      } as BulletProps;
     }
     return null;
   }).filter((item): item is Feature => item !== null) : [];
-
-  const linkData: LinkType = {
-    url: linkFragment?.url || undefined,
-    title: linkFragment?.title || undefined
-  };
 
   return (
     <Sidebyside
       eyebrow={eyebrow ?? ''}
       layout={layout}
-      title={sidebysideTitle}
-      summary={textFragment?.value ?? ''}
-      link={linkData}
+      title={sidebysideTitle ?? ''}
+      summary={sidebysideSummary?.value ?? ''}
+      link={link}
       media={imageContent}
       modifier={modifier}
       features={featureItems}

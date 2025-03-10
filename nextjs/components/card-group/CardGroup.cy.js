@@ -26,6 +26,15 @@ describe('Card Group Component', () => {
         });
       });
     });
+
+    it('should have proper card content structure', () => {
+      cy.get('.card').first().within(() => {
+        cy.get('.flex-grow').should('exist');
+        cy.get('.flex-wrap').should('exist');
+        cy.get('.text-xl').should('exist');
+        cy.get('.text-gray-600').should('exist');
+      });
+    });
   });
 
   context('Single Card Story', () => {
@@ -63,6 +72,10 @@ describe('Card Group Component', () => {
     it('should display the correct title', () => {
       cy.get('h2').should('contain', 'Two Cards');
     });
+
+    it('should have correct grid classes for two cards', () => {
+      cy.get('.grid').should('have.class', 'md:grid-cols-2');
+    });
   });
 
   context('Stat Cards Only Story', () => {
@@ -71,7 +84,7 @@ describe('Card Group Component', () => {
     });
 
     it('should display only stat cards', () => {
-      cy.get('.grid > div').should('have.length', 2);
+      cy.get('.grid > div').should('have.length', 3);
     });
 
     it('should display the correct title', () => {
@@ -83,6 +96,7 @@ describe('Card Group Component', () => {
         cy.wrap($stat).within(() => {
           cy.get('.text-xl').should('be.visible');
           cy.get('p').should('be.visible');
+          cy.get('.stat-icon').should('exist');
           cy.get('svg').should('exist');
         });
       });
@@ -99,7 +113,7 @@ describe('Card Group Component', () => {
       cy.get('.grid').should('have.class', 'grid-cols-1');
     });
 
-    it('should display items in two columns on tablet and desktop', () => {
+    it('should display items in two columns on tablet', () => {
       cy.viewport('ipad-mini');
       cy.get('.grid').should('have.class', 'md:grid-cols-2');
     });
@@ -107,6 +121,11 @@ describe('Card Group Component', () => {
     it('should display items in three columns on desktop for 3 or more cards', () => {
       cy.viewport('macbook-15');
       cy.get('.grid').should('have.class', 'lg:grid-cols-3');
+    });
+
+    it('should have proper spacing classes', () => {
+      cy.get('.grid').should('have.class', 'lg:gap-6');
+      cy.get('.grid > div').should('have.class', 'mb-4');
     });
   });
 });

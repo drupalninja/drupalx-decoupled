@@ -1,10 +1,11 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import StatCard, { StatCardProps } from '../stat-card/StatCard';
 import { getLucideIcon } from '@/utils/dynamic-icon';
+import { LinkFormat } from '@/lib/types';
 
-interface BulletProps {
+export interface BulletProps {
   type: 'bullet';
   icon: string;
   summary: string;
@@ -17,10 +18,7 @@ export interface SidebysideProps {
   layout?: string;
   title: string;
   summary?: string;
-  link?: {
-    url?: string;
-    title?: string;
-  };
+  link?: LinkFormat;
   media: ReactNode;
   modifier?: string;
   features?: FeatureItem[];
@@ -51,9 +49,8 @@ export default function Sidebyside({
 
   return (
     <div
-      className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${
-        modifier ?? 'container my-6 lg:my-25'
-      } ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}
+      className={`flex flex-col lg:flex-row items-center justify-between gap-6 ${modifier ?? 'container my-6 lg:my-25'
+        } ${layout === 'right' ? 'lg:flex-row-reverse' : ''}`}
     >
       <div className="w-full lg:w-1/2">{media}</div>
       <div className="w-full lg:w-1/2 xl:w-5/12 flex flex-col gap-4">

@@ -1,74 +1,53 @@
-import { FragmentOf, readFragment, graphql } from 'gql.tada';
-import { TextSummaryFragment, DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
-import { MediaUnionFragment, MediaImageFragment, ImageFragment } from '@/graphql/fragments/media';
 import Gallery from '@/components/gallery/Gallery';
 import { getImage } from '@/components/helpers/Utilities';
+import { MediaImage, TextFormat } from '@/lib/types';
 
-export const ParagraphGalleryFragment = graphql(`fragment ParagraphGalleryFragment on ParagraphGallery {
-  id
-  gallerySummary: body {
-    ...TextSummaryFragment
+export const ParagraphGalleryFragment = /* GraphQL */ `
+  fragment ParagraphGalleryFragment on ParagraphGallery {
+    gallerySummary: body {
+      ...TextSummaryFragment
+    }
+    mediaItem {
+      ...MediaUnionFragment
+    }
+    title
   }
-  created {
-    ...DateTimeFragment
-  }
-  langcode {
-    ...LanguageFragment
-  }
-  mediaItem {
-    ...MediaUnionFragment
-  }
-  status
-  title
-}`,
-  [
-    TextSummaryFragment,
-    DateTimeFragment,
-    LanguageFragment,
-    MediaUnionFragment,
-  ]
-)
-
-type MediaItem = FragmentOf<typeof MediaUnionFragment>;
+`;
 
 interface ParagraphGalleryProps {
-  paragraph: FragmentOf<typeof ParagraphGalleryFragment>
-  modifier?: string
+  paragraph: {
+    title?: string;
+    gallerySummary?: TextFormat;
+    mediaItem?: MediaImage[];
+  };
+  modifier?: string;
 }
 
 export default function ParagraphGallery({ paragraph, modifier }: ParagraphGalleryProps) {
-  const { title, gallerySummary, mediaItem } = readFragment(ParagraphGalleryFragment, paragraph);
-  const gallerySummaryFragment = readFragment(TextSummaryFragment, gallerySummary);
-  const mediaUnion = readFragment(MediaUnionFragment, mediaItem);
+  const { title, gallerySummary, mediaItem } = paragraph;
 
-  const mediaNodes = (Array.isArray(mediaUnion) ? mediaUnion : [])
+  const mediaItems = (Array.isArray(mediaItem) ? mediaItem : [])
     .map(item => {
-      const imageItem = readFragment(MediaImageFragment, item);
-      const image = imageItem?.image && readFragment(ImageFragment, imageItem.image);
+      if (!item.image) {
+        return null;
+      }
 
-      if (!image) return null;
-
-      return getImage({
-        image: {
-          url: image.url,
-          alt: image.alt ?? undefined,
-          width: image.width,
-          height: image.height,
-          variations: image.variations?.map(({ name, url, width, height }) => ({
-            name, url, width, height
-          }))
-        }
-      }, 'w-full h-auto rounded-lg', ['I43SMALL', 'I43LARGE2X']);
+      return getImage(item, 'w-full h-auto rounded-lg', ['I43SMALL', 'I43LARGE2X']);
     })
     .filter(Boolean);
 
+  // Extract media IDs for better keys
+  const mediaIds = (Array.isArray(mediaItem) ? mediaItem : [])
+    .map(item => item.id || '')
+    .filter(Boolean);
+
   return (
-    <div className={modifier ?? 'container my-6 my-lg-15'}>
-      <Gallery
-        mediaItems={mediaNodes}
-        title={title ?? ''}
-        summary={gallerySummaryFragment?.value ?? ''}
-      />
-    </div>
+    <Gallery
+      mediaItems={mediaItems}
+      mediaIds={mediaIds}
+      title={title ?? ''}
+      summary={gallerySummary?.value ?? ''}
+      containerClassName={modifier}
+    />
   );
 }

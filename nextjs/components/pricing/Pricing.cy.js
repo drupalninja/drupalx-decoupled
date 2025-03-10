@@ -5,7 +5,11 @@ describe('Pricing Component', () => {
 
   it('should contain all expected elements', () => {
     // Verify the main pricing section
-    cy.get('section.px-4.sm\\:px-\\[5\\%\\].my-12.lg\\:my-25').should('exist');
+    cy.get('section.px-4.sm\\:px-\\[5\\%\\]').should('exist');
+    cy.get('section').should('have.class', 'container');
+    cy.get('section').should('have.class', 'mx-auto');
+    cy.get('section').should('have.class', 'my-2');
+    cy.get('section').should('have.class', 'lg:my-10');
 
     // Verify the header content
     cy.get('.mx-auto.max-w-lg.text-center.mb-6.lg\\:mb-12').should('exist');

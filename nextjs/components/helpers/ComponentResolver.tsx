@@ -1,6 +1,4 @@
-import { FragmentOf, readFragment, ResultOf } from "gql.tada";
 import dynamic from 'next/dynamic';
-import { ParagraphUnionFragment } from '@/graphql/fragments/paragraph';
 
 // Type for component props
 export interface ParagraphBase {
@@ -30,7 +28,7 @@ const importFragment = async (type: string) => {
 };
 
 interface ResolveProps {
-  data: ResultOf<typeof ParagraphUnionFragment>[] | null;
+  data: ParagraphBase[] | null;
   environment?: string;
 }
 
@@ -44,7 +42,6 @@ export const resolve = async ({ data = [], environment = 'preview' }: ResolvePro
 
   for (const paragraph of data) {
     const type = paragraph.__typename;
-
     if (!type) {
       console.warn('Paragraph without __typename encountered:', paragraph);
       continue;
@@ -56,10 +53,8 @@ export const resolve = async ({ data = [], environment = 'preview' }: ResolvePro
         importFragment(type),
       ]);
 
-      // Use proper typing with the fragment
-      const typedParagraph = readFragment(FragmentType as any, paragraph) as ParagraphBase;
-
-      components.push(<Component key={paragraph.id} paragraph={typedParagraph} />);
+      // Use the paragraph directly
+      components.push(<Component key={paragraph.id} paragraph={paragraph} />);
     } catch (error) {
       console.error(`Failed to load component or fragment for type ${type}:`, error);
       components.push(<pre key={paragraph.id}>{JSON.stringify(paragraph, null, 2)}</pre>);

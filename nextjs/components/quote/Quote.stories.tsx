@@ -26,6 +26,10 @@ const meta: Meta<typeof Quote> = {
       description: 'Thumbnail image for the author',
       control: 'object'
     },
+    containerClassName: {
+      description: 'Container class name',
+      control: 'text'
+    },
   },
 };
 
@@ -55,5 +59,6 @@ export const Default: Story = {
         url: "./images/card.webp",
       },
     },
+    containerClassName: 'container mx-auto my-2 lg:my-10',
   }
 };

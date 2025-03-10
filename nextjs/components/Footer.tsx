@@ -1,11 +1,14 @@
-import { ResultOf } from "gql.tada";
 import { FooterMenuQuery } from "@/graphql/queries";
 import SiteFooter, { SiteFooterProps } from './site-footer/SiteFooter';
 import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 
-type FooterMenuData = ResultOf<typeof FooterMenuQuery>;
+type FooterMenuData = {
+  menu: {
+    items: any[];
+  } | null;
+};
 
 export default function Footer({ footerMenu }: Readonly<{ footerMenu: FooterMenuData['menu'] | null }>) {
   const menus = footerMenu?.items;

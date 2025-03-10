@@ -1,23 +1,4 @@
-import { graphql } from "@/graphql/gql.tada";
-import { DateTimeFragment, LanguageFragment } from "./misc";
-import { MetaTagUnionFragment } from "./metatag";
-
-export interface MediaImageType {
-  image: {
-    url: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-    variations?: Array<{
-      name: string;
-      url: string;
-      width?: number;
-      height?: number;
-    }>;
-  };
-}
-
-export const ImageFragment = graphql(`
+export const ImageFragment = /* GraphQL */ `
   fragment ImageFragment on Image {
     url
     width
@@ -31,9 +12,9 @@ export const ImageFragment = graphql(`
       height
     }
   }
-`)
+`;
 
-export const SvgImageFragment = graphql(`
+export const SvgImageFragment = /* GraphQL */ `
   fragment SvgImageFragment on Image {
     url
     width
@@ -41,57 +22,66 @@ export const SvgImageFragment = graphql(`
     alt
     title
   }
-`)
+`;
 
-export const SvgMediaFragment = graphql(`
+export const SvgMediaFragment = /* GraphQL */ `
   fragment SvgMediaFragment on MediaSvgImage {
     id
     image {
       ...SvgImageFragment
     }
   }
-`, [SvgImageFragment])
+`;
 
-export const MediaImageFragment = graphql(`
+export const MediaImageFragment = /* GraphQL */ `
   fragment MediaImageFragment on MediaImage {
     id
+    changed {
+      ...DateTimeFragment
+    }
+    created {
+      ...DateTimeFragment
+    }
     image {
       ...ImageFragment
     }
+    langcode {
+      ...LanguageFragment
+    }
+    metatag {
+      ...MetaTagUnionFragment
+    }
+    name
+    path
+    status
   }
-`, [ImageFragment])
+`;
 
-export const MediaVideoFragment = graphql(`fragment MediaVideoFragment on MediaVideo {
-  id
-  changed {
-    ...DateTimeFragment
+export const MediaVideoFragment = /* GraphQL */ `
+  fragment MediaVideoFragment on MediaVideo {
+    id
+    changed {
+      ...DateTimeFragment
+    }
+    created {
+      ...DateTimeFragment
+    }
+    langcode {
+      ...LanguageFragment
+    }
+    metatag {
+      ...MetaTagUnionFragment
+    }
+    name
+    path
+    source
+    status
   }
-  created {
-    ...DateTimeFragment
-  }
-  langcode {
-    ...LanguageFragment
-  }
-  metatag {
-    ...MetaTagUnionFragment
-  }
-  name
-  path
-  source
-  status
-}`,
-  [
-    DateTimeFragment,
-    LanguageFragment,
-    MetaTagUnionFragment,
-  ]
-)
+`;
 
-export const MediaUnionFragment = graphql(`fragment MediaUnionFragment on MediaUnion {
-  ...MediaImageFragment
-  ...MediaVideoFragment
-}`,
-  [
-    MediaImageFragment,
-    MediaVideoFragment,
-  ])
+export const MediaUnionFragment = /* GraphQL */ `
+  fragment MediaUnionFragment on MediaUnion {
+    ...MediaImageFragment
+    ...MediaVideoFragment
+  }
+`;

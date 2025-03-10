@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -55,6 +54,7 @@ export interface PricingProps {
   summary?: string;
   cards: PricingCardProps[];
   includesLabel?: string;
+  modifier?: string;
 }
 
 const Pricing: React.FC<PricingProps> = ({
@@ -62,13 +62,14 @@ const Pricing: React.FC<PricingProps> = ({
   title = "Pricing plan",
   summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   cards,
-  includesLabel = "Includes"
+  includesLabel = "Includes",
+  modifier = "container mx-auto my-6 lg:my-25"
 }) => {
   const gridColumns = cards.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3';
 
   return (
     <div className={cards.length == 3 ? 'mx-auto' : `max-w-5xl mx-auto`}>
-      <section className="px-4 sm:px-[5%] my-12 lg:my-25">
+      <section className={`px-4 sm:px-[5%] ${modifier}`}>
         <div className="mx-auto max-w-lg text-center mb-6 lg:mb-12">
           <p className="eyebrow mb-2 sm:mb-3 text-sm sm:text-base font-semibold md:mb-4">{eyebrow}</p>
           <h2 className="mb-4 sm:mb-5 text-3xl sm:text-4xl md:text-5xl font-semibold md:mb-6 lg:text-7xl">{title}</h2>

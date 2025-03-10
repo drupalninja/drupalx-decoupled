@@ -1,9 +1,6 @@
-import { graphql } from "@/graphql/gql.tada";
-import { MediaImageFragment } from "@/graphql/fragments/media";
-
-export const UserFragment = graphql(`
+export const UserFragment = /* GraphQL */ `
   fragment UserFragment on User {
     id
     name
   }
-`, [MediaImageFragment])
+`;

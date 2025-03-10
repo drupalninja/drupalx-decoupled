@@ -38,7 +38,7 @@ const mockSidebyside: SidebysideProps = {
 export const Default: Story = {
   args: {
     ...mockSidebyside,
-    modifier: '',
+    modifier: 'container mx-auto my-2 lg:my-10',
   },
 };
 
@@ -46,7 +46,7 @@ export const RightLayout: Story = {
   args: {
     ...mockSidebyside,
     layout: 'right',
-    modifier: '',
+    modifier: 'container mx-auto my-2 lg:my-10',
   },
 };
 
@@ -71,6 +71,6 @@ export const WithStatCards: Story = {
     layout: 'right',
     media: mockMedia,
     features: [mockStat1, mockStat2],
-    modifier: '',
+    modifier: 'container mx-auto my-2 lg:my-10',
   },
 };

@@ -10,14 +10,14 @@ const meta: Meta<typeof Text> = {
       description: 'The title of the text component',
     },
     body: {
-      control: 'text',
-      description: 'The main content of the text component',
+      control: 'object',
+      description: 'The main content of the text component as TextFormat',
     },
-    linkFragment: {
+    link: {
       control: 'object',
       description: 'The primary link object',
     },
-    linkFragment2: {
+    link2: {
       control: 'object',
       description: 'The secondary link object',
     },
@@ -30,10 +30,13 @@ const meta: Meta<typeof Text> = {
       options: ['default', 'centered', 'buttons-right'],
       description: 'The layout of the text component',
     },
-    className: {
+    modifier: {
       control: 'text',
       description: 'Additional CSS classes',
     },
+  },
+  parameters: {
+    layout: 'fullscreen',
   },
 };
 
@@ -43,13 +46,17 @@ type Story = StoryObj<typeof Text>;
 export const Default: Story = {
   args: {
     title: 'Title Lorem Ipsum Dolor',
-    body: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris mi, aliquam in orci at, finibus malesuada elit. Vivamus ex ante, imperdiet nec odio ac, sollicitudin fermentum velit.</p>',
+    body: {
+      value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris mi, aliquam in orci at, finibus malesuada elit. Vivamus ex ante, imperdiet nec odio ac, sollicitudin fermentum velit.</p>',
+      processed: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris mi, aliquam in orci at, finibus malesuada elit. Vivamus ex ante, imperdiet nec odio ac, sollicitudin fermentum velit.</p>',
+      format: 'full_html',
+    },
     eyebrow: 'Test eyebrow',
-    linkFragment: {
+    link: {
       url: '#',
       title: 'Read more',
     },
-    linkFragment2: {
+    link2: {
       url: '#',
       title: 'Learn more',
     },
@@ -74,14 +81,14 @@ export const ButtonsRight: Story = {
 export const NoLinks: Story = {
   args: {
     ...Default.args,
-    linkFragment: undefined,
-    linkFragment2: undefined,
+    link: undefined,
+    link2: undefined,
   },
 };
 
 export const SingleLink: Story = {
   args: {
     ...Default.args,
-    linkFragment2: undefined,
+    link2: undefined,
   },
 };

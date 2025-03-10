@@ -1,6 +1,4 @@
-import { graphql } from "@/graphql/gql.tada";
-
-export const MetatagFragment = graphql(`
+export const MetatagFragment = /* GraphQL */ `
   fragment MetatagFragment on MetaTag @_unmask {
     __typename
     ... on MetaTagLink {
@@ -22,87 +20,83 @@ export const MetatagFragment = graphql(`
       }
     }
   }
-`);
+`;
 
-export const MetaTagLinkAttributesFragment = graphql(`fragment MetaTagLinkAttributesFragment on MetaTagLinkAttributes {
-  href
-  hreflang
-  rel
-  media
-  sizes
-  type
-}`)
-
-export const MetaTagValueAttributesFragment = graphql(`fragment MetaTagValueAttributesFragment on MetaTagValueAttributes {
-  name
-  content
-}`)
-
-export const MetaTagPropertyAttributesFragment = graphql(`fragment MetaTagPropertyAttributesFragment on MetaTagPropertyAttributes {
-  property
-  content
-}`)
-
-export const MetaTagLinkFragment = graphql(`fragment MetaTagLinkFragment on MetaTagLink {
-  tag
-  attributes {
-    ...MetaTagLinkAttributesFragment
+export const MetaTagLinkAttributesFragment = /* GraphQL */ `
+  fragment MetaTagLinkAttributesFragment on MetaTagLinkAttributes {
+    href
+    hreflang
+    rel
+    media
+    sizes
+    type
   }
-}`,
-  [
-    MetaTagLinkAttributesFragment,
-  ]
-)
+`;
 
-export const MetaTagValueFragment = graphql(`fragment MetaTagValueFragment on MetaTagValue {
-  tag
-  attributes {
-    ...MetaTagValueAttributesFragment
+export const MetaTagValueAttributesFragment = /* GraphQL */ `
+  fragment MetaTagValueAttributesFragment on MetaTagValueAttributes {
+    name
+    content
   }
-}`,
-  [
-    MetaTagValueAttributesFragment,
-  ]
-)
+`;
 
-export const MetaTagPropertyFragment = graphql(`fragment MetaTagPropertyFragment on MetaTagProperty {
-  tag
-  attributes {
-    ...MetaTagPropertyAttributesFragment
+export const MetaTagPropertyAttributesFragment = /* GraphQL */ `
+  fragment MetaTagPropertyAttributesFragment on MetaTagPropertyAttributes {
+    property
+    content
   }
-}`,
-  [
-    MetaTagPropertyAttributesFragment,
-  ]
-)
+`;
 
-export const MetaTagScriptAttributesFragment = graphql(`fragment MetaTagScriptAttributesFragment on MetaTagScriptAttributes {
-  type
-  src
-  integrity
-}`)
-
-export const MetaTagScriptFragment = graphql(`fragment MetaTagScriptFragment on MetaTagScript {
-  tag
-  attributes {
-    ...MetaTagScriptAttributesFragment
+export const MetaTagScriptAttributesFragment = /* GraphQL */ `
+  fragment MetaTagScriptAttributesFragment on MetaTagScriptAttributes {
+    type
+    src
+    integrity
   }
-  content
-}`,
-  [
-    MetaTagScriptAttributesFragment,
-  ]
-)
+`;
 
-export const MetaTagUnionFragment = graphql(`fragment MetaTagUnionFragment on MetaTagUnion {
-  ...MetaTagLinkFragment
-  ...MetaTagValueFragment
-  ...MetaTagPropertyFragment
-  ...MetaTagScriptFragment
-}`,
-[
-  MetaTagLinkFragment,
-  MetaTagValueFragment,
-  MetaTagPropertyFragment,
-  MetaTagScriptFragment,
-])
+export const MetaTagLinkFragment = /* GraphQL */ `
+  fragment MetaTagLinkFragment on MetaTagLink {
+    tag
+    attributes {
+      ...MetaTagLinkAttributesFragment
+    }
+  }
+`;
+
+export const MetaTagValueFragment = /* GraphQL */ `
+  fragment MetaTagValueFragment on MetaTagValue {
+    tag
+    attributes {
+      ...MetaTagValueAttributesFragment
+    }
+  }
+`;
+
+export const MetaTagPropertyFragment = /* GraphQL */ `
+  fragment MetaTagPropertyFragment on MetaTagProperty {
+    tag
+    attributes {
+      ...MetaTagPropertyAttributesFragment
+    }
+  }
+`;
+
+export const MetaTagScriptFragment = /* GraphQL */ `
+  fragment MetaTagScriptFragment on MetaTagScript {
+    tag
+    attributes {
+      ...MetaTagScriptAttributesFragment
+    }
+    content
+  }
+`;
+
+export const MetaTagUnionFragment = /* GraphQL */ `
+  fragment MetaTagUnionFragment on MetaTagUnion {
+    ...MetaTagLinkFragment
+    ...MetaTagValueFragment
+    ...MetaTagPropertyFragment
+    ...MetaTagScriptFragment
+  }
+`;

@@ -7,6 +7,7 @@ const meta: Meta<typeof Pricing> = {
   tags: ['autodocs'],
   argTypes: {
     includesLabel: { control: 'text' },
+    modifier: { control: 'text' },
   },
 };
 
@@ -46,6 +47,7 @@ export const Default: Story = {
         ctaLink: "#",
       }
     ],
+    modifier: "container mx-auto my-2 lg:my-10",
   },
 };
 
@@ -73,5 +75,6 @@ export const TwoCards: Story = {
         ctaLink: "#",
       }
     ],
+    modifier: "container mx-auto my-2 lg:my-10",
   },
 };

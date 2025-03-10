@@ -1,42 +1,30 @@
-import { FragmentOf, readFragment, graphql } from 'gql.tada';
-import { TextFragment, DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
 import Newsletter from '@/components/newsletter/Newsletter';
+import { TextFormat } from '@/lib/types';
 
-export const ParagraphNewsletterFragment = graphql(`fragment ParagraphNewsletterFragment on ParagraphNewsletter {
-  id
-  created {
-    ...DateTimeFragment
+export const ParagraphNewsletterFragment = /* GraphQL */ `
+  fragment ParagraphNewsletterFragment on ParagraphNewsletter {
+    newsletterTitle: title
+    summary {
+      ...TextFragment
+    }
   }
-  langcode {
-    ...LanguageFragment
-  }
-  status
-  newsletterTitle: title
-  summary {
-    ...TextFragment
-  }
-}`,
-  [
-    DateTimeFragment,
-    LanguageFragment,
-    TextFragment,
-  ]
-)
+`;
 
 interface ParagraphNewsletterProps {
-  paragraph: FragmentOf<typeof ParagraphNewsletterFragment>,
-  modifier?: string,
+  paragraph: {
+    newsletterTitle?: string;
+    summary?: TextFormat;
+  },
+  modifier?: string;
 }
 
 export default function ParagraphNewsletter({ paragraph, modifier }: ParagraphNewsletterProps) {
-  const { newsletterTitle, summary } = readFragment(ParagraphNewsletterFragment, paragraph);
-  const summaryFragment = readFragment(TextFragment, summary);
+  const { newsletterTitle, summary } = paragraph;
 
   return (
     <Newsletter
-      title={newsletterTitle}
-      summary={summaryFragment?.value ?? ''}
-      modifier={modifier}
+      title={newsletterTitle ?? ''}
+      summary={summary}
     />
   );
 }

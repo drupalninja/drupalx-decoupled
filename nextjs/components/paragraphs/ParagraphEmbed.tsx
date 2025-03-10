@@ -1,41 +1,30 @@
-import { FragmentOf, readFragment, graphql } from 'gql.tada';
-import { TextFragment, DateTimeFragment, LanguageFragment } from '@/graphql/fragments/misc';
 import Embed from '@/components/embed/Embed';
+import { TextFormat } from '@/lib/types';
 
-export const ParagraphEmbedFragment = graphql(`fragment ParagraphEmbedFragment on ParagraphEmbed {
-  id
-  created {
-    ...DateTimeFragment
+export const ParagraphEmbedFragment = /* GraphQL */ `
+  fragment ParagraphEmbedFragment on ParagraphEmbed {
+    script {
+      ...TextFragment
+    }
+    title
   }
-  langcode {
-    ...LanguageFragment
-  }
-  script {
-    ...TextFragment
-  }
-  status
-  title
-}`,
-  [
-    DateTimeFragment,
-    LanguageFragment,
-    TextFragment,
-  ]
-);
+`;
 
 interface ParagraphEmbedProps {
-  paragraph: FragmentOf<typeof ParagraphEmbedFragment>,
-  modifier?: string,
+  paragraph: {
+    title?: string;
+    script?: TextFormat;
+  };
+  modifier?: string;
 }
 
 export default function ParagraphEmbed({ paragraph, modifier }: ParagraphEmbedProps) {
-  const { title, script } = readFragment(ParagraphEmbedFragment, paragraph);
-  const scriptFragment = readFragment(TextFragment, script);
+  const { title, script } = paragraph;
 
   return (
     <Embed
       title={title ?? ''}
-      content={scriptFragment?.value ?? ''}
+      content={script?.value ?? ''}
       modifier={modifier}
     />
   );

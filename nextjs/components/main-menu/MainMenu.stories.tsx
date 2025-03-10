@@ -46,6 +46,12 @@ const meta: Meta<typeof MainMenu> = {
       control: 'object',
     },
   },
+  parameters: {
+    layout: 'fullscreen',
+    nextjs: {
+      appDirectory: true,
+    },
+  },
 };
 
 export default meta;
@@ -53,67 +59,67 @@ type Story = StoryObj<typeof MainMenu>;
 
 export const Default: Story = {
   args: {
-    modifier: '',
-    linkModifier: 'text-dark',
+    modifier: 'bg-white shadow-md',
+    linkModifier: 'text-gray-700 hover:text-blue-600',
     showLogo: true,
     siteLogo: './images/logo.svg',
-    siteLogoWidth: 200,
-    siteLogoHeight: 100,
+    siteLogoWidth: 150,
+    siteLogoHeight: 50,
     siteName: 'Site Name',
     showSiteName: false,
     ctaLinkCount: 2,
     menuItems: [
       {
         title: 'Home',
-        url: '#',
-        inActiveTrail: true
+        url: '/',
+        inActiveTrail: true,
       },
       {
-        title: 'Menu Item 1',
-        url: '#',
+        title: 'Products',
+        url: '/products',
         isExpanded: true,
         below: [
           {
-            title: 'Vestibulum ac diam',
-            url: '#'
+            title: 'Product Category 1',
+            url: '/products/category-1',
           },
           {
-            title: 'Mauris blandit aliquet',
-            url: '#'
+            title: 'Product Category 2',
+            url: '/products/category-2',
           },
           {
-            title: 'Pellentesque in',
-            url: '#'
-          }
-        ]
+            title: 'Product Category 3',
+            url: '/products/category-3',
+          },
+        ],
       },
       {
-        title: 'Menu Item 2',
-        url: '#',
+        title: 'Services',
+        url: '/services',
         isExpanded: true,
         below: [
           {
-            title: 'Vestibulum ac diam',
-            url: '#'
+            title: 'Service 1',
+            url: '/services/service-1',
           },
           {
-            title: 'Mauris blandit aliquet',
-            url: '#'
-          }
-        ]
+            title: 'Service 2',
+            url: '/services/service-2',
+          },
+        ],
       },
       {
-        title: 'Menu Item 3',
-        url: '#'
+        title: 'About',
+        url: '/about',
       },
       {
-        title: 'CTA 1',
-        url: '#'
+        title: 'Contact',
+        url: '/contact',
       },
       {
-        title: 'CTA 2',
-        url: '#'
-      }
+        title: 'Get Started',
+        url: '/get-started',
+      },
     ],
   },
 };

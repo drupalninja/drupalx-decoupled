@@ -1,68 +1,39 @@
-import React from 'react';
-import { FragmentOf, readFragment, graphql } from "gql.tada";
-import { TextSummaryFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/fragments/misc";
-import Text from '@/components/text/Text';
+import Text, { TextProps } from '@/components/text/Text';
 
-export const ParagraphTextFragment = graphql(`fragment ParagraphTextFragment on ParagraphText {
-  id
-  body {
-    ...TextSummaryFragment
+export const ParagraphTextFragment = /* GraphQL */ `
+  fragment ParagraphTextFragment on ParagraphText {
+    body {
+      ...TextSummaryFragment
+    }
+    textLayout
+    eyebrow
+    link {
+      ...LinkFragment
+    }
+    link2 {
+      ...LinkFragment
+    }
+    title
   }
-  textLayout
-  eyebrow
-  created {
-    ...DateTimeFragment
-  }
-  langcode {
-    ...LanguageFragment
-  }
-  link {
-    ...LinkFragment
-  }
-  link2 {
-    ...LinkFragment
-  }
-  status
-  title
-}`,
-  [
-    TextSummaryFragment,
-    DateTimeFragment,
-    LanguageFragment,
-    LinkFragment,
-  ]
-)
+`;
 
 interface ParagraphTextProps {
-  paragraph: FragmentOf<typeof ParagraphTextFragment>
-  className?: string;
+  paragraph: TextProps;
+  modifier?: string;
 }
 
-export default function ParagraphText({ paragraph, className }: ParagraphTextProps) {
-  const { title, body, link, link2, eyebrow, textLayout } = readFragment(ParagraphTextFragment, paragraph);
-  const textSummaryFragment = readFragment(TextSummaryFragment, body)
-  const linkFragment = readFragment(LinkFragment, link);
-  const linkFragment2 = readFragment(LinkFragment, link2);
-
-  const formattedLinkFragment = linkFragment ? {
-    url: linkFragment.url ?? '',
-    title: linkFragment.title ?? ''
-  } : undefined;
-
-  const formattedLinkFragment2 = linkFragment2 ? {
-    url: linkFragment2.url ?? '',
-    title: linkFragment2.title ?? ''
-  } : undefined;
+export default function ParagraphText({ paragraph, modifier }: ParagraphTextProps) {
+  const { title, body, link, link2, eyebrow, textLayout } = paragraph;
 
   return (
     <Text
       title={title}
-      body={textSummaryFragment?.value ?? ''}
-      linkFragment={formattedLinkFragment}
-      linkFragment2={formattedLinkFragment2}
+      body={body}
+      link={link}
+      link2={link2}
       eyebrow={eyebrow}
-      textLayout={textLayout}
-      className={className}
+      textLayout={textLayout as 'default' | 'centered' | 'buttons-right' | undefined}
+      modifier={modifier}
     />
   );
 }

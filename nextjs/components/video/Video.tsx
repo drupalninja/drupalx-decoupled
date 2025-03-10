@@ -7,7 +7,7 @@ interface VideoProps {
 
 const Video: React.FC<VideoProps> = ({ video }) => {
   return (
-    <Card className="w-full">
+    <Card className="w-full shadow-none border-none">
       <CardContent className="p-0">
         <div className="relative w-full pt-[56.25%]">
           <div

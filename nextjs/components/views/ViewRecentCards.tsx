@@ -1,42 +1,34 @@
-import React from 'react';
-import { FragmentOf, readFragment } from 'gql.tada';
-import { NodeArticleFragment } from "@/graphql/fragments/node";
 import { getImage } from '@/components/helpers/Utilities';
 import RecentCards from '@/components/recent-cards/RecentCards';
-import { MediaUnionFragment, MediaImageType } from "@/graphql/fragments/media";
+import { MediaImage } from "@/lib/types";
 
 interface ViewRecentCardsProps {
-  results: Array<FragmentOf<typeof NodeArticleFragment>>;
+  results: Array<{
+    id: string;
+    path: string;
+    title: string;
+    media?: MediaImage | null;
+    summary?: string;
+  }>;
 }
 
 export default function ViewRecentCards({ results }: ViewRecentCardsProps) {
   const processedResults = results.map((result) => {
-    const articleData = readFragment(NodeArticleFragment, result);
-    const mediaUnion = articleData.media ? readFragment(MediaUnionFragment, articleData.media) : null;
+    const mediaUnion = result.media || null;
 
     let media = null;
     if (mediaUnion) {
-      const mediaImage = mediaUnion as MediaImageType;
+      const mediaImage = mediaUnion as MediaImage;
       if (mediaImage.image) {
-        media = getImage({
-          image: {
-            url: mediaImage.image.url,
-            alt: mediaImage.image.alt ?? undefined,
-            width: mediaImage.image.width,
-            height: mediaImage.image.height,
-            variations: mediaImage.image.variations?.map(({ name, url, width, height }) => ({
-              name, url, width, height
-            }))
-          }
-        }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
+        media = getImage(mediaImage, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
       }
     }
 
     return {
-      id: articleData.id,
-      path: articleData.path,
-      title: articleData.title,
-      summary: articleData.summary as string,
+      id: result.id,
+      path: result.path,
+      title: result.title,
+      summary: result.summary as string,
       media: media,
     };
   });

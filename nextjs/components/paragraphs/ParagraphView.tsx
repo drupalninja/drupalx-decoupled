@@ -1,65 +1,64 @@
-import { FragmentOf, readFragment, graphql } from 'gql.tada';
-import { TextFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "@/graphql/fragments/misc";
-import { MediaUnionFragment } from "@/graphql/fragments/media";
-import { NodeArticleFragment } from "@/graphql/fragments/node";
 import RecentCards from '@/components/views/ViewRecentCards';
 import { Card, CardContent } from "@/components/ui/card";
+import { MediaImage } from '@/lib/types';
 
-export const ParagraphViewFragment = graphql(`fragment ParagraphViewFragment on ParagraphView {
-  id
-  created {
-    ...DateTimeFragment
-  }
-  langcode {
-    ...LanguageFragment
-  }
-  link {
-    ...LinkFragment
-  }
-  status
-  title
-  viewsRef {
-    __typename
-    ... on RecentCardsArticleCardsResult {
-      id
-      view
-      display
-      results {
-        ... on NodeArticle {
-          id
-          path
-          title
-          media {
-            ...MediaImageFragment
+export const ParagraphViewFragment = /* GraphQL */ `
+  fragment ParagraphViewFragment on ParagraphView {
+    link {
+      ...LinkFragment
+    }
+    title
+    viewsRef {
+      __typename
+      ... on RecentCardsArticleCardsResult {
+        view
+        display
+        results {
+          ... on NodeArticle {
+            id
+            path
+            title
+            media {
+              ...MediaImageFragment
+            }
+            summary
           }
-          created {
-            ...DateTimeFragment
-          }
-          langcode {
-            ...LanguageFragment
-          }
-          status
-          summary
         }
       }
     }
   }
-}`,
-  [
-    MediaUnionFragment,
-    DateTimeFragment,
-    LanguageFragment,
-    LinkFragment,
-    TextFragment,
-  ]
-)
+`;
 
 interface ParagraphViewProps {
-  paragraph: FragmentOf<typeof ParagraphViewFragment>,
+  paragraph: {
+    title?: string;
+    viewsRef?: {
+      view?: string;
+      display?: string;
+      results?: Array<{
+        id?: string;
+        path?: string;
+        title?: string;
+        media?: MediaImage;
+        summary?: string;
+      }>;
+    };
+  };
 }
 
 export default async function ParagraphView({ paragraph }: ParagraphViewProps) {
-  const { viewsRef: { view, display, results }, title } = readFragment(ParagraphViewFragment, paragraph);
+  const { viewsRef, title } = paragraph;
+  const { view, display, results } = viewsRef || {};
+
+  // Ensure each result has a unique id
+  const processedResults = results?.map((result, index) => {
+    if (!result) return null;
+
+    return {
+      ...result,
+      id: result.id || `recent-card-${index}`,
+    };
+  }).filter(Boolean) || [];
 
   return (
     <Card className="my-6 lg:my-25 border-none shadow-none">
@@ -68,7 +67,7 @@ export default async function ParagraphView({ paragraph }: ParagraphViewProps) {
           <h2 className="text-3xl font-semibold mb-4 lg:mb-6 text-center">{title}</h2>
         )}
         {view === 'recent_cards' && display === 'article_cards' && (
-          <RecentCards results={results as Array<FragmentOf<typeof NodeArticleFragment>>} />
+          <RecentCards results={processedResults as any} />
         )}
       </CardContent>
     </Card>

@@ -1,75 +1,54 @@
-import React from 'react';
-import { FragmentOf, readFragment, graphql } from 'gql.tada';
-import { DateTimeFragment, LanguageFragment, TextFragment, LinkFragment } from '@/graphql/fragments/misc';
+import { LinkFormat, TextFormat } from '@/lib/types';
 import Pricing, { PricingProps, PricingCardProps } from '../pricing/Pricing';
 
-const ParagraphPricingCardFragment = graphql(`fragment ParagraphPricingCardFragment on ParagraphPricingCard {
-  id
-  featuresText
-  created {
-    ... DateTimeFragment
-  }
-  eyebrow
-  langcode {
-    ... LanguageFragment
-  }
-  link {
-    ... LinkFragment
-  }
-  status
-  suffix
-  title
-}`,
-  [
-    DateTimeFragment,
-    LanguageFragment,
-    LinkFragment,
-  ]
-);
-
-export const ParagraphPricingFragment = graphql(`
-  fragment ParagraphPricingFragment on ParagraphPricing {
-    id
-    pricingCards {
-      ... ParagraphPricingCardFragment
+export const ParagraphPricingCardFragment = /* GraphQL */ `
+  fragment ParagraphPricingCardFragment on ParagraphPricingCard {
+    featuresText
+    eyebrow
+    link {
+      ...LinkFragment
     }
-    created {
-      ... DateTimeFragment
+    suffix
+    title
+  }
+`;
+
+export const ParagraphPricingFragment = /* GraphQL */ `
+  fragment ParagraphPricingFragment on ParagraphPricing {
+    pricingCards {
+      ...ParagraphPricingCardFragment
     }
     pricingSummary: summary {
-      ... TextFragment
+      ...TextFragment
     }
-    langcode {
-      ... LanguageFragment
-    }
-    status
     eyebrow
     pricingTitle: title
   }
-  `, [ParagraphPricingCardFragment, DateTimeFragment, TextFragment, LanguageFragment]);
+`;
 
 interface ParagraphPricingProps {
-  paragraph: FragmentOf<typeof ParagraphPricingFragment>;
-}
-
-interface TextType {
-  value?: string;
-  processed?: string;
-  format?: string;
+  paragraph: {
+    eyebrow?: string;
+    pricingTitle?: string;
+    pricingSummary?: TextFormat;
+    pricingCards?: Array<{
+      eyebrow?: string;
+      title?: string;
+      featuresText?: string;
+      link?: LinkFormat;
+    }>;
+  };
 }
 
 interface PricingCardType {
   eyebrow?: string;
   title?: string;
   featuresText?: string;
-  link?: {
-    title?: string;
-    url?: string;
-  };
+  link?: LinkFormat;
 }
 
 export default function ParagraphPricing({ paragraph }: ParagraphPricingProps) {
-  const { eyebrow, pricingTitle, pricingSummary, pricingCards } = readFragment(ParagraphPricingFragment, paragraph);
+  const { eyebrow, pricingTitle, pricingSummary, pricingCards } = paragraph;
 
   // Helper function to split bullet string into an array
   const splitBullets = (bulletsString: string | null | undefined): string[] => {
@@ -81,7 +60,7 @@ export default function ParagraphPricing({ paragraph }: ParagraphPricingProps) {
   const cardPricingProps: PricingProps = {
     eyebrow: eyebrow || undefined,
     title: pricingTitle || undefined,
-    summary: (pricingSummary as TextType)?.value || undefined,
+    summary: (pricingSummary as TextFormat)?.value || undefined,
     includesLabel: "Includes",
     cards: (pricingCards as PricingCardType[])?.map((card): PricingCardProps => ({
       eyebrow: card.eyebrow || "",
