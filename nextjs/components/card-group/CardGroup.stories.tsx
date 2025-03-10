@@ -70,7 +70,7 @@ export const Default: Story = {
   args: {
     title: 'Featured Content',
     cards: mockCards,
-    modifier: 'container mx-auto my-2 lg:my-25',
+    modifier: 'container mx-auto my-2 lg:my-10',
   },
 };
 
@@ -78,7 +78,7 @@ export const SingleCard: Story = {
   args: {
     title: 'Single Card',
     cards: [mockCards[0]],
-    modifier: 'container mx-auto my-2 lg:my-25',
+    modifier: '',
   },
 };
 
@@ -86,14 +86,14 @@ export const TwoCards: Story = {
   args: {
     title: 'Two Cards',
     cards: mockCards.slice(0, 2),
-    modifier: 'container mx-auto my-2 lg:my-25',
+    modifier: 'container mx-auto my-2 lg:my-10',
   },
 };
 
 export const StatCardsOnly: Story = {
   args: {
     title: 'Stat Cards',
-    modifier: "container mx-auto my-2 lg:my-25",
+    modifier: "container mx-auto my-2 lg:my-10",
     cards: [
       {
         type: 'stat',

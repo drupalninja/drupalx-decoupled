@@ -51,6 +51,6 @@ export const Default: Story = {
     items: mockItems,
     className: 'max-w-6xl',
     itemClassName: 'md:basis-4/5',
-    containerClassName: 'my-8 md:my-16',
+    containerClassName: 'my-2 lg:my-10',
   },
 };

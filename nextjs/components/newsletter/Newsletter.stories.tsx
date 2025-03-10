@@ -36,6 +36,6 @@ export const Default: Story = {
       processed: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       format: 'full_html',
     },
-    modifier: "container mx-auto px-8",
+    modifier: "container mx-auto px-8 my-2 lg:my-10",
   },
 };

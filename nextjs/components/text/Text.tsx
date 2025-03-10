@@ -8,7 +8,7 @@ export interface TextProps {
   link2?: LinkFormat;
   eyebrow?: string;
   textLayout?: 'default' | 'centered' | 'buttons-right';
-  className?: string;
+  modifier?: string;
 }
 
 export default function Text({
@@ -18,9 +18,9 @@ export default function Text({
   link2,
   eyebrow,
   textLayout = 'default',
-  className
+  modifier
 }: TextProps) {
-  const containerClasses = `container mx-auto my-6 lg:my-25 ${className || ''}`;
+  const containerClasses = `container mx-auto ${modifier || 'my-6 lg:my-25'}`;
   const contentClasses = `max-w-4xl ${textLayout === 'centered' ? 'mx-auto text-center' : ''}`;
 
   const renderButtons = () => {

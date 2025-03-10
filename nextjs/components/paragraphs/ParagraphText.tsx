@@ -19,10 +19,10 @@ export const ParagraphTextFragment = /* GraphQL */ `
 
 interface ParagraphTextProps {
   paragraph: TextProps;
-  className?: string;
+  modifier?: string;
 }
 
-export default function ParagraphText({ paragraph, className }: ParagraphTextProps) {
+export default function ParagraphText({ paragraph, modifier }: ParagraphTextProps) {
   const { title, body, link, link2, eyebrow, textLayout } = paragraph;
 
   return (
@@ -33,7 +33,7 @@ export default function ParagraphText({ paragraph, className }: ParagraphTextPro
       link2={link2}
       eyebrow={eyebrow}
       textLayout={textLayout as 'default' | 'centered' | 'buttons-right' | undefined}
-      className={className}
+      modifier={modifier}
     />
   );
 }

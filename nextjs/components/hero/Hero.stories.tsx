@@ -55,7 +55,7 @@ export const Default: Story = {
       url: 'https://example.com',
       title: 'Get Started',
     },
-    modifier: 'max-w-6xl',
+    modifier: 'container mx-auto my-2 lg:my-10',
   },
 };
 

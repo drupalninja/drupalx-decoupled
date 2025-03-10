@@ -30,7 +30,7 @@ const meta: Meta<typeof Text> = {
       options: ['default', 'centered', 'buttons-right'],
       description: 'The layout of the text component',
     },
-    className: {
+    modifier: {
       control: 'text',
       description: 'Additional CSS classes',
     },
