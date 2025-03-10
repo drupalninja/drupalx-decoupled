@@ -1,7 +1,6 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Metadata, ResolvingMetadata } from 'next';
-import { Fragment } from "react";
 import NodeArticleComponent from "@/components/node/NodeArticle";
 import NodePageComponent from "@/components/node/NodePage";
 import NodeLandingComponent from "@/components/node/NodeLanding";
@@ -299,7 +298,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   }
 
   return (
-    <Fragment>
+    <>
       {type === "NodePage" && (
         <NodePageComponent
           node={entity}
@@ -318,6 +317,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           environment={environment}
         />
       )}
-    </Fragment>
+    </>
   );
 }
