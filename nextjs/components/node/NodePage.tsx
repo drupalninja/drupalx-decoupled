@@ -11,7 +11,7 @@ type NodePageComponentProps = {
   environment: string;
 };
 
-export default function NodePageComponent({ node, environment }: NodePageComponentProps) {
+export default function NodePageComponent({ node }: NodePageComponentProps) {
   const { title, mediaPage: media, body } = node;
 
   const mediaImage = media ? media as MediaImage : null;
@@ -20,17 +20,7 @@ export default function NodePageComponent({ node, environment }: NodePageCompone
   let pageImage = null;
 
   if (mediaImage?.image) {
-    pageImage = getImage({
-      image: {
-        url: mediaImage.image.url,
-        alt: mediaImage.image.alt ?? undefined,
-        width: mediaImage.image.width,
-        height: mediaImage.image.height,
-        variations: mediaImage.image.variations?.map(({ name, url, width, height }) => ({
-          name, url, width, height
-        }))
-      }
-    }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
+    pageImage = getImage(mediaImage, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
   }
 
   return (

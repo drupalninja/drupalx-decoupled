@@ -6,18 +6,14 @@ type NodeArticleComponentProps = {
   node: {
     title: string;
     subhead?: string;
-    lead?: {
-      value: string;
-      processed?: string;
-      format?: string;
-    };
+    lead?: TextFormat;
     media?: MediaImage;
     body?: TextFormat;
   };
   environment: string;
 }
 
-export default function NodeArticleComponent({ node, environment }: NodeArticleComponentProps) {
+export default function NodeArticleComponent({ node }: NodeArticleComponentProps) {
   const { title, subhead, lead, media, body } = node;
 
   const bodyProcessed = body?.processed as string;
@@ -26,17 +22,7 @@ export default function NodeArticleComponent({ node, environment }: NodeArticleC
 
   let articleImage = null;
   if (mediaImage?.image) {
-    articleImage = getImage({
-      image: {
-        url: mediaImage.image.url,
-        alt: mediaImage.image.alt ?? undefined,
-        width: mediaImage.image.width,
-        height: mediaImage.image.height,
-        variations: mediaImage.image.variations?.map(({ name, url, width, height }) => ({
-          name, url, width, height
-        }))
-      }
-    }, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
+    articleImage = getImage(mediaImage, 'w-full h-full object-cover', ['LARGE', 'I169LARGE2X']);
   }
 
   return (
