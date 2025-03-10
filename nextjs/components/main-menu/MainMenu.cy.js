@@ -9,8 +9,8 @@ describe('MainMenu', () => {
 
   it('displays the site logo when showLogo is true', () => {
     cy.get('img[alt="Site Logo"]').should('be.visible');
-    cy.get('img[alt="Site Logo"]').should('have.attr', 'width', '200');
-    cy.get('img[alt="Site Logo"]').should('have.attr', 'height', '100');
+    cy.get('img[alt="Site Logo"]').should('have.attr', 'width', '150');
+    cy.get('img[alt="Site Logo"]').should('have.attr', 'height', '50');
   });
 
   describe('Mobile menu', () => {
@@ -33,9 +33,9 @@ describe('MainMenu', () => {
 
     it('displays CTA buttons correctly', () => {
       cy.get('[role="dialog"]').within(() => {
-        cy.contains('CTA 1').should('be.visible')
+        cy.contains('Contact').should('be.visible')
           .should('have.class', 'text-lg');
-        cy.contains('CTA 2').should('be.visible')
+        cy.contains('Get Started').should('be.visible')
           .should('have.class', 'text-lg');
       });
     });
@@ -50,15 +50,15 @@ describe('MainMenu', () => {
       cy.get('nav .hidden.lg\\:flex').should('be.visible');
       cy.get('nav .hidden.lg\\:flex').within(() => {
         cy.contains('Home').should('be.visible');
-        cy.contains('Menu Item 1').should('be.visible');
-        cy.contains('Menu Item 2').should('be.visible');
-        cy.contains('Menu Item 3').should('be.visible');
+        cy.contains('Products').should('be.visible');
+        cy.contains('Services').should('be.visible');
+        cy.contains('About').should('be.visible');
       });
     });
 
     it('applies hover states correctly', () => {
       cy.contains('Home').trigger('mouseover')
-        .should('have.class', 'hover:text-primary');
+        .should('have.class', 'hover:text-blue-600');
     });
   });
 
