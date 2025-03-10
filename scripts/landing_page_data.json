@@ -1,0 +1,400 @@
+{
+  "title": "DrupalX Components List",
+  "sections": [
+    {
+      "type": "hero",
+      "field_heading": {
+        "value": "Example Layout",
+        "format": "restricted_html"
+      },
+      "field_hero_layout": "image_top",
+      "field_media": {
+        "url": "https://picsum.photos/800/600"
+      },
+      "field_summary": {
+        "value": "This is an example layout with various components.",
+        "format": "basic_html"
+      }
+    },
+    {
+      "type": "sidebyside",
+      "field_eyebrow": "DrupalX Features",
+      "field_features": [
+        {
+          "type": "stats_item",
+          "field_icon": "box",
+          "field_title": "Decoupled Architecture",
+          "field_summary": {
+            "value": "Build flexible applications that separate the front-end and back-end for optimal performance."
+          }
+        },
+        {
+          "type": "stats_item",
+          "field_icon": "box",
+          "field_title": "AI Optimization",
+          "field_summary": {
+            "value": "Leverage intelligent algorithms to enhance site speed and user experience effortlessly."
+          }
+        }
+      ],
+      "field_link": {
+        "uri": "internal:/features",
+        "title": "Explore features"
+      },
+      "field_media": {
+        "url": "https://picsum.photos/800/600"
+      },
+      "field_sidebyside_layout": "right",
+      "field_summary": {
+        "value": "<p>The DrupalX template offers top-tier development tools and components for building a site quickly and efficiently.</p>",
+        "format": "basic_html"
+      },
+      "field_title": "DrupalX Rapid Development"
+    },
+    {
+      "type": "sidebyside",
+      "field_eyebrow": "DrupalX Content",
+      "field_link": {
+        "uri": "internal:/resources",
+        "title": "Read DrupalX articles"
+      },
+      "field_media": {
+        "url": "https://picsum.photos/800/600"
+      },
+      "field_sidebyside_layout": "left",
+      "field_summary": {
+        "value": "<p>DrupalX provides a user-friendly editing experience with fully integrated layout builder components for seamless content management.</p>",
+        "format": "basic_html"
+      },
+      "field_title": "DrupalX Content Management"
+    },
+    {
+      "type": "text",
+      "field_body": {
+        "value": "The DrupalX documentation provides detailed information on how to use the DrupalX template and its components.",
+        "format": "full_html"
+      },
+      "field_eyebrow": "Test eyebrow",
+      "field_link": {
+        "uri": "internal:/documentation",
+        "title": "Link 1"
+      },
+      "field_link2": {
+        "uri": "internal:/",
+        "title": "Link 2"
+      },
+      "field_text_layout": "centered",
+      "field_title": "Centered Text"
+    },
+    {
+      "type": "text",
+      "field_body": {
+        "value": "The DrupalX documentation provides detailed information on how to use the DrupalX template and its components.",
+        "format": "full_html"
+      },
+      "field_eyebrow": "Test eyebrow",
+      "field_link": {
+        "uri": "internal:/documentation",
+        "title": "Read documentation"
+      },
+      "field_link2": {
+        "uri": "internal:/",
+        "title": "Link 2"
+      },
+      "field_text_layout": "left",
+      "field_title": "Left-aligned Text"
+    },
+    {
+      "type": "media",
+      "field_media": {
+        "url": "https://picsum.photos/800/600"
+      },
+      "field_title": "DrupalX Media"
+    },
+    {
+      "type": "gallery",
+      "field_body": {
+        "value": "View images of the DrupalX template and its components.",
+        "format": "",
+        "summary": "basic_html"
+      },
+      "field_media_item": [
+        {
+          "url": "https://picsum.photos/800/600?random=1"
+        },
+        {
+          "url": "https://picsum.photos/800/600?random=2"
+        },
+        {
+          "url": "https://picsum.photos/800/600?random=3"
+        },
+        {
+          "url": "https://picsum.photos/800/600?random=4"
+        },
+        {
+          "url": "https://picsum.photos/800/600?random=5"
+        },
+        {
+          "url": "https://picsum.photos/800/600?random=6"
+        },
+        {
+          "url": "https://picsum.photos/800/600?random=7"
+        },
+        {
+          "url": "https://picsum.photos/800/600?random=8"
+        }
+      ],
+      "field_title": "DrupalX Gallery"
+    },
+    {
+      "type": "carousel",
+      "field_carousel_item": [
+        {
+          "type": "carousel_item",
+          "field_media": {
+            "url": "https://picsum.photos/800/600?random=9"
+          },
+          "field_summary": {
+            "value": "This is the first carousel item."
+          },
+          "field_title": "DrupalX Carousel Item 1"
+        },
+        {
+          "type": "carousel_item",
+          "field_media": {
+            "url": "https://picsum.photos/800/600?random=10"
+          },
+          "field_summary": {
+            "value": "This is the second carousel item."
+          },
+          "field_title": "DrupalX Carousel Item 2"
+        },
+        {
+          "type": "carousel_item",
+          "field_media": {
+            "url": "https://picsum.photos/800/600?random=11"
+          },
+          "field_summary": {
+            "value": "This is the third carousel item."
+          },
+          "field_title": "DrupalX Carousel Item 3"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "field_title": "DrupalX FAQ",
+      "field_accordion_item": [
+        {
+          "type": "accordion_item",
+          "field_title": "What is included with DrupalX?",
+          "field_body": {
+            "value": "<p>DrupalX includes pre-built Layout Builder blocks integrated with a starter theme built on Bootstrap 5. It also features Material Icons and is fully supported by Storybook, providing a comprehensive and cohesive development environment.</p>",
+            "format": "full_html"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "field_title": "How much can I customize?",
+          "field_body": {
+            "value": "<p>Everything in DrupalX can be customized. You can adjust configurations, modify every Storybook component, and alter or remove any Bootstrap inclusion to suit your specific needs.</p>",
+            "format": "full_html"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "field_title": "Is DrupalX accessible?",
+          "field_body": {
+            "value": "<p>Yes, DrupalX adheres to WCAG 2.0 AA accessibility guidelines.</p>",
+            "format": "full_html"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "field_title": "Can I see examples of other sites created with DrupalX?",
+          "field_body": {
+            "value": "<p>Of course. Explore how DrupalX can be used across various types of sites.</p>",
+            "format": "full_html"
+          },
+          "field_link": {
+            "uri": "internal:/resources",
+            "title": "Read DrupalX articles"
+          }
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "field_author": "John Doe",
+      "field_job_title": "Web Developer",
+      "field_logo": {
+        "url": "https://picsum.photos/200/200"
+      },
+      "field_quote": "This is a quote from a satisfied DrupalX user."
+    },
+    {
+      "type": "embed",
+      "field_script": {
+        "value": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50704.05332036616!2d-122.12246645666515!3d37.413396126075966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7495bec0189%3A0x7c17d44a466baf9b!2sMountain%20View%2C%20CA!5e0!3m2!1sen!2sus!4v1716313314254!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" title=\"Google Maps view of Mountain View, CA\"></iframe>",
+        "format": "scripts"
+      },
+      "field_title": "DrupalX Embed"
+    },
+    {
+      "type": "newsletter",
+      "field_summary": {
+        "value": "Sign up for the DrupalX newsletter to receive updates on new features and components."
+      },
+      "field_title": "DrupalX Newsletter"
+    },
+    {
+      "type": "views",
+      "field_title": "DrupalX Resources",
+      "field_views_ref": {
+        "target_id": "recent_cards",
+        "display_id": "article_cards",
+        "arguments": "",
+        "items_to_display": ""
+      }
+    },
+    {
+      "type": "card_group",
+      "field_title": "Card Group",
+      "field_card": [
+        {
+          "type": "card",
+          "field_title": "Card 1",
+          "field_summary": {
+            "value": "This is an example card component.",
+            "format": ""
+          },
+          "field_media": {
+            "url": "https://picsum.photos/800/600?random=12"
+          },
+          "field_link": {
+            "uri": "internal:/",
+            "title": "Read more"
+          }
+        },
+        {
+          "type": "card",
+          "field_title": "Card 2",
+          "field_summary": {
+            "value": "This is an example card component.",
+            "format": "basic_html"
+          },
+          "field_media": {
+            "url": "https://picsum.photos/800/600?random=13"
+          },
+          "field_link": {
+            "uri": "internal:/",
+            "title": "Read more"
+          }
+        },
+        {
+          "type": "card",
+          "field_title": "Card 3",
+          "field_summary": {
+            "value": "This is an example card component.",
+            "format": "basic_html"
+          },
+          "field_media": {
+            "url": "https://picsum.photos/800/600?random=14"
+          },
+          "field_link": {
+            "uri": "internal:/",
+            "title": "Read more"
+          }
+        }
+      ]
+    },
+    {
+      "type": "card_group",
+      "field_title": "Stats Group",
+      "field_card": [
+        {
+          "type": "stats_item",
+          "field_title": "Stat 1",
+          "field_summary": {
+            "value": "This is an example stats component."
+          },
+          "field_icon": "home"
+        },
+        {
+          "type": "stats_item",
+          "field_title": "Stat 2",
+          "field_summary": {
+            "value": "This is an example stats component."
+          },
+          "field_icon": "home"
+        },
+        {
+          "type": "stats_item",
+          "field_title": "Stat 3",
+          "field_summary": {
+            "value": "This is an example stats component."
+          },
+          "field_icon": "home"
+        }
+      ]
+    },
+    {
+      "type": "sidebyside",
+      "field_features": [
+        {
+          "type": "bullet",
+          "field_icon": "box",
+          "field_summary": {
+            "value": "<p>Streamlined workflows for faster project delivery.</p>",
+            "format": "basic_html"
+          }
+        },
+        {
+          "type": "bullet",
+          "field_icon": "box",
+          "field_summary": {
+            "value": "<p>Robust features that adapt to your needs.</p>",
+            "format": "basic_html"
+          }
+        },
+        {
+          "type": "bullet",
+          "field_icon": "box",
+          "field_summary": {
+            "value": "<p>User-friendly interface for all skill levels.</p>",
+            "format": "basic_html"
+          }
+        }
+      ],
+      "field_media": {
+        "url": "https://picsum.photos/800/600?random=15"
+      },
+      "field_sidebyside_layout": "right",
+      "field_summary": {
+        "value": "<p>At DrupalX, we empower developers with cutting-edge tools designed for efficiency and creativity. Experience seamless integration and unparalleled performance that elevate your web projects.</p>",
+        "format": "basic_html"
+      },
+      "field_title": "Discover the Future of Web Development with DrupalX's Innovative Tools"
+    }
+  ],
+  "metadata": {
+    "hide_page_title": true,
+    "path": "/components",
+    "metatags": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "DrupalX Components List | Drush Site-Install"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "/components"
+        }
+      }
+    ]
+  }
+}
