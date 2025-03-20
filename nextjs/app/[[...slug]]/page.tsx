@@ -83,9 +83,8 @@ interface EntityType {
   __typename?: string;
 }
 
-type Props = {
-  params: { slug: string[] }
-}
+type Params = Promise<{ slug: string[] }>;
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
 const staticTypes = ['nodePages', 'nodeArticles', 'nodeLandings'];
 
@@ -135,24 +134,28 @@ export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
 
 /**
  * Fetches page data for the current route.
- * @param params Route parameters.
+ * @param props Route parameters.
  * @returns Promise containing the page data.
  */
-async function getPageData({ params }: Props) {
-  return await getDrupalData({ params });
+async function getPageData(props: {
+  params: Params;
+  searchParams?: SearchParams;
+}) {
+  const params = await props.params;
+  return await getDrupalData({ slug: params.slug });
 }
 
 /**
  * Generates metadata for the current page.
- * @param params Route parameters.
+ * @param props Route parameters.
  * @param parent Parent metadata.
  * @returns Promise<Metadata> Page metadata.
  */
 export async function generateMetadata(
-  { params }: Props,
+  props: { params: Params; searchParams: SearchParams },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { entity } = await getPageData({ params });
+  const { entity } = await getPageData({ params: props.params });
   const typedEntity = entity as EntityType;
   return {
     title: typedEntity.title ?? '',
@@ -161,16 +164,17 @@ export async function generateMetadata(
 
 /**
  * Fetches Drupal data for the current route.
- * @param params Route parameters containing the slug.
+ * @param params Object containing the slug.
  * @returns Object containing entity data and environment.
  */
-async function getDrupalData({ params }: { params: { slug: string[] } }) {
-  const pathFromParams = params.slug?.join("/") || frontpagePath;
+async function getDrupalData({ slug }: { slug: string[] }) {
+  const pathFromParams = slug?.join("/") || frontpagePath;
 
   // Get the request URL if available, otherwise construct a default URL
   let path = pathFromParams;
   try {
-    const requestUrl = headers().get("x-url");
+    const headersList = await headers();
+    const requestUrl = headersList.get("x-url");
     if (requestUrl) {
       path = calculatePath({
         path: pathFromParams,
@@ -287,11 +291,15 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
 
 /**
  * Main page component that renders different node types based on the route.
- * @param params Route parameters containing the slug.
+ * @param props Object containing route parameters.
  * @returns React component based on the node type.
  */
-export default async function Page({ params }: { params: { slug: string[] } }) {
-  const { type, entity, environment } = await getPageData({ params });
+export default async function Page(props: {
+  params: Params;
+  searchParams: SearchParams;
+}) {
+  const params = await props.params;
+  const { type, entity, environment } = await getPageData({ params: props.params });
 
   if (!type || !entity) {
     return null;
