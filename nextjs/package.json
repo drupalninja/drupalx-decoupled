@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev --port 8080",
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 next dev --port 8080",
     "lint": "next lint",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
