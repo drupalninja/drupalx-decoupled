@@ -199,7 +199,7 @@ class SetupForm extends FormBase {
   protected function applyDrupalxDemoRecipe() {
     try {
       // Get the absolute path to the recipe directory.
-      $drupal_root = \Drupal::service('app.root');
+      $drupal_root = DRUPAL_ROOT;
       $recipe_path = $drupal_root . '/../recipes/drupalx-demo';
 
       // Check if recipe directory exists.

@@ -23,3 +23,7 @@ ddev drush cr
 ddev drush scr scripts/consumers-next.php
 ddev drush cr
 ddev drush uli
+
+# Run Next.js dev build.
+cd $DDEV_APPROOT/nextjs/
+npm run dev
