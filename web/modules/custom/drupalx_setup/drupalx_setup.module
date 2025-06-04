@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * Contains drupalx_setup.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function drupalx_setup_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the drupalx_setup module.
+    case 'help.page.drupalx_setup':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides initial setup form for DrupalX site configuration.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_install().
+ */
+function drupalx_setup_install() {
+  // Set the setup form as the homepage until setup is complete.
+  $config = \Drupal::configFactory()->getEditable('system.site');
+
+  // Store the original homepage so we can restore it if needed.
+  $original_homepage = $config->get('page.front');
+  \Drupal::state()->set('drupalx_setup.original_homepage', $original_homepage);
+
+  // Set the setup form as the homepage.
+  $config->set('page.front', '/drupalx-setup')->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function drupalx_setup_uninstall() {
+  // Restore the original homepage when uninstalling.
+  $original_homepage = \Drupal::state()->get('drupalx_setup.original_homepage');
+  if ($original_homepage) {
+    \Drupal::configFactory()->getEditable('system.site')
+      ->set('page.front', $original_homepage)
+      ->save();
+  }
+
+  // Clean up state variables.
+  \Drupal::state()->deleteMultiple([
+    'drupalx_setup.completed',
+    'drupalx_setup.original_homepage',
+  ]);
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function drupalx_setup_page_attachments(array &$attachments) {
+  $current_route = \Drupal::routeMatch()->getRouteName();
+
+  // Add CSS library for setup form page.
+  if ($current_route === 'drupalx_setup.setup_form') {
+    $attachments['#attached']['library'][] = 'drupalx_setup/setup-form';
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function drupalx_setup_preprocess_html(&$variables) {
+  $current_route = \Drupal::routeMatch()->getRouteName();
+
+  // Add body class for setup form page.
+  if ($current_route === 'drupalx_setup.setup_form') {
+    $variables['attributes']['class'][] = 'drupalx-setup-form';
+  }
+}
+
+

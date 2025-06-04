@@ -1,0 +1,7 @@
+drupalx_setup.setup_form:
+  path: '/drupalx-setup'
+  defaults:
+    _form: '\Drupal\drupalx_setup\Form\SetupForm'
+    _title: 'DrupalX Setup'
+  requirements:
+    _permission: 'access content'

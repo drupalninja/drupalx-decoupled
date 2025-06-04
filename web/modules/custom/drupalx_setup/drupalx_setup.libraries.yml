@@ -1,0 +1,6 @@
+setup-form:
+  css:
+    theme:
+      css/setup-form.css: {}
+  dependencies:
+    - core/drupal
