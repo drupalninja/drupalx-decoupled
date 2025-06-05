@@ -1,9 +1,11 @@
 _meta:
   version: '1.0'
   entity_type: node
-  uuid: d85cb2cf-bd86-46f5-ac07-7cada6d965dc
-  bundle: page
+  uuid: 5a4f3e2d-1c0b-4a9f-8e7d-6c5b4a3e2d1c
+  bundle: landing
   default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -21,12 +23,47 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  metatag:
+    - tag: meta
+      attributes:
+        name: title
+        content: 'Making a Difference Together | Our Nonprofit Organization'
+    - tag: meta
+      attributes:
+        name: description
+        content: 'Join our mission to create positive change in our community. Learn about our programs, volunteer opportunities, and how you can help make a difference.'
+    - tag: link
+      attributes:
+        rel: canonical
+        href: '/'
   path:
     - alias: /
       langcode: en
       pathauto: 0
-  body:
-    - value: |
-        <p>Welcome to our nonprofit organization. Learn about our mission and how you can help.</p>
-      format: full_html
-      summary: ''
+  field_content:
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 0b9a8f7d-6e5c-4f4b-3a2e-1d0c9b8a7f6d
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541785
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_heading:
+            - value: 'Creating Positive Change Together'
+              format: restricted_html
+          field_hero_layout:
+            - value: image_top
+          field_media:
+            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_summary:
+            - value: 'Join our mission to transform lives and strengthen communities through compassionate action and collaborative partnerships.'
+              format: basic_html

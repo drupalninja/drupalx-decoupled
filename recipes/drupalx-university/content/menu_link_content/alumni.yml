@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: b5e4d3c2-1a2b-4f8e-8d7c-9f0a1b2c3d4e
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    - value: true
+  title:
+    - value: 'Alumni'
+  menu_name:
+    - value: main
+  link:
+    - uri: 'internal:/alumni'
+      title: ''
+      options: {  }
+  external:
+    - value: false
+  rediscover:
+    - value: true
+  weight:
+    - value: -10
+  expanded:
+    - value: false
+  revision_translation_affected:
+    - value: true

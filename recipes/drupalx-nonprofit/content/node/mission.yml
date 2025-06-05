@@ -1,7 +1,7 @@
 _meta:
   version: '1.0'
   entity_type: node
-  uuid: e2d1c0b9-a8f7-4d6e-5c5f-b4a3e2d1c0b9
+  uuid: f1e2d3c4-b5a6-4f7e-8d9c-0a1b2f3e4d5c
   bundle: landing
   default_langcode: en
   depends:
@@ -14,7 +14,7 @@ default:
   uid:
     - target_id: 1
   title:
-    - value: 'Government Services'
+    - value: 'Our Mission'
   created:
     - value: 1724541785
   promote:
@@ -27,17 +27,17 @@ default:
     - tag: meta
       attributes:
         name: title
-        content: 'City Services | Access Government Resources'
+        content: 'Our Mission | Driving Change & Impact'
     - tag: meta
       attributes:
         name: description
-        content: 'Find information on a wide range of city services including utilities, public safety, transportation, and community programs.'
+        content: 'Learn about our core mission, values, and the communities we serve. Join us in making a lasting impact.'
     - tag: link
       attributes:
         rel: canonical
-        href: '/services'
+        href: '/mission'
   path:
-    - alias: /services
+    - alias: /mission
       langcode: en
       pathauto: 0
   field_content:
@@ -45,7 +45,7 @@ default:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: a3e2d1c0-b9a8-4f7d-6e6c-5f4b3e2d1c0b
+          uuid: c5b6a7f8-e9d0-4c1b-b2a3-f4e5d6c7b8a9
           bundle: hero
           default_langcode: en
         default:
@@ -58,12 +58,12 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Access to Essential City Services'
+            - value: 'Our Mission: To Empower and Uplift'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
             - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Our city provides a comprehensive range of services to meet the needs of our residents, businesses, and visitors.'
+            - value: 'We are dedicated to creating sustainable solutions that address critical social challenges and empower individuals and communities.'
               format: basic_html

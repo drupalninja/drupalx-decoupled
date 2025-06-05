@@ -1,0 +1,65 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: b2a1f0e9-d8c7-4b6a-a5f4-e3d2c1b0a9f8
+  bundle: article
+  default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    b8cb9697-e8a3-4bb2-a4c6-7daccdab8407: media
+default:
+  revision_uid:
+    - target_id: 1
+  status:
+    - value: true
+  uid:
+    - target_id: 1
+  title:
+    - value: 'Community Food Program Reaches Milestone: 50,000 Meals Served'
+  created:
+    - value: 1724541785
+  promote:
+    - value: true
+  sticky:
+    - value: false
+  revision_translation_affected:
+    - value: true
+  metatag:
+    - tag: meta
+      attributes:
+        name: title
+        content: 'Community Food Program Reaches Milestone: 50,000 Meals Served | Our Nonprofit'
+    - tag: meta
+      attributes:
+        name: description
+        content: 'Our community food program has reached a significant milestone, serving 50,000 nutritious meals to families in need over the past year.'
+    - tag: link
+      attributes:
+        rel: canonical
+        href: '/news/food-program-milestone-50000-meals'
+  path:
+    - alias: /news/food-program-milestone-50000-meals
+      langcode: en
+      pathauto: 1
+  body:
+    - value: |-
+        <h2>Addressing Food Insecurity with Compassion</h2>
+        <p>We are proud to announce that our community food program has reached a significant milestone, serving 50,000 nutritious meals to families in need over the past twelve months.</p>
+        <p>This achievement represents not just numbers, but real impact on the lives of our neighbors who face food insecurity. Each meal served represents hope, dignity, and our community's commitment to ensuring no one goes hungry.</p>
+        <h3>Growing Support from Volunteers</h3>
+        <p>This milestone was made possible by the dedication of over 200 volunteers who donate their time weekly to prepare, package, and distribute meals throughout our community.</p>
+        <h3>Expanding Our Reach</h3>
+        <p>Building on this success, we are launching new initiatives to reach even more families, including mobile food pantries and partnerships with local schools to address childhood hunger.</p>
+      format: full_html
+      summary: ''
+  field_lead:
+    - value: '<p>Our community food program celebrates serving 50,000 meals to families in need, demonstrating the power of collective compassion and community support.</p>'
+      format: full_html
+  field_media:
+    - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+  field_subhead:
+    - value: 'Community Impact'
+  field_summary:
+    - value: 'Through the dedication of volunteers and community support, our food program has served 50,000 nutritious meals, addressing food insecurity with compassion and dignity.'
+  field_thumbnail:
+    - entity: b8cb9697-e8a3-4bb2-a4c6-7daccdab8407

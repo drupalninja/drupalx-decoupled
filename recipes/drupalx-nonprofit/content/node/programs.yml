@@ -1,9 +1,11 @@
 _meta:
   version: '1.0'
   entity_type: node
-  uuid: 441fdf60-9dec-4345-88e1-c1c686aa6111
-  bundle: page
+  uuid: d0c1b2a3-f4e5-4d6c-b7a8-e9f0a1b2c3d4
+  bundle: landing
   default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -12,7 +14,7 @@ default:
   uid:
     - target_id: 1
   title:
-    - value: 'Programs'
+    - value: 'Our Programs'
   created:
     - value: 1724541785
   promote:
@@ -21,12 +23,47 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  metatag:
+    - tag: meta
+      attributes:
+        name: title
+        content: 'Our Programs | Initiatives & Impact'
+    - tag: meta
+      attributes:
+        name: description
+        content: 'Discover our diverse range of programs designed to address key social issues and create lasting positive change in our communities.'
+    - tag: link
+      attributes:
+        rel: canonical
+        href: '/programs'
   path:
     - alias: /programs
       langcode: en
       pathauto: 0
-  body:
-    - value: |
-        <p>Discover our various programs aimed at helping communities in need.</p>
-      format: full_html
-      summary: ''
+  field_content:
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: a9b8c7d6-e5f4-4d3c-b2a1-f0e9d8c7b6a5
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541785
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_heading:
+            - value: 'Transformative Programs for Community Impact'
+              format: restricted_html
+          field_hero_layout:
+            - value: image_top
+          field_media:
+            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_summary:
+            - value: 'We offer a variety of programs focused on education, health, economic empowerment, and community development to serve those in need.'
+              format: basic_html

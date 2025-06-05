@@ -1,7 +1,7 @@
 _meta:
   version: '1.0'
   entity_type: node
-  uuid: e2d1c0b9-a8f7-4d6e-5c5f-b4a3e2d1c0b9
+  uuid: 5e8f9a0b-1c2d-4e6f-b7a8-c9d0e1f2a3b4
   bundle: landing
   default_langcode: en
   depends:
@@ -14,7 +14,7 @@ default:
   uid:
     - target_id: 1
   title:
-    - value: 'Government Services'
+    - value: 'Academics'
   created:
     - value: 1724541785
   promote:
@@ -27,17 +27,17 @@ default:
     - tag: meta
       attributes:
         name: title
-        content: 'City Services | Access Government Resources'
+        content: 'Academic Programs | Our University'
     - tag: meta
       attributes:
         name: description
-        content: 'Find information on a wide range of city services including utilities, public safety, transportation, and community programs.'
+        content: 'Explore our comprehensive academic programs across undergraduate, graduate, and doctoral levels. World-class education with innovative curriculum.'
     - tag: link
       attributes:
         rel: canonical
-        href: '/services'
+        href: '/academics'
   path:
-    - alias: /services
+    - alias: /academics
       langcode: en
       pathauto: 0
   field_content:
@@ -45,7 +45,7 @@ default:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: a3e2d1c0-b9a8-4f7d-6e6c-5f4b3e2d1c0b
+          uuid: b4c5d6e7-f8a9-4b0c-a1d2-e3f4a5b6c7d8
           bundle: hero
           default_langcode: en
         default:
@@ -58,12 +58,12 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Access to Essential City Services'
+            - value: 'Academic Excellence & Innovation'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
             - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Our city provides a comprehensive range of services to meet the needs of our residents, businesses, and visitors.'
+            - value: 'Discover our comprehensive range of undergraduate, graduate, and doctoral programs designed to prepare you for success in your chosen field.'
               format: basic_html

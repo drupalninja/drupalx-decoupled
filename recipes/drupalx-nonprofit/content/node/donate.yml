@@ -1,9 +1,11 @@
 _meta:
   version: '1.0'
   entity_type: node
-  uuid: 917ad86a-a690-428e-9985-7040a9786787
-  bundle: page
+  uuid: c4d5e6f7-a8b9-4c0d-b1e2-f3a4b5c6d7e8
+  bundle: landing
   default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -21,12 +23,47 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  metatag:
+    - tag: meta
+      attributes:
+        name: title
+        content: 'Donate & Support Our Cause | Make a Difference'
+    - tag: meta
+      attributes:
+        name: description
+        content: 'Your generous contribution can help us continue our vital work and make a real difference in the lives of those we serve. Donate today.'
+    - tag: link
+      attributes:
+        rel: canonical
+        href: '/donate'
   path:
     - alias: /donate
       langcode: en
       pathauto: 0
-  body:
-    - value: |
-        <p>Your generous support helps us continue our mission.</p>
-      format: full_html
-      summary: ''
+  field_content:
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: e8f9a0b1-c2d3-4e4f-b5a6-c7d8e9f0a1b2
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541785
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_heading:
+            - value: 'Support Our Mission: Donate Today'
+              format: restricted_html
+          field_hero_layout:
+            - value: image_top
+          field_media:
+            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_summary:
+            - value: 'Your generous support enables us to continue our work and expand our reach. Every contribution, no matter the size, makes a difference.'
+              format: basic_html

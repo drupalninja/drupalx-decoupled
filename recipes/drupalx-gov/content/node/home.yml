@@ -1,9 +1,11 @@
 _meta:
   version: '1.0'
   entity_type: node
-  uuid: d26cf12b-ab9e-4d69-b256-4a7f9021826b
-  bundle: page
+  uuid: 1c0b9a8f-7d6e-4c5f-b4a3-e2d1c0b9a8f7
+  bundle: landing
   default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -21,12 +23,47 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  metatag:
+    - tag: meta
+      attributes:
+        name: title
+        content: 'Official City Website | Services & Information for Residents'
+    - tag: meta
+      attributes:
+        name: description
+        content: 'Access city services, permits, licenses, and important information for residents and businesses. Your gateway to efficient government services.'
+    - tag: link
+      attributes:
+        rel: canonical
+        href: '/'
   path:
     - alias: /
       langcode: en
       pathauto: 0
-  body:
-    - value: |
-        <p>Welcome to the official government website. Find services and information for residents.</p>
-      format: full_html
-      summary: ''
+  field_content:
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 6f5a4b3c-2d1e-4f0a-b9c8-d7e6f5a4b3c2
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541785
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_heading:
+            - value: 'Serving Our Community with Excellence'
+              format: restricted_html
+          field_hero_layout:
+            - value: image_top
+          field_media:
+            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_summary:
+            - value: 'Welcome to our official city website. Access services, permits, and information to help you navigate city resources efficiently.'
+              format: basic_html

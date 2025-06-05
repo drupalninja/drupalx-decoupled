@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 9c8b7a6f-5e4d-4c3b-2a1f-0e9d8c7b6a5f
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    - value: true
+  title:
+    - value: 'Donate'
+  menu_name:
+    - value: main
+  link:
+    - uri: 'internal:/donate'
+      title: ''
+      options: {  }
+  external:
+    - value: false
+  rediscover:
+    - value: true
+  weight:
+    - value: -20
+  expanded:
+    - value: false
+  revision_translation_affected:
+    - value: true

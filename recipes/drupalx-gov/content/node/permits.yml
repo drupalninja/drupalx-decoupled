@@ -1,7 +1,7 @@
 _meta:
   version: '1.0'
   entity_type: node
-  uuid: e2d1c0b9-a8f7-4d6e-5c5f-b4a3e2d1c0b9
+  uuid: 9e8d7c6b-5a4f-4e3d-2c1b-0a9f8e7d6c5b
   bundle: landing
   default_langcode: en
   depends:
@@ -14,7 +14,7 @@ default:
   uid:
     - target_id: 1
   title:
-    - value: 'Government Services'
+    - value: 'Permits & Licenses'
   created:
     - value: 1724541785
   promote:
@@ -27,17 +27,17 @@ default:
     - tag: meta
       attributes:
         name: title
-        content: 'City Services | Access Government Resources'
+        content: 'Permits & Licenses | City Government Applications'
     - tag: meta
       attributes:
         name: description
-        content: 'Find information on a wide range of city services including utilities, public safety, transportation, and community programs.'
+        content: 'Find information on obtaining various permits and licenses, including building permits, business licenses, and event permits.'
     - tag: link
       attributes:
         rel: canonical
-        href: '/services'
+        href: '/permits'
   path:
-    - alias: /services
+    - alias: /permits
       langcode: en
       pathauto: 0
   field_content:
@@ -45,7 +45,7 @@ default:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: a3e2d1c0-b9a8-4f7d-6e6c-5f4b3e2d1c0b
+          uuid: 4a3e2d1c-0b9a-4f8e-7d6c-5b4a3e2d1c0b
           bundle: hero
           default_langcode: en
         default:
@@ -58,12 +58,12 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Access to Essential City Services'
+            - value: 'Permits & Licenses Information'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
             - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Our city provides a comprehensive range of services to meet the needs of our residents, businesses, and visitors.'
+            - value: 'Easily find and apply for the necessary permits and licenses for your projects, business, or events in our city.'
               format: basic_html

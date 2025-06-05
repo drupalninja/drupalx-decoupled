@@ -1,0 +1,65 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 6e7f8d9c-0a1b-4c2d-b3e4-f5a6b7c8d9e0
+  bundle: article
+  default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    b8cb9697-e8a3-4bb2-a4c6-7daccdab8407: media
+default:
+  revision_uid:
+    - target_id: 1
+  status:
+    - value: true
+  uid:
+    - target_id: 1
+  title:
+    - value: 'University Researchers Make Breakthrough in Renewable Energy'
+  created:
+    - value: 1724541785
+  promote:
+    - value: true
+  sticky:
+    - value: false
+  revision_translation_affected:
+    - value: true
+  metatag:
+    - tag: meta
+      attributes:
+        name: title
+        content: 'University Researchers Make Breakthrough in Renewable Energy | Our University'
+    - tag: meta
+      attributes:
+        name: description
+        content: 'Our research team has developed a revolutionary new solar panel technology that increases efficiency by 40% while reducing manufacturing costs.'
+    - tag: link
+      attributes:
+        rel: canonical
+        href: '/news/breakthrough-renewable-energy-research'
+  path:
+    - alias: /news/breakthrough-renewable-energy-research
+      langcode: en
+      pathauto: 1
+  body:
+    - value: |-
+        <h2>Revolutionary Solar Technology Development</h2>
+        <p>A team of researchers at our university has achieved a major breakthrough in renewable energy technology, developing a new type of solar panel that significantly improves efficiency while reducing production costs.</p>
+        <p>The innovative technology, developed over three years in our Materials Science Laboratory, uses a novel combination of perovskite and silicon materials to achieve 40% higher energy conversion rates compared to traditional solar panels.</p>
+        <h3>Impact on Sustainable Energy</h3>
+        <p>This breakthrough has the potential to accelerate the adoption of solar energy worldwide by making it more cost-effective and efficient. The research team, led by Dr. Sarah Chen from our Engineering Department, believes this technology could be commercially viable within the next five years.</p>
+        <h3>Collaborative Research Excellence</h3>
+        <p>The project exemplifies our university's commitment to collaborative research, involving faculty and students from multiple departments including Materials Science, Electrical Engineering, and Environmental Studies.</p>
+      format: full_html
+      summary: ''
+  field_lead:
+    - value: '<p>A groundbreaking development in solar panel technology promises to revolutionize renewable energy adoption with dramatically improved efficiency and reduced costs.</p>'
+      format: full_html
+  field_media:
+    - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+  field_subhead:
+    - value: 'Research Excellence'
+  field_summary:
+    - value: 'Our research team has developed revolutionary solar panel technology that increases efficiency by 40% while reducing manufacturing costs, potentially accelerating global adoption of renewable energy.'
+  field_thumbnail:
+    - entity: b8cb9697-e8a3-4bb2-a4c6-7daccdab8407

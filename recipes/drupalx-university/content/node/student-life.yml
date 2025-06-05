@@ -1,7 +1,7 @@
 _meta:
   version: '1.0'
   entity_type: node
-  uuid: e2d1c0b9-a8f7-4d6e-5c5f-b4a3e2d1c0b9
+  uuid: 8c7d6e5f-4a3b-4c2d-b1e0-f9a8b7c6d5e4
   bundle: landing
   default_langcode: en
   depends:
@@ -14,7 +14,7 @@ default:
   uid:
     - target_id: 1
   title:
-    - value: 'Government Services'
+    - value: 'Student Life'
   created:
     - value: 1724541785
   promote:
@@ -27,17 +27,17 @@ default:
     - tag: meta
       attributes:
         name: title
-        content: 'City Services | Access Government Resources'
+        content: 'Student Life & Campus Experience | Our University'
     - tag: meta
       attributes:
         name: description
-        content: 'Find information on a wide range of city services including utilities, public safety, transportation, and community programs.'
+        content: 'Discover vibrant campus life, student organizations, activities, and the rich experiences that await you at our university.'
     - tag: link
       attributes:
         rel: canonical
-        href: '/services'
+        href: '/student-life'
   path:
-    - alias: /services
+    - alias: /student-life
       langcode: en
       pathauto: 0
   field_content:
@@ -45,7 +45,7 @@ default:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: a3e2d1c0-b9a8-4f7d-6e6c-5f4b3e2d1c0b
+          uuid: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
           bundle: hero
           default_langcode: en
         default:
@@ -58,12 +58,12 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Access to Essential City Services'
+            - value: 'Vibrant Campus Life & Community'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
             - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Our city provides a comprehensive range of services to meet the needs of our residents, businesses, and visitors.'
+            - value: 'Experience a rich and diverse campus life with countless opportunities for personal growth, leadership, and lifelong friendships.'
               format: basic_html

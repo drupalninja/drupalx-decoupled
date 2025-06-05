@@ -1,9 +1,11 @@
 _meta:
   version: '1.0'
   entity_type: node
-  uuid: edcdceb2-cb7e-4b02-9bbf-1a8ce977bdd0
-  bundle: page
+  uuid: 0b9a8f7d-6e5c-4f4b-3a2e-1d0c9b8a7f6d
+  bundle: landing
   default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -12,7 +14,7 @@ default:
   uid:
     - target_id: 1
   title:
-    - value: 'Departments'
+    - value: 'City Departments'
   created:
     - value: 1724541785
   promote:
@@ -21,12 +23,47 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  metatag:
+    - tag: meta
+      attributes:
+        name: title
+        content: 'City Departments | Structure & Responsibilities'
+    - tag: meta
+      attributes:
+        name: description
+        content: 'Learn about the various city departments, their roles, responsibilities, and how they serve our community.'
+    - tag: link
+      attributes:
+        rel: canonical
+        href: '/departments'
   path:
     - alias: /departments
       langcode: en
       pathauto: 0
-  body:
-    - value: |
-        <p>Find information about each city department and the services they provide.</p>
-      format: full_html
-      summary: ''
+  field_content:
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 5f4b3e2d-1c0b-4a9f-8e7d-6c5b4a3e2d1c
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541785
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_heading:
+            - value: 'Our City Departments'
+              format: restricted_html
+          field_hero_layout:
+            - value: image_top
+          field_media:
+            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_summary:
+            - value: 'Discover the structure of our city government and the dedicated departments working to serve our community effectively.'
+              format: basic_html

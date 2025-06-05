@@ -1,9 +1,11 @@
 _meta:
   version: '1.0'
   entity_type: node
-  uuid: a5e5dff3-aa0a-4c63-b4cf-7b3bcee49583
-  bundle: page
+  uuid: f0a1b2c3-d4e5-4c7a-8b9d-0e1f2a3b4c5d
+  bundle: landing
   default_langcode: en
+  depends:
+    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -21,12 +23,47 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  metatag:
+    - tag: meta
+      attributes:
+        name: title
+        content: 'Welcome to Our University | Excellence in Education'
+    - tag: meta
+      attributes:
+        name: description
+        content: 'Discover our premier academic institution where excellence in education meets groundbreaking research. Join our vibrant campus community.'
+    - tag: link
+      attributes:
+        rel: canonical
+        href: '/'
   path:
     - alias: /
       langcode: en
       pathauto: 0
-  body:
-    - value: |
-        <p>Welcome to our University website. Explore our programs, research, and campus life.</p>
-      format: full_html
-      summary: ''
+  field_content:
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: c6d7e8f9-a0b1-4d5c-8f9e-1a2b3c0d1e2f
+          bundle: hero
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541785
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_heading:
+            - value: 'Excellence in Education, Research & Innovation'
+              format: restricted_html
+          field_hero_layout:
+            - value: image_top
+          field_media:
+            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+          field_summary:
+            - value: 'Welcome to our premier academic institution where world-class education meets groundbreaking research and vibrant campus life.'
+              format: basic_html

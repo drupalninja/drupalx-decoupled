@@ -137,9 +137,9 @@ class SetupForm extends FormBase {
       '#title' => $this->t('What type of website would you like to create?'),
       '#options' => [
         'drupalx-demo' => $this->t('Default Demo Site - A modern showcase website'),
-        'university' => $this->t('University - Academic institution website (Coming Soon)'),
-        'government' => $this->t('Government Agency - Public sector website (Coming Soon)'),
-        'nonprofit' => $this->t('Non-Profit - Organization website (Coming Soon)'),
+        'drupalx-university' => $this->t('University - Academic institution website'),
+        'drupalx-gov' => $this->t('Government Agency - Public sector website'),
+        'drupalx-nonprofit' => $this->t('Non-Profit - Organization website'),
       ],
       '#default_value' => 'drupalx-demo',
       '#required' => TRUE,
@@ -172,14 +172,8 @@ class SetupForm extends FormBase {
       ->set('name', $site_name)
       ->save();
 
-    if ($template_type === 'drupalx-demo') {
-      // Apply the drupalx-demo recipe.
-      $this->applyDrupalxDemoRecipe();
-    }
-    else {
-      // Fake install for other templates.
-      $this->fakeInstallTemplate($template_type);
-    }
+    // Apply the selected recipe.
+    $this->applyRecipe($template_type);
 
     // Mark setup as complete.
     $this->state->set('drupalx_setup.completed', TRUE);
@@ -194,13 +188,16 @@ class SetupForm extends FormBase {
   }
 
   /**
-   * Apply the DrupalX Demo recipe.
+   * Apply the selected recipe.
+   *
+   * @param string $template_type
+   *   The template type recipe to apply.
    */
-  protected function applyDrupalxDemoRecipe() {
+  protected function applyRecipe($template_type) {
     try {
       // Get the absolute path to the recipe directory.
       $drupal_root = DRUPAL_ROOT;
-      $recipe_path = $drupal_root . '/../recipes/drupalx-demo';
+      $recipe_path = $drupal_root . '/../recipes/' . $template_type;
 
       // Check if recipe directory exists.
       if (!is_dir($recipe_path)) {
@@ -213,10 +210,12 @@ class SetupForm extends FormBase {
       // Apply the recipe using RecipeRunner.
       RecipeRunner::processRecipe($recipe);
 
-      $this->messenger->addStatus($this->t('DrupalX Demo recipe has been applied successfully.'));
+      $this->messenger->addStatus($this->t('@template recipe has been applied successfully.', [
+        '@template' => ucfirst(str_replace('-', ' ', $template_type)),
+      ]));
 
-      // Find the node with /welcome alias and set it as homepage.
-      $this->setWelcomeAsHomepage();
+      // Find the node with / alias and set it as homepage.
+      $this->setHomepage();
     }
     catch (\Exception $e) {
       $this->messenger->addError($this->t('Error applying recipe: @error', ['@error' => $e->getMessage()]));
@@ -224,34 +223,15 @@ class SetupForm extends FormBase {
   }
 
   /**
-   * Fake install for other template types.
-   *
-   * @param string $template_type
-   *   The template type being "installed".
+   * Set the home page node as the site homepage.
    */
-  protected function fakeInstallTemplate($template_type) {
-    // Simulate installation process.
-    $this->messenger->addStatus($this->t('Template "@template" installation simulated. This template will be available soon!', [
-      '@template' => $template_type,
-    ]));
-  }
-
-  /**
-   * Set the welcome node as the homepage.
-   */
-  protected function setWelcomeAsHomepage() {
+  protected function setHomepage() {
     try {
-      // Find node with /welcome alias.
-      $node_storage = $this->entityTypeManager->getStorage('node');
-      $alias_storage = $this->entityTypeManager->getStorage('path_alias');
-
-      $alias_entities = $alias_storage->loadByProperties(['alias' => '/welcome']);
-      if (!empty($alias_entities)) {
-        $alias_entity = reset($alias_entities);
-        $path = $alias_entity->getPath();
-
-        // Extract node ID from path (e.g., /node/123).
-        if (preg_match('/\/node\/(\d+)/', $path, $matches)) {
+      // Find node with / alias.
+      $path = $this->aliasManager->getPathByAlias('/');
+      if ($path !== '/') {
+        // Extract the node ID from the path.
+        if (preg_match('/node\/(\d+)/', $path, $matches)) {
           $node_id = $matches[1];
 
           // Set this node as the homepage.
@@ -259,12 +239,12 @@ class SetupForm extends FormBase {
             ->set('page.front', '/node/' . $node_id)
             ->save();
 
-          $this->messenger->addStatus($this->t('Homepage has been set to the welcome page.'));
+          $this->messenger->addStatus($this->t('Homepage has been set successfully.'));
         }
       }
     }
     catch (\Exception $e) {
-      $this->messenger->addWarning($this->t('Could not set welcome page as homepage: @error', ['@error' => $e->getMessage()]));
+      $this->messenger->addWarning($this->t('Could not set homepage: @error', ['@error' => $e->getMessage()]));
     }
   }
 
