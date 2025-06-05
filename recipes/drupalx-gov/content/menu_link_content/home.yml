@@ -12,7 +12,7 @@ default:
   menu_name:
     - value: main
   link:
-    - uri: 'internal:/'
+    - uri: 'internal:/welcome'
       title: ''
       options: {  }
   external:

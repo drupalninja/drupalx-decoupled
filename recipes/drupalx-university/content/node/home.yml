@@ -35,9 +35,9 @@ default:
     - tag: link
       attributes:
         rel: canonical
-        href: '/'
+        href: '/welcome'
   path:
-    - alias: /
+    - alias: /welcome
       langcode: en
       pathauto: 0
   field_content:
