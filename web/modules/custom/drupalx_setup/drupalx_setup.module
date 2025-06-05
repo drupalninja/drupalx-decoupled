@@ -54,6 +54,7 @@ function drupalx_setup_uninstall() {
   \Drupal::state()->deleteMultiple([
     'drupalx_setup.completed',
     'drupalx_setup.original_homepage',
+    'drupalx_setup.created_pages',
   ]);
 }
 

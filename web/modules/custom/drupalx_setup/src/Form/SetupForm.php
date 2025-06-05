@@ -11,7 +11,10 @@ use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\State\StateInterface;
 use Drupal\Core\Recipe\RecipeRunner;
 use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Setup form for DrupalX initial configuration.
@@ -105,6 +108,11 @@ class SetupForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    // Check if the setup has already been completed.
+    if ($this->state->get('drupalx_setup.completed')) {
+      return $this->alreadyCompletedForm();
+    }
+
     // Add the CSS library for styling.
     $form['#attached']['library'][] = 'drupalx_setup/setup-form';
 
@@ -160,6 +168,53 @@ class SetupForm extends FormBase {
   }
 
   /**
+   * Builds the form when setup is already completed.
+   *
+   * @return array
+   *   A render array for the "already completed" page.
+   */
+  protected function alreadyCompletedForm() {
+    // Get the site name.
+    $site_name = $this->configFactory->get('system.site')->get('name');
+
+    // Get the homepage URL to link to.
+    $front_uri = $this->configFactory->get('system.site')->get('page.front');
+    $homepage_url = \Drupal::service('path_alias.manager')->getAliasByPath($front_uri);
+
+    $build = [
+      '#attached' => [
+        'library' => ['drupalx_setup/setup-form'],
+      ],
+      '#attributes' => [
+        'class' => ['drupalx-setup-form', 'setup-completed'],
+      ],
+      'container' => [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['setup-container', 'text-center']],
+        'header' => [
+          '#markup' => '<h1 class="setup-title">' . $this->t('Setup Already Completed') . '</h1>',
+        ],
+        'message' => [
+          '#markup' => '<p class="setup-subtitle">' . $this->t(
+            'The setup for "@site_name" has already been run.',
+            ['@site_name' => $site_name]
+          ) . '</p>',
+        ],
+        'homepage_link' => [
+          '#type' => 'link',
+          '#title' => $this->t('Go to Homepage'),
+          '#url' => Url::fromUserInput($homepage_url),
+          '#attributes' => [
+            'class' => ['button', 'button--primary', 'setup-submit'],
+          ],
+        ],
+      ],
+    ];
+
+    return $build;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
@@ -175,12 +230,40 @@ class SetupForm extends FormBase {
     $this->applyRecipe($template_type);
 
     // Mark setup as complete.
-    $this->state->set('drupalx_setup.completed', TRUE);
+    $this->state->set('drupalx_setup.completed', 'finished');
 
-    $this->messenger->addStatus($this->t('Your @template website "@site_name" has been successfully created!', [
-      '@template' => $form['container']['template_type']['#options'][$template_type],
-      '@site_name' => $site_name,
-    ]));
+    // After installing content, set the "Welcome" page as the front page.
+    $this->setWelcomeAsHomepage();
+
+    $this->messenger->addStatus($this->t(
+      'Your @template website "@site_name" has been successfully created!',
+      [
+        '@template' => $form['container']['template_type']['#options'][$template_type],
+        '@site_name' => $site_name,
+      ]
+    ));
+
+    // Get created pages to display.
+    $created_pages = $this->state->get('drupalx_setup.created_pages', []);
+    if (!empty($created_pages)) {
+      $links = [];
+      foreach ($created_pages as $path => $title) {
+        $url = Url::fromUserInput($path);
+        $links[] = Link::fromTextAndUrl($title, $url)->toString();
+      }
+      $this->messenger->addStatus($this->t(
+        'The following pages were created: @pages',
+        ['@pages' => implode(', ', $links)]
+      ));
+    }
+
+    // Link to the new homepage.
+    $homepage_path = $this->configFactory->get('system.site')->get('page.front');
+    $homepage_alias = $this->aliasManager->getAliasByPath($homepage_path);
+    $this->messenger->addStatus($this->t(
+      'View your new <a href=":url">homepage</a>.',
+      [':url' => Url::fromUserInput($homepage_alias)->toString()]
+    ));
 
     // Redirect to homepage.
     $form_state->setRedirect('<front>');
@@ -209,12 +292,13 @@ class SetupForm extends FormBase {
       // Apply the recipe using RecipeRunner.
       RecipeRunner::processRecipe($recipe);
 
-      $this->messenger->addStatus($this->t('@template recipe has been applied successfully.', [
-        '@template' => ucfirst(str_replace('-', ' ', $template_type)),
-      ]));
+      $this->messenger->addStatus($this->t(
+        '@template recipe has been applied successfully.',
+        ['@template' => ucfirst(str_replace('-', ' ', $template_type))]
+      ));
 
-      // Find the node with / alias and set it as homepage.
-      $this->setHomepage();
+      // After applying the recipe, get the pages that were created.
+      $this->getCreatedPages($recipe_path);
     }
     catch (\Exception $e) {
       $this->messenger->addError($this->t('Error applying recipe: @error', ['@error' => $e->getMessage()]));
@@ -222,24 +306,53 @@ class SetupForm extends FormBase {
   }
 
   /**
-   * Set the home page node as the site homepage.
+   * Get the pages created by the recipe and save them to state.
+   *
+   * @param string $recipe_path
+   *   The path to the recipe.
    */
-  protected function setHomepage() {
+  protected function getCreatedPages($recipe_path) {
+    $node_content_path = $recipe_path . '/content/node';
+    if (!is_dir($node_content_path)) {
+      return;
+    }
+
+    $created_pages = [];
+    $yml_files = glob($node_content_path . '/*.yml');
+    foreach ($yml_files as $file_path) {
+      $yaml_content = file_get_contents($file_path);
+      $content = Yaml::parse($yaml_content);
+      if (isset($content['title'][0]['value']) && isset($content['path'][0]['alias'])) {
+        $title = $content['title'][0]['value'];
+        $alias = $content['path'][0]['alias'];
+        $created_pages[$alias] = $title;
+      }
+    }
+
+    if (!empty($created_pages)) {
+      $this->state->set('drupalx_setup.created_pages', $created_pages);
+    }
+  }
+
+  /**
+   * Set the "Welcome" page as the site homepage.
+   */
+  protected function setWelcomeAsHomepage() {
     try {
-      // Find node with / alias.
-      $path = $this->aliasManager->getPathByAlias('/');
-      if ($path !== '/') {
-        // Extract the node ID from the path.
-        if (preg_match('/node\/(\d+)/', $path, $matches)) {
-          $node_id = $matches[1];
+      // Find node with /welcome alias.
+      $path = $this->aliasManager->getPathByAlias('/welcome');
+      if (preg_match('/node\/(\d+)/', $path, $matches)) {
+        $node_id = $matches[1];
 
-          // Set this node as the homepage.
-          $this->configFactory->getEditable('system.site')
-            ->set('page.front', '/node/' . $node_id)
-            ->save();
+        // Set this node as the homepage.
+        $this->configFactory->getEditable('system.site')
+          ->set('page.front', '/node/' . $node_id)
+          ->save();
 
-          $this->messenger->addStatus($this->t('Homepage has been set successfully.'));
-        }
+        $this->messenger->addStatus($this->t('The "Welcome" page has been set as the homepage.'));
+      }
+      else {
+        $this->messenger->addWarning($this->t('Could not find a page with the alias "/welcome".'));
       }
     }
     catch (\Exception $e) {
