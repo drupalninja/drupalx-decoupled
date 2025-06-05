@@ -23,6 +23,8 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  field_hide_page_title:
+    - value: true
   metatag:
     - tag: meta
       attributes:
@@ -66,4 +68,93 @@ default:
             - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_summary:
             - value: 'Welcome to our premier academic institution where world-class education meets groundbreaking research and vibrant campus life.'
+              format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uhp1-0001-4001-a001-000000000001
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Key University Facts'
+          field_body:
+            - value: |
+                <ul>
+                  <li><strong>Founded:</strong> 1885</li>
+                  <li><strong>Student Population:</strong> 25,000+ (15,000 Undergraduate, 10,000 Graduate)</li>
+                  <li><strong>Faculty Members:</strong> 1,500 (95% with terminal degrees)</li>
+                  <li><strong>Academic Programs:</strong> Over 200+ undergraduate and graduate programs</li>
+                  <li><strong>Campus Size:</strong> 750 acres</li>
+                  <li><strong>Global Alumni Network:</strong> 150,000+</li>
+                </ul>
+              format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uhp2-0002-4002-a002-000000000002
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541787
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Featured Academic Programs'
+          field_summary:
+            - value: |
+                <p>Explore cutting-edge programs designed to equip students with the knowledge and skills for future success. Our diverse offerings span across arts, sciences, engineering, business, and health professions.</p>
+                <ul>
+                  <li>B.S. in Artificial Intelligence & Machine Learning</li>
+                  <li>M.A. in Sustainable Development</li>
+                  <li>Ph.D. in Biomedical Engineering</li>
+                </ul>
+                <p><a href="/academics">Discover all programs...</a></p>
+              format: basic_html
+          field_sidebyside_layout:
+            - value: left
+          field_media:
+            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uhp3-0003-4003-a003-000000000003
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541788
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Campus News & Events'
+          field_body:
+            - value: |
+                <p>Stay updated with the latest happenings on campus, from groundbreaking research announcements to student achievements and upcoming public lectures.</p>
+                <ul>
+                  <li><a href="/news/record-new-students-fall">University Welcomes Record New Student Cohort</a></li>
+                  <li><a href="/news/breakthrough-renewable-energy-research">Researchers Announce Solar Energy Breakthrough</a></li>
+                  <li>Upcoming: Annual Science & Innovation Fair - Oct 25th</li>
+                </ul>
+                <p><a href="/news">More news...</a> | <a href="/events">Full events calendar...</a></p>
               format: basic_html

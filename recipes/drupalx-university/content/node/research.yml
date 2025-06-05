@@ -23,6 +23,8 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  field_hide_page_title:
+    - value: true
   metatag:
     - tag: meta
       attributes:
@@ -66,4 +68,82 @@ default:
             - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_summary:
             - value: 'Our university is at the forefront of research and innovation, conducting groundbreaking studies that shape the future and solve global challenges.'
+              format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: urp1-0001-4001-c001-000000000001
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Key Research Areas'
+          field_body:
+            - value: |
+                <p>Our faculty and students are engaged in impactful research across a spectrum of disciplines, including:</p>
+                <ul>
+                  <li>Renewable Energy & Sustainability</li>
+                  <li>Artificial Intelligence & Data Science</li>
+                  <li>Biomedical & Health Sciences</li>
+                  <li>Advanced Materials & Manufacturing</li>
+                  <li>Social Justice & Public Policy</li>
+                </ul>
+              format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: urp2-0002-4002-c002-000000000002
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541787
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Research Centers & Institutes'
+          field_summary:
+            - value: |
+                <p>We host a variety of specialized research centers and institutes that foster interdisciplinary collaboration and innovation.</p>
+                <p>These include the Institute for Global Health, the Center for Advanced Robotics, and the Future of Work Initiative. Each center provides state-of-the-art facilities and brings together leading experts to tackle complex challenges.</p>
+              format: basic_html
+          field_sidebyside_layout:
+            - value: left
+          field_media:
+            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: urp3-0003-4003-c003-000000000003
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541788
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Student Research Opportunities'
+          field_body:
+            - value: |
+                <p>Undergraduate and graduate students have numerous opportunities to engage in research, working alongside faculty mentors on significant projects. We offer research stipends, symposiums to present work, and pathways to publication.</p>
               format: basic_html

@@ -23,6 +23,8 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  field_hide_page_title:
+    - value: true
   metatag:
     - tag: meta
       attributes:
@@ -66,4 +68,82 @@ default:
             - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
           field_summary:
             - value: 'Experience a rich and diverse campus life with countless opportunities for personal growth, leadership, and lifelong friendships.'
+              format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uslp1-0001-4001-d001-000000000001
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Clubs & Organizations'
+          field_body:
+            - value: |
+                <p>With over 200 student-run clubs and organizations, there is something for everyone! From academic societies to sports clubs, cultural groups to volunteer initiatives, you can explore your passions and make new friends.</p>
+                <p>Popular options include the Debate Club, International Students Association, Coding Club, and the University Hiking Society.</p>
+              format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uslp2-0002-4002-d002-000000000002
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541787
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Campus Facilities & Services'
+          field_summary:
+            - value: |
+                <p>Our campus offers state-of-the-art facilities to support your academic and personal life:</p>
+                <ul>
+                  <li>Modern libraries with extensive digital and print resources.</li>
+                  <li>Recreation center with gym, swimming pool, and sports courts.</li>
+                  <li>Student health and wellness center.</li>
+                  <li>Multiple dining halls and cafes offering diverse cuisines.</li>
+                  <li>On-campus housing options.</li>
+                </ul>
+              format: basic_html
+          field_sidebyside_layout:
+            - value: right
+          field_media:
+            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uslp3-0003-4003-d003-000000000003
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541788
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Student Support & Well-being'
+          field_body:
+            - value: |
+                <p>Your well-being is our priority. We provide comprehensive support services including academic advising, personal counseling, disability services, and career development resources to help you thrive.</p>
               format: basic_html

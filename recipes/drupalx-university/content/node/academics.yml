@@ -23,6 +23,8 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  field_hide_page_title:
+    - value: true
   metatag:
     - tag: meta
       attributes:
@@ -67,3 +69,90 @@ default:
           field_summary:
             - value: 'Discover our comprehensive range of undergraduate, graduate, and doctoral programs designed to prepare you for success in your chosen field.'
               format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uap1-0001-4001-b001-000000000001
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Explore Our Colleges & Schools'
+          field_body:
+            - value: |
+                <p>Our University is comprised of several specialized colleges and schools, each offering unique programs and research opportunities:</p>
+                <ul>
+                  <li>College of Arts & Humanities</li>
+                  <li>School of Engineering & Applied Sciences</li>
+                  <li>College of Natural & Health Sciences</li>
+                  <li>The Business School</li>
+                  <li>Graduate School of Advanced Studies</li>
+                </ul>
+              format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uap2-0002-4002-b002-000000000002
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541787
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Degree Programs Overview'
+          field_body:
+            - value: |
+                <p>We offer a wide array of degree options to suit your academic and career aspirations:</p>
+                <p><strong>Undergraduate Programs:</strong> From Bachelor of Arts (B.A.) to Bachelor of Science (B.S.) degrees across 100+ majors.</p>
+                <p><strong>Graduate Programs:</strong> Master's degrees (M.A., M.S., M.Eng., MBA) and specialized graduate certificates.</p>
+                <p><strong>Doctoral Programs:</strong> Pursue a Ph.D. or professional doctorate in a variety of disciplines, contributing to cutting-edge research.</p>
+              format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uap3-0003-4003-b003-000000000003
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541788
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Academic Support & Resources'
+          field_summary:
+            - value: |
+                <p>We are committed to your success. Our students have access to a comprehensive suite of support services:</p>
+                <ul>
+                  <li>Academic Advising</li>
+                  <li>Tutoring Centers</li>
+                  <li>Writing Workshops</li>
+                  <li>Library & Research Services</li>
+                  <li>Career Counseling</li>
+                </ul>
+              format: basic_html
+          field_sidebyside_layout:
+            - value: right
+          field_media:
+            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c

@@ -12,7 +12,6 @@ use Drupal\Core\State\StateInterface;
 use Drupal\Core\Recipe\RecipeRunner;
 use Drupal\Core\Recipe\Recipe;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Url;
 
 /**
  * Setup form for DrupalX initial configuration.
