@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 441fdf60-9dec-4345-88e1-c1c686aa6111
+  bundle: page
+  default_langcode: en
+default:
+  revision_uid:
+    - target_id: 1
+  status:
+    - value: true
+  uid:
+    - target_id: 1
+  title:
+    - value: 'Programs'
+  created:
+    - value: 1724541785
+  promote:
+    - value: false
+  sticky:
+    - value: false
+  revision_translation_affected:
+    - value: true
+  path:
+    - alias: /programs
+      langcode: en
+      pathauto: 0
+  body:
+    - value: |
+        <p>Discover our various programs aimed at helping communities in need.</p>
+      format: full_html
+      summary: ''

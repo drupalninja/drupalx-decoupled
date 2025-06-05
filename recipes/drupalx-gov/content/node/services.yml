@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 30f761f6-3942-4e69-9813-6d5152b371dc
+  bundle: page
+  default_langcode: en
+default:
+  revision_uid:
+    - target_id: 1
+  status:
+    - value: true
+  uid:
+    - target_id: 1
+  title:
+    - value: 'Services'
+  created:
+    - value: 1724541785
+  promote:
+    - value: false
+  sticky:
+    - value: false
+  revision_translation_affected:
+    - value: true
+  path:
+    - alias: /services
+      langcode: en
+      pathauto: 0
+  body:
+    - value: |
+        <p>Access a variety of city services including permits, licenses, and community resources.</p>
+      format: full_html
+      summary: ''

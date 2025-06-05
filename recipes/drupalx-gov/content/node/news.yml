@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c52daa1d-dd49-48f8-8457-bab7757d9fed
+  bundle: article
+  default_langcode: en
+default:
+  revision_uid:
+    - target_id: 1
+  status:
+    - value: true
+  uid:
+    - target_id: 1
+  title:
+    - value: 'City Council Approves Budget'
+  created:
+    - value: 1724541785
+  promote:
+    - value: true
+  sticky:
+    - value: false
+  revision_translation_affected:
+    - value: true
+  path:
+    - alias: /news/city-council-approves-budget
+      langcode: en
+      pathauto: 1
+  body:
+    - value: |
+        <p>The city council has approved the annual budget for the upcoming fiscal year.</p>
+      format: full_html
+      summary: ''

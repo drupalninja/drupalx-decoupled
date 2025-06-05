@@ -1,0 +1,7 @@
+name: 'DrupalX Nonprofit'
+description: 'Sample content for a typical nonprofit website.'
+type: 'Site'
+recipes:
+  - ../recipes/drupalx-core
+content:
+  import: '*'

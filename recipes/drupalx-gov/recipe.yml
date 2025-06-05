@@ -1,0 +1,7 @@
+name: 'DrupalX Gov'
+description: 'Sample content for a typical government website.'
+type: 'Site'
+recipes:
+  - ../recipes/drupalx-core
+content:
+  import: '*'

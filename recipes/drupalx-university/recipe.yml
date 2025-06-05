@@ -1,0 +1,7 @@
+name: 'DrupalX University'
+description: 'Sample content for a typical university website.'
+type: 'Site'
+recipes:
+  - ../recipes/drupalx-core
+content:
+  import: '*'

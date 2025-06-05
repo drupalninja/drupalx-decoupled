@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: d26cf12b-ab9e-4d69-b256-4a7f9021826b
+  bundle: page
+  default_langcode: en
+default:
+  revision_uid:
+    - target_id: 1
+  status:
+    - value: true
+  uid:
+    - target_id: 1
+  title:
+    - value: 'Home'
+  created:
+    - value: 1724541785
+  promote:
+    - value: true
+  sticky:
+    - value: false
+  revision_translation_affected:
+    - value: true
+  path:
+    - alias: /
+      langcode: en
+      pathauto: 0
+  body:
+    - value: |
+        <p>Welcome to the official government website. Find services and information for residents.</p>
+      format: full_html
+      summary: ''
