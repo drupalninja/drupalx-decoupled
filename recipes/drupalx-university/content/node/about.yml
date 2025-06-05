@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: d3758217-79a2-4ad1-80d7-e15f06ae8dea
+  bundle: page
+  default_langcode: en
+default:
+  revision_uid:
+    - target_id: 1
+  status:
+    - value: true
+  uid:
+    - target_id: 1
+  title:
+    - value: 'About Us'
+  created:
+    - value: 1724541785
+  promote:
+    - value: false
+  sticky:
+    - value: false
+  revision_translation_affected:
+    - value: true
+  path:
+    - alias: /about
+      langcode: en
+      pathauto: 0
+  body:
+    - value: |
+        <p>Founded over a century ago, our University is dedicated to academic excellence and student success.</p>
+      format: full_html
+      summary: ''

@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: edcdceb2-cb7e-4b02-9bbf-1a8ce977bdd0
+  bundle: page
+  default_langcode: en
+default:
+  revision_uid:
+    - target_id: 1
+  status:
+    - value: true
+  uid:
+    - target_id: 1
+  title:
+    - value: 'Departments'
+  created:
+    - value: 1724541785
+  promote:
+    - value: false
+  sticky:
+    - value: false
+  revision_translation_affected:
+    - value: true
+  path:
+    - alias: /departments
+      langcode: en
+      pathauto: 0
+  body:
+    - value: |
+        <p>Find information about each city department and the services they provide.</p>
+      format: full_html
+      summary: ''

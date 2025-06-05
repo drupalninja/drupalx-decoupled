@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: df51de76-72a2-4642-a509-a63dad9189ed
+  bundle: article
+  default_langcode: en
+default:
+  revision_uid:
+    - target_id: 1
+  status:
+    - value: true
+  uid:
+    - target_id: 1
+  title:
+    - value: 'Impact Story'
+  created:
+    - value: 1724541785
+  promote:
+    - value: true
+  sticky:
+    - value: false
+  revision_translation_affected:
+    - value: true
+  path:
+    - alias: /blog/impact-story
+      langcode: en
+      pathauto: 1
+  body:
+    - value: |
+        <p>Read how your support has transformed lives in our community.</p>
+      format: full_html
+      summary: ''

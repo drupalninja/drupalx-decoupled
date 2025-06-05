@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 917ad86a-a690-428e-9985-7040a9786787
+  bundle: page
+  default_langcode: en
+default:
+  revision_uid:
+    - target_id: 1
+  status:
+    - value: true
+  uid:
+    - target_id: 1
+  title:
+    - value: 'Donate'
+  created:
+    - value: 1724541785
+  promote:
+    - value: false
+  sticky:
+    - value: false
+  revision_translation_affected:
+    - value: true
+  path:
+    - alias: /donate
+      langcode: en
+      pathauto: 0
+  body:
+    - value: |
+        <p>Your generous support helps us continue our mission.</p>
+      format: full_html
+      summary: ''
