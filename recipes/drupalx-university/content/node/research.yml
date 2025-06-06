@@ -5,7 +5,10 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
-    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    univ-rese-004-medi-4f0f-9c6e-164a416d574c: media
+    univ-stud-003-medi-4f0f-9c6e-164a416d574c: media
+    univ-lib-001-medi-4f0f-9c6e-164a416d574c: media
+    univ-coll-005-medi-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -29,11 +32,11 @@ default:
     - tag: meta
       attributes:
         name: title
-        content: 'Research & Innovation | Our University'
+        content: 'Research & Innovation | Metropolitan University'
     - tag: meta
       attributes:
         name: description
-        content: 'Explore groundbreaking research initiatives, collaborative projects, and innovative discoveries happening at our university.'
+        content: 'Explore groundbreaking research initiatives, collaborative projects, and innovative discoveries at Metropolitan University. Advancing knowledge to solve global challenges.'
     - tag: link
       attributes:
         rel: canonical
@@ -60,21 +63,21 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Pioneering Research & Discovery'
+            - value: 'Research That Changes the World'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: univ-rese-004-medi-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Our university is at the forefront of research and innovation, conducting groundbreaking studies that shape the future and solve global challenges.'
+            - value: "At Metropolitan University, our research enterprise tackles humanity's greatest challenges. From breakthrough discoveries to practical applications, we're advancing knowledge that transforms lives and shapes the future."
               format: basic_html
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: urp1-0001-4001-c001-000000000001
-          bundle: text
+          uuid: urp-impact-001-4001-c001-000000000001
+          bundle: card_group
           default_langcode: en
         default:
           status:
@@ -86,24 +89,106 @@ default:
           revision_translation_affected:
             - value: true
           field_title:
-            - value: 'Key Research Areas'
-          field_body:
-            - value: |
-                <p>Our faculty and students are engaged in impactful research across a spectrum of disciplines, including:</p>
-                <ul>
-                  <li>Renewable Energy & Sustainability</li>
-                  <li>Artificial Intelligence & Data Science</li>
-                  <li>Biomedical & Health Sciences</li>
-                  <li>Advanced Materials & Manufacturing</li>
-                  <li>Social Justice & Public Policy</li>
-                </ul>
-              format: basic_html
+            - value: 'Research Impact by the Numbers'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-stat-funding-001-4001-c001-000000000001
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: paid
+                  field_title:
+                    - value: '$500M+'
+                  field_summary:
+                    - value: 'Annual research funding from federal agencies, industry, and private foundations'
+                    - format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-stat-patents-002-4002-c002-000000000002
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: lightbulb
+                  field_title:
+                    - value: '250+'
+                  field_summary:
+                    - value: 'Patents and intellectual properties generated annually by our researchers'
+                    - format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-stat-centers-003-4003-c003-000000000003
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: domain
+                  field_title:
+                    - value: '15'
+                  field_summary:
+                    - value: 'Specialized research centers and institutes advancing interdisciplinary collaboration'
+                    - format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-stat-students-004-4004-c004-000000000004
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: school
+                  field_title:
+                    - value: '3,000+'
+                  field_summary:
+                    - value: 'Undergraduate and graduate students engaged in research projects annually'
+                    - format: ''
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: urp2-0002-4002-c002-000000000002
-          bundle: sidebyside
+          uuid: urp-areas-002-4002-c002-000000000002
+          bundle: text
           default_langcode: en
         default:
           status:
@@ -114,23 +199,21 @@ default:
             - value: {  }
           revision_translation_affected:
             - value: true
+          field_eyebrow:
+            - value: 'Research Excellence'
           field_title:
-            - value: 'Research Centers & Institutes'
-          field_summary:
-            - value: |
-                <p>We host a variety of specialized research centers and institutes that foster interdisciplinary collaboration and innovation.</p>
-                <p>These include the Institute for Global Health, the Center for Advanced Robotics, and the Future of Work Initiative. Each center provides state-of-the-art facilities and brings together leading experts to tackle complex challenges.</p>
+            - value: 'Leading Research Areas'
+          field_text_layout:
+            - value: centered
+          field_body:
+            - value: '<p>Our research spans cutting-edge fields where innovation meets real-world impact, positioning Metropolitan University as a global leader in discovery and knowledge creation.</p>'
               format: basic_html
-          field_sidebyside_layout:
-            - value: left
-          field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: urp3-0003-4003-c003-000000000003
-          bundle: text
+          uuid: urp-research-fields-003-4003-c003-000000000003
+          bundle: card_group
           default_langcode: en
         default:
           status:
@@ -142,8 +225,259 @@ default:
           revision_translation_affected:
             - value: true
           field_title:
-            - value: 'Student Research Opportunities'
-          field_body:
-            - value: |
-                <p>Undergraduate and graduate students have numerous opportunities to engage in research, working alongside faculty mentors on significant projects. We offer research stipends, symposiums to present work, and pathways to publication.</p>
+            - value: 'Key Research Domains'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-field-ai-001-4001-c001-000000000001
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Artificial Intelligence & Data Science'
+                  field_summary:
+                    - value: 'Developing next-generation AI systems, machine learning algorithms, and big data analytics to solve complex problems in healthcare, transportation, and social sciences.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-coll-005-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/research'
+                      title: 'Explore AI Research'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-field-energy-002-4002-c002-000000000002
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Renewable Energy & Sustainability'
+                  field_summary:
+                    - value: 'Pioneering breakthrough technologies in solar energy, wind power, energy storage, and carbon capture to address climate change and create a sustainable future.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-rese-004-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/research'
+                      title: 'Explore Energy Research'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-field-health-003-4003-c003-000000000003
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Biomedical & Health Sciences'
+                  field_summary:
+                    - value: 'Advancing precision medicine, developing innovative treatments for cancer and neurodegenerative diseases, and improving global public health outcomes.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-lib-001-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/research'
+                      title: 'Explore Health Research'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-field-materials-004-4004-c004-000000000004
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Advanced Materials & Nanotechnology'
+                  field_summary:
+                    - value: 'Creating revolutionary materials with unprecedented properties for applications in electronics, aerospace, medical devices, and environmental remediation.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-stud-003-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/research'
+                      title: 'Explore Materials Research'
+                      options: {  }
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: urp-centers-004-4004-c004-000000000004
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541789
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Research Infrastructure'
+          field_title:
+            - value: 'World-Class Research Centers & Institutes'
+          field_summary:
+            - value: '<p>Our specialized research centers bring together leading experts from multiple disciplines to tackle complex challenges and drive innovation across fields.</p><p>These state-of-the-art facilities provide researchers with cutting-edge equipment, collaborative spaces, and the resources needed to push the boundaries of knowledge.</p>'
               format: basic_html
+          field_sidebyside_layout:
+            - value: left
+          field_media:
+            - entity: univ-rese-004-medi-4f0f-9c6e-164a416d574c
+          field_features:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-center-quantum-001-4001-c001-000000000001
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541789
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: memory
+                  field_summary:
+                    - value: '<p>Institute for Quantum Computing & Advanced Technologies</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-center-health-002-4002-c002-000000000002
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541789
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: healing
+                  field_summary:
+                    - value: '<p>Center for Global Health Innovation & Policy</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-center-climate-003-4003-c003-000000000003
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541789
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: eco
+                  field_summary:
+                    - value: '<p>Climate Change Research & Sustainability Institute</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: urp-center-robotics-004-4004-c004-000000000004
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541789
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: precision_manufacturing
+                  field_summary:
+                    - value: '<p>Advanced Robotics & Autonomous Systems Laboratory</p>'
+                      format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: urp-opportunities-005-4005-c005-000000000005
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541790
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Student Research'
+          field_title:
+            - value: 'Undergraduate & Graduate Research Opportunities'
+          field_text_layout:
+            - value: left
+          field_body:
+            - value: "<p>At Metropolitan University, research isn't just for faculty—it's an integral part of the student experience. We believe that hands-on research participation is essential for developing critical thinking skills and preparing the next generation of innovators.</p><h3>Undergraduate Research Program</h3><ul><li><strong>Research Assistantships:</strong> Work directly with faculty on cutting-edge projects</li><li><strong>Independent Study Projects:</strong> Pursue your own research interests with faculty mentorship</li><li><strong>Summer Research Intensive:</strong> 10-week paid research experience with presentation symposium</li><li><strong>Undergraduate Research Conference:</strong> Annual showcase of student research achievements</li></ul><h3>Graduate Research Excellence</h3><ul><li><strong>Dissertation Research:</strong> Original research contributing new knowledge to your field</li><li><strong>Interdisciplinary Collaborations:</strong> Cross-department projects addressing complex challenges</li><li><strong>Industry Partnerships:</strong> Real-world applications through corporate research collaborations</li><li><strong>International Research:</strong> Global research opportunities and exchange programs</li></ul><h3>Funding & Support</h3><ul><li><strong>Research Stipends:</strong> Competitive funding for undergraduate and graduate researchers</li><li><strong>Travel Grants:</strong> Support for presenting research at national and international conferences</li><li><strong>Equipment Access:</strong> State-of-the-art laboratories and computational resources</li><li><strong>Publication Support:</strong> Assistance with manuscript preparation and journal submission</li></ul>"
+              format: basic_html
+              summary: ''
+          field_link:
+            - uri: 'internal:/student-life'
+              title: 'Explore Research Opportunities'
+              options: {  }
+          field_link2:
+            - uri: 'internal:/apply'
+              title: 'Apply for Research Programs'
+              options: {  }

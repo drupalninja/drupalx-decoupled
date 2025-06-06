@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: univ-read-008-file-4f0f-9c6e-164a416d574c
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: student-reading.jpg
+  uri:
+    -
+      value: 'public://student-reading.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 57144
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1724541785

@@ -5,7 +5,11 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
-    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    univ-coll-005-medi-4f0f-9c6e-164a416d574c: media
+    univ-stud-003-medi-4f0f-9c6e-164a416d574c: media
+    univ-grad-006-medi-4f0f-9c6e-164a416d574c: media
+    univ-lib-001-medi-4f0f-9c6e-164a416d574c: media
+    univ-camp-002-medi-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -29,11 +33,11 @@ default:
     - tag: meta
       attributes:
         name: title
-        content: 'Student Life & Campus Experience | Our University'
+        content: 'Student Life & Campus Experience | Metropolitan University'
     - tag: meta
       attributes:
         name: description
-        content: 'Discover vibrant campus life, student organizations, activities, and the rich experiences that await you at our university.'
+        content: 'Discover vibrant campus life at Metropolitan University with over 200 student organizations, world-class facilities, and endless opportunities for personal growth and lifelong friendships.'
     - tag: link
       attributes:
         rel: canonical
@@ -60,20 +64,20 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Vibrant Campus Life & Community'
+            - value: 'Where Memories Are Made and Futures Begin'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: univ-camp-002-medi-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Experience a rich and diverse campus life with countless opportunities for personal growth, leadership, and lifelong friendships.'
+            - value: 'Experience the energy and excitement of Metropolitan University campus life. From academic pursuits to social adventures, discover countless opportunities to grow, connect, and create lasting memories.'
               format: basic_html
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: uslp1-0001-4001-d001-000000000001
+          uuid: uslp-overview-001-4001-d001-000000000001
           bundle: text
           default_langcode: en
         default:
@@ -85,19 +89,21 @@ default:
             - value: {  }
           revision_translation_affected:
             - value: true
+          field_eyebrow:
+            - value: 'Campus Life'
           field_title:
-            - value: 'Clubs & Organizations'
+            - value: 'More Than Just Academics'
+          field_text_layout:
+            - value: centered
           field_body:
-            - value: |
-                <p>With over 200 student-run clubs and organizations, there is something for everyone! From academic societies to sports clubs, cultural groups to volunteer initiatives, you can explore your passions and make new friends.</p>
-                <p>Popular options include the Debate Club, International Students Association, Coding Club, and the University Hiking Society.</p>
+            - value: '<p>At Metropolitan University, education extends far beyond the classroom. Our vibrant campus community offers countless opportunities for personal growth, leadership development, and lifelong friendships.</p><p>With over 200 student organizations, state-of-the-art facilities, and a commitment to inclusive excellence, every student finds their place to thrive.</p>'
               format: basic_html
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: uslp2-0002-4002-d002-000000000002
-          bundle: sidebyside
+          uuid: uslp-organizations-002-4002-d002-000000000002
+          bundle: card_group
           default_langcode: en
         default:
           status:
@@ -109,28 +115,122 @@ default:
           revision_translation_affected:
             - value: true
           field_title:
-            - value: 'Campus Facilities & Services'
-          field_summary:
-            - value: |
-                <p>Our campus offers state-of-the-art facilities to support your academic and personal life:</p>
-                <ul>
-                  <li>Modern libraries with extensive digital and print resources.</li>
-                  <li>Recreation center with gym, swimming pool, and sports courts.</li>
-                  <li>Student health and wellness center.</li>
-                  <li>Multiple dining halls and cafes offering diverse cuisines.</li>
-                  <li>On-campus housing options.</li>
-                </ul>
-              format: basic_html
-          field_sidebyside_layout:
-            - value: right
-          field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - value: 'Student Organizations & Activities'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uslp-org-academic-001-4001-d001-000000000001
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541787
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Academic & Professional Organizations'
+                  field_summary:
+                    - value: 'Honor societies, professional associations, and academic clubs that enhance your educational experience and career preparation. From engineering societies to debate teams.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-stud-003-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/student-life'
+                      title: 'Explore Academic Organizations'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uslp-org-cultural-002-4002-d002-000000000002
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541787
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Cultural & International Groups'
+                  field_summary:
+                    - value: 'Celebrate diversity through cultural organizations, international student associations, and language clubs. Connect with your heritage while exploring new cultures.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-coll-005-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/student-life'
+                      title: 'Explore Cultural Organizations'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uslp-org-service-003-4003-d003-000000000003
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541787
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Service & Volunteer Organizations'
+                  field_summary:
+                    - value: 'Make a difference in your community through service learning, volunteer organizations, and social impact initiatives. Students contribute over 100,000 hours annually.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-grad-006-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/student-life'
+                      title: 'Explore Service Opportunities'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uslp-org-recreation-004-4004-d004-000000000004
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541787
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Recreation & Special Interest'
+                  field_summary:
+                    - value: "Pursue your passions through hobby clubs, recreational sports, gaming groups, outdoor adventure clubs, and creative organizations. There's something for everyone!"
+                      format: basic_html
+                  field_media:
+                    - entity: univ-lib-001-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/student-life'
+                      title: 'Explore Recreation Clubs'
+                      options: {  }
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: uslp3-0003-4003-d003-000000000003
-          bundle: text
+          uuid: uslp-facilities-003-4003-d003-000000000003
+          bundle: sidebyside
           default_langcode: en
         default:
           status:
@@ -141,9 +241,133 @@ default:
             - value: {  }
           revision_translation_affected:
             - value: true
+          field_eyebrow:
+            - value: 'Campus Facilities'
           field_title:
-            - value: 'Student Support & Well-being'
-          field_body:
-            - value: |
-                <p>Your well-being is our priority. We provide comprehensive support services including academic advising, personal counseling, disability services, and career development resources to help you thrive.</p>
+            - value: 'World-Class Facilities for Every Aspect of Student Life'
+          field_summary:
+            - value: "<p>Our 750-acre campus provides everything you need for academic success, personal wellness, and social connection. From cutting-edge laboratories to recreational facilities, every space is designed with student success in mind.</p><p>We've invested heavily in creating environments that foster learning, collaboration, and personal growth throughout your university experience.</p>"
               format: basic_html
+          field_sidebyside_layout:
+            - value: right
+          field_media:
+            - entity: univ-lib-001-medi-4f0f-9c6e-164a416d574c
+          field_features:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uslp-fac-library-001-4001-d001-000000000001
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: local_library
+                  field_summary:
+                    - value: '<p>Modern libraries with 24/7 study spaces and extensive digital resources</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uslp-fac-rec-002-4002-d002-000000000002
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: fitness_center
+                  field_summary:
+                    - value: '<p>State-of-the-art recreation center with fitness facilities and courts</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uslp-fac-dining-003-4003-d003-000000000003
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: restaurant
+                  field_summary:
+                    - value: '<p>Diverse dining options from casual cafes to formal dining halls</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uslp-fac-housing-004-4004-d004-000000000004
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: home
+                  field_summary:
+                    - value: '<p>Comfortable residence halls and apartment-style housing options</p>'
+                      format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uslp-wellness-004-4004-d004-000000000004
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541789
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Health & Wellness'
+          field_title:
+            - value: 'Supporting Your Complete Well-being'
+          field_text_layout:
+            - value: left
+          field_body:
+            - value: '<p>At Metropolitan University, we understand that student success depends on holistic well-being. Our comprehensive support services ensure you have the resources needed to thrive academically, emotionally, and physically.</p><h3>Health & Counseling Services</h3><ul><li><strong>Student Health Center:</strong> Full-service medical clinic with primary care and specialty services</li><li><strong>Counseling & Psychological Services:</strong> Mental health support, crisis intervention, and wellness programming</li><li><strong>Wellness Coaching:</strong> Personal wellness planning and lifestyle support</li><li><strong>Disability Services:</strong> Accommodation and support services for students with disabilities</li></ul><h3>Academic Support</h3><ul><li><strong>Academic Success Center:</strong> Tutoring, study skills workshops, and learning strategies</li><li><strong>Writing Center:</strong> Support for writing assignments across all disciplines</li><li><strong>Math & Science Learning Centers:</strong> Specialized support for STEM coursework</li><li><strong>Student Success Coaching:</strong> One-on-one guidance for academic and personal goals</li></ul><h3>Career Development</h3><ul><li><strong>Career Services:</strong> Resume building, interview preparation, and job search assistance</li><li><strong>Internship Coordination:</strong> Connections with local and national employers</li><li><strong>Alumni Mentoring:</strong> Networking opportunities with successful graduates</li><li><strong>Professional Development Workshops:</strong> Leadership, communication, and workplace skills</li></ul>'
+              format: basic_html
+              summary: ''
+          field_link:
+            - uri: 'internal:/services'
+              title: 'Explore Support Services'
+              options: {  }
+          field_link2:
+            - uri: 'internal:/housing'
+              title: 'Learn About Housing'
+              options: {  }

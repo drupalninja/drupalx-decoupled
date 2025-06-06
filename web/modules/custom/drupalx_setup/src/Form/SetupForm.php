@@ -257,14 +257,6 @@ class SetupForm extends FormBase {
       ));
     }
 
-    // Link to the new homepage.
-    $homepage_path = $this->configFactory->get('system.site')->get('page.front');
-    $homepage_alias = $this->aliasManager->getAliasByPath($homepage_path);
-    $this->messenger->addStatus($this->t(
-      'View your new <a href=":url">homepage</a>.',
-      [':url' => Url::fromUserInput($homepage_alias)->toString()]
-    ));
-
     // Redirect to homepage.
     $form_state->setRedirect('<front>');
   }

@@ -5,7 +5,14 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
-    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    univ-lib-001-medi-4f0f-9c6e-164a416d574c: media
+    univ-camp-002-medi-4f0f-9c6e-164a416d574c: media
+    univ-stud-003-medi-4f0f-9c6e-164a416d574c: media
+    univ-rese-004-medi-4f0f-9c6e-164a416d574c: media
+    univ-coll-005-medi-4f0f-9c6e-164a416d574c: media
+    univ-grad-006-medi-4f0f-9c6e-164a416d574c: media
+    univ-bldg-007-medi-4f0f-9c6e-164a416d574c: media
+    univ-read-008-medi-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -29,11 +36,11 @@ default:
     - tag: meta
       attributes:
         name: title
-        content: 'Welcome to Our University | Excellence in Education'
+        content: 'Welcome to Metropolitan University | Excellence in Education'
     - tag: meta
       attributes:
         name: description
-        content: 'Discover our premier academic institution where excellence in education meets groundbreaking research. Join our vibrant campus community.'
+        content: 'Discover Metropolitan University, a premier academic institution where excellence in education meets groundbreaking research and vibrant campus community. Join 25,000+ students from around the world.'
     - tag: link
       attributes:
         rel: canonical
@@ -60,21 +67,21 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Excellence in Education, Research & Innovation'
+            - value: 'Shape Tomorrow at Metropolitan University'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: univ-camp-002-medi-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Welcome to our premier academic institution where world-class education meets groundbreaking research and vibrant campus life.'
+            - value: "Join a community of innovators, researchers, and leaders at one of the nation's top universities. Where your potential meets limitless opportunities."
               format: basic_html
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: uhp1-0001-4001-a001-000000000001
-          bundle: text
+          uuid: uhp-stats-001-4001-a001-000000000001
+          bundle: card_group
           default_langcode: en
         default:
           status:
@@ -86,18 +93,100 @@ default:
           revision_translation_affected:
             - value: true
           field_title:
-            - value: 'Key University Facts'
-          field_body:
-            - value: |
-                <ul>
-                  <li><strong>Founded:</strong> 1885</li>
-                  <li><strong>Student Population:</strong> 25,000+ (15,000 Undergraduate, 10,000 Graduate)</li>
-                  <li><strong>Faculty Members:</strong> 1,500 (95% with terminal degrees)</li>
-                  <li><strong>Academic Programs:</strong> Over 200+ undergraduate and graduate programs</li>
-                  <li><strong>Campus Size:</strong> 750 acres</li>
-                  <li><strong>Global Alumni Network:</strong> 150,000+</li>
-                </ul>
-              format: basic_html
+            - value: 'At a Glance'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-stat-001-4001-a001-000000000001
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: graduation-cap
+                  field_title:
+                    - value: '25,000+'
+                  field_summary:
+                    - value: 'Students from over 50 countries creating a diverse global community'
+                    - format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-stat-002-4001-a001-000000000002
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: building
+                  field_title:
+                    - value: '1885'
+                  field_summary:
+                    - value: 'Founded with a legacy of excellence spanning over 138 years'
+                    - format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-stat-003-4001-a001-000000000003
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: users
+                  field_title:
+                    - value: '1,500'
+                  field_summary:
+                    - value: 'World-class faculty members with 95% holding terminal degrees'
+                    - format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-stat-004-4001-a001-000000000004
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: book-open
+                  field_title:
+                    - value: '200+'
+                  field_summary:
+                    - value: 'Undergraduate and graduate programs across diverse disciplines'
+                    - format: ''
     - entity:
         _meta:
           version: '1.0'
@@ -114,28 +203,91 @@ default:
             - value: {  }
           revision_translation_affected:
             - value: true
+          field_eyebrow:
+            - value: 'Academic Excellence'
           field_title:
-            - value: 'Featured Academic Programs'
+            - value: 'Transform Your Future Through Education'
           field_summary:
-            - value: |
-                <p>Explore cutting-edge programs designed to equip students with the knowledge and skills for future success. Our diverse offerings span across arts, sciences, engineering, business, and health professions.</p>
-                <ul>
-                  <li>B.S. in Artificial Intelligence & Machine Learning</li>
-                  <li>M.A. in Sustainable Development</li>
-                  <li>Ph.D. in Biomedical Engineering</li>
-                </ul>
-                <p><a href="/academics">Discover all programs...</a></p>
+            - value: '<p>At Metropolitan University, we believe education is the most powerful tool for creating positive change. Our innovative programs combine rigorous academic study with hands-on experience, preparing you for leadership in an ever-evolving world.</p><p>From cutting-edge research opportunities to vibrant student life, we provide an environment where intellectual curiosity thrives and lifelong connections are forged.</p>'
               format: basic_html
           field_sidebyside_layout:
             - value: left
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: univ-lib-001-medi-4f0f-9c6e-164a416d574c
+          field_link:
+            - uri: 'internal:/academics'
+              title: 'Explore Academic Programs'
+              options: {  }
+          field_features:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-feat-001-4001-a001-000000000001
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: science
+                  field_summary:
+                    - value: '<p>Cutting-edge research facilities and laboratories</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-feat-002-4001-a001-000000000002
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: public
+                  field_summary:
+                    - value: '<p>Global study abroad and exchange programs</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-feat-003-4001-a001-000000000003
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: work
+                  field_summary:
+                    - value: '<p>Career services and industry partnerships</p>'
+                      format: basic_html
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: uhp3-0003-4003-a003-000000000003
-          bundle: text
+          uuid: uhp-colleges-003-4003-a003-000000000003
+          bundle: card_group
           default_langcode: en
         default:
           status:
@@ -147,14 +299,255 @@ default:
           revision_translation_affected:
             - value: true
           field_title:
-            - value: 'Campus News & Events'
-          field_body:
-            - value: |
-                <p>Stay updated with the latest happenings on campus, from groundbreaking research announcements to student achievements and upcoming public lectures.</p>
-                <ul>
-                  <li><a href="/news/record-new-students-fall">University Welcomes Record New Student Cohort</a></li>
-                  <li><a href="/news/breakthrough-renewable-energy-research">Researchers Announce Solar Energy Breakthrough</a></li>
-                  <li>Upcoming: Annual Science & Innovation Fair - Oct 25th</li>
-                </ul>
-                <p><a href="/news">More news...</a> | <a href="/events">Full events calendar...</a></p>
+            - value: 'Our Colleges & Schools'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-coll-001-4001-a001-000000000001
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'College of Engineering'
+                  field_summary:
+                    - value: 'Leading innovation in technology and engineering with programs in AI, robotics, sustainable energy, and biomedical engineering.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-rese-004-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/academics'
+                      title: 'Learn More'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-coll-002-4001-a001-000000000002
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'College of Liberal Arts'
+                  field_summary:
+                    - value: 'Fostering critical thinking and creativity through humanities, social sciences, languages, and interdisciplinary studies.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-read-008-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/academics'
+                      title: 'Learn More'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-coll-003-4001-a001-000000000003
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'School of Business'
+                  field_summary:
+                    - value: 'Preparing ethical leaders for global business with MBA, undergraduate business, and executive education programs.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-coll-005-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/academics'
+                      title: 'Learn More'
+                      options: {  }
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uhp-research-004-4004-a004-000000000004
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541789
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Research & Innovation'
+          field_title:
+            - value: 'Advancing Knowledge, Solving Global Challenges'
+          field_summary:
+            - value: "<p>Our research enterprise spans from fundamental discovery to applied innovation, addressing society's most pressing challenges. With over $500M in annual research funding, our faculty and students are at the forefront of breakthroughs that change the world.</p><p>From developing sustainable energy solutions to advancing artificial intelligence, our research directly impacts communities and industries worldwide.</p>"
               format: basic_html
+          field_sidebyside_layout:
+            - value: right
+          field_media:
+            - entity: univ-stud-003-medi-4f0f-9c6e-164a416d574c
+          field_link:
+            - uri: 'internal:/research'
+              title: 'Explore Research Opportunities'
+              options: {  }
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uhp-news-005-4005-a005-000000000005
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541790
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Campus Highlights'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-high-001-4001-a001-000000000001
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541790
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: trending-up
+                  field_title:
+                    - value: 'Record Enrollment'
+                  field_summary:
+                    - value: 'We welcome our largest and most diverse incoming class of 5,000+ new students'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-high-002-4001-a001-000000000002
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541790
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: lightbulb
+                  field_title:
+                    - value: 'Research Breakthrough'
+                  field_summary:
+                    - value: 'Engineering team develops revolutionary solar panel technology with 40% increased efficiency'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-high-003-4001-a001-000000000003
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541790
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: star
+                  field_title:
+                    - value: 'Global Recognition'
+                  field_summary:
+                    - value: 'Metropolitan University rises to #15 in national university rankings'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uhp-high-004-4001-a001-000000000004
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541790
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: heart
+                  field_title:
+                    - value: 'Community Impact'
+                  field_summary:
+                    - value: 'Students contribute over 100,000 hours of community service annually'
+                      format: ''
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uhp-gallery-006-4006-a006-000000000006
+          bundle: gallery
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541791
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Life at Metropolitan University'
+          field_body:
+            - value: 'Experience the vibrant campus life, state-of-the-art facilities, and diverse community that makes Metropolitan University special.'
+              format: basic_html
+              summary: ''
+          field_media_item:
+            - entity: univ-bldg-007-medi-4f0f-9c6e-164a416d574c
+            - entity: univ-lib-001-medi-4f0f-9c6e-164a416d574c
+            - entity: univ-coll-005-medi-4f0f-9c6e-164a416d574c
+            - entity: univ-stud-003-medi-4f0f-9c6e-164a416d574c

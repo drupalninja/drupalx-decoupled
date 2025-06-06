@@ -5,7 +5,11 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
-    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    univ-lib-001-medi-4f0f-9c6e-164a416d574c: media
+    univ-bldg-007-medi-4f0f-9c6e-164a416d574c: media
+    univ-rese-004-medi-4f0f-9c6e-164a416d574c: media
+    univ-coll-005-medi-4f0f-9c6e-164a416d574c: media
+    univ-read-008-medi-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -29,11 +33,11 @@ default:
     - tag: meta
       attributes:
         name: title
-        content: 'Academic Programs | Our University'
+        content: 'Academic Programs | Metropolitan University'
     - tag: meta
       attributes:
         name: description
-        content: 'Explore our comprehensive academic programs across undergraduate, graduate, and doctoral levels. World-class education with innovative curriculum.'
+        content: 'Explore our comprehensive academic programs across undergraduate, graduate, and doctoral levels. World-class education with innovative curriculum and cutting-edge research opportunities.'
     - tag: link
       attributes:
         rel: canonical
@@ -60,20 +64,20 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Academic Excellence & Innovation'
+            - value: 'Academic Excellence That Transforms Lives'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: univ-bldg-007-medi-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Discover our comprehensive range of undergraduate, graduate, and doctoral programs designed to prepare you for success in your chosen field.'
+            - value: 'Discover world-class academic programs designed to prepare you for leadership in your field. From undergraduate exploration to advanced research, find your path to success.'
               format: basic_html
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: uap1-0001-4001-b001-000000000001
+          uuid: uap-overview-001-4001-b001-000000000001
           bundle: text
           default_langcode: en
         default:
@@ -85,25 +89,21 @@ default:
             - value: {  }
           revision_translation_affected:
             - value: true
+          field_eyebrow:
+            - value: 'Academic Excellence'
           field_title:
-            - value: 'Explore Our Colleges & Schools'
+            - value: 'Where Innovation Meets Tradition'
+          field_text_layout:
+            - value: centered
           field_body:
-            - value: |
-                <p>Our University is comprised of several specialized colleges and schools, each offering unique programs and research opportunities:</p>
-                <ul>
-                  <li>College of Arts & Humanities</li>
-                  <li>School of Engineering & Applied Sciences</li>
-                  <li>College of Natural & Health Sciences</li>
-                  <li>The Business School</li>
-                  <li>Graduate School of Advanced Studies</li>
-                </ul>
+            - value: "<p>At Metropolitan University, we offer over 200 undergraduate, graduate, and doctoral programs across five distinguished colleges. Our curriculum combines rigorous academic study with hands-on experience, preparing students for success in an ever-evolving global landscape.</p><p>With a student-to-faculty ratio of 12:1, you'll receive personalized attention while being challenged to think critically and innovate boldly.</p>"
               format: basic_html
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: uap2-0002-4002-b002-000000000002
-          bundle: text
+          uuid: uap-colleges-002-4002-b002-000000000002
+          bundle: card_group
           default_langcode: en
         default:
           status:
@@ -115,19 +115,148 @@ default:
           revision_translation_affected:
             - value: true
           field_title:
-            - value: 'Degree Programs Overview'
-          field_body:
-            - value: |
-                <p>We offer a wide array of degree options to suit your academic and career aspirations:</p>
-                <p><strong>Undergraduate Programs:</strong> From Bachelor of Arts (B.A.) to Bachelor of Science (B.S.) degrees across 100+ majors.</p>
-                <p><strong>Graduate Programs:</strong> Master's degrees (M.A., M.S., M.Eng., MBA) and specialized graduate certificates.</p>
-                <p><strong>Doctoral Programs:</strong> Pursue a Ph.D. or professional doctorate in a variety of disciplines, contributing to cutting-edge research.</p>
-              format: basic_html
+            - value: 'Our Colleges & Schools'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uap-coll-eng-001-4001-b001-000000000001
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541787
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'College of Engineering & Applied Sciences'
+                  field_summary:
+                    - value: 'Pioneering the future through cutting-edge research and innovation in AI, robotics, renewable energy, biomedical engineering, and computer science. Our graduates lead technology companies worldwide.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-rese-004-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/academics'
+                      title: 'Explore Engineering Programs'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uap-coll-arts-002-4002-b002-000000000002
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541787
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'College of Liberal Arts & Humanities'
+                  field_summary:
+                    - value: 'Fostering critical thinking, creativity, and cultural understanding through literature, philosophy, history, languages, art, and interdisciplinary studies. Preparing thoughtful leaders for a complex world.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-read-008-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/academics'
+                      title: 'Explore Liberal Arts Programs'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uap-coll-sci-003-4003-b003-000000000003
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541787
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'College of Natural & Health Sciences'
+                  field_summary:
+                    - value: 'Advancing human health and scientific understanding through programs in medicine, nursing, biology, chemistry, physics, psychology, and environmental science. Training the next generation of healthcare professionals.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-lib-001-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/academics'
+                      title: 'Explore Science Programs'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uap-coll-bus-004-4004-b004-000000000004
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541787
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'School of Business & Management'
+                  field_summary:
+                    - value: 'Developing ethical business leaders through our AACSB-accredited programs in business administration, finance, marketing, entrepreneurship, and management. Strong industry partnerships and internship programs.'
+                      format: basic_html
+                  field_media:
+                    - entity: univ-coll-005-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/academics'
+                      title: 'Explore Business Programs'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uap-coll-edu-005-4005-b005-000000000005
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541787
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Graduate School of Advanced Studies'
+                  field_summary:
+                    - value: "Advancing knowledge through doctoral and master's degree programs, postdoctoral fellowships, and interdisciplinary research initiatives. Home to our most innovative and groundbreaking research."
+                      format: basic_html
+                  field_media:
+                    - entity: univ-bldg-007-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/academics'
+                      title: 'Explore Graduate Programs'
+                      options: {  }
     - entity:
         _meta:
           version: '1.0'
           entity_type: paragraph
-          uuid: uap3-0003-4003-b003-000000000003
+          uuid: uap-degrees-003-4003-b003-000000000003
           bundle: sidebyside
           default_langcode: en
         default:
@@ -139,20 +268,112 @@ default:
             - value: {  }
           revision_translation_affected:
             - value: true
+          field_eyebrow:
+            - value: 'Degree Programs'
           field_title:
-            - value: 'Academic Support & Resources'
+            - value: 'Your Path to Academic Success'
           field_summary:
-            - value: |
-                <p>We are committed to your success. Our students have access to a comprehensive suite of support services:</p>
-                <ul>
-                  <li>Academic Advising</li>
-                  <li>Tutoring Centers</li>
-                  <li>Writing Workshops</li>
-                  <li>Library & Research Services</li>
-                  <li>Career Counseling</li>
-                </ul>
+            - value: "<p><strong>Undergraduate Programs:</strong> Choose from over 100 bachelor's degree programs designed to provide a strong foundation in your field of interest while developing critical thinking and leadership skills.</p><p><strong>Graduate Programs:</strong> Advance your expertise with master's and doctoral programs that combine advanced coursework with original research opportunities.</p><p><strong>Professional Programs:</strong> Specialized programs in law, medicine, and other professional fields that prepare you for licensure and career advancement.</p>"
               format: basic_html
           field_sidebyside_layout:
             - value: right
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: univ-lib-001-medi-4f0f-9c6e-164a416d574c
+          field_features:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uap-feat-flex-001-4001-b001-000000000001
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: schedule
+                  field_summary:
+                    - value: '<p>Flexible scheduling with day, evening, and online options</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uap-feat-dual-002-4002-b002-000000000002
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: school
+                  field_summary:
+                    - value: '<p>Dual degree and interdisciplinary programs available</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: uap-feat-credit-003-4003-b003-000000000003
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541788
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: transfer_within_a_station
+                  field_summary:
+                    - value: '<p>Transfer-friendly with generous credit policies</p>'
+                      format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: uap-support-004-4004-b004-000000000004
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541789
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Student Success'
+          field_title:
+            - value: 'Comprehensive Support for Your Academic Journey'
+          field_text_layout:
+            - value: left
+          field_body:
+            - value: '<p>We are committed to your success from day one through graduation and beyond. Our comprehensive support services ensure you have the resources and guidance needed to excel academically and personally.</p><h3>Academic Support Services</h3><ul><li><strong>Academic Advising:</strong> Personalized guidance from faculty and professional advisors</li><li><strong>Tutoring Centers:</strong> Free peer and professional tutoring in all major subjects</li><li><strong>Writing Center:</strong> Support for all types of writing assignments and research projects</li><li><strong>Library & Research Services:</strong> Extensive digital and physical collections plus research consultation</li><li><strong>Study Abroad:</strong> Over 100 programs in 40+ countries worldwide</li></ul><h3>Career & Professional Development</h3><ul><li><strong>Career Counseling:</strong> Individual career planning and exploration sessions</li><li><strong>Internship Programs:</strong> Partnerships with leading organizations for hands-on experience</li><li><strong>Job Placement Services:</strong> Resume writing, interview preparation, and job search assistance</li><li><strong>Alumni Network:</strong> Access to 150,000+ alumni worldwide for mentoring and networking</li></ul>'
+              format: basic_html
+              summary: ''
+          field_link:
+            - uri: 'internal:/student-life'
+              title: 'Explore Student Services'
+              options: {  }
+          field_link2:
+            - uri: 'internal:/apply'
+              title: 'Apply Now'
+              options: {  }
