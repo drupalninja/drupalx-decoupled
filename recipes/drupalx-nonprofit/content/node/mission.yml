@@ -208,7 +208,7 @@ default:
                     - value: 'Compassion'
                   field_summary:
                     - value: 'We lead with empathy and understanding, treating everyone with dignity and respect'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -231,7 +231,7 @@ default:
                     - value: 'Integrity'
                   field_summary:
                     - value: 'We operate with transparency, accountability, and ethical standards in all we do'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -254,7 +254,7 @@ default:
                     - value: 'Innovation'
                   field_summary:
                     - value: 'We embrace creative solutions and evidence-based approaches to complex challenges'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -277,7 +277,7 @@ default:
                     - value: 'Collaboration'
                   field_summary:
                     - value: 'We believe lasting change happens through partnerships and community engagement'
-                      format: ''
+                      format: plain_text
     - entity:
         _meta:
           version: '1.0'

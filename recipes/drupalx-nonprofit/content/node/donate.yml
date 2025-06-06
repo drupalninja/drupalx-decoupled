@@ -114,7 +114,7 @@ default:
                     - value: '$25'
                   field_summary:
                     - value: 'Provides school supplies for one student for an entire semester'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -137,7 +137,7 @@ default:
                     - value: '$50'
                   field_summary:
                     - value: 'Feeds a family of four healthy meals for one week'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -160,7 +160,7 @@ default:
                     - value: '$100'
                   field_summary:
                     - value: 'Provides health screenings for 10 community members'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -183,7 +183,7 @@ default:
                     - value: '$500'
                   field_summary:
                     - value: 'Funds tutoring support for one student for an entire year'
-                      format: ''
+                      format: plain_text
     - entity:
         _meta:
           version: '1.0'

@@ -117,7 +117,7 @@ default:
                     - value: '50,000+'
                   field_summary:
                     - value: 'Lives directly impacted through our programs and services'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -140,7 +140,7 @@ default:
                     - value: '25 Years'
                   field_summary:
                     - value: 'Serving communities with dedication and compassion'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -163,7 +163,7 @@ default:
                     - value: '15 Cities'
                   field_summary:
                     - value: 'Active programs across diverse communities nationwide'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -186,7 +186,7 @@ default:
                     - value: '2,500'
                   field_summary:
                     - value: 'Dedicated volunteers making a difference every day'
-                      format: ''
+                      format: plain_text
     - entity:
         _meta:
           version: '1.0'
@@ -455,7 +455,7 @@ default:
                     - value: 'Maria Graduates'
                   field_summary:
                     - value: 'Single mother of three becomes first in family to earn college degree through our scholarship program'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -478,7 +478,7 @@ default:
                     - value: 'Community Garden'
                   field_summary:
                     - value: 'Neighborhood transforms vacant lot into thriving community garden feeding 200 families'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -501,7 +501,7 @@ default:
                     - value: 'Mobile Health Clinic'
                   field_summary:
                     - value: 'Rural communities gain access to preventive healthcare through our mobile clinic initiative'
-                      format: ''
+                      format: plain_text
     - entity:
         _meta:
           version: '1.0'

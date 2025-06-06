@@ -115,7 +115,7 @@ default:
                     - value: '12,000'
                   field_summary:
                     - value: 'Students supported through educational programs and scholarships'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -138,7 +138,7 @@ default:
                     - value: '25,000'
                   field_summary:
                     - value: 'Patients served through mobile health clinics and wellness programs'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -161,7 +161,7 @@ default:
                     - value: '500K'
                   field_summary:
                     - value: 'Meals provided to families and individuals facing food insecurity'
-                      format: ''
+                      format: plain_text
             - entity:
                 _meta:
                   version: '1.0'
@@ -184,7 +184,7 @@ default:
                     - value: '50'
                   field_summary:
                     - value: 'Community gardens and environmental projects completed'
-                      format: ''
+                      format: plain_text
     - entity:
         _meta:
           version: '1.0'
