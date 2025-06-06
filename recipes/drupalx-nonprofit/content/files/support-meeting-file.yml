@@ -1,0 +1,21 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: supp-mee-file-4f0f-9c6e-164a416d574c
+  bundle: file
+  default_langcode: en
+default:
+  uid:
+    - target_id: 1
+  filename:
+    - value: support-meeting.jpg
+  uri:
+    - value: 'public://support-meeting.jpg'
+  filemime:
+    - value: image/jpeg
+  filesize:
+    - value: 200535
+  status:
+    - value: true
+  created:
+    - value: 1724541785

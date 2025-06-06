@@ -5,7 +5,14 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
-    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    comm-vol-medi-4f0f-9c6e-164a416d574c: media
+    chil-edu-medi-4f0f-9c6e-164a416d574c: media
+    food-dis-medi-4f0f-9c6e-164a416d574c: media
+    heal-sup-medi-4f0f-9c6e-164a416d574c: media
+    envi-cle-medi-4f0f-9c6e-164a416d574c: media
+    nonp-tea-medi-4f0f-9c6e-164a416d574c: media
+    dona-han-medi-4f0f-9c6e-164a416d574c: media
+    supp-mee-medi-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -23,15 +30,17 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  field_hide_page_title:
+    - value: true
   metatag:
     - tag: meta
       attributes:
         name: title
-        content: 'Making a Difference Together | Our Nonprofit Organization'
+        content: 'Hope Foundation | Creating Lasting Change in Our Communities'
     - tag: meta
       attributes:
         name: description
-        content: 'Join our mission to create positive change in our community. Learn about our programs, volunteer opportunities, and how you can help make a difference.'
+        content: 'Join Hope Foundation in our mission to transform lives through education, healthcare, and community support. Together, we can create lasting positive change.'
     - tag: link
       attributes:
         rel: canonical
@@ -58,12 +67,465 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Creating Positive Change Together'
+            - value: 'Together We Transform Lives'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: comm-vol-medi-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Join our mission to transform lives and strengthen communities through compassionate action and collaborative partnerships.'
+            - value: "Join Hope Foundation in creating lasting change through education, healthcare, and community empowerment. Every action matters, every donation counts."
               format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: nhp-stats-001-4001-a001-000000000001
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Our Impact'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-stat-001-4001-a001-000000000001
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: users
+                  field_title:
+                    - value: '50,000+'
+                  field_summary:
+                    - value: 'Lives directly impacted through our programs and services'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-stat-002-4001-a001-000000000002
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: calendar
+                  field_title:
+                    - value: '25 Years'
+                  field_summary:
+                    - value: 'Serving communities with dedication and compassion'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-stat-003-4001-a001-000000000003
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: map-pin
+                  field_title:
+                    - value: '15 Cities'
+                  field_summary:
+                    - value: 'Active programs across diverse communities nationwide'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-stat-004-4001-a001-000000000004
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: hand-heart
+                  field_title:
+                    - value: '2,500'
+                  field_summary:
+                    - value: 'Dedicated volunteers making a difference every day'
+                      format: ''
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: nhp2-0002-4002-a002-000000000002
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541787
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Our Mission'
+          field_title:
+            - value: 'Empowering Communities Through Compassionate Action'
+          field_summary:
+            - value: "<p>We believe lasting change happens when communities are empowered to create their own solutions. Through education, healthcare, and economic opportunities, we build foundations for brighter futures.</p>"
+              format: basic_html
+          field_sidebyside_layout:
+            - value: left
+          field_media:
+            - entity: nonp-tea-medi-4f0f-9c6e-164a416d574c
+          field_link:
+            - uri: 'internal:/mission'
+              title: 'Learn About Our Mission'
+              options: {  }
+          field_features:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-feat-001-4001-a001-000000000001
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: graduation-cap
+                  field_summary:
+                    - value: '<p>Educational programs that unlock potential</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-feat-002-4001-a001-000000000002
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: heart-pulse
+                  field_summary:
+                    - value: '<p>Healthcare services for underserved populations</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-feat-003-4001-a001-000000000003
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: leaf
+                  field_summary:
+                    - value: '<p>Environmental initiatives for sustainable communities</p>'
+                      format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: nhp-programs-003-4003-a003-000000000003
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541788
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Our Programs'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-prog-001-4001-a001-000000000001
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Education First'
+                  field_summary:
+                    - value: 'Providing quality education, tutoring, and scholarship opportunities to underserved children and young adults.'
+                      format: basic_html
+                  field_media:
+                    - entity: chil-edu-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/programs'
+                      title: 'Learn More'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-prog-002-4001-a001-000000000002
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Community Health'
+                  field_summary:
+                    - value: 'Mobile health clinics, wellness programs, and health education reaching communities in need.'
+                      format: basic_html
+                  field_media:
+                    - entity: heal-sup-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/programs'
+                      title: 'Learn More'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-prog-003-4001-a001-000000000003
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Food Security'
+                  field_summary:
+                    - value: 'Food pantries, meal programs, and nutrition education ensuring no one goes hungry in our communities.'
+                      format: basic_html
+                  field_media:
+                    - entity: food-dis-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/programs'
+                      title: 'Learn More'
+                      options: {  }
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: nhp-action-004-4004-a004-000000000004
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541789
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Take Action'
+          field_title:
+            - value: 'Be Part of the Solution'
+          field_summary:
+            - value: "<p>Every contribution makes a difference. Whether through volunteering, donating, or spreading awareness, you can help transform lives in your community.</p>"
+              format: basic_html
+          field_sidebyside_layout:
+            - value: right
+          field_media:
+            - entity: dona-han-medi-4f0f-9c6e-164a416d574c
+          field_link:
+            - uri: 'internal:/donate'
+              title: 'Donate Now'
+              options: {  }
+
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: nhp-stories-005-4005-a005-000000000005
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541790
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Success Stories'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-stor-001-4001-a001-000000000001
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541790
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: award
+                  field_title:
+                    - value: 'Maria Graduates'
+                  field_summary:
+                    - value: 'Single mother of three becomes first in family to earn college degree through our scholarship program'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-stor-002-4001-a001-000000000002
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541790
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: home
+                  field_title:
+                    - value: 'Community Garden'
+                  field_summary:
+                    - value: 'Neighborhood transforms vacant lot into thriving community garden feeding 200 families'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: nhp-stor-003-4001-a001-000000000003
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541790
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: stethoscope
+                  field_title:
+                    - value: 'Mobile Health Clinic'
+                  field_summary:
+                    - value: 'Rural communities gain access to preventive healthcare through our mobile clinic initiative'
+                      format: ''
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: nhp-gallery-006-4006-a006-000000000006
+          bundle: gallery
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541791
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Hope in Action'
+          field_body:
+            - value: 'See the impact of our work and the resilience of the communities we serve together.'
+              format: basic_html
+              summary: ''
+          field_media_item:
+            - entity: comm-vol-medi-4f0f-9c6e-164a416d574c
+            - entity: envi-cle-medi-4f0f-9c6e-164a416d574c
+            - entity: supp-mee-medi-4f0f-9c6e-164a416d574c
+            - entity: heal-sup-medi-4f0f-9c6e-164a416d574c

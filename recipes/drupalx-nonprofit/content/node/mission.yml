@@ -5,7 +5,10 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
-    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    nonp-tea-medi-4f0f-9c6e-164a416d574c: media
+    comm-vol-medi-4f0f-9c6e-164a416d574c: media
+    supp-mee-medi-4f0f-9c6e-164a416d574c: media
+    dona-han-medi-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -23,15 +26,17 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  field_hide_page_title:
+    - value: true
   metatag:
     - tag: meta
       attributes:
         name: title
-        content: 'Our Mission | Driving Change & Impact'
+        content: 'Our Mission & Values | Hope Foundation Purpose & Impact'
     - tag: meta
       attributes:
         name: description
-        content: 'Learn about our core mission, values, and the communities we serve. Join us in making a lasting impact.'
+        content: 'Learn about Hope Foundation mission, core values, and commitment to creating lasting positive change in communities through education, healthcare, and empowerment.'
     - tag: link
       attributes:
         rel: canonical
@@ -58,12 +63,376 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Our Mission: To Empower and Uplift'
+            - value: 'Empowering Communities, Transforming Lives'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: nonp-tea-medi-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'We are dedicated to creating sustainable solutions that address critical social challenges and empower individuals and communities.'
+            - value: "Our mission is to create sustainable positive change by empowering individuals and communities through education, healthcare, and collaborative action."
               format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: mis-vision-001-4001-a001-000000000001
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Our Vision'
+          field_title:
+            - value: 'A World Where Everyone Thrives'
+          field_summary:
+            - value: "<p>We envision communities where every person has access to quality education, healthcare, and economic opportunities. Where systemic barriers are removed and human potential is unleashed.</p>"
+              format: basic_html
+          field_sidebyside_layout:
+            - value: left
+          field_media:
+            - entity: comm-vol-medi-4f0f-9c6e-164a416d574c
+          field_link:
+            - uri: 'internal:/programs'
+              title: 'See Our Impact'
+              options: {  }
+          field_features:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: mis-vis-feat-001-4001-a001-000000000001
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: target
+                  field_summary:
+                    - value: '<p>Equity and justice in all communities</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: mis-vis-feat-002-4001-a001-000000000002
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: globe
+                  field_summary:
+                    - value: '<p>Sustainable solutions that last generations</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: mis-vis-feat-003-4001-a001-000000000003
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: handshake
+                  field_summary:
+                    - value: '<p>Collaborative partnerships that amplify impact</p>'
+                      format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: mis-values-002-4002-a002-000000000002
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541787
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Our Core Values'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: mis-val-001-4001-a001-000000000001
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: heart
+                  field_title:
+                    - value: 'Compassion'
+                  field_summary:
+                    - value: 'We lead with empathy and understanding, treating everyone with dignity and respect'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: mis-val-002-4001-a001-000000000002
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: shield
+                  field_title:
+                    - value: 'Integrity'
+                  field_summary:
+                    - value: 'We operate with transparency, accountability, and ethical standards in all we do'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: mis-val-003-4001-a001-000000000003
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: zap
+                  field_title:
+                    - value: 'Innovation'
+                  field_summary:
+                    - value: 'We embrace creative solutions and evidence-based approaches to complex challenges'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: mis-val-004-4001-a001-000000000004
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: users
+                  field_title:
+                    - value: 'Collaboration'
+                  field_summary:
+                    - value: 'We believe lasting change happens through partnerships and community engagement'
+                      format: ''
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: mis-approach-003-4003-a003-000000000003
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541788
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Our Approach'
+          field_title:
+            - value: 'Community-Centered Solutions'
+          field_summary:
+            - value: "<p>We believe the best solutions come from within communities themselves. Our role is to listen, support, and provide resources that help people create the change they want to see.</p>"
+              format: basic_html
+          field_sidebyside_layout:
+            - value: right
+          field_media:
+            - entity: supp-mee-medi-4f0f-9c6e-164a416d574c
+          field_link:
+            - uri: 'internal:/contact'
+              title: 'Partner With Us'
+              options: {  }
+          field_features:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: mis-app-feat-001-4001-a001-000000000001
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: ear
+                  field_summary:
+                    - value: '<p>Listen to community needs and priorities</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: mis-app-feat-002-4001-a001-000000000002
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: lightbulb
+                  field_summary:
+                    - value: '<p>Co-create programs with community input</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: mis-app-feat-003-4001-a001-000000000003
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: trending-up
+                  field_summary:
+                    - value: '<p>Measure impact and adapt based on results</p>'
+                      format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: mis-history-004-4004-a004-000000000004
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541789
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Our Story'
+          field_title:
+            - value: '25 Years of Service'
+          field_text_layout:
+            - value: left
+          field_body:
+            - value: '<p>Hope Foundation was born from a simple belief: every person deserves the opportunity to thrive. Founded in 1999 by a group of educators, healthcare workers, and community organizers, we started with a single after-school program serving 20 children.</p><p>Today, we operate across 15 cities, but our mission remains unchanged. We continue to be guided by the voices of the communities we serve, adapting our programs to meet evolving needs while staying true to our core values of compassion, integrity, innovation, and collaboration.</p><p>Our growth reflects not our ambition, but the trust placed in us by thousands of families, volunteers, donors, and community partners who share our vision of a more equitable world.</p>'
+              format: basic_html
+              summary: ''
+          field_link:
+            - uri: 'internal:/programs'
+              title: 'Explore Our Programs'
+              options: {  }
+
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: mis-action-005-4005-a005-000000000005
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541790
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Join Our Mission'
+          field_title:
+            - value: 'Be Part of Lasting Change'
+          field_summary:
+            - value: "<p>Our mission is bigger than any one organization. It requires all of us working together - donors, volunteers, partners, and community members - to create the world we want to see.</p>"
+              format: basic_html
+          field_sidebyside_layout:
+            - value: left
+          field_media:
+            - entity: dona-han-medi-4f0f-9c6e-164a416d574c
+          field_link:
+            - uri: 'internal:/volunteer'
+              title: 'Volunteer With Us'
+              options: {  }
+

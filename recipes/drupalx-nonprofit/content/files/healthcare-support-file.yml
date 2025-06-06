@@ -1,0 +1,21 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: heal-sup-file-4f0f-9c6e-164a416d574c
+  bundle: file
+  default_langcode: en
+default:
+  uid:
+    - target_id: 1
+  filename:
+    - value: healthcare-support.jpg
+  uri:
+    - value: 'public://healthcare-support.jpg'
+  filemime:
+    - value: image/jpeg
+  filesize:
+    - value: 156891
+  status:
+    - value: true
+  created:
+    - value: 1724541785

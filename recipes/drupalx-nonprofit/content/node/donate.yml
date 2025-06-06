@@ -5,7 +5,11 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
-    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    dona-han-medi-4f0f-9c6e-164a416d574c: media
+    chil-edu-medi-4f0f-9c6e-164a416d574c: media
+    food-dis-medi-4f0f-9c6e-164a416d574c: media
+    heal-sup-medi-4f0f-9c6e-164a416d574c: media
+    comm-vol-medi-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -23,15 +27,17 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  field_hide_page_title:
+    - value: true
   metatag:
     - tag: meta
       attributes:
         name: title
-        content: 'Donate & Support Our Cause | Make a Difference'
+        content: 'Donate to Hope Foundation | Make a Lasting Impact Today'
     - tag: meta
       attributes:
         name: description
-        content: 'Your generous contribution can help us continue our vital work and make a real difference in the lives of those we serve. Donate today.'
+        content: 'Your donation to Hope Foundation directly transforms lives through education, healthcare, and community programs. Every dollar creates lasting change. Donate today.'
     - tag: link
       attributes:
         rel: canonical
@@ -58,12 +64,370 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Support Our Mission: Donate Today'
+            - value: 'Your Gift Creates Lasting Change'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: dona-han-medi-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Your generous support enables us to continue our work and expand our reach. Every contribution, no matter the size, makes a difference.'
+            - value: "Every donation to Hope Foundation directly impacts lives in our communities. Your generosity helps us provide education, healthcare, and support where it matters most."
+              format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: don-impact-001-4001-a001-000000000001
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Your Impact in Numbers'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: don-imp-001-4001-a001-000000000001
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: dollar-sign
+                  field_title:
+                    - value: '$25'
+                  field_summary:
+                    - value: 'Provides school supplies for one student for an entire semester'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: don-imp-002-4001-a001-000000000002
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: utensils
+                  field_title:
+                    - value: '$50'
+                  field_summary:
+                    - value: 'Feeds a family of four healthy meals for one week'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: don-imp-003-4001-a001-000000000003
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: stethoscope
+                  field_title:
+                    - value: '$100'
+                  field_summary:
+                    - value: 'Provides health screenings for 10 community members'
+                      format: ''
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: don-imp-004-4001-a001-000000000004
+                  bundle: stats_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: graduation-cap
+                  field_title:
+                    - value: '$500'
+                  field_summary:
+                    - value: 'Funds tutoring support for one student for an entire year'
+                      format: ''
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: don-ways-002-4002-a002-000000000002
+          bundle: sidebyside
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541787
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Ways to Give'
+          field_title:
+            - value: 'Multiple Ways to Make a Difference'
+          field_summary:
+            - value: "<p>Whether you prefer to give monthly, annually, or in honor of someone special, we offer flexible options to match your giving style and maximize your impact.</p>"
+              format: basic_html
+          field_sidebyside_layout:
+            - value: left
+          field_media:
+            - entity: comm-vol-medi-4f0f-9c6e-164a416d574c
+          field_link:
+            - uri: 'internal:/contact'
+              title: 'Donate Online'
+              options: {  }
+          field_features:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: don-way-feat-001-4001-a001-000000000001
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: calendar
+                  field_summary:
+                    - value: '<p>Monthly recurring donations for sustained impact</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: don-way-feat-002-4001-a001-000000000002
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: gift
+                  field_summary:
+                    - value: '<p>Memorial and tribute gifts to honor loved ones</p>'
+                      format: basic_html
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: don-way-feat-003-4001-a001-000000000003
+                  bundle: bullet
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_icon:
+                    - value: briefcase
+                  field_summary:
+                    - value: '<p>Corporate partnerships and employee giving programs</p>'
+                      format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: don-programs-003-4003-a003-000000000003
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541788
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Where Your Donation Goes'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: don-prog-001-4001-a001-000000000001
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Education Programs'
+                  field_summary:
+                    - value: 'Supporting after-school tutoring, college scholarships, and job training programs that unlock potential and create opportunities.'
+                      format: basic_html
+                  field_media:
+                    - entity: chil-edu-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/programs'
+                      title: 'Learn More'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: don-prog-002-4001-a001-000000000002
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Community Health'
+                  field_summary:
+                    - value: 'Funding mobile health clinics, wellness programs, and preventive care services that reach underserved communities.'
+                      format: basic_html
+                  field_media:
+                    - entity: heal-sup-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/programs'
+                      title: 'Learn More'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: don-prog-003-4001-a001-000000000003
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Food Security'
+                  field_summary:
+                    - value: 'Operating food pantries, community kitchens, and nutrition education programs to ensure no one goes hungry.'
+                      format: basic_html
+                  field_media:
+                    - entity: food-dis-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/programs'
+                      title: 'Learn More'
+                      options: {  }
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: don-transparency-004-4004-a004-000000000004
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541789
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_eyebrow:
+            - value: 'Financial Transparency'
+          field_title:
+            - value: 'Your Trust Matters'
+          field_text_layout:
+            - value: centered
+          field_body:
+            - value: '<p>We are committed to using your donations responsibly and transparently. 85% of every dollar goes directly to programs, with 15% supporting essential operations and fundraising activities.</p><p>We undergo annual independent audits and maintain the highest standards of financial accountability. Your donation information is secure and will never be shared.</p>'
+              format: basic_html
+              summary: ''
+          field_link:
+            - uri: 'internal:/contact'
+              title: 'View Financial Reports'
+              options: {  }
+
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: don-action-005-4005-a005-000000000005
+          bundle: newsletter
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541790
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Ready to Make a Difference?'
+          field_summary:
+            - value: 'Your donation today will help transform lives in our communities. Join thousands of supporters who believe in creating lasting change together.'
               format: basic_html

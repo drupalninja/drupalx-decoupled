@@ -1,0 +1,29 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: comm-vol-medi-4f0f-9c6e-164a416d574c
+  bundle: image
+  default_langcode: en
+  depends:
+    comm-vol-file-4f0f-9c6e-164a416d574c: file
+default:
+  revision_user:
+    - target_id: 1
+  status:
+    - value: true
+  name:
+    - value: 'Community Volunteers'
+  uid:
+    - target_id: 1
+  thumbnail:
+    - entity: comm-vol-file-4f0f-9c6e-164a416d574c
+      alt: 'Community volunteers working together to support local initiatives'
+      title: ''
+  created:
+    - value: 1724541785
+  revision_translation_affected:
+    - value: true
+  field_image:
+    - entity: comm-vol-file-4f0f-9c6e-164a416d574c
+      alt: 'Community volunteers working together to support local initiatives'
+      title: ''

@@ -1,0 +1,29 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: food-dis-medi-4f0f-9c6e-164a416d574c
+  bundle: image
+  default_langcode: en
+  depends:
+    food-dis-file-4f0f-9c6e-164a416d574c: file
+default:
+  revision_user:
+    - target_id: 1
+  status:
+    - value: true
+  name:
+    - value: 'Food Distribution'
+  uid:
+    - target_id: 1
+  thumbnail:
+    - entity: food-dis-file-4f0f-9c6e-164a416d574c
+      alt: 'Volunteers distributing food to families and community members in need'
+      title: ''
+  created:
+    - value: 1724541785
+  revision_translation_affected:
+    - value: true
+  field_image:
+    - entity: food-dis-file-4f0f-9c6e-164a416d574c
+      alt: 'Volunteers distributing food to families and community members in need'
+      title: ''

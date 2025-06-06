@@ -1,0 +1,29 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: chil-edu-medi-4f0f-9c6e-164a416d574c
+  bundle: image
+  default_langcode: en
+  depends:
+    chil-edu-file-4f0f-9c6e-164a416d574c: file
+default:
+  revision_user:
+    - target_id: 1
+  status:
+    - value: true
+  name:
+    - value: 'Children Education'
+  uid:
+    - target_id: 1
+  thumbnail:
+    - entity: chil-edu-file-4f0f-9c6e-164a416d574c
+      alt: 'Children participating in educational programs and learning activities'
+      title: ''
+  created:
+    - value: 1724541785
+  revision_translation_affected:
+    - value: true
+  field_image:
+    - entity: chil-edu-file-4f0f-9c6e-164a416d574c
+      alt: 'Children participating in educational programs and learning activities'
+      title: ''
