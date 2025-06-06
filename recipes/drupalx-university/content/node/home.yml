@@ -208,7 +208,7 @@ default:
           field_title:
             - value: 'Transform Your Future Through Education'
           field_summary:
-            - value: '<p>Our innovative programs combine rigorous academics with hands-on experience, preparing tomorrow's leaders in an environment where curiosity thrives.</p>'
+            - value: "<p>Our innovative programs combine rigorous academics with hands-on experience, preparing tomorrow's leaders in an environment where curiosity thrives.</p>"
               format: basic_html
           field_sidebyside_layout:
             - value: left
