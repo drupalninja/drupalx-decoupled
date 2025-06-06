@@ -208,7 +208,7 @@ default:
           field_title:
             - value: 'Transform Your Future Through Education'
           field_summary:
-            - value: '<p>At Metropolitan University, we believe education is the most powerful tool for creating positive change. Our innovative programs combine rigorous academic study with hands-on experience, preparing you for leadership in an ever-evolving world.</p><p>From cutting-edge research opportunities to vibrant student life, we provide an environment where intellectual curiosity thrives and lifelong connections are forged.</p>'
+            - value: '<p>Our innovative programs combine rigorous academics with hands-on experience, preparing tomorrow's leaders in an environment where curiosity thrives.</p>'
               format: basic_html
           field_sidebyside_layout:
             - value: left
@@ -403,7 +403,7 @@ default:
           field_title:
             - value: 'Advancing Knowledge, Solving Global Challenges'
           field_summary:
-            - value: "<p>Our research enterprise spans from fundamental discovery to applied innovation, addressing society's most pressing challenges. With over $500M in annual research funding, our faculty and students are at the forefront of breakthroughs that change the world.</p><p>From developing sustainable energy solutions to advancing artificial intelligence, our research directly impacts communities and industries worldwide.</p>"
+            - value: "<p>With $500M in annual funding, our researchers tackle global challenges from sustainable energy to AI, creating breakthroughs that change the world.</p>"
               format: basic_html
           field_sidebyside_layout:
             - value: right
