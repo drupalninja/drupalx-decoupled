@@ -139,16 +139,32 @@ class SetupForm extends FormBase {
       '#attributes' => ['class' => ['setup-input']],
     ];
 
+    // Initialize template options with the 'no content' option first.
+    $template_options = [
+      'no-content' => $this->t('No Content - Start with a clean site and /user homepage'),
+    ];
+
+    // Get available recipe options and add them after the no-content option.
+    $recipe_options = $this->getAvailableTemplateOptions();
+
+    // No recipe warning if needed.
+    if (empty($recipe_options)) {
+      $form['container']['no_recipes_warning'] = [
+        '#markup' => '<div class="messages messages--warning">' .
+        $this->t('No recipe files were found. You can still set your site name and homepage.') .
+        '</div>',
+        '#weight' => -1,
+      ];
+    }
+
+    // Add available recipe options after the no-content option.
+    $template_options += $recipe_options;
+
     $form['container']['template_type'] = [
       '#type' => 'radios',
       '#title' => $this->t('What type of website would you like to create?'),
-      '#options' => [
-        'drupalx-demo' => $this->t('Default Demo Site - A modern showcase website'),
-        'drupalx-university' => $this->t('University - Academic institution website'),
-        'drupalx-gov' => $this->t('Government - Public sector website'),
-        'drupalx-nonprofit' => $this->t('Non-Profit - Organization website'),
-      ],
-      '#default_value' => 'drupalx-demo',
+      '#options' => $template_options,
+      '#default_value' => 'no-content',
       '#required' => TRUE,
       '#attributes' => ['class' => ['setup-options']],
     ];
@@ -232,18 +248,24 @@ class SetupForm extends FormBase {
     // Mark setup as complete.
     $this->state->set('drupalx_setup.completed', 'finished');
 
-    // After installing content, set the "Welcome" page as the front page.
-    $this->setWelcomeAsHomepage();
+    // After installing content, set the "Welcome" page as the front page if not
+    // using no-content option.
+    if ($template_type !== 'no-content') {
+      $this->setWelcomeAsHomepage();
+    }
+
+    // Display a success message with the appropriate label.
+    $template_label = $form['container']['template_type']['#options'][$template_type] ?? $template_type;
 
     $this->messenger->addStatus($this->t(
       'Your @template website "@site_name" has been successfully created!',
       [
-        '@template' => $form['container']['template_type']['#options'][$template_type],
+        '@template' => $template_label,
         '@site_name' => $site_name,
       ]
     ));
 
-    // Get created pages to display.
+    // Get created pages to display (only applies for recipe content).
     $created_pages = $this->state->get('drupalx_setup.created_pages', []);
     if (!empty($created_pages)) {
       $links = [];
@@ -262,12 +284,52 @@ class SetupForm extends FormBase {
   }
 
   /**
+   * Gets the available template options by checking recipe files.
+   *
+   * @return array
+   *   An array of template options keyed by directory name.
+   */
+  protected function getAvailableTemplateOptions() {
+    $template_options = [];
+    $drupal_root = DRUPAL_ROOT;
+    $recipe_dirs = [
+      'drupalx-demo' => $this->t('Default Demo Site - A modern showcase website'),
+      'drupalx-university' => $this->t('University - Academic institution website'),
+      'drupalx-gov' => $this->t('Government - Public sector website'),
+      'drupalx-nonprofit' => $this->t('Non-Profit - Organization website'),
+    ];
+
+    // Check each recipe directory to see if it exists and has a recipe.yml file.
+    foreach ($recipe_dirs as $dir => $label) {
+      $recipe_path = $drupal_root . '/../recipes/' . $dir;
+      $recipe_file = $recipe_path . '/recipe.yml';
+
+      if (is_dir($recipe_path) && file_exists($recipe_file)) {
+        $template_options[$dir] = $label;
+      }
+    }
+
+    return $template_options;
+  }
+
+  /**
    * Apply the selected recipe.
    *
    * @param string $template_type
    *   The template type recipe to apply.
    */
   protected function applyRecipe($template_type) {
+    // If 'no-content' option is selected, don't apply a recipe.
+    if ($template_type === 'no-content') {
+      // Set /user as the homepage.
+      $this->configFactory->getEditable('system.site')
+        ->set('page.front', '/user')
+        ->save();
+
+      $this->messenger->addStatus($this->t('Site configured with no demo content. Homepage set to user login.'));
+      return;
+    }
+
     try {
       // Get the absolute path to the recipe directory.
       $drupal_root = DRUPAL_ROOT;
@@ -293,7 +355,10 @@ class SetupForm extends FormBase {
       $this->getCreatedPages($recipe_path);
     }
     catch (\Exception $e) {
-      $this->messenger->addError($this->t('Error applying recipe: @error', ['@error' => $e->getMessage()]));
+      $this->messenger->addError($this->t(
+        'Error applying recipe: @error',
+        ['@error' => $e->getMessage()]
+      ));
     }
   }
 
