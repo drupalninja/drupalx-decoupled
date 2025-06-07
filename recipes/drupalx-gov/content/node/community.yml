@@ -7,7 +7,7 @@ _meta:
   depends:
     public-services-medi-4f0f-9c6e-164a416d574c: media
     city-hall-medi-4f0f-9c6e-164a416d574c: media
-    council-meeting-medi-4f0f-9c6e-164a416d574c: media
+    community-medi-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -67,7 +67,7 @@ default:
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: council-meeting-medi-4f0f-9c6e-164a416d574c
+            - entity: community-medi-4f0f-9c6e-164a416d574c
           field_summary:
             - value: 'Discover programs and resources designed to support residents, strengthen neighborhoods, and build a more connected community.'
               format: basic_html
@@ -213,7 +213,7 @@ default:
                     - value: 'After-school activities, summer camps, educational workshops, and mentoring programs for children and teenagers.'
                       format: basic_html
                   field_media:
-                    - entity: public-services-medi-4f0f-9c6e-164a416d574c
+                    - entity: police-department-medi-4f0f-9c6e-164a416d574c
                   field_link:
                     - uri: 'internal:/community/youth'
                       title: 'Youth Programs'
@@ -240,7 +240,7 @@ default:
                     - value: 'Programs and resources for older adults including social activities, wellness classes, transportation assistance, and meal services.'
                       format: basic_html
                   field_media:
-                    - entity: public-services-medi-4f0f-9c6e-164a416d574c
+                    - entity: public-library-medi-4f0f-9c6e-164a416d574c
                   field_link:
                     - uri: 'internal:/community/senior'
                       title: 'Senior Services'
@@ -358,4 +358,4 @@ default:
   field_summary:
     - value: 'Explore community programs, services, and resources available to residents including youth activities, senior services, and volunteer opportunities.'
   field_thumbnail:
-    - entity: council-meeting-medi-4f0f-9c6e-164a416d574c
+    - entity: community-medi-4f0f-9c6e-164a416d574c

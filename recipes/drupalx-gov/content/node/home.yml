@@ -6,7 +6,7 @@ _meta:
   default_langcode: en
   depends:
     city-hall-medi-4f0f-9c6e-164a416d574c: media
-    council-meeting-medi-4f0f-9c6e-164a416d574c: media
+    community-medi-4f0f-9c6e-164a416d574c: media
     police-department-medi-4f0f-9c6e-164a416d574c: media
     public-services-medi-4f0f-9c6e-164a416d574c: media
     city-transportation-medi-4f0f-9c6e-164a416d574c: media
@@ -169,7 +169,7 @@ default:
                     - value: 'Explore community programs, resources, and volunteer opportunities for residents.'
                       format: basic_html
                   field_media:
-                    - entity: council-meeting-medi-4f0f-9c6e-164a416d574c
+                    - entity: community-medi-4f0f-9c6e-164a416d574c
                   field_link:
                     - uri: 'internal:/community'
                       title: 'Community Resources'

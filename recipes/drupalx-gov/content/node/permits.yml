@@ -112,7 +112,7 @@ default:
                     - value: 'Required for new construction, renovations, additions, and structural changes. Includes residential, commercial, and industrial projects.'
                       format: basic_html
                   field_media:
-                    - entity: building-permits-medi-4f0f-9c6e-164a416d574c
+                    - entity: public-library-medi-4f0f-9c6e-164a416d574c
                   field_link:
                     - uri: 'internal:/building-permits'
                       title: 'Apply for Building Permit'

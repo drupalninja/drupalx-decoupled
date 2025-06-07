@@ -136,7 +136,7 @@ default:
                     - value: 'Access water, electricity, waste management, and recycling services. Pay bills online, request new service, or report outages.'
                       format: basic_html
                   field_media:
-                    - entity: public-services-medi-4f0f-9c6e-164a416d574c
+                    - entity: city-transportation-medi-4f0f-9c6e-164a416d574c
                   field_link:
                     - uri: 'internal:/utilities'
                       title: 'Utility Services'
@@ -163,7 +163,7 @@ default:
                     - value: 'Apply for business licenses, building permits, event permits, and other regulatory approvals from the city government.'
                       format: basic_html
                   field_media:
-                    - entity: public-services-medi-4f0f-9c6e-164a416d574c
+                    - entity: building-permits-medi-4f0f-9c6e-164a416d574c
                   field_link:
                     - uri: 'internal:/permits'
                       title: 'Permit Applications'
@@ -190,7 +190,7 @@ default:
                     - value: 'Explore city parks, recreation centers, sports leagues, and community events. Register for programs and reserve facilities.'
                       format: basic_html
                   field_media:
-                    - entity: public-services-medi-4f0f-9c6e-164a416d574c
+                    - entity: community-park-medi-4f0f-9c6e-164a416d574c
                   field_link:
                     - uri: 'internal:/parks'
                       title: 'Parks & Recreation'

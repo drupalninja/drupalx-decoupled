@@ -5,7 +5,7 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
-    council-meeting-medi-4f0f-9c6e-164a416d574c: media
+    community-medi-4f0f-9c6e-164a416d574c: media
     police-department-medi-4f0f-9c6e-164a416d574c: media
     public-services-medi-4f0f-9c6e-164a416d574c: media
     city-transportation-medi-4f0f-9c6e-164a416d574c: media
@@ -68,7 +68,7 @@ default:
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: council-meeting-medi-4f0f-9c6e-164a416d574c
+            - entity: community-medi-4f0f-9c6e-164a416d574c
           field_summary:
             - value: 'Meet the dedicated departments and leadership team working together to provide excellent public services and responsive government for Riverside City.'
               format: basic_html
@@ -175,4 +175,4 @@ default:
   field_summary:
     - value: 'Learn about Riverside City departments including police, public works, administration, and their roles in serving our community.'
   field_thumbnail:
-    - entity: council-meeting-medi-4f0f-9c6e-164a416d574c
+    - entity: community-medi-4f0f-9c6e-164a416d574c

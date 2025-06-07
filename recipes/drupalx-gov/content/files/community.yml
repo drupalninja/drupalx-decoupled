@@ -1,7 +1,7 @@
 _meta:
   version: '1.0'
   entity_type: file
-  uuid: council-meeting-file-4f0f-9c6e-164a416d574c
+  uuid: community-file-4f0f-9c6e-164a416d574c
   bundle: file
   default_langcode: en
   langcode: en
@@ -13,9 +13,9 @@ default:
   uid:
     - target_id: 1
   filename:
-    - value: council-meeting.jpg
+    - value: community.jpg
   uri:
-    - value: 'public://council-meeting.jpg'
+    - value: 'public://community.jpg'
   filemime:
     - value: image/jpeg
   filesize:
