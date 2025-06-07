@@ -23,6 +23,8 @@ default:
     - value: false
   revision_translation_affected:
     - value: true
+  field_hide_page_title:
+    - value: true
   metatag:
     - tag: meta
       attributes:
@@ -54,7 +56,7 @@ default:
           created:
             - value: 1724541785
           behavior_settings:
-            - value: {  }
+            - value: {}
           revision_translation_affected:
             - value: true
           field_heading:
@@ -67,3 +69,216 @@ default:
           field_summary:
             - value: 'Our city provides a comprehensive range of services to meet the needs of our residents, businesses, and visitors.'
               format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: srv-text-001-4001-a001-000000000001
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {}
+          revision_translation_affected:
+            - value: true
+          field_body:
+            - value: '<p>Our city government is committed to providing high-quality services that enhance the quality of life for all residents. From essential utilities to community programs, our departments work diligently to ensure efficient and responsive service delivery.</p><p>Use the resources on this page to access information about various city services, application procedures, and contact information for specific departments.</p>'
+              format: full_html
+              summary: ''
+          field_eyebrow:
+            - value: 'Serving Our Community'
+          field_text_layout:
+            - value: centered
+          field_title:
+            - value: 'Your Guide to City Services'
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: srv-card-001-4001-a001-000000000001
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {}
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Popular Services'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: srv-util-001-4001-a001-000000000001
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {}
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Utilities'
+                  field_summary:
+                    - value: 'Access water, electricity, waste management, and recycling services. Pay bills online, request new service, or report outages.'
+                      format: basic_html
+                  field_media:
+                    - entity: public-services-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/utilities'
+                      title: 'Utility Services'
+                      options: {}
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: srv-prmt-002-4001-a001-000000000002
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {}
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Permits & Licenses'
+                  field_summary:
+                    - value: 'Apply for business licenses, building permits, event permits, and other regulatory approvals from the city government.'
+                      format: basic_html
+                  field_media:
+                    - entity: public-services-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/permits'
+                      title: 'Permit Applications'
+                      options: {}
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: srv-park-003-4001-a001-000000000003
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {}
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Parks & Recreation'
+                  field_summary:
+                    - value: 'Explore city parks, recreation centers, sports leagues, and community events. Register for programs and reserve facilities.'
+                      format: basic_html
+                  field_media:
+                    - entity: public-services-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/parks'
+                      title: 'Parks & Recreation'
+                      options: {}
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: srv-acc-001-4001-a001-000000000001
+          bundle: accordion
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {}
+          revision_translation_affected:
+            - value: true
+          field_accordion_item:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: srv-acc-item1-4001-a001-000000000001
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {}
+                  revision_translation_affected:
+                    - value: true
+                  field_body:
+                    - value: '<p>Most city services can be accessed through our online portal at any time. For in-person assistance, visit City Hall during regular business hours: Monday-Friday 8:30am-5:00pm. Some departments offer extended hours on Thursdays until 7:00pm.</p>'
+                      format: full_html
+                      summary: ''
+                  field_title:
+                    - value: 'How do I access city services?'
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: srv-acc-item2-4001-a001-000000000002
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {}
+                  revision_translation_affected:
+                    - value: true
+                  field_body:
+                    - value: '<p>For most utility services, applications can be completed online through our secure portal. For new service connections, please allow 2-3 business days for processing. Emergency repair requests are prioritized and handled as quickly as possible.</p>'
+                      format: full_html
+                      summary: ''
+                  field_title:
+                    - value: 'How long does it take to process utility service requests?'
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: srv-acc-item3-4001-a001-000000000003
+                  bundle: accordion_item
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {}
+                  revision_translation_affected:
+                    - value: true
+                  field_body:
+                    - value: '<p>Most permits and licenses can be paid for online using credit cards, ACH transfers, or digital payment services. For in-person payments, we accept checks, money orders, and cash at the City Hall Finance Department.</p>'
+                      format: full_html
+                      summary: ''
+                  field_title:
+                    - value: 'What payment methods are accepted for permits and fees?'
+  field_summary:
+    - value: 'Access essential city government services including utilities, permits, licenses, parks and recreation, public transportation, and more.'
+  field_thumbnail:
+    - entity: public-services-medi-4f0f-9c6e-164a416d574c

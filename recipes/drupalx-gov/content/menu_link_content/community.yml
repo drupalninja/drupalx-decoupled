@@ -1,0 +1,23 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: a7f6e5d4-c3b2-4a1f-9e8d-7c6b5a4f3e2d
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    - value: true
+  title:
+    - value: 'Community'
+  menu_name:
+    - value: main
+  link:
+    - uri: 'internal:/community'
+      title: ''
+      options: {}
+  external:
+    - value: false
+  rediscover:
+    - value: true
+  weight:
+    - value: 4

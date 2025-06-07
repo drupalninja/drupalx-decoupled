@@ -145,7 +145,7 @@ class SetupForm extends FormBase {
       '#options' => [
         'drupalx-demo' => $this->t('Default Demo Site - A modern showcase website'),
         'drupalx-university' => $this->t('University - Academic institution website'),
-        'drupalx-gov' => $this->t('Government Agency - Public sector website'),
+        'drupalx-gov' => $this->t('Government - Public sector website'),
         'drupalx-nonprofit' => $this->t('Non-Profit - Organization website'),
       ],
       '#default_value' => 'drupalx-demo',
