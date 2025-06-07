@@ -5601,19 +5601,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx-demo.git",
-                "reference": "11480461a43680a80ae33ecac9dac243feb8d35f"
+                "reference": "cd1bf4de97fc353bede548d7583820af8f75c20c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextagencyio/drupalx-demo/zipball/11480461a43680a80ae33ecac9dac243feb8d35f",
-                "reference": "11480461a43680a80ae33ecac9dac243feb8d35f",
+                "url": "https://api.github.com/repos/nextagencyio/drupalx-demo/zipball/cd1bf4de97fc353bede548d7583820af8f75c20c",
+                "reference": "cd1bf4de97fc353bede548d7583820af8f75c20c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
             },
             "default-branch": true,
-            "type": "drupal-profile",
+            "type": "drupal-recipe",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
@@ -5629,7 +5629,7 @@
                 "issues": "https://github.com/nextagencyio/drupalx-demo/issues",
                 "source": "https://github.com/nextagencyio/drupalx-demo/tree/1.x"
             },
-            "time": "2025-06-07T12:31:43+00:00"
+            "time": "2025-06-07T13:20:11+00:00"
         },
         {
             "name": "nextagencyio/drupalx-gov",
@@ -5637,19 +5637,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx-gov.git",
-                "reference": "c07a740b1c25e9b4d836af35cd14b18e743e3de4"
+                "reference": "7816fd9f5788da20ffdd7d509e4ee77d4a8b118e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextagencyio/drupalx-gov/zipball/c07a740b1c25e9b4d836af35cd14b18e743e3de4",
-                "reference": "c07a740b1c25e9b4d836af35cd14b18e743e3de4",
+                "url": "https://api.github.com/repos/nextagencyio/drupalx-gov/zipball/7816fd9f5788da20ffdd7d509e4ee77d4a8b118e",
+                "reference": "7816fd9f5788da20ffdd7d509e4ee77d4a8b118e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
             },
             "default-branch": true,
-            "type": "drupal-profile",
+            "type": "drupal-recipe",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
@@ -5665,7 +5665,7 @@
                 "issues": "https://github.com/nextagencyio/drupalx-gov/issues",
                 "source": "https://github.com/nextagencyio/drupalx-gov/tree/1.x"
             },
-            "time": "2025-06-07T12:33:02+00:00"
+            "time": "2025-06-07T13:20:01+00:00"
         },
         {
             "name": "nextagencyio/drupalx-nonprofit",
@@ -5673,19 +5673,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx-nonprofit.git",
-                "reference": "49d2d3d6b1fa69bd4baecb6a5153e940f6a89bcb"
+                "reference": "3b0646e44ca31d0f7db0edc76e9694eed9f10631"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextagencyio/drupalx-nonprofit/zipball/49d2d3d6b1fa69bd4baecb6a5153e940f6a89bcb",
-                "reference": "49d2d3d6b1fa69bd4baecb6a5153e940f6a89bcb",
+                "url": "https://api.github.com/repos/nextagencyio/drupalx-nonprofit/zipball/3b0646e44ca31d0f7db0edc76e9694eed9f10631",
+                "reference": "3b0646e44ca31d0f7db0edc76e9694eed9f10631",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
             },
             "default-branch": true,
-            "type": "drupal-profile",
+            "type": "drupal-recipe",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
@@ -5701,7 +5701,7 @@
                 "issues": "https://github.com/nextagencyio/drupalx-nonprofit/issues",
                 "source": "https://github.com/nextagencyio/drupalx-nonprofit/tree/1.x"
             },
-            "time": "2025-06-07T12:34:08+00:00"
+            "time": "2025-06-07T13:20:27+00:00"
         },
         {
             "name": "nextagencyio/drupalx-university",
@@ -5709,19 +5709,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx-university.git",
-                "reference": "6af2ed1462f479cfd67379ca519cb4da38499ec5"
+                "reference": "83055aec2f1aeba7823e04002c574db4092c20d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextagencyio/drupalx-university/zipball/6af2ed1462f479cfd67379ca519cb4da38499ec5",
-                "reference": "6af2ed1462f479cfd67379ca519cb4da38499ec5",
+                "url": "https://api.github.com/repos/nextagencyio/drupalx-university/zipball/83055aec2f1aeba7823e04002c574db4092c20d6",
+                "reference": "83055aec2f1aeba7823e04002c574db4092c20d6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
             },
             "default-branch": true,
-            "type": "drupal-profile",
+            "type": "drupal-recipe",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
@@ -5737,7 +5737,7 @@
                 "issues": "https://github.com/nextagencyio/drupalx-university/issues",
                 "source": "https://github.com/nextagencyio/drupalx-university/tree/1.x"
             },
-            "time": "2025-06-07T12:34:30+00:00"
+            "time": "2025-06-07T13:19:52+00:00"
         },
         {
             "name": "nextagencyio/drupalx_setup",
