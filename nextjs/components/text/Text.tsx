@@ -21,7 +21,7 @@ export default function Text({
   modifier
 }: TextProps) {
   const containerClasses = `container mx-auto ${modifier || 'my-6 lg:my-25'}`;
-  const contentClasses = `max-w-4xl ${textLayout === 'centered' ? 'mx-auto text-center' : ''}`;
+  const contentClasses = `prose max-w-4xl ${textLayout === 'centered' ? 'mx-auto text-center' : ''}`;
 
   const renderButtons = () => {
     let buttonContainerClasses = "mt-6 flex ";
@@ -41,7 +41,7 @@ export default function Text({
             className="mr-4"
             asChild
           >
-            <a href={link.url}>{link.title || 'Read more'}</a>
+            <a href={link.url} className="no-underline">{link.title || 'Read more'}</a>
           </Button>
         )}
         {link2?.url && (
@@ -49,7 +49,7 @@ export default function Text({
             variant="secondary"
             asChild
           >
-            <a href={link2.url}>{link2.title || 'Read more'}</a>
+            <a href={link2.url} className="no-underline">{link2.title || 'Read more'}</a>
           </Button>
         )}
       </div>

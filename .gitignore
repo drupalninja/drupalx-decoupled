@@ -36,3 +36,7 @@
 # DrupalX recipes
 /recipes/drupalx-paragraphs
 /recipes/drupalx-core
+/recipes/drupalx-demo
+/recipes/drupalx-gov
+/recipes/drupalx-nonprofit
+/recipes/drupalx-university
