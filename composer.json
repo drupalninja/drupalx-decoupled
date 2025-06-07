@@ -21,10 +21,10 @@
         "drupalninja/drupalx_ai": "2.x-dev",
         "drush/drush": "^11 || ^12 || ^13",
         "nextagencyio/drupalx-demo": "^1.0",
-        "nextagencyio/drupalx-gov": "1.x-dev",
+        "nextagencyio/drupalx-gov": "^1.0",
         "nextagencyio/drupalx-nonprofit": "1.x-dev",
         "nextagencyio/drupalx-university": "^1.0",
-        "nextagencyio/drupalx_setup": "1.x-dev",
+        "nextagencyio/drupalx_setup": "^1.0",
         "oomphinc/composer-installers-extender": "^2.0",
         "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.2"

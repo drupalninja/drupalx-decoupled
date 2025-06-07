@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4eac14ed50c437cc66e5beb7e191db64",
+    "content-hash": "30f413bcbfea67a352519548dfd8da97",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5632,22 +5632,21 @@
         },
         {
             "name": "nextagencyio/drupalx-gov",
-            "version": "1.x-dev",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx-gov.git",
-                "reference": "7816fd9f5788da20ffdd7d509e4ee77d4a8b118e"
+                "reference": "4d8782481d8b561254b01f03c34f2b5983f874cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextagencyio/drupalx-gov/zipball/7816fd9f5788da20ffdd7d509e4ee77d4a8b118e",
-                "reference": "7816fd9f5788da20ffdd7d509e4ee77d4a8b118e",
+                "url": "https://api.github.com/repos/nextagencyio/drupalx-gov/zipball/4d8782481d8b561254b01f03c34f2b5983f874cd",
+                "reference": "4d8782481d8b561254b01f03c34f2b5983f874cd",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
             },
-            "default-branch": true,
             "type": "drupal-recipe",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -5662,9 +5661,9 @@
             "description": "Government installation profile for DrupalX",
             "support": {
                 "issues": "https://github.com/nextagencyio/drupalx-gov/issues",
-                "source": "https://github.com/nextagencyio/drupalx-gov/tree/1.x"
+                "source": "https://github.com/nextagencyio/drupalx-gov/tree/1.0"
             },
-            "time": "2025-06-07T13:20:01+00:00"
+            "time": "2025-06-07T15:34:12+00:00"
         },
         {
             "name": "nextagencyio/drupalx-nonprofit",
@@ -5739,7 +5738,7 @@
         },
         {
             "name": "nextagencyio/drupalx_setup",
-            "version": "1.x-dev",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx_setup.git",
@@ -5755,7 +5754,6 @@
                 "drupal/core": "^10.0",
                 "php": ">=8.1"
             },
-            "default-branch": true,
             "type": "drupal-module",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -5770,7 +5768,7 @@
             "description": "Provides initial setup form for DrupalX site configuration",
             "support": {
                 "issues": "https://github.com/nextagencyio/drupalx_setup/issues",
-                "source": "https://github.com/nextagencyio/drupalx_setup/tree/1.x"
+                "source": "https://github.com/nextagencyio/drupalx_setup/tree/1.0"
             },
             "time": "2025-06-07T13:08:09+00:00"
         },
@@ -15300,16 +15298,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "8.18.1",
+            "version": "8.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "06b18b3f64979ab31d27c37021838439f3ed5919"
+                "reference": "9cc50509c3912d465a9f6898069f64cf2abf4e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/06b18b3f64979ab31d27c37021838439f3ed5919",
-                "reference": "06b18b3f64979ab31d27c37021838439f3ed5919",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/9cc50509c3912d465a9f6898069f64cf2abf4e8a",
+                "reference": "9cc50509c3912d465a9f6898069f64cf2abf4e8a",
                 "shasum": ""
             },
             "require": {
@@ -15349,7 +15347,7 @@
             ],
             "support": {
                 "issues": "https://github.com/slevomat/coding-standard/issues",
-                "source": "https://github.com/slevomat/coding-standard/tree/8.18.1"
+                "source": "https://github.com/slevomat/coding-standard/tree/8.19.0"
             },
             "funding": [
                 {
@@ -15361,7 +15359,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-05-22T14:32:30+00:00"
+            "time": "2025-06-07T15:02:20+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -16126,9 +16124,7 @@
     "stability-flags": {
         "drupal/graphql_compose_fragments": 20,
         "drupalninja/drupalx_ai": 20,
-        "nextagencyio/drupalx-gov": 20,
-        "nextagencyio/drupalx-nonprofit": 20,
-        "nextagencyio/drupalx_setup": 20
+        "nextagencyio/drupalx-nonprofit": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
