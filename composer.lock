@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "208ecc8af4dd0467a2ba8a604bcdbac1",
+    "content-hash": "e8596486a6000ca1abdc5f44114240a4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3995,7 +3995,7 @@
         },
         {
             "name": "drupalninja/drupalx-core",
-            "version": "2.x-dev",
+            "version": "2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx-core.git",
@@ -4045,7 +4045,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nextagencyio/drupalx-core/issues",
-                "source": "https://github.com/nextagencyio/drupalx-core/tree/feature/new-recipes"
+                "source": "https://github.com/nextagencyio/drupalx-core/tree/2.0"
             },
             "time": "2025-06-07T12:29:34+00:00"
         },
@@ -5597,7 +5597,7 @@
         },
         {
             "name": "nextagencyio/drupalx-demo",
-            "version": "1.x-dev",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx-demo.git",
@@ -5612,7 +5612,6 @@
             "require": {
                 "php": ">=8.1"
             },
-            "default-branch": true,
             "type": "drupal-recipe",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -5627,7 +5626,7 @@
             "description": "Demo installation profile for DrupalX",
             "support": {
                 "issues": "https://github.com/nextagencyio/drupalx-demo/issues",
-                "source": "https://github.com/nextagencyio/drupalx-demo/tree/1.x"
+                "source": "https://github.com/nextagencyio/drupalx-demo/tree/1.0"
             },
             "time": "2025-06-07T13:20:11+00:00"
         },
@@ -16127,9 +16126,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/graphql_compose_fragments": 20,
-        "drupalninja/drupalx-core": 20,
         "drupalninja/drupalx_ai": 20,
-        "nextagencyio/drupalx-demo": 20,
         "nextagencyio/drupalx-gov": 20,
         "nextagencyio/drupalx-nonprofit": 20,
         "nextagencyio/drupalx-university": 20,
