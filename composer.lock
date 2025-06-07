@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30f413bcbfea67a352519548dfd8da97",
+    "content-hash": "27f4ed0bbb4af3e5368668bea407ed35",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5667,22 +5667,21 @@
         },
         {
             "name": "nextagencyio/drupalx-nonprofit",
-            "version": "1.x-dev",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx-nonprofit.git",
-                "reference": "3b0646e44ca31d0f7db0edc76e9694eed9f10631"
+                "reference": "46a798b6c06f6e1ed5c1cbda15a4cf1df4f8db1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextagencyio/drupalx-nonprofit/zipball/3b0646e44ca31d0f7db0edc76e9694eed9f10631",
-                "reference": "3b0646e44ca31d0f7db0edc76e9694eed9f10631",
+                "url": "https://api.github.com/repos/nextagencyio/drupalx-nonprofit/zipball/46a798b6c06f6e1ed5c1cbda15a4cf1df4f8db1e",
+                "reference": "46a798b6c06f6e1ed5c1cbda15a4cf1df4f8db1e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
             },
-            "default-branch": true,
             "type": "drupal-recipe",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -5697,9 +5696,9 @@
             "description": "Nonprofit installation profile for DrupalX",
             "support": {
                 "issues": "https://github.com/nextagencyio/drupalx-nonprofit/issues",
-                "source": "https://github.com/nextagencyio/drupalx-nonprofit/tree/1.x"
+                "source": "https://github.com/nextagencyio/drupalx-nonprofit/tree/1.0"
             },
-            "time": "2025-06-07T13:20:27+00:00"
+            "time": "2025-06-07T16:20:51+00:00"
         },
         {
             "name": "nextagencyio/drupalx-university",
@@ -16123,8 +16122,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/graphql_compose_fragments": 20,
-        "drupalninja/drupalx_ai": 20,
-        "nextagencyio/drupalx-nonprofit": 20
+        "drupalninja/drupalx_ai": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
