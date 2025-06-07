@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8596486a6000ca1abdc5f44114240a4",
+    "content-hash": "4eac14ed50c437cc66e5beb7e191db64",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5704,22 +5704,21 @@
         },
         {
             "name": "nextagencyio/drupalx-university",
-            "version": "1.x-dev",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx-university.git",
-                "reference": "83055aec2f1aeba7823e04002c574db4092c20d6"
+                "reference": "ff4edf3d2d14b01cd43b3a014067b247afeb23d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextagencyio/drupalx-university/zipball/83055aec2f1aeba7823e04002c574db4092c20d6",
-                "reference": "83055aec2f1aeba7823e04002c574db4092c20d6",
+                "url": "https://api.github.com/repos/nextagencyio/drupalx-university/zipball/ff4edf3d2d14b01cd43b3a014067b247afeb23d3",
+                "reference": "ff4edf3d2d14b01cd43b3a014067b247afeb23d3",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
             },
-            "default-branch": true,
             "type": "drupal-recipe",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -5734,9 +5733,9 @@
             "description": "University installation profile for DrupalX",
             "support": {
                 "issues": "https://github.com/nextagencyio/drupalx-university/issues",
-                "source": "https://github.com/nextagencyio/drupalx-university/tree/1.x"
+                "source": "https://github.com/nextagencyio/drupalx-university/tree/1.0"
             },
-            "time": "2025-06-07T13:19:52+00:00"
+            "time": "2025-06-07T14:50:50+00:00"
         },
         {
             "name": "nextagencyio/drupalx_setup",
@@ -16129,7 +16128,6 @@
         "drupalninja/drupalx_ai": 20,
         "nextagencyio/drupalx-gov": 20,
         "nextagencyio/drupalx-nonprofit": 20,
-        "nextagencyio/drupalx-university": 20,
         "nextagencyio/drupalx_setup": 20
     },
     "prefer-stable": true,
