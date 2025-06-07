@@ -23,6 +23,7 @@
         "nextagencyio/drupalx-gov": "1.x-dev",
         "nextagencyio/drupalx-nonprofit": "1.x-dev",
         "nextagencyio/drupalx-university": "1.x-dev",
+        "nextagencyio/drupalx_setup": "1.x-dev",
         "drush/drush": "^11 || ^12 || ^13",
         "oomphinc/composer-installers-extender": "^2.0",
         "vlucas/phpdotenv": "^5.1",

@@ -1,9 +1,0 @@
-name: 'DrupalX Setup'
-description: 'Provides initial setup form for DrupalX site configuration'
-type: module
-core_version_requirement: ^10 || ^11
-package: 'DrupalX'
-dependencies:
-  - drupal:system
-  - drupal:node
-  - drupal:user
