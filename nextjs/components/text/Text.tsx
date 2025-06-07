@@ -21,7 +21,7 @@ export default function Text({
   modifier
 }: TextProps) {
   const containerClasses = `container mx-auto ${modifier || 'my-6 lg:my-25'}`;
-  const contentClasses = `max-w-4xl ${textLayout === 'centered' ? 'mx-auto text-center' : ''}`;
+  const contentClasses = `prose max-w-4xl ${textLayout === 'centered' ? 'mx-auto text-center' : ''}`;
 
   const renderButtons = () => {
     let buttonContainerClasses = "mt-6 flex ";
