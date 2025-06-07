@@ -5,7 +5,9 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
-    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    building-permits-medi-4f0f-9c6e-164a416d574c: media
+    city-hall-medi-4f0f-9c6e-164a416d574c: media
+    public-services-medi-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -58,12 +60,118 @@ default:
           revision_translation_affected:
             - value: true
           field_heading:
-            - value: 'Permits & Licenses Information'
+            - value: 'Permits & Licenses Made Simple'
               format: restricted_html
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: building-permits-medi-4f0f-9c6e-164a416d574c
           field_summary:
-            - value: 'Easily find and apply for the necessary permits and licenses for your projects, business, or events in our city.'
+            - value: 'Get the permits and licenses you need for your project or business. Our streamlined processes and helpful staff make compliance easy and efficient.'
               format: basic_html
+    - entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: perm-types-001-4001-a001-000000000001
+          bundle: card_group
+          default_langcode: en
+        default:
+          status:
+            - value: true
+          created:
+            - value: 1724541786
+          behavior_settings:
+            - value: {  }
+          revision_translation_affected:
+            - value: true
+          field_title:
+            - value: 'Permit Types'
+          field_card:
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: perm-type-001-4001-a001-000000000001
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Building Permits'
+                  field_summary:
+                    - value: 'Required for new construction, renovations, additions, and structural changes. Includes residential, commercial, and industrial projects.'
+                      format: basic_html
+                  field_media:
+                    - entity: building-permits-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/building-permits'
+                      title: 'Apply for Building Permit'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: perm-type-002-4001-a001-000000000002
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Business Licenses'
+                  field_summary:
+                    - value: 'Start your business with the proper licensing. We offer streamlined applications for retail, service, food, and professional businesses.'
+                      format: basic_html
+                  field_media:
+                    - entity: city-hall-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/business-license'
+                      title: 'Get Business License'
+                      options: {  }
+            - entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: perm-type-003-4001-a001-000000000003
+                  bundle: card
+                  default_langcode: en
+                default:
+                  status:
+                    - value: true
+                  created:
+                    - value: 1724541786
+                  behavior_settings:
+                    - value: {  }
+                  revision_translation_affected:
+                    - value: true
+                  field_title:
+                    - value: 'Special Event Permits'
+                  field_summary:
+                    - value: 'Planning a community event, festival, or gathering? Get the permits you need for public events, street closures, and temporary structures.'
+                      format: basic_html
+                  field_media:
+                    - entity: public-services-medi-4f0f-9c6e-164a416d574c
+                  field_link:
+                    - uri: 'internal:/event-permits'
+                      title: 'Event Permit Info'
+                      options: {  }
+  field_meta_tags:
+    - value: 'a:1:{s:5:"title";s:65:"Permits & Licenses | Building, Business & Regulatory Services";}'
+  field_summary:
+    - value: 'Apply for building permits, business licenses, and special event permits in Riverside City. Streamlined processes and helpful staff support.'
+  field_thumbnail:
+    - entity: building-permits-medi-4f0f-9c6e-164a416d574c

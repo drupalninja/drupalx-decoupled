@@ -1,0 +1,29 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: building-permits-medi-4f0f-9c6e-164a416d574c
+  bundle: image
+  default_langcode: en
+  depends:
+    building-permits-file-4f0f-9c6e-164a416d574c: file
+default:
+  revision_user:
+    - target_id: 1
+  status:
+    - value: true
+  name:
+    - value: 'Building Permits'
+  uid:
+    - target_id: 1
+  thumbnail:
+    - entity: building-permits-file-4f0f-9c6e-164a416d574c
+      alt: 'Construction site with building permits and development projects'
+      title: ''
+  created:
+    - value: 1724541785
+  revision_translation_affected:
+    - value: true
+  field_image:
+    - entity: building-permits-file-4f0f-9c6e-164a416d574c
+      alt: 'Construction site with building permits and development projects'
+      title: ''

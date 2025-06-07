@@ -5,7 +5,7 @@ _meta:
   bundle: landing
   default_langcode: en
   depends:
-    9a33874e-ce03-4f0f-9c6e-164a416d574c: media
+    public-services-medi-4f0f-9c6e-164a416d574c: media
 default:
   revision_uid:
     - target_id: 1
@@ -63,7 +63,7 @@ default:
           field_hero_layout:
             - value: image_top
           field_media:
-            - entity: 9a33874e-ce03-4f0f-9c6e-164a416d574c
+            - entity: public-services-medi-4f0f-9c6e-164a416d574c
           field_summary:
             - value: 'Our city provides a comprehensive range of services to meet the needs of our residents, businesses, and visitors.'
               format: basic_html

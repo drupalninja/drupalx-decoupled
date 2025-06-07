@@ -1,0 +1,26 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: public-library-file-4f0f-9c6e-164a416d574c
+  bundle: file
+  default_langcode: en
+  langcode: en
+  status: TRUE
+  dependencies: {  }
+  _core:
+    default_config_hash: 8QQvBEqCFQTfgthUAGc1hLvYFHnzlbGXXrKKhZjXZnQ
+default:
+  uid:
+    - target_id: 1
+  filename:
+    - value: public-library.jpg
+  uri:
+    - value: 'public://public-library.jpg'
+  filemime:
+    - value: image/jpeg
+  filesize:
+    - value: 221985
+  status:
+    - value: TRUE
+  created:
+    - value: 1724541785
