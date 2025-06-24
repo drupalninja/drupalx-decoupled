@@ -12,11 +12,14 @@
     "require": {
         "composer/installers": "^2.1",
         "cweagans/composer-patches": "^1.7",
+        "drupal/core-composer-scaffold": "^11.0",
+        "drupal/core-project-message": "^11.0",
+        "drupal/core-recommended": "^11.0",
         "drupal/decoupled_preview_iframe": "^1.0",
         "drupal/graphql_compose_fragments": "1.0.x-dev",
         "drupal/graphql_compose_preview": "^1.0",
-        "drupal/simple_oauth": "^5.2",
-        "drupalninja/drupalx-core": "^2.0",
+        "drupal/simple_oauth": "dev-3532181-add-drupal-11",
+        "drupalninja/drupalx-core": "3.x-dev",
         "drupalninja/drupalx-paragraphs": "^1.0",
         "drupalninja/drupalx_ai": "2.x-dev",
         "drush/drush": "^11 || ^12 || ^13",
@@ -30,13 +33,17 @@
         "webflo/drupal-finder": "^1.2"
     },
     "require-dev": {
-        "drupal/core-dev": "^10.2.0",
+        "drupal/core-dev": "^11.0",
         "ergebnis/composer-normalize": "^2.42"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
     "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://git.drupalcode.org/issue/simple_oauth-3532181.git"
+        },
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
@@ -62,6 +69,7 @@
             "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
             "ergebnis/composer-normalize": true,
             "oomphinc/composer-installers-extender": true,
             "php-http/discovery": true,
