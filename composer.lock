@@ -3318,7 +3318,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/issue/simple_oauth-3532181.git",
-                "reference": "eaacd3b04ea9ac189683059bcbfba20b49832225"
+                "reference": "73d7e091b8fdf56dd0f13248c9033de690ff0d0b"
             },
             "require": {
                 "drupal/consumers": "^1.14",
@@ -3343,7 +3343,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "The Simple OAuth module for Drupal",
-            "time": "2025-06-24T21:49:14+00:00"
+            "time": "2025-06-24T22:23:30+00:00"
         },
         {
             "name": "drupal/svg_image",

@@ -4,9 +4,11 @@ status: true
 dependencies:
   module:
     - graphql
+    - simple_oauth
 id: viewer
 label: Viewer
 weight: 4
 is_admin: false
 permissions:
   - 'execute graphql_compose_server arbitrary graphql requests'
+  - 'grant simple_oauth codes'

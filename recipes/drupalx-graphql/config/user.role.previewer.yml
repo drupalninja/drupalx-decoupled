@@ -7,6 +7,7 @@ dependencies:
     - graphql
     - graphql_compose_preview
     - node
+    - simple_oauth
 _core:
   default_config_hash: p6RvdVs_xs_LzY-LXPuT6fw8QKjPHR64B4yw8f3bHwI
 id: previewer
@@ -15,6 +16,7 @@ weight: 3
 is_admin: false
 permissions:
   - 'execute graphql_compose_server arbitrary graphql requests'
+  - 'grant simple_oauth codes'
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view graphql_compose_preview entity'
