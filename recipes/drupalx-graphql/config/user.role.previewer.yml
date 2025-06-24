@@ -12,7 +12,7 @@ _core:
 id: previewer
 label: Previewer
 weight: 3
-is_admin: null
+is_admin: false
 permissions:
   - 'execute graphql_compose_server arbitrary graphql requests'
   - 'view all revisions'

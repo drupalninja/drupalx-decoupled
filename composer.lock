@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "265b7206fdc510a9d7a2a54ada0e2af4",
+    "content-hash": "5e9f1a593504827184ad9bd5c3096838",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3314,11 +3314,11 @@
         },
         {
             "name": "drupal/simple_oauth",
-            "version": "dev-3532181-add-drupal-11",
+            "version": "5.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/issue/simple_oauth-3532181.git",
-                "reference": "3aec2c2ebf0a37b4659974e9050ca6db882997ca"
+                "reference": "eaacd3b04ea9ac189683059bcbfba20b49832225"
             },
             "require": {
                 "drupal/consumers": "^1.14",
@@ -3330,6 +3330,7 @@
             "require-dev": {
                 "phpspec/prophecy-phpunit": "^2"
             },
+            "default-branch": true,
             "type": "drupal-module",
             "extra": {
                 "drush": {
@@ -3342,7 +3343,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "The Simple OAuth module for Drupal",
-            "time": "2024-12-24T13:31:18+00:00"
+            "time": "2025-06-24T21:49:14+00:00"
         },
         {
             "name": "drupal/svg_image",

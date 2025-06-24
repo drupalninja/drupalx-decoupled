@@ -19,27 +19,44 @@ if (is_writable('sites/default/files/private')) {
 
   $previewerClientId = Crypt::randomBytesBase64();
   $previewerClientSecret = $random->word(8);
-  $consumerStorage->create([
+
+  // Create consumer data.
+  $previewerData = [
     'client_id' => $previewerClientId,
-    'client_secret ' => $previewerClientSecret,
+    'client_secret' => $previewerClientSecret,
     'label' => 'Previewer',
     'user_id' => 2,
     'third_party' => TRUE,
     'is_default' => FALSE,
-    'roles' => ['previewer'],
-  ])->save();
+  ];
+
+  // Check if consumer__roles table exists before adding roles.
+  $database = \Drupal::database();
+  if ($database->schema()->tableExists('consumer__roles')) {
+    $previewerData['roles'] = ['previewer'];
+  }
+
+  $consumerStorage->create($previewerData)->save();
 
   $viewerClientId = Crypt::randomBytesBase64();
   $viewerClientSecret = $random->word(8);
-  $consumerStorage->create([
+
+  // Create consumer data.
+  $viewerData = [
     'client_id' => $viewerClientId,
-    'client_secret ' => $viewerClientSecret,
+    'client_secret' => $viewerClientSecret,
     'label' => 'Viewer',
     'user_id' => 2,
     'third_party' => TRUE,
     'is_default' => FALSE,
-    'roles' => ['viewer'],
-  ])->save();
+  ];
+
+  // Check if consumer__roles table exists before adding roles.
+  if ($database->schema()->tableExists('consumer__roles')) {
+    $viewerData['roles'] = ['viewer'];
+  }
+
+  $consumerStorage->create($viewerData)->save();
 
   $messages = [
     'Consumers created successfully. Please save the following credentials.',
