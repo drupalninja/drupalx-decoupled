@@ -64,12 +64,16 @@ jobs:
         run: ./vendor/bin/drush site-install minimal --verbose --yes --db-url=sqlite://tmp/site.sqlite --account-name=admin --account-pass=admin
 
       - name: Apply DrupalX GraphQL Recipe
-        run: php core/scripts/drupal -v recipe ../recipes/drupalx-graphql
-        working-directory: ./web
+        run: ./vendor/bin/drush recipe ../recipes/drupalx-graphql
 
       - name: Apply DrupalX Core Recipe
-        run: php core/scripts/drupal -v recipe ../recipes/drupalx-core
-        working-directory: ./web
+        run: ./vendor/bin/drush recipe ../recipes/drupalx-core
+
+      - name: Setup OAuth consumers
+        run: ./vendor/bin/drush scr scripts/consumers-next.php
+
+      - name: Cache rebuild
+        run: ./vendor/bin/drush cr
 
       - name: Start server
         run: |
