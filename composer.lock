@@ -1450,6 +1450,70 @@
             }
         },
         {
+            "name": "drupal/allowed_formats",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/allowed_formats.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/allowed_formats-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "9dfaed3ab8425ee94146914fdb492cefc6c6bb4d"
+            },
+            "require": {
+                "drupal/core": "^10.1 || ^11"
+            },
+            "conflict": {
+                "drupal/core": "<10.1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.1",
+                    "datestamp": "1723158950",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Northern Commerce (formerly Digital Echidna)",
+                    "homepage": "https://www.drupal.org/northern-commerce-formerly-digital-echidna",
+                    "role": "Supporting organization"
+                },
+                {
+                    "name": "Jordan Thompson (nord102)",
+                    "homepage": "https://www.drupal.org/u/nord102",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Wunder",
+                    "homepage": "https://www.drupal.org/wunder",
+                    "role": "Supporting organization"
+                },
+                {
+                    "name": "Florian Loretan (floretan)",
+                    "homepage": "https://www.drupal.org/u/floretan",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Hides info about the selected text format. The 'allowed formats' functionality has been moved to core since Drupal 10.1.0.",
+            "homepage": "https://www.drupal.org/project/allowed_formats",
+            "support": {
+                "source": "http://cgit.drupalcode.org/allowed_formats",
+                "issues": "https://www.drupal.org/project/issues/allowed_formats"
+            }
+        },
+        {
             "name": "drupal/consumers",
             "version": "1.19.0",
             "source": {
@@ -1499,16 +1563,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "11.2.0",
+            "version": "11.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "fd3b0413407205068f7d571e5a70bdd84d377d4f"
+                "reference": "3072192bda268fcce6c22b5bd02935a508c41bb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/fd3b0413407205068f7d571e5a70bdd84d377d4f",
-                "reference": "fd3b0413407205068f7d571e5a70bdd84d377d4f",
+                "url": "https://api.github.com/repos/drupal/core/zipball/3072192bda268fcce6c22b5bd02935a508c41bb2",
+                "reference": "3072192bda268fcce6c22b5bd02935a508c41bb2",
                 "shasum": ""
             },
             "require": {
@@ -1664,13 +1728,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/11.2.0"
+                "source": "https://github.com/drupal/core/tree/11.2.1"
             },
-            "time": "2025-06-19T00:46:13+00:00"
+            "time": "2025-06-25T10:49:19+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "11.2.0",
+            "version": "11.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -1714,13 +1778,13 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.2.0"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.2.1"
             },
             "time": "2025-05-05T16:18:58+00:00"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "11.2.0",
+            "version": "11.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -1755,22 +1819,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-project-message/tree/11.2.0"
+                "source": "https://github.com/drupal/core-project-message/tree/11.2.1"
             },
             "time": "2025-02-03T10:59:29+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "11.2.0",
+            "version": "11.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "3d413046777d9cd2bc6d27c0614def34311db674"
+                "reference": "f0582157aa530d715cbf83ca86a25bf7a4f4de00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/3d413046777d9cd2bc6d27c0614def34311db674",
-                "reference": "3d413046777d9cd2bc6d27c0614def34311db674",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/f0582157aa530d715cbf83ca86a25bf7a4f4de00",
+                "reference": "f0582157aa530d715cbf83ca86a25bf7a4f4de00",
                 "shasum": ""
             },
             "require": {
@@ -1779,7 +1843,7 @@
                 "doctrine/annotations": "~2.0.2",
                 "doctrine/deprecations": "~1.1.5",
                 "doctrine/lexer": "~2.1.1",
-                "drupal/core": "11.2.0",
+                "drupal/core": "11.2.1",
                 "egulias/email-validator": "~4.0.4",
                 "guzzlehttp/guzzle": "~7.9.3",
                 "guzzlehttp/promises": "~2.2.0",
@@ -1842,9 +1906,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/11.2.0"
+                "source": "https://github.com/drupal/core-recommended/tree/11.2.1"
             },
-            "time": "2025-06-19T00:46:13+00:00"
+            "time": "2025-06-25T10:49:19+00:00"
         },
         {
             "name": "drupal/ctools",
@@ -3761,17 +3825,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextagencyio/drupalx-core.git",
-                "reference": "82ea15ae3d02778c0d5d587c9352679631703e6d"
+                "reference": "74d91301c4eaba922e8b38398ccd47be4e500f85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextagencyio/drupalx-core/zipball/82ea15ae3d02778c0d5d587c9352679631703e6d",
-                "reference": "82ea15ae3d02778c0d5d587c9352679631703e6d",
+                "url": "https://api.github.com/repos/nextagencyio/drupalx-core/zipball/74d91301c4eaba922e8b38398ccd47be4e500f85",
+                "reference": "74d91301c4eaba922e8b38398ccd47be4e500f85",
                 "shasum": ""
             },
             "require": {
                 "drupal/admin_toolbar": "^3.4",
                 "drupal/admin_toolbar_tools": "^3.4",
+                "drupal/allowed_formats": "^3.0",
                 "drupal/core-composer-scaffold": "^10.4 || ^11.0",
                 "drupal/core-recommended": "^10.4 || ^11.0",
                 "drupal/default_content": "^2.0@alpha",
@@ -3807,7 +3872,7 @@
                 "issues": "https://github.com/nextagencyio/drupalx-core/issues",
                 "source": "https://github.com/nextagencyio/drupalx-core/tree/3.x"
             },
-            "time": "2025-06-24T23:02:56+00:00"
+            "time": "2025-06-25T13:39:19+00:00"
         },
         {
             "name": "drupalninja/drupalx-paragraphs",
@@ -11150,7 +11215,7 @@
         },
         {
             "name": "drupal/core-dev",
-            "version": "11.2.0",
+            "version": "11.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-dev.git",
@@ -11199,7 +11264,7 @@
             ],
             "description": "require-dev dependencies from drupal/drupal; use in addition to drupal/core-recommended to run tests from drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-dev/tree/11.2.0"
+                "source": "https://github.com/drupal/core-dev/tree/11.2.1"
             },
             "time": "2025-06-11T08:06:33+00:00"
         },
@@ -12352,16 +12417,16 @@
         },
         {
             "name": "open-telemetry/api",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/api.git",
-                "reference": "4e3bb38e069876fb73c2ce85c89583bf2b28cd86"
+                "reference": "b3a9286f9c1c8247c83493c5b1fa475cd0cec7f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/api/zipball/4e3bb38e069876fb73c2ce85c89583bf2b28cd86",
-                "reference": "4e3bb38e069876fb73c2ce85c89583bf2b28cd86",
+                "url": "https://api.github.com/repos/opentelemetry-php/api/zipball/b3a9286f9c1c8247c83493c5b1fa475cd0cec7f7",
+                "reference": "b3a9286f9c1c8247c83493c5b1fa475cd0cec7f7",
                 "shasum": ""
             },
             "require": {
@@ -12381,7 +12446,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "1.1.x-dev"
+                    "dev-main": "1.4.x-dev"
                 }
             },
             "autoload": {
@@ -12418,7 +12483,7 @@
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2025-05-07T12:32:21+00:00"
+            "time": "2025-06-19T23:36:51+00:00"
         },
         {
             "name": "open-telemetry/context",
@@ -12481,16 +12546,16 @@
         },
         {
             "name": "open-telemetry/exporter-otlp",
-            "version": "1.3.1",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/exporter-otlp.git",
-                "reference": "8b3ca1f86d01429c73b407bf1a2075d9c187001e"
+                "reference": "196f3a1dbce3b2c0f8110d164232c11ac00ddbb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/exporter-otlp/zipball/8b3ca1f86d01429c73b407bf1a2075d9c187001e",
-                "reference": "8b3ca1f86d01429c73b407bf1a2075d9c187001e",
+                "url": "https://api.github.com/repos/opentelemetry-php/exporter-otlp/zipball/196f3a1dbce3b2c0f8110d164232c11ac00ddbb2",
+                "reference": "196f3a1dbce3b2c0f8110d164232c11ac00ddbb2",
                 "shasum": ""
             },
             "require": {
@@ -12541,7 +12606,7 @@
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2025-05-21T12:02:20+00:00"
+            "time": "2025-06-16T00:24:51+00:00"
         },
         {
             "name": "open-telemetry/gen-otlp-protobuf",
@@ -12608,22 +12673,22 @@
         },
         {
             "name": "open-telemetry/sdk",
-            "version": "1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/sdk.git",
-                "reference": "cd0d7367599717fc29e04eb8838ec061e6c2c657"
+                "reference": "1c0371794e4c0700afd4a9d4d8511cb5e3f78e6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/sdk/zipball/cd0d7367599717fc29e04eb8838ec061e6c2c657",
-                "reference": "cd0d7367599717fc29e04eb8838ec061e6c2c657",
+                "url": "https://api.github.com/repos/opentelemetry-php/sdk/zipball/1c0371794e4c0700afd4a9d4d8511cb5e3f78e6a",
+                "reference": "1c0371794e4c0700afd4a9d4d8511cb5e3f78e6a",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "nyholm/psr7-server": "^1.1",
-                "open-telemetry/api": "~1.0 || ~1.1",
+                "open-telemetry/api": "~1.4.0",
                 "open-telemetry/context": "^1.0",
                 "open-telemetry/sem-conv": "^1.0",
                 "php": "^8.1",
@@ -12646,6 +12711,10 @@
             "type": "library",
             "extra": {
                 "spi": {
+                    "OpenTelemetry\\API\\Configuration\\ConfigEnv\\EnvComponentLoader": [
+                        "OpenTelemetry\\API\\Instrumentation\\Configuration\\General\\ConfigEnv\\EnvComponentLoaderHttpConfig",
+                        "OpenTelemetry\\API\\Instrumentation\\Configuration\\General\\ConfigEnv\\EnvComponentLoaderPeerConfig"
+                    ],
                     "OpenTelemetry\\API\\Instrumentation\\AutoInstrumentation\\HookManagerInterface": [
                         "OpenTelemetry\\API\\Instrumentation\\AutoInstrumentation\\ExtensionHookManager"
                     ]
@@ -12694,7 +12763,7 @@
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2025-05-22T02:33:34+00:00"
+            "time": "2025-06-19T23:36:51+00:00"
         },
         {
             "name": "open-telemetry/sem-conv",
