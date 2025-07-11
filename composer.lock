@@ -2643,17 +2643,17 @@
         },
         {
             "name": "drupal/graphql_compose",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/graphql_compose.git",
-                "reference": "2.3.0"
+                "reference": "2.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/graphql_compose-2.3.0.zip",
-                "reference": "2.3.0",
-                "shasum": "4f02a57354a3a17879df4f24a8e20753333efd6b"
+                "url": "https://ftp.drupal.org/files/projects/graphql_compose-2.4.0.zip",
+                "reference": "2.4.0",
+                "shasum": "dfda4dadbea944c9ba86b9fa885361cd3cb287a9"
             },
             "require": {
                 "doctrine/inflector": "^2",
@@ -2692,8 +2692,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.3.0",
-                    "datestamp": "1739387377",
+                    "version": "2.4.0",
+                    "datestamp": "1752105727",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2823,7 +2823,7 @@
         },
         {
             "name": "drupal/graphql_compose_routes",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "require": {
                 "drupal/core": "^10.2 || ^11",
                 "drupal/graphql_compose": "*"
@@ -2831,8 +2831,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "2.3.0",
-                    "datestamp": "1739387377",
+                    "version": "2.4.0",
+                    "datestamp": "1752105727",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10605,16 +10605,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.8.9",
+            "version": "2.8.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "b4e6bff2db7ce756ddb77ecee958a0f41f42bd9d"
+                "reference": "53834f587d7ab2527eb237459d7b94d1fb9d4c5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/b4e6bff2db7ce756ddb77ecee958a0f41f42bd9d",
-                "reference": "b4e6bff2db7ce756ddb77ecee958a0f41f42bd9d",
+                "url": "https://api.github.com/repos/composer/composer/zipball/53834f587d7ab2527eb237459d7b94d1fb9d4c5a",
+                "reference": "53834f587d7ab2527eb237459d7b94d1fb9d4c5a",
                 "shasum": ""
             },
             "require": {
@@ -10699,7 +10699,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.8.9"
+                "source": "https://github.com/composer/composer/tree/2.8.10"
             },
             "funding": [
                 {
@@ -10715,7 +10715,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-05-13T12:01:37+00:00"
+            "time": "2025-07-10T17:08:33+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -14092,16 +14092,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.5.26",
+            "version": "11.5.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4ad8fe263a0b55b54a8028c38a18e3c5bef312e0"
+                "reference": "446d43867314781df7e9adf79c3ec7464956fd8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4ad8fe263a0b55b54a8028c38a18e3c5bef312e0",
-                "reference": "4ad8fe263a0b55b54a8028c38a18e3c5bef312e0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/446d43867314781df7e9adf79c3ec7464956fd8f",
+                "reference": "446d43867314781df7e9adf79c3ec7464956fd8f",
                 "shasum": ""
             },
             "require": {
@@ -14111,7 +14111,7 @@
                 "ext-mbstring": "*",
                 "ext-xml": "*",
                 "ext-xmlwriter": "*",
-                "myclabs/deep-copy": "^1.13.1",
+                "myclabs/deep-copy": "^1.13.3",
                 "phar-io/manifest": "^2.0.4",
                 "phar-io/version": "^3.2.1",
                 "php": ">=8.2",
@@ -14173,7 +14173,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.26"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.27"
             },
             "funding": [
                 {
@@ -14197,7 +14197,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-07-04T05:58:21+00:00"
+            "time": "2025-07-11T04:10:06+00:00"
         },
         {
             "name": "ramsey/collection",
