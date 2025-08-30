@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 next dev --port 8080",
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 next dev --port 4444",
     "lint": "next lint",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "cypress": "npx cypress run"
+    "cypress": "npx cypress run",
+    "generate-schema": "tsx scripts/generate-schema.ts"
   },
   "dependencies": {
     "@0no-co/graphqlsp": "^1.11.0",
