@@ -49,7 +49,7 @@
     "eslint-plugin-storybook": "^0.9.0",
     "graphql": "^16.8.1",
     "lucide-react": "^0.440.0",
-    "next": "^15.2.3",
+    "next": "15.2.8",
     "react": "^18",
     "react-code-blocks": "^0.1.6",
     "react-dom": "^18",
